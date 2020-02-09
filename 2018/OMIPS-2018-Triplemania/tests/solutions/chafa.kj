@@ -1,0 +1,18 @@
+class program {
+    program () {
+        
+        while(iszero(0)){
+        	if(!nextToABeeper()) turnoff();
+            pickbeeper();
+            if(frontIsClear()){
+            	move();
+            }else{
+            	iterate (2) turnleft();
+                while(frontIsClear()) move();
+                iterate (2) turnleft();
+            }
+        }
+         
+        turnoff();
+    }
+}

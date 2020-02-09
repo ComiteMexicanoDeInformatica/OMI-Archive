@@ -1,0 +1,154 @@
+class program {
+    void goDown(){
+        iterate (10){
+            while(!facingNorth()) turnleft();
+          while(frontIsClear()) move();
+
+          iterate(3) turnleft();
+          if(frontIsClear()){
+              while(frontIsClear() && leftIsBlocked()) move();
+          }else{
+                iterate (2) turnleft();
+              while(frontIsClear() && rightIsBlocked()) move();
+          }
+        }
+        
+        iterate (10){
+          while(!facingSouth()) turnleft();
+          while(frontIsClear()) move();
+
+          turnleft();
+          if(frontIsClear()){
+              while(frontIsClear() && rightIsBlocked()) move();
+          }else{
+                iterate (2) turnleft();
+              while(frontIsClear() && leftIsBlocked()) move();
+          }
+        }
+    }
+    
+    void mv(){ iterate (2) turnleft(); }
+    void gd(){ iterate(3) turnleft(); }
+    
+    void arribaXY(){
+        if(frontIsClear() || leftIsBlocked() || rightIsBlocked()) {putbeeper(); return();}
+        gd(); move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) {putbeeper(); return();}
+        turnleft(); move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) {putbeeper(); return();}
+        gd(); move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) {putbeeper(); return();}
+        turnleft(); move();
+        if(frontIsClear() || leftIsClear() || rightIsClear()) {putbeeper(); return();}
+        mv(); move(); gd(); move(); turnleft(); move(); gd(); move(); move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) {putbeeper(); return();}
+        gd(); move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) {putbeeper(); return();}
+        turnleft(); move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) {putbeeper(); return();}
+        gd(); move();
+        if(frontIsClear() || leftIsClear() || rightIsClear()) {putbeeper(); return();}
+    }
+    void caseX(){
+        mv();
+        if(frontIsClear()) return();
+        mv();
+        if(leftIsClear() || rightIsClear() || frontIsBlocked()) return();
+        move();
+        if(frontIsClear() || rightIsClear() || leftIsBlocked()) return();
+        turnleft(); move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) return();
+        gd(); move();
+        if(frontIsClear() || rightIsClear() || leftIsBlocked()) return();
+        turnleft(); move();
+        if(frontIsBlocked() || rightIsBlocked() || leftIsClear()) return();
+        move();
+        if(frontIsClear() || rightIsClear() || leftIsBlocked()) return();
+        turnleft(); move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) return();
+        gd(); move();
+        if(frontIsClear() || rightIsClear() || leftIsBlocked()) return();
+        turnleft(); move();
+        if(frontIsClear() || leftIsClear() || rightIsClear()) return();
+        mv(); move(); gd(); move(); turnleft(); move(); gd(); move(); turnleft(); move();
+        if(frontIsBlocked() || leftIsClear() || rightIsClear()) return();
+        move();
+        arribaXY();
+        if(nextToABeeper()){ pickbeeper(); return(); }
+        while(!facingWest()) turnleft();
+        turnoff();
+    }
+    
+    void caseY(){
+        mv(); if(frontIsClear()) return(); mv();
+        iterate (4)
+        {
+            if(leftIsClear() || rightIsClear() || frontIsBlocked()) return();
+            move();
+        }
+        arribaXY();
+        if(nextToABeeper()){ pickbeeper(); return(); }
+        while(!facingNorth()) turnleft();
+        turnoff();
+    }
+    
+    void caseZ(){
+        mv(); if(frontIsClear()) return(); mv();
+        iterate (3){
+          if(frontIsBlocked() || leftIsClear() || rightIsClear()) return();
+          move();
+        }
+        if(frontIsBlocked() || leftIsClear() || rightIsBlocked()) return();
+        move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) return();
+        gd(); move(); gd(); move(); if(frontIsClear()) return(); mv();
+        if(frontIsBlocked() || leftIsBlocked() || rightIsBlocked()) return();
+        move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) return();
+        mv(); move(); turnleft(); move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) return();
+        gd(); move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) return();
+        turnleft(); move();
+        if(frontIsBlocked() || leftIsClear() || rightIsClear()) return();
+        move();
+        if(frontIsClear() || leftIsClear() || rightIsBlocked()) return();
+        gd(); move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) return();
+        turnleft();
+        move();
+        if(frontIsBlocked() || leftIsClear() || rightIsBlocked()) return();
+        gd(); move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) return();
+        turnleft(); move();
+        if(frontIsClear() || leftIsBlocked() || rightIsClear()) return();
+        turnleft(); move();
+        if(frontIsBlocked() || leftIsBlocked() || rightIsClear()) return();
+        move();
+        iterate(2){
+            if(frontIsBlocked() || leftIsClear() || rightIsClear()) return();
+            move();
+        }
+        if(frontIsClear() || leftIsClear() || rightIsClear()) return();
+        while(!facingEast()) turnleft();
+        turnoff();
+        
+    }
+    program () {
+        
+        goDown();
+        while(!facingNorth()) turnleft();
+        caseX();
+        
+        goDown();
+        while(!facingNorth()) turnleft();
+        caseY();
+        
+        goDown();
+        while(!facingWest()) turnleft();
+        caseZ();
+        
+        while(!facingSouth()) turnleft();
+        turnoff();
+    }
+}

@@ -1,0 +1,189 @@
+iniciar-programa
+
+    define-nueva-instrucción norte como inicio
+        mientras no-orientado-al-norte hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción este como inicio
+        mientras no-orientado-al-este hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción sur como inicio
+        mientras no-orientado-al-sur hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción oeste como inicio
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción corre como inicio
+        mientras frente-libre hacer avanza;
+    fin;
+    
+    define-nueva-instrucción gira(n) como inicio
+        repetir n veces gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción ve11 como inicio
+        oeste;
+        corre;
+        sur;
+        corre;
+        este;
+    fin;
+    
+    define-nueva-instrucción ve14 como inicio
+        ve11;
+        norte;
+        repetir 3 veces avanza;
+        este;
+    fin;
+    
+    define-nueva-instrucción columna como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            columna;
+            avanza;        
+        fin si-no inicio
+            oeste;
+            corre;
+            este;
+        fin;
+    fin;
+    
+    define-nueva-instrucción fila como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            fila;
+            avanza;
+        fin si-no inicio
+            norte;
+            avanza;
+            coge-zumbador;            
+            columna;
+            norte;
+            avanza;
+        fin;
+    fin;
+    
+    define-nueva-instrucción cuenta-columnas(x) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            cuenta-columnas(sucede(x));
+        fin si-no inicio
+            este;
+            mientras junto-a-zumbador hacer
+                avanza;
+            norte;
+            avanza;
+            repetir sucede(x) veces deja-zumbador;
+            sur;
+            avanza;
+        fin;
+    fin;
+    
+    define-nueva-instrucción cuenta-filas(x) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            cuenta-filas(sucede(x));
+        fin si-no inicio
+            oeste;
+            cuenta-columnas(0);
+            repetir precede(precede(x)) veces
+                deja-zumbador;            
+        fin;
+    fin;
+    
+    define-nueva-instrucción sort como inicio
+        mientras no-orientado-al-oeste hacer inicio
+            fila;
+            deja-zumbador;
+            ve11;
+            mientras no-junto-a-zumbador y no-orientado-al-oeste hacer inicio
+                si frente-libre entonces inicio
+                    avanza;
+                fin si-no inicio
+                    oeste;
+                fin;
+            fin;
+        fin;
+                
+        ve14;
+        mientras no-orientado-al-sur hacer inicio
+        
+            si junto-a-zumbador entonces inicio
+                sur;
+                coge-zumbador;
+                cuenta-filas(0);
+                ve14;
+            fin si-no inicio
+                si frente-libre entonces inicio
+                    avanza;
+                fin si-no inicio
+                    oeste;
+                    corre;
+                    norte;
+                    si frente-libre entonces inicio
+                        avanza;
+                        este;
+                    fin si-no inicio
+                        sur;
+                    fin;
+                fin;
+            fin;
+        
+        fin;
+        
+    fin;
+
+    define-nueva-instrucción readZ(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            readZ(sucede(x));
+        fin si-no inicio
+            este;
+            avanza;
+            mientras junto-a-zumbador y orientado-al-este hacer inicio
+                mientras junto-a-zumbador hacer
+                    coge-zumbador;
+                si frente-libre entonces inicio
+                    avanza;
+                fin si-no inicio
+                    oeste;
+                fin;
+            fin;
+            oeste;
+            corre;
+            sur;
+            repetir 2 veces avanza;
+            este;            
+            sort;
+            
+            corre;
+            este;
+            
+            mientras junto-a-zumbador y orientado-al-este hacer inicio
+                norte;
+                repetir 2 veces avanza;
+                repetir x veces deja-zumbador;
+                sur;
+                repetir 2 veces avanza;
+                este;
+                si frente-libre entonces inicio
+                    avanza;
+                fin si-no inicio
+                    oeste;
+                fin;
+            fin;
+            
+        fin;
+    fin;
+
+    inicia-ejecución
+        
+        repetir 2 veces avanza;
+        readZ(0);
+        
+        apágate;
+    termina-ejecución
+finalizar-programa

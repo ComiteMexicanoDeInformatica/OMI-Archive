@@ -1,0 +1,122 @@
+class program {
+
+	void norte() {
+    	while(!facingNorth) turnleft();
+    }
+    void sur() {
+    	while(!facingSouth) turnleft();
+    }
+    void este() {
+    	while(!facingEast) turnleft();
+    }
+    void oeste() {
+    	while(!facingWest) turnleft();
+    }
+
+    void orient(x) {
+    	if (iszero(x)) {
+        	if(!nextToABeeper) norte();
+            else sur();
+        } else {
+        	if (!nextToABeeper) oeste();
+            else {
+            	pickbeeper();
+                orient(pred(x));
+                putbeeper();
+            }
+        }
+    }
+
+    void compareSingleValue(x) {
+    	if (nextToABeeper) {
+        	pickbeeper();
+            compareSingleValue(succ(x));
+        } else {
+        	iterate(x) putbeeper();
+            move();
+            orient(x);
+        }
+    }
+
+    void swap() {
+    	if (nextToABeeper) {
+        	pickbeeper();
+            swap();
+            putbeeper();
+        } else {
+        	if(frontIsClear) {
+            	move();
+                if(nextToABeeper) {
+                	swap();
+                    move();
+                } else {
+                	oeste();
+                    move();
+                    sur();
+                    move();
+                    swap();
+                    oeste();
+                    move();
+                    sur();
+                }
+            } else {
+            	este();
+                move();
+                norte();
+            }
+        }
+    }
+
+    void compare() {
+        while (!facingSouth && !facingWest) {
+        	compareSingleValue(0);
+            if (facingNorth) {
+            	move();
+                oeste();
+                move();
+                este();
+            }
+        }
+        if (facingSouth) {
+        	while (frontIsClear) move();
+            este();
+        } else {
+        	sur();
+            while (frontIsClear) move();
+            norte();
+            swap();
+            este();
+            move();
+        }
+    }
+
+    void bubbleSort(n) {
+    	if (!iszero(n)) {
+        	iterate(pred(n))
+            	compare();
+            oeste();
+            while(frontIsClear) move();
+            este();
+            bubbleSort(pred(n));
+        }
+    }
+
+    void len(x) {
+    	if (frontIsClear) {
+        	move();
+            len(succ(x));
+        } else {
+        	este();
+            bubbleSort(x);
+        }
+    }
+
+    program () {
+    	este();
+        while(frontIsClear && nextToABeeper) move();
+        oeste();
+        if (!nextToABeeper && frontIsClear) move();
+        len(1);
+        turnoff();
+    }
+}

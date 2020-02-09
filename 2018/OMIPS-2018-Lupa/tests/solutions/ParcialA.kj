@@ -1,0 +1,380 @@
+class program {
+void gira(g)
+{
+    iterate(g)
+        turnleft();
+}
+void fondo()
+{
+    while(frontIsClear)
+        move();
+}
+void cero()
+{
+    iterate(2)
+    {
+        iterate(4)
+        {
+            putbeeper();
+            move();
+        }
+        putbeeper();
+        turnleft();
+        move();
+        putbeeper();
+        move();
+        turnleft();
+    }
+}
+void uno()
+{
+    turnleft();
+    iterate(2)
+    {
+        putbeeper();
+        move();
+    }
+    putbeeper();
+    gira(2);
+    move();
+    turnleft();
+    iterate(4)
+    {
+        move();
+        putbeeper();
+    }
+    turnleft();
+    move();
+    putbeeper();
+    gira(2);
+    move();
+    move();
+    gira(3);
+    fondo();
+    gira(2);
+}
+void dos()
+{
+    turnleft();
+    iterate(3)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        gira(3);
+    }
+    gira(2);
+    iterate(2)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        turnleft();
+    }
+    putbeeper();
+    turnleft();
+    move();
+    move();
+    gira(3);
+    fondo();
+    gira(2);
+}
+void tres()
+{
+    iterate(4)
+    {
+        putbeeper();
+        move();
+    }
+    putbeeper();
+    gira(2);
+    fondo();
+    gira(3);
+    move();
+    gira(3);
+    iterate(2)
+    {
+        putbeeper();
+        move();
+        move();
+    }
+    putbeeper();
+    gira(2);
+    fondo();
+    gira(3);
+    move();
+    gira(3);
+    iterate(2)
+    {
+        putbeeper();
+        move();
+        move();
+    }
+    putbeeper();
+    gira(3);
+    move();
+    move();
+    gira(3);
+    fondo();
+    gira(2);
+}
+void cuatro()
+{
+    iterate(4)
+    {
+        putbeeper();
+        move();
+    }
+    putbeeper();
+    gira(2);
+    move();
+    move();
+    gira(3);
+    move();
+    putbeeper();
+    move();
+    putbeeper();
+    gira(3);
+    move();
+    putbeeper();
+    move();
+    putbeeper();
+    gira(3);
+    move();
+    move();
+    gira(3);
+    fondo();
+    gira(2);
+}
+void cinco()
+{
+    turnleft();
+    move();
+    move();
+    gira(2);
+    iterate(3)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        turnleft();
+    }
+    gira(2);
+    iterate(2)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        gira(3);
+    }
+    putbeeper();
+    fondo();
+    gira(2);
+}
+void seis()
+{
+    turnleft();
+    move();
+    move();
+    gira(2);
+    iterate(3)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        turnleft();
+    }
+    gira(2);
+    iterate(2)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        gira(3);
+    }
+    putbeeper();
+    move();
+    move();
+    move();
+    gira(3);
+    move();
+    move();
+    putbeeper();
+    turnleft();
+    move();
+    turnleft();
+    move();
+    move();
+    turnleft();
+}
+void siete()
+{
+    putbeeper();
+    move();
+    putbeeper();
+    move();
+    putbeeper();
+    turnleft();
+    move();
+    putbeeper();
+    gira(2);
+    move();
+    turnleft();
+    move();
+    putbeeper();
+    move();
+    putbeeper();
+    turnleft();
+    move();
+    putbeeper();
+    move();
+    putbeeper();
+    gira(2);
+    move();
+    move();
+    gira(3);
+    fondo();
+    gira(2);
+}
+void ocho()
+{
+    iterate(4)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        turnleft();
+    }
+    move();
+    move();
+    iterate(3)
+    {
+        iterate(2)
+        {
+            move();
+            putbeeper();
+        }
+        turnleft();
+    }
+    pickbeeper();
+    move();
+    move();
+    gira(3);
+    fondo();
+    gira(2);
+}
+void nueve()
+{
+    turnleft();
+    move();
+    move();
+    gira(2);
+    iterate(3)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        turnleft();
+    }
+    gira(2);
+    iterate(2)
+    {
+        iterate(2)
+        {
+            putbeeper();
+            move();
+        }
+        gira(3);
+    }
+    putbeeper();
+    move();
+    putbeeper();
+    fondo();
+    gira(2);
+}
+void unidades(n)
+{
+    if(anyBeepersInBeeperBag)
+    {
+        putbeeper();
+        unidades(succ(n));
+    }
+    else
+    {
+        while(nextToABeeper)
+            pickbeeper();
+        gira(3);
+        fondo();
+        turnleft();
+        fondo();
+        iterate(20)
+            pickbeeper();
+        gira(2);
+        fondo();
+        gira(2);
+        if(iszero(n))
+        {
+            cero();
+        }
+        else if(iszero(pred(n)))
+        {
+            uno();
+        }
+        else if(iszero(pred(pred(n))))
+        {
+            dos();
+        }
+        else if(iszero(pred(pred(pred(n)))))
+        {
+            tres();
+        }
+        else if(iszero(pred(pred(pred(pred(n))))))
+        {
+            cuatro();
+        }
+        else if(iszero(pred(pred(pred(pred(pred(n)))))))
+        {
+            cinco();
+        }
+        else if(iszero(pred(pred(pred(pred(pred(pred(n))))))))
+        {
+            seis();
+        }
+        else if(iszero(pred(pred(pred(pred(pred(pred(pred(n)))))))))
+        {
+            siete();
+        }
+        else if(iszero(pred(pred(pred(pred(pred(pred(pred(pred(n))))))))))
+        {
+            ocho();
+        }
+        else
+        {
+            nueve();
+        }
+    }
+}
+program() {
+    while(!facingNorth)
+        turnleft();
+    unidades(0);
+    turnoff();
+}
+
+}

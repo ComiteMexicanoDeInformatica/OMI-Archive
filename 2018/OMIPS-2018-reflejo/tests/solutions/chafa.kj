@@ -1,0 +1,40 @@
+class program {
+define troy()
+{
+if(!frontIsClear || !leftIsClear || !rightIsClear)
+{
+if(frontIsClear)
+{
+move();
+troy();
+putbeeper();
+if(frontIsClear)
+move();
+}
+else
+{
+turnleft();
+if(frontIsClear)
+{
+troy();
+turnleft();
+}
+else
+{
+turnleft();
+turnleft();
+troy();
+turnleft();
+turnleft();
+turnleft();
+}
+}
+}
+}
+    program () {
+    //troy();
+	//putbeeper();
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

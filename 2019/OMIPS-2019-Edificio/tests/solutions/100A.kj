@@ -1,0 +1,156 @@
+class program {
+
+	void turn(a) {
+    	iterate(a) turnleft();
+    }
+
+	void norte() {
+    	while(!facingNorth) turnleft();
+    }
+    void sur() {
+    	while(!facingSouth) turnleft();
+    }
+    void este() {
+    	while(!facingEast) turnleft();
+    }
+    void oeste() {
+    	while(!facingWest) turnleft();
+    }
+    
+    void esquina() {
+    	oeste();
+        while(frontIsClear) move();
+        este();
+    }
+    
+    void prevFloor() {
+    	esquina();
+        while(frontIsClear && leftIsBlocked) move();
+        norte();
+        if(frontIsClear) {
+        	move();
+            este();
+        }
+    }
+    
+    void nextFloor() {
+    	esquina();
+        while(frontIsClear && rightIsBlocked) move();
+        sur();
+        if(frontIsClear) {
+        	move();
+            oeste();
+        }
+    }
+    
+    void expandeCelda() {
+    	iterate(2) putbeeper();
+        norte();
+        iterate(3) {
+        	turnleft();
+            if (frontIsClear) {
+            	move();
+                if(!nextToABeeper) {
+                	iterate(2) putbeeper();
+                }
+                turn(2);
+                move();
+                turn(2);
+            }
+        }
+    }
+    
+    void expande() {
+    	esquina();
+        
+        //bajamos los zumbadores gratis
+        while(frontIsClear) {
+        	if(leftIsClear && !nextToABeeper) {
+            	norte();
+                move();
+                if (nextToABeeper) {
+                	sur();
+                    move();
+                    iterate(2) putbeeper();
+                } else {
+                	sur();
+                    move();
+                }
+                este();
+            }
+            move();
+        }
+        if(leftIsClear && !nextToABeeper) {
+        	norte();
+            move();
+            if (nextToABeeper) {
+            	sur();
+                move();
+                iterate(2) putbeeper();
+            } else {
+            	sur();
+                move();
+            }
+            este();
+        }
+        esquina();
+        
+        //expandimos los de este piso a los lados
+    	while (frontIsClear && !nextToABeeper) move();
+        if (!nextToABeeper) {
+            return();
+        }
+        while(frontIsClear) {
+        	if (nextToABeeper) {
+            	pickbeeper();
+                if (nextToABeeper) {
+                	putbeeper();
+                } else {
+                	//expandimos celda
+                    expandeCelda();
+                }
+            }
+            move();
+        }
+        if (nextToABeeper) {
+        	pickbeeper();
+            if(!nextToABeeper) {
+            	expandeCelda();
+            } else putbeeper(); 
+        }
+        
+        //preparamos el piso para el siguiente recorrido
+        oeste();
+        while(frontIsClear) {
+        	if(nextToABeeper) pickbeeper();
+        	move();
+        }
+        if(nextToABeeper) pickbeeper();
+        
+        nextFloor();
+        if (!facingSouth) {
+        	expande();
+        }
+    }
+
+	void soluciona(x) {
+    	while(!facingNorth) prevFloor();
+        expande();
+        if(facingSouth)  {
+        	esquina();
+            while(nextToABeeper) pickbeeper();
+            iterate(x) putbeeper();
+        } else {
+        	soluciona(succ(x));
+        }
+        
+    }
+
+    program () {
+    	putbeeper();
+        putbeeper();
+        norte();
+        soluciona(0);
+        turnoff();
+    }
+}

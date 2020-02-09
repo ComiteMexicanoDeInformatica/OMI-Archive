@@ -1,0 +1,76 @@
+class program {
+	void north(){
+		while (notFacingNorth)
+			turnleft();
+	}
+
+	void south(){
+		while (notFacingSouth)
+			turnleft();
+	}
+
+	void east(){
+		while (notFacingEast)
+			turnleft();
+	}
+
+	void west(){
+		while (notFacingWest)
+			turnleft();
+	}
+
+	void bump(){
+		while (frontIsClear)
+			move();
+	}
+
+	void next(){
+		if (frontIsClear){
+			move();
+		} else {
+			south();
+			bump();
+			east();
+			if (frontIsClear){
+				move();
+				north();
+			} else {
+				south();
+				bump();
+				west();
+				bump();
+				south();
+				turnoff();
+			}
+		}
+	}
+
+	void compare(n){
+		if (nextToABeeper){
+			pickbeeper();
+			compare(pred(n));
+		} else if (iszero(n)){
+			north();
+			turnoff();
+		}
+	}
+
+	void lookup(n){
+		while (iszero(0)){
+			next();
+			if (nextToABeeper)
+				compare(n);
+		}
+	}
+
+	void count(n){
+		if (nextToABeeper){
+			pickbeeper();
+			count(succ(n));
+		} else lookup(n);
+	}
+	
+	program () {
+		count(0);
+	}
+}

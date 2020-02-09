@@ -1,0 +1,45 @@
+class program {
+	
+    void turn(x){ iterate (x) turnleft(); }
+    
+    void checa(p){
+    	if(!iszero(p)){
+        	if(frontIsClear()){
+            	move();
+                if(nextToABeeper()){
+                	while(!facingNorth()) turn(1);
+                    turnoff();
+                }
+                checa(pred(p));
+                move();
+            }else{
+            	checa(pred(p));
+            }
+        }else{
+        	turn(2);
+        }
+    }
+    
+    void mv(y){
+    	if(frontIsClear()){
+        	move();
+            mv(succ(y));
+        }else{
+        	if(nextToABeeper()){
+            	turn(2);
+                turnoff();
+            }
+        	turn(1);
+            checa(y);
+            checa(y);
+        }
+    }
+
+    program () {
+        
+        mv(0);
+        while(!facingSouth()) turn(1);
+        
+        turnoff();
+    }
+}

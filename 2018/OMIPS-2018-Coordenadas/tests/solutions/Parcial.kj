@@ -1,0 +1,148 @@
+class program {
+void gira(g)
+{
+    iterate(g)
+        turnleft();
+}
+void fondo()
+{
+    while(frontIsClear)
+        move();
+}
+void esquina()
+{
+    while(!facingWest)
+        turnleft();
+    fondo();
+    turnleft();
+    fondo();
+    turnleft();
+}
+void zum(x)
+{
+    if(nextToABeeper)
+    {
+        pickbeeper();
+        zum(succ(x));
+    }
+    else
+    {
+        coor();
+        if(facingEast)
+        {
+            iterate(pred(x))
+                move();
+            turnleft();
+        }
+    }
+}
+void columna(c)
+{
+    if(frontIsClear)
+    {
+        move();
+        columna(succ(c));
+    }
+    else
+    {
+        gira(2);
+        iterate(pred(c))
+            move();
+        turnleft();
+        zum(0);
+        if(facingNorth)
+        {
+            iterate(c)
+                putbeeper();
+            move();
+            gira(2);
+        }
+    }
+}
+void fila(f)
+{
+    if(frontIsClear)
+    {
+        move();
+        fila(succ(f));
+    }
+    else
+    {
+        gira(2);
+        iterate(pred(f))
+            move();
+        turnleft();
+        columna(1);
+        if(facingSouth)
+        {
+            iterate(f)
+                putbeeper();
+            esquina();
+        }
+    }
+}
+void coor()
+{
+    if(nextToABeeper)
+    {
+        gira(2);
+        fila(1);
+    }
+    else
+    {
+        if(frontIsClear)
+        {
+            move();
+            coor();
+        }
+        else
+        {
+            if(rightIsClear)
+            {
+                gira(2);
+                fondo();
+                turnleft();
+                move();
+                turnleft();
+                coor();
+            }
+            else
+            {
+                esquina();
+            }
+        }
+    }
+}
+program() {
+	turnleft();
+	turnleft();
+	turnleft();
+	while(frontIsClear)
+	{
+	if(nextToABeeper)
+	turnoff();
+	move();
+	}
+	if(nextToABeeper)
+	turnoff();
+	turnleft();
+	move();
+	turnleft();
+	while(frontIsClear)
+	{
+	if(nextToABeeper)
+	turnoff();
+	move();
+	}
+	if(nextToABeeper)
+	turnoff();
+	turnleft();
+	move();
+	turnleft();
+	turnleft();
+	
+    coor();
+    turnoff();
+}
+
+}

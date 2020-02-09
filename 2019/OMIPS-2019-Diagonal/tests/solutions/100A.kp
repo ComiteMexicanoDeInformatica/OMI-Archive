@@ -1,0 +1,76 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion avanzan(n) como inicio
+    	repetir n veces inicio
+        	avanza;
+        fin;
+    fin;
+
+    define-nueva-instruccion deja(n) como inicio
+    	repetir n veces inicio
+        	deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instruccion encuentra(n) como inicio
+    	si frente-libre y no-junto-a-zumbador entonces inicio
+        	avanza;
+            encuentra(sucede(n));
+        fin sino inicio
+        	si no-junto-a-zumbador entonces inicio;
+            	gira-izquierda;
+                gira-izquierda;
+                avanzan(n);
+            fin sino inicio
+            	coge-zumbador;
+                gira-izquierda;
+                gira-izquierda;
+                avanzan(n);
+                deja(n);
+            fin;
+        fin;
+    fin;
+
+    inicia-ejecucion
+
+        mientras frente-libre hacer inicio
+        	avanza;
+        fin;
+        este;
+        mientras frente-libre hacer inicio
+        	norte;
+            encuentra(0);
+            si no-junto-a-zumbador entonces inicio
+            	sur;
+                encuentra(0);
+            fin;
+            este;
+            avanza;
+            sur;
+            avanza;
+            este;
+        fin;
+        norte;
+        encuentra(0);
+
+        apagate;
+    termina-ejecucion
+finalizar-programa

@@ -1,0 +1,18 @@
+iniciar-programa
+    define-nueva-instruccion cuenta(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            cuenta(sucede(n));
+        fin sino inicio
+            repetir n veces inicio
+                mientras frente-libre hacer avanza;
+                gira-izquierda;
+            fin;
+        fin;
+    fin;
+    
+    inicia-ejecucion
+        cuenta(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa

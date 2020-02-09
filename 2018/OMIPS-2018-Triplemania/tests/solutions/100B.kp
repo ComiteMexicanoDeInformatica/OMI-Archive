@@ -1,0 +1,157 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+        mientras no-orientado-al-norte hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+        mientras no-orientado-al-este hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+        mientras no-orientado-al-oeste hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+        mientras no-orientado-al-sur hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion corre como inicio
+        mientras frente-libre hacer 
+            avanza;
+    fin;
+    
+    define-nueva-instruccion siguiente como inicio
+        si frente-libre entonces inicio
+            avanza;
+        fin sino inicio
+            repetir 2 veces 
+                gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion resuelve como inicio
+        mientras no-orientado-al-norte hacer inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si no-junto-a-zumbador entonces inicio
+                    norte;
+                fin sino inicio
+                    avanza;
+                fin;
+            fin sino inicio
+                avanza;
+            fin;
+        fin;
+        oeste;
+        corre;
+    fin;
+    
+    define-nueva-instruccion cuenta como inicio
+        si frente-libre entonces inicio
+            mientras junto-a-zumbador hacer 
+                coge-zumbador;
+            avanza;
+            cuenta;
+            avanza;
+        fin sino inicio
+            mientras junto-a-zumbador hacer
+                coge-zumbador;
+            oeste;
+        fin;
+    fin;
+    
+    define-nueva-instruccion elimina como inicio
+        mientras no-orientado-al-sur hacer inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    este;
+                    cuenta;
+                    norte;
+                fin;
+                siguiente;
+            fin sino inicio
+                siguiente;
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instruccion checa como inicio
+        norte;
+        deja-zumbador;
+        siguiente;
+        mientras orientado-al-norte hacer inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si no-junto-a-zumbador entonces inicio
+                    oeste;
+                fin sino inicio
+                    deja-zumbador;
+                    siguiente;
+                fin;
+            fin sino inicio
+                siguiente;
+            fin;
+        fin;
+        
+        si orientado-al-sur entonces inicio
+            resuelve;
+        fin sino inicio
+            deja-zumbador;
+            sur;
+            corre;
+            norte;
+            elimina;
+            corre;            
+        fin;
+        
+    fin;
+
+    define-nueva-instruccion menor como inicio
+        mientras no-orientado-al-oeste hacer inicio
+            norte;
+            mientras orientado-al-norte hacer inicio            
+                mientras orientado-al-norte hacer inicio
+                    si junto-a-zumbador entonces inicio
+                        coge-zumbador;
+                        si no-junto-a-zumbador entonces inicio
+                            oeste;
+                        fin sino inicio
+                            deja-zumbador;
+                            siguiente;
+                        fin;
+                    fin sino inicio
+                        siguiente;
+                    fin;
+                fin;
+                si orientado-al-sur entonces inicio                    
+                    mientras frente-libre hacer inicio
+                        si junto-a-zumbador entonces
+                            coge-zumbador;
+                        avanza;
+                    fin;                    
+                    si junto-a-zumbador entonces
+                        coge-zumbador;
+                    norte;
+                fin sino inicio
+                    checa;
+                fin;
+            fin;
+            si no-orientado-al-oeste entonces inicio            
+               este;
+               avanza;
+            fin;            
+        fin;
+    fin;
+
+    inicia-ejecucion
+        este;
+        menor;
+        apagate;
+    termina-ejecucion
+finalizar-programa

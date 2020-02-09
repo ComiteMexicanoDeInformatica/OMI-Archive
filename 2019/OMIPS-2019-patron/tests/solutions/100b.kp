@@ -1,0 +1,65 @@
+iniciar-programa
+    define-nueva-instruccion gira(n) como inicio
+        repetir n veces gira-izquierda;
+    fin;
+
+    define-nueva-instruccion superavanza como
+    inicio
+        si frente-libre entonces inicio
+            avanza;
+        fin;
+        si frente-bloqueado entonces gira(1);
+        si frente-bloqueado entonces gira(2);
+        si frente-bloqueado entonces gira(1);
+    fin;
+
+    define-nueva-instruccion recorre-patron como inicio
+        mientras junto-a-zumbador hacer superavanza;
+    fin;
+
+    define-nueva-instruccion voltea como inicio
+        repetir 4 veces inicio
+            gira-izquierda;
+            si frente-libre entonces sal-de-instruccion;
+        fin;
+    fin;
+
+    define-nueva-instruccion duplica-patron(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            duplica-patron(sucede(n));
+            deja-zumbador;
+        fin sino inicio
+            repetir n veces deja-zumbador;
+            si frente-libre entonces inicio
+                superavanza;
+                duplica-patron(0);
+                si frente-libre entonces inicio
+                    superavanza;
+                fin sino inicio
+                    apagate;
+                fin;
+            fin sino inicio
+                voltea;
+                recorre-patron;
+            fin;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        recorre-patron;
+        voltea;
+        superavanza;
+
+        mientras si-es-cero(0) hacer inicio
+            duplica-patron(0);
+            si frente-libre entonces inicio
+                voltea;
+            fin sino inicio
+                apagate;
+            fin;
+        fin;
+
+        apagate;
+    termina-ejecucion
+finalizar-programa

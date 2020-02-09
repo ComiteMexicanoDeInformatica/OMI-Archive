@@ -1,0 +1,102 @@
+class program {
+void troy(x)
+{
+if(nextToABeeper)
+{
+pickbeeper();
+troy(succ(x));
+}
+else
+{
+while(facingNorth)
+{
+iterate(x)
+{
+if(frontIsClear && notFacingSouth)
+{
+move();
+}
+else
+{
+while(notFacingSouth)
+turnleft();
+}
+}
+putbeeper();
+if(frontIsBlocked && facingNorth)
+turnleft();
+}
+}
+}
+void acumula(y)
+{
+while(frontIsClear)
+{
+if(nextToABeeper)
+{
+pickbeeper();
+acumula(succ(y));
+}
+if(frontIsClear)
+move();
+}
+putbeeper();
+}
+define complemento()
+{
+if(nextToABeeper)
+{
+pickbeeper();
+complemento();
+pickbeeper();
+}
+else
+{
+iterate(100)
+putbeeper();
+}
+}
+
+
+    program () {
+    turnleft();
+    turnleft();
+    turnleft();
+    while(frontIsClear)
+    {
+    complemento();
+    move();
+    }
+    complemento();
+    while(anyBeepersInBeeperBag)
+    {
+    turnleft();
+    turnleft();
+    while(frontIsClear)
+    {
+    if(!nextToABeeper)
+    {
+    turnoff();
+    }
+    else
+    {
+    pickbeeper();
+    }
+    move();
+    }
+    if(!nextToABeeper)
+    {
+    turnoff();
+    }
+    else
+    {
+    pickbeeper();
+    }
+    }
+    
+    
+    
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

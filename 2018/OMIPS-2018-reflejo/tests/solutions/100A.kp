@@ -1,0 +1,37 @@
+iniciar-programa
+    
+    define-nueva-instruccion recursion como inicio
+        si frente-libre y derecha-libre e izquierda-libre entonces inicio
+            sal-de-instruccion;
+        fin;
+        si frente-libre entonces inicio
+            avanza;
+            recursion;
+            deja-zumbador;
+            si frente-libre entonces avanza;
+        fin sino si izquierda-libre entonces inicio
+            gira-izquierda;
+            avanza;
+            recursion;
+            deja-zumbador;
+            gira-izquierda;
+            si frente-libre entonces avanza;
+        fin sino si derecha-libre entonces inicio
+            gira-izquierda;
+            gira-izquierda;
+            gira-izquierda;
+            avanza;
+            recursion;
+            deja-zumbador;
+            gira-izquierda;
+            gira-izquierda;
+            gira-izquierda;
+            si frente-libre entonces avanza;
+        fin;
+    fin;
+    
+    inicia-ejecucion
+        recursion;
+        apagate;
+    termina-ejecucion
+finalizar-programa

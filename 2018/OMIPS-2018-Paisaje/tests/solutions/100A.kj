@@ -1,0 +1,102 @@
+class program {
+    void gira(g) {
+        iterate(g)
+        turnleft();
+    }
+    void terminar() {
+        gira(2);
+        while (frontIsClear)
+            move();
+        turnleft();
+        while (frontIsClear)
+            move();
+        gira(2);
+        while (rightIsClear) {
+            while (!nextToABeeper) {
+                putbeeper();
+                move();
+            }
+            if (frontIsClear) {
+                move();
+                while (frontIsClear) {
+                    putbeeper();
+                    putbeeper();
+                    move();
+                }
+                putbeeper();
+                putbeeper();
+            }
+            gira(2);
+            while (frontIsClear)
+                move();
+            turnleft();
+            move();
+            turnleft();
+        }
+        while (!nextToABeeper) {
+            putbeeper();
+            move();
+        }
+        if (frontIsClear) {
+            move();
+            while (frontIsClear) {
+                putbeeper();
+                putbeeper();
+                move();
+            }
+            putbeeper();
+            putbeeper();
+        }
+        turnleft();
+        while (frontIsClear)
+            move();
+        turnleft();
+        while (frontIsClear)
+            move();
+        gira(2);
+        turnoff();
+    }
+    void arriba() {
+        turnleft();
+        move();
+        gira(3);
+        move();
+        while (!nextToABeeper) {
+            putbeeper();
+            turnleft();
+            move();
+            gira(3);
+            move();
+        }
+        if (frontIsClear)
+            abajo();
+        else
+            terminar();
+    }
+    void abajo() {
+        gira(3);
+        move();
+        turnleft();
+        move();
+        while (!nextToABeeper) {
+            putbeeper();
+            gira(3);
+            move();
+            turnleft();
+            move();
+        }
+        if (frontIsClear)
+            arriba();
+        else
+            terminar();
+    }
+    program() {
+        if (frontIsClear) {
+            abajo();
+        } else {
+            terminar();
+        }
+        turnoff();
+    }
+
+}

@@ -1,0 +1,24 @@
+class program {
+	define troy()
+    {
+    if(nextToABeeper)
+    {
+    pickbeeper();
+    troy();
+     while(frontIsClear)
+    {
+    move();
+    }
+    turnleft();
+    }
+   
+    
+    }
+    
+    program () {
+    troy();
+    
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

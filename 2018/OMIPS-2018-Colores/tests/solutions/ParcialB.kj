@@ -1,0 +1,95 @@
+class program {
+    
+    void turn(a) {
+    	iterate(a) turnleft();
+    }
+    void este() {
+    	while(!facingEast) turnleft();
+    }
+    void norte() {
+    	while(!facingNorth) turnleft();
+    }
+    void oeste() {
+    	while(!facingWest) turnleft();
+    }
+    void sur() {
+    	while(!facingSouth) turnleft();
+    }
+    
+    void corner() {
+    	sur();
+        while(frontIsClear) move();
+        oeste();
+        while(frontIsClear) move();
+        norte();
+    }
+    
+    void step() {
+    	if(frontIsClear) {
+        	move();
+        } else {
+        	este();
+            if(frontIsClear) {
+            	move();
+                if(rightIsClear) turn(2);
+                turnleft();
+            }
+        }
+    }
+    
+    void bucket(x) {
+    	if(nextToABeeper) {
+        	pickbeeper();
+            bucket(succ(x));
+        } else {
+        	if(frontIsClear) {
+            	move();
+                bucket(0);
+            } else {
+            	este();
+                if(frontIsClear) {
+                	move();
+                    if(rightIsClear) turn(2);
+                    turnleft();
+                    bucket(0);
+                }
+            }
+            
+            if(!iszero(x)) {
+            	corner();
+                iterate(pred(x)) step();
+                if(!nextToABeeper) putbeeper();
+            }
+        }
+    }
+
+	void count() {
+    	if(nextToABeeper) {
+        	pickbeeper();
+            count();
+            putbeeper();
+        } else {
+        	if(frontIsClear) {
+            	move();
+                count();
+            } else {
+            	este();
+                if(frontIsClear) {
+                	move();
+                    if(rightIsClear) turn(2);
+                    turnleft();
+                    count();
+                } else {
+                	corner();
+                }
+            }
+        }
+    }
+
+    program () {
+    	bucket(0);
+        corner();
+        count();
+        turnoff();
+    }
+}

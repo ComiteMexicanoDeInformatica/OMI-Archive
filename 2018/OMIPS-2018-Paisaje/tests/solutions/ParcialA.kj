@@ -1,0 +1,70 @@
+class program {
+void gira(g)
+{
+    iterate(g)
+        turnleft();
+}
+program() {
+    while(frontIsClear)
+    {
+        move();
+        gira(3);
+        move();
+        turnleft();
+        putbeeper();
+    }
+    pickbeeper();
+    gira(2);
+    while(frontIsClear)
+          move();
+    turnleft();
+    while(frontIsClear)
+          move();
+    gira(2);
+    while(rightIsClear)
+    {
+        while(!nextToABeeper)
+        {
+            putbeeper();
+            move();
+        }
+        if(frontIsClear)
+        {
+            move();
+            while(frontIsClear)
+            {
+                putbeeper();
+                putbeeper();
+                move();
+            }
+            putbeeper();
+            putbeeper();
+        }
+        gira(2);
+        while(frontIsClear)
+            move();
+        turnleft();
+        move();
+        turnleft();
+    }
+    while(!nextToABeeper)
+    {
+        putbeeper();
+        move();
+    }
+    if(frontIsClear)
+    {
+        move();
+        while(frontIsClear)
+        {
+            putbeeper();
+            putbeeper();
+            move();
+        }
+            putbeeper();
+            putbeeper();
+    }
+    turnoff();
+}
+
+}

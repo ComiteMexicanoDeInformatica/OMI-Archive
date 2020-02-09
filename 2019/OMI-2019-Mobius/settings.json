@@ -1,0 +1,33 @@
+{
+    "title": "La Calle de Möbius",
+    "source": "OMI 2019 (Alexis Cervantes)",
+
+    "limits": {
+        "TimeLimit": 1000,
+        "MemoryLimit": 536870912,
+        "InputLimit": 134217728,
+        "OutputLimit": 134217728,
+        "ExtraWallTime": 3000,
+        "OverallWallTimeLimit": 60000
+    },
+
+    "validator": {
+        "name": "literal",
+        "limits": {
+            "TimeLimit": 1000
+        }
+    },
+
+    "interactive": {
+        "module_name": "moebius"
+    },
+
+    "misc": {
+        "alias": "OMI-2019-Mobius",
+        "visibility": 0,
+        "languages": "all",
+        "email_clarifications": 0,
+        "admin-groups": ["comi-2019"],
+        "tags": ["OMI-2019"]
+    }
+}

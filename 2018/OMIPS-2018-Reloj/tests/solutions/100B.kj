@@ -1,0 +1,112 @@
+class program {
+	void north(){
+		while (notFacingNorth)
+			turnleft();
+	}
+
+	void south(){
+		while (notFacingSouth)
+			turnleft();
+	}
+
+	void east(){
+		while (notFacingEast)
+			turnleft();
+	}
+
+	void west(){
+		while (notFacingWest)
+			turnleft();
+	}
+
+	void bump(){
+		while (frontIsClear)
+			move();
+	}
+
+	void subtract(x){
+		iterate(x) pickbeeper();
+	}
+
+	void compare(x){
+		if (iszero(x))
+			south();
+		else if (nextToABeeper){
+			pickbeeper();
+			compare(pred(x));
+			putbeeper();
+		} else north();
+	}
+
+	void addHour(){
+		west();
+		move();
+		putbeeper();
+		compare(24);
+		if (facingSouth)
+			subtract(24);
+		east();
+		move();
+		move();
+		west();
+	}
+
+	void addMinute(){
+		west();
+		move();
+		putbeeper();
+		compare(60);
+		if (facingSouth){
+			subtract(60);
+			addHour();
+		} else {
+			east();
+			move();
+			west();
+		}
+	}
+
+	void carrySeconds(){
+		compare(60);
+		if (facingSouth) {
+			subtract(60);
+			addMinute();
+		} else {
+			west();
+		}
+	}
+
+	void addSecond(){
+		putbeeper();
+		carrySeconds();
+	}
+
+	void countAndGo(){
+		if (nextToABeeper){
+			pickbeeper();
+			countAndGo();
+			addSecond();
+		} else {
+			east();
+			move();
+			move();
+			north();
+			move();
+			west();
+		}
+	}
+
+	program() {
+		move();
+		move();
+
+		iterate (1000)
+			pickbeeper();
+
+		south();
+		move();
+		move();
+
+		countAndGo();
+	}
+}

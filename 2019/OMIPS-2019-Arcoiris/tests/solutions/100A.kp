@@ -1,0 +1,96 @@
+iniciar-programa
+
+	define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion oeste como inicio
+    	mientras no-orientado-al-oeste hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion centro como inicio
+    	si frente-libre entonces inicio
+        	avanza;
+            centro;
+            avanza;
+        fin sino inicio
+        	este;
+        fin;
+    fin;
+
+    define-nueva-instruccion deja(n) como inicio
+    	repetir n veces inicio
+        	deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instruccion escalera-izq(n) como inicio
+    	si izquierda-libre entonces inicio
+        	avanza;
+            sur;
+            avanza;
+            oeste;
+            deja(n);
+            escalera-izq(n);
+            norte;
+            avanza;
+            este;
+            avanza;
+        fin;
+    fin;
+
+    define-nueva-instruccion escalera-der(n) como inicio
+    	si derecha-libre entonces inicio
+        	avanza;
+            sur;
+            avanza;
+            este;
+            deja(n);
+            escalera-der(n);
+            norte;
+            avanza;
+            oeste;
+            avanza;
+        fin;
+    fin;
+
+    define-nueva-instruccion arcoiris(n) como inicio
+    	deja(n);
+        este;
+        escalera-der(n);
+        oeste;
+        escalera-izq(n);
+        norte;
+        si frente-libre entonces inicio
+        	avanza;
+            arcoiris(sucede(n));
+        fin;
+    fin;
+
+    inicia-ejecucion
+        centro;
+        sur;
+        repetir 6 veces inicio
+        	avanza;
+        fin;
+
+        arcoiris(1);
+        apagate;
+    termina-ejecucion
+finalizar-programa

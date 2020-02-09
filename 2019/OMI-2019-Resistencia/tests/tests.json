@@ -1,0 +1,37 @@
+{
+  "solutions": [
+  	{
+      "filename": "solutions/100.cat",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/60.cat",
+      "verdict": "PA",
+      "score": 60
+    },
+    {
+      "filename": "solutions/47.cat",
+      "verdict": "PA",
+      "score": 47
+    },
+    {
+      "filename": "solutions/34.cat",
+      "verdict": "PA",
+      "score": 34
+    },
+    {
+      "filename": "solutions/30.cat",
+      "verdict": "PA",
+      "score": 30
+    },
+    {
+      "filename": "solutions/lol.cat",
+      "verdict": "WA",
+      "score": 0
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

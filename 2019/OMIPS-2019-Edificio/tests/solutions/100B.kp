@@ -1,0 +1,216 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion oeste como inicio
+    	mientras no-orientado-al-oeste hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion deja(n) como inicio
+    	repetir n veces inicio
+        	deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instruccion compara(n) como inicio
+    	si junto-a-zumbador y no si-es-cero(n) entonces inicio
+        	coge-zumbador;
+            compara(precede(n));
+            deja-zumbador;
+        fin sino inicio
+        	mientras junto-a-zumbador hacer inicio
+            	coge-zumbador;
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instruccion baja(n) como inicio
+    	sur;
+        avanza;
+        si no-junto-a-zumbador entonces inicio
+        	deja(n);
+        fin sino inicio
+        	compara(n);
+        fin;
+        norte;
+        avanza;
+    fin;
+
+    define-nueva-instruccion expandeIzq(n) como inicio
+    	si frente-libre entonces inicio
+        	si izquierda-libre entonces inicio
+            	baja(n);
+                oeste;
+            fin;
+            avanza;
+            expandeIzq(sucede(n));
+            avanza;
+        fin sino inicio
+        	si izquierda-libre entonces inicio
+            	baja(n);
+            fin;
+            este;
+        fin;
+    fin;
+
+    define-nueva-instruccion expandeDer(n) como inicio
+    	si frente-libre entonces inicio
+        	si derecha-libre entonces inicio
+            	baja(n);
+                este;
+            fin;
+            avanza;
+            expandeDer(sucede(n));
+            avanza;
+        fin sino inicio
+        	si derecha-libre entonces inicio
+            	baja(n);
+            fin;
+            oeste;
+        fin;
+    fin;
+
+    define-nueva-instruccion avanza-pared como inicio
+    	mientras frente-libre hacer inicio
+        	avanza;
+        fin;
+    fin;
+
+    define-nueva-instruccion verifica-fin como inicio
+    	oeste;
+        avanza-pared;
+        este;
+        mientras frente-libre y derecha-bloqueada hacer inicio
+        	avanza;
+        fin;
+        si derecha-bloqueada entonces inicio
+        	sur;
+        fin sino inicio
+        	oeste;
+            avanza-pared;
+            este;
+        fin;
+    fin;
+
+    define-nueva-instruccion expande(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            expande(sucede(n));
+        fin sino inicio
+        	oeste;
+            expandeIzq(n);
+            este;
+            expandeDer(n);
+        fin;
+    fin;
+
+    define-nueva-instruccion expande-fila como inicio
+    	oeste;
+        avanza-pared;
+        este;
+
+        mientras frente-libre hacer inicio
+        	si junto-a-zumbador entonces inicio
+            	expande(0);
+                este;
+            fin;
+            avanza;
+        fin;
+        si junto-a-zumbador entonces inicio
+        	expande(0);
+        fin;
+    fin;
+
+    define-nueva-instruccion siguiente-fila como inicio
+    	oeste;
+        avanza-pared;
+        este;
+        mientras derecha-bloqueada hacer inicio
+        	avanza;
+        fin;
+        sur;
+        avanza;
+    fin;
+
+    define-nueva-instruccion encuentra-sig como inicio
+    	mientras no-junto-a-zumbador y frente-libre hacer inicio
+        	avanza;
+        fin;
+    fin;
+
+    define-nueva-instruccion deja-minimo(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            deja-minimo(sucede(n));
+        fin sino inicio
+        	oeste;
+            avanza-pared;
+            si no-junto-a-zumbador entonces inicio
+            	deja(n);
+            fin sino inicio;
+            	compara(n);
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instruccion termina como inicio
+    	oeste;
+        avanza-pared;
+        este;
+        encuentra-sig;
+        mientras junto-a-zumbador y no orientado-al-sur hacer inicio
+        	deja-minimo(0);
+            este;
+            si frente-libre entonces inicio
+            	avanza;
+                encuentra-sig;
+            fin sino inicio
+            	sur;
+            fin;
+        fin;
+
+        oeste;
+        avanza-pared;
+        coge-zumbador;
+    fin;
+
+    inicia-ejecucion
+        deja-zumbador;
+        verifica-fin;
+        si orientado-al-sur entonces inicio
+        	oeste;
+            avanza-pared;
+            si junto-a-zumbador entonces inicio
+            	coge-zumbador;
+            fin;
+            apagate;
+        fin;
+
+        mientras no-orientado-al-sur hacer inicio
+        	expande-fila;
+            siguiente-fila;
+            verifica-fin;
+        fin;
+
+        termina;
+        apagate;
+    termina-ejecucion
+finalizar-programa

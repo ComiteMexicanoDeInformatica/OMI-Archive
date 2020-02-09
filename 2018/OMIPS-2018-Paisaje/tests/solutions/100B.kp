@@ -1,0 +1,81 @@
+iniciar-programa
+	define-prototipo-instruccion abajo;
+    define-prototipo-instruccion arriba;
+    
+	define-nueva-instruccion pinta-linea como inicio
+    	mientras no-junto-a-zumbador hacer inicio
+        	deja-zumbador;
+            avanza;
+        fin;
+        mientras frente-libre hacer inicio
+        	avanza;
+            deja-zumbador;
+            deja-zumbador;
+        fin;
+        si derecha-libre entonces inicio
+        	gira-izquierda;
+            gira-izquierda;
+            mientras frente-libre hacer avanza;
+            gira-izquierda;
+            avanza;
+            gira-izquierda;
+            pinta-linea;
+            
+        fin;
+    fin;
+    
+    define-nueva-instruccion pinta como inicio
+    	gira-izquierda;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+        gira-izquierda;
+        gira-izquierda;
+        pinta-linea;        
+    fin;
+    
+    
+	define-nueva-instruccion abajo como inicio
+    	si frente-libre entonces inicio
+        	avanza;
+            gira-izquierda;
+            gira-izquierda;
+            gira-izquierda;
+            avanza;
+            gira-izquierda;
+            si junto-a-zumbador entonces inicio
+            	arriba;
+            fin sino inicio
+            	deja-zumbador;
+                abajo;
+            fin;            
+        fin sino inicio
+        	pinta;
+        fin;
+    fin;
+    
+    define-nueva-instruccion arriba como inicio
+    	si frente-libre entonces inicio
+        	avanza;
+            gira-izquierda;            
+            avanza;
+            gira-izquierda;
+            gira-izquierda;
+            gira-izquierda;
+            si junto-a-zumbador entonces inicio
+            	abajo;
+            fin sino inicio
+            	deja-zumbador;
+                arriba;
+            fin;            
+        fin sino inicio
+        	pinta;
+        fin;
+    fin;
+    
+    inicia-ejecucion
+        abajo;
+        apagate;
+    termina-ejecucion
+finalizar-programa

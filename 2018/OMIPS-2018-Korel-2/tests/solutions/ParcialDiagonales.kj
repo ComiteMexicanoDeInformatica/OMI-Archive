@@ -1,0 +1,83 @@
+class program {
+
+void gira(a) {
+        iterate(a) turnleft();
+    }
+    
+    void busca() {
+        if(nextToABeeper) {
+            pickbeeper();
+            if(nextToABeeper) {
+                putbeeper();
+            } else {
+                while(!facingNorth) turnleft();
+                putbeeper();
+                turnoff();
+            }
+        } else {
+            iterate(2) putbeeper();
+            iterate(4) {
+                if(frontIsClear) {
+                    move();
+                    if(leftIsClear) {
+                        turnleft();
+                        move();
+                        busca();
+                        gira(2);
+                        move();
+                        turnleft();
+                    }
+                    
+                    if(rightIsClear) {
+                        gira(3);
+                        move();
+                        busca();
+                        gira(2);
+                        move();
+                        gira(3);
+                    }
+                    gira(2);
+                    move();
+                    gira(2);
+                }
+                turnleft();
+            }
+        }
+    }
+
+    void buscaZumbador() {
+        if(nextToABeeper) {
+            pickbeeper();
+            if(nextToABeeper) {
+                pickbeeper();
+                if(nextToABeeper) {
+                    iterate(2) putbeeper();
+                    return();
+                }
+            } else {
+                while(!facingSouth) turnleft();
+                putbeeper();
+				while(nextToABeeper)
+					pickbeeper();
+                turnoff();
+            }
+        }
+        iterate(3) putbeeper();
+        iterate(4) {
+            if(frontIsClear) {
+                move();
+                buscaZumbador();
+                gira(2);
+                move();
+                gira(2);
+            }
+            turnleft();
+        }
+    }
+
+    program () {
+        busca();
+        buscaZumbador();
+        turnoff();
+    }
+}

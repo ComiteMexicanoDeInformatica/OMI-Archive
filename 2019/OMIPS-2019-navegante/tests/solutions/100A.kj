@@ -1,0 +1,221 @@
+class program {
+define turnEast() {
+    while(notFacingEast)
+        turnleft();
+}
+
+define turnNorth() {
+    while(notFacingNorth) 
+        turnleft();
+}
+
+define turnSouth() {
+    while(notFacingSouth)
+        turnleft();
+}
+
+define comparar(n) {
+    if(nextToABeeper && !iszero(n)) {
+        pickbeeper();
+        comparar(pred(n));
+    }
+    else if(notNextToABeeper && !iszero(n)) 
+        turnSouth();
+    else
+        turnNorth();
+}
+
+define compararDistancia(n) {
+    if(nextToABeeper) {
+        pickbeeper();
+        compararDistancia(succ(n));
+    }
+    else {
+        move();
+        turnright();
+        move();
+        comparar(n);
+    }
+}
+
+define moverBeepers() {
+    if(nextToABeeper) {
+        pickbeeper();
+        moverBeepers();
+        putbeeper();
+    }
+    else 
+        move();
+}
+
+define restar(n) {
+    if(nextToABeeper && !iszero(n)) {
+        pickbeeper();
+        restar(pred(n));
+    }
+    else if(notNextToABeeper && !iszero(n)) {
+        iterate(n)
+            putbeeper();
+    }
+}
+
+define diferencia(n) {
+    if(nextToABeeper) {
+        pickbeeper();
+        diferencia(succ(n));
+    }
+    else {
+        move();
+        restar(n);
+    }
+}
+
+define marea() {
+    if(notNextToABeeper) {
+        backturn();
+        while(frontIsClear)
+            move();
+        turnright();
+        return();
+    }
+        
+    while(nextToABeeper) {
+        pickbeeper();
+        turnleft();
+    }
+    if(facingNorth) {
+        turnEast();
+        if(frontIsClear)
+            move();
+        marea();
+        move();
+        turnright();
+        move();
+        putbeeper();
+        backturn();
+        move();
+        turnleft();
+        move();
+        backturn();
+    }
+    else if(facingWest) {
+        turnEast();
+        if(frontIsClear)
+            move();
+        marea();
+        move();
+        if(nextToABeeper) {
+            pickbeeper();
+            backturn();
+        }
+        else {
+            move();
+            putbeeper();
+            backturn();
+            move();
+        }
+        move();
+        backturn();
+        
+    }
+    else if(facingSouth) {
+        turnEast();
+        if(frontIsClear)
+            move();
+        marea();
+        move();
+        turnright();
+        move();
+        if(nextToABeeper) {
+            pickbeeper();
+        }
+        else {
+            turnleft();
+            move();
+            putbeeper();
+            backturn();
+            move();
+            turnleft();
+        }
+        backturn();
+        move();
+        turnleft();
+        move();
+        backturn();
+    }
+    else {
+        turnEast();
+        if(frontIsClear)
+            move();
+        marea();
+        move();
+        putbeeper();
+        backturn();
+        move();
+        backturn();
+    }
+}
+
+define turnright() {
+    turnleft();
+    turnleft();
+    turnleft();
+}
+
+define backturn() {
+    turnleft();
+    turnleft();
+}
+
+define dejarBeepers(n) {
+    turnleft();
+    move();
+    turnleft();
+    while(frontIsClear)
+        move();
+    backturn();
+    move();
+    move();
+    iterate(n)
+        putbeeper();
+    backturn();
+    move();
+    move();
+}
+
+define contar(n) {
+    if(nextToABeeper && frontIsClear) {
+        move();
+        contar(succ(n));
+    }
+    else {
+        if(frontIsClear)
+            dejarBeepers(n);
+        else
+            dejarBeepers(succ(n));
+    }
+}
+
+    program () {
+        turnright();
+        contar(0);
+        turnleft();
+        move();
+        turnleft();
+        marea();
+        move();
+        diferencia(0);
+        backturn();
+        move();
+        turnleft();
+        move();
+        turnleft();
+        diferencia(0);
+        turnleft();
+        move();
+        backturn();
+        moverBeepers();
+        compararDistancia(0);
+        turnoff();
+    }
+}

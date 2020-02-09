@@ -1,0 +1,89 @@
+class program {
+
+	void norte() {
+    	while(notFacingNorth){
+        	turnleft();
+        }
+    }    
+    
+    void este() {
+    	while(notFacingEast){
+        	turnleft();
+        }
+    }
+    
+    void oeste() {
+    	while(notFacingWest){
+        	turnleft();
+        }
+    }
+    
+    void sur() {
+    	while(notFacingSouth){
+        	turnleft();
+        }
+    }
+    
+    void siguienteMarco(){
+    	norte();
+        move();
+        este();
+        move();
+        oeste();
+    }
+    
+    void deja(n){
+    	iterate(n){
+        	putbeeper();
+        }
+    }
+    
+    void copia(n){
+    	if(nextToABeeper){
+        	pickbeeper();
+            copia(succ(n));
+        } else {
+        	deja(n);
+            move();
+            if(notNextToABeeper){
+            	deja(n);
+            }
+        }
+    }
+    
+    void coloreaMarco(n){
+    	iterate(4){
+        	iterate(n){
+            	copia(0);
+            }
+            turnleft();
+        }
+    }
+    
+    void marco(n){
+    	coloreaMarco(n);
+        if(notNextToABeeper){
+        	putbeeper();
+        }
+        
+        coloreaMarco(n);
+        if(rightIsClear){
+        	siguienteMarco();
+            marco(succ(succ(n)));
+        }
+    }
+    
+    program () {
+        
+        if(notNextToABeeper){
+        	putbeeper();
+        }
+        
+        if(frontIsClear){
+        	siguienteMarco();
+            marco(2);
+        }
+        
+        turnoff();
+    }
+}

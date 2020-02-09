@@ -1,0 +1,39 @@
+iniciar-programa
+
+    define-nueva-instruccion gira(n) como inicio
+        repetir n veces
+            gira-izquierda;
+    fin;
+
+    inicia-ejecucion
+        mientras junto-a-zumbador hacer inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+            fin sino inicio
+                gira(2);
+            fin;
+        fin;    
+        si orientado-al-sur entonces apagate;
+        mientras no-junto-a-zumbador y no-orientado-al-oeste hacer inicio            
+            si frente-libre entonces inicio
+                avanza;
+            fin sino inicio
+                gira(2);
+                mientras frente-libre hacer avanza;
+                gira(1);
+                si frente-libre entonces inicio
+                    avanza;
+                    gira(1);
+                fin sino inicio
+                    gira(2);
+                fin;
+            fin;
+        fin;
+        si no-junto-a-zumbador entonces inicio
+            mientras frente-libre hacer avanza;
+            gira(1);
+        fin;
+        apagate;
+    termina-ejecucion
+finalizar-programa

@@ -1,0 +1,74 @@
+class program {
+    program () {
+    while(notFacingNorth)
+    {
+    turnleft();
+    }
+    if(nextToABeeper)
+    {
+    turnleft();
+    turnleft();
+    turnoff();
+    }
+    iterate(7)
+    {
+    if(frontIsClear)
+    {
+    move();
+    }
+    else
+    {
+    turnleft();
+    turnleft();
+    turnoff();
+    }
+    }
+    if(frontIsBlocked)
+    {
+    turnleft();
+    turnleft();
+    iterate(7)
+    move();
+    turnleft();
+    iterate(7)
+    {
+    if(frontIsClear)
+    {
+    move();
+    }
+    else
+    {
+    turnleft();
+    turnleft();
+    turnleft();
+    turnoff();
+    }
+    }
+    if(frontIsBlocked)
+    {
+    turnleft();
+    turnoff();
+    }
+    else
+
+    {
+    turnleft();
+    turnleft();
+    turnleft();
+    turnoff();
+    }
+
+
+
+
+    }
+    else
+        {
+    turnleft();
+    turnleft();
+    }
+
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

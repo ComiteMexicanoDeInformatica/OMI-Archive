@@ -1,0 +1,37 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.cpp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/100B.cpp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/ParcialA.cpp",
+      "score": 15
+    },
+    {
+      "filename": "solutions/onlyS.cpp",
+      "score": 0
+    },
+    {
+      "filename": "solutions/onlyN.cpp",
+      "score": 0
+    },
+    {
+      "filename": "solutions/mod2A.cpp",
+      "score": 0
+    },
+    {
+      "filename": "solutions/mod2B.cpp",
+      "score": 0
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

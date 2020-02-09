@@ -1,0 +1,64 @@
+class program {
+    void turn() {
+        turnleft();
+        turnleft();
+    }
+
+    void step() {
+        if (frontIsClear) {
+            move();
+            return();
+        }
+        turnleft();
+        if (frontIsClear) {
+            move();
+            return();
+        }
+        turn();
+        move();
+    }
+
+    void followBeepers(){
+        while (nextToABeeper && (frontIsClear || leftIsClear || rightIsClear))
+            step();
+
+        if (notNextToABeeper){
+            turn();
+            step();
+            turn();
+        }
+    }
+
+    void countAndCopy(x){
+        if (notNextToABeeper){
+            iterate (x) putbeeper();
+
+            if (frontIsClear || leftIsClear || rightIsClear){
+                step();
+                countAndCopy(0);
+            } else {
+                turn();
+                followBeepers();
+            }
+
+            if (frontIsClear || leftIsClear || rightIsClear){
+                step();
+                iterate (x) putbeeper();
+            } else turnoff();
+        } else {
+            pickbeeper();
+            countAndCopy(succ(x));
+        }
+    }
+
+    program() {
+        while (iszero(0)){
+            followBeepers();
+            turn();
+            countAndCopy(0);
+            turn();
+            followBeepers();
+            turn();
+        }
+    }
+}

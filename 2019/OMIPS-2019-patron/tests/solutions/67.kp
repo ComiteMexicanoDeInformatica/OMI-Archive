@@ -1,0 +1,73 @@
+iniciar-programa
+
+    define-nueva-instrucción gira(n) como inicio
+        repetir n veces
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción Siguiente como inicio
+        si izquierda-libre entonces inicio
+            gira(1);
+        fin si-no inicio
+            si derecha-libre entonces inicio
+                gira(3);
+            fin;
+        fin;
+        avanza;
+    fin;
+    
+    define-nueva-instrucción Copia(z) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            Copia(sucede(z));            
+        fin si-no inicio            
+            repetir z veces
+                deja-zumbador;
+            gira(2);
+            avanza;
+            mientras junto-a-zumbador hacer
+                Siguiente;
+            repetir z veces
+                deja-zumbador;
+        fin;
+    fin;
+    
+    define-nueva-instrucción Repite(x) como inicio
+        mientras frente-libre o izquierda-libre o derecha-libre hacer inicio
+            gira(2);
+            avanza;
+            repetir precede(x) veces
+                Siguiente;            
+            Copia(0);
+            Siguiente;
+        fin;
+        gira(2);
+        avanza;
+        repetir precede(x) veces
+            Siguiente;        
+        Copia(0);
+    fin;
+
+    define-nueva-instrucción Explora(x) como inicio
+        si junto-a-zumbador entonces inicio
+            si izquierda-libre entonces inicio
+                gira(1);
+            fin si-no inicio
+                si derecha-libre entonces inicio
+                    gira(3);
+                fin;
+            fin;
+            si frente-libre entonces inicio
+                avanza;
+                Explora(sucede(x));
+            fin;
+        fin si-no inicio
+            Repite(x);
+        fin;
+    fin;
+
+    inicia-ejecución
+        Explora(0);                          
+        apágate;
+    termina-ejecución
+finalizar-programa

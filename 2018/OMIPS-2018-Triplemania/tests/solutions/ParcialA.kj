@@ -1,0 +1,168 @@
+class program {
+	void north(){
+		while (notFacingNorth)
+			turnleft();
+	}
+
+	void south(){
+		while (notFacingSouth)
+			turnleft();
+	}
+
+	void east(){
+		while (notFacingEast)
+			turnleft();
+	}
+
+	void west(){
+		while (notFacingWest)
+			turnleft();
+	}
+
+	void bump(){
+		while (frontIsClear)
+			move();
+	}
+
+	void countAndClear(steps){
+		if (frontIsClear){
+			move();
+			countAndClear(succ(steps));
+		} else {
+			east();
+			
+			while (iszero(0)){
+				while (nextToABeeper)
+					pickbeeper();
+
+				if (frontIsBlocked){
+					west();
+					bump();
+					east();
+					iterate(steps) move();
+					return();
+				} else move();
+			}
+		}
+	}
+
+	void clearRow(){
+		west();
+		countAndClear(0);
+		north();
+	}
+
+	void equal(min){
+		if (nextToABeeper){
+			pickbeeper();
+			equal(pred(min));
+			putbeeper();
+		} else if (iszero(min)){
+			north();
+		} else south();
+	}
+
+	void cleanup(min){
+		south();
+		bump();
+		north();
+
+		while (iszero(0)){
+			if (nextToABeeper){
+				equal(min);
+
+				if (facingSouth)
+					clearRow();
+			}
+
+			if (frontIsBlocked)
+				return();
+			else
+				move();
+		}
+	}
+
+	void next(min){
+		if (frontIsClear) {
+			move();
+			findMin(min);
+		} else cleanup(min);
+	}
+
+	void copyAndContinue(min){
+		if (nextToABeeper){
+			pickbeeper();
+			copyAndContinue(succ(min));
+		} else {
+			iterate(min) putbeeper();
+			north();
+			next(min);
+		}
+	}
+
+	void compare(min){
+		if (iszero(min)){
+			north();
+			return();
+		} else if (nextToABeeper){
+			pickbeeper();
+			compare(pred(min));
+			putbeeper();
+		} else {
+			south();
+			return();
+		}
+	}
+
+	void findMin(min){
+		while (frontIsClear && notNextToABeeper)
+			move();
+
+		if (nextToABeeper){
+			compare(min);
+			if (facingSouth){
+				copyAndContinue(0);
+				return();
+			}
+			north();
+		}
+
+		next(min);
+	}
+
+	program() {
+    turnleft();
+    turnleft();
+    turnleft();
+    move();
+    if(frontIsClear)
+    turnoff();
+    while(notFacingWest)
+    turnleft();
+    while(frontIsClear)
+    move();
+    turnleft();
+    turnleft();
+    turnleft();
+    
+		while (iszero(0)){
+			findMin(100);
+
+			south();
+			bump();
+			east();
+
+			if (frontIsBlocked){
+				west();
+				bump();
+				north();
+				while (notNextToABeeper)
+					move();
+				turnoff();
+			} else {
+				move();
+				north();
+			}
+		}
+	}
+}

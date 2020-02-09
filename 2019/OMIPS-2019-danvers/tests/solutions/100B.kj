@@ -1,0 +1,131 @@
+class program {
+
+	define t(x){
+    	iterate(x){
+        	turnleft();
+        }
+    }
+
+	define getBack(){
+    	while(notFacingWest){
+        	turnleft();
+        }
+        while(frontIsClear){
+        	move();
+        }
+        t(3);
+    }
+    
+    define grab(x){
+    	if(iszero(x)){
+        	if(nextToABeeper){
+            	t(2);
+            }
+        }else{
+          if(nextToABeeper){
+              pickbeeper();
+              grab(pred(x));
+              putbeeper();
+          }
+        }
+    }
+    
+    define test(x){
+    	if(iszero(x)){
+        	if(nextToABeeper){
+            	grab(4);
+            }
+        }else{
+          if(nextToABeeper){
+              pickbeeper();
+              test(pred(x));
+              putbeeper();
+          }
+        }
+    }
+    
+    define clean(){
+    	getBack();
+        t(3);
+        while(nextToABeeper){
+        	while(nextToABeeper){
+            	pickbeeper();
+            }
+            if(frontIsClear){
+            	move();
+            }
+        }
+        getBack();
+    }
+    
+    define check2(x){
+    	if(frontIsClear){
+        	move();
+            check2(x);
+            t(2);
+            move();
+            t(2);
+        }else{
+        	t(3);
+            while(notFacingSouth && nextToABeeper && rightIsClear){
+            	test(x);
+                if(facingNorth){
+                  t(3);
+                  move();
+                  t(1);
+                }
+            }
+            if(notFacingSouth && nextToABeeper){
+            	test(x);
+            }
+            if(facingSouth){
+            	clean();
+            }else{
+            	getBack();
+            }
+            t(1);
+        }
+    }
+
+	define check(x){
+    	 if(nextToABeeper()){
+         	pickbeeper();
+            check(succ(x));
+         }else{
+         	iterate(x){
+            	putbeeper();
+            }
+            t(1);
+            check2(x);
+            t(3);
+         }
+    }
+    
+    define checkline(){
+    	while(nextToABeeper && rightIsClear){
+        	check(0);
+            t(3);
+            move();
+            t(1);
+        }
+        if(nextToABeeper){
+        	check(0);
+        }
+    }
+    
+    define todo(){
+    	while(nextToABeeper && frontIsClear){
+        	checkline();
+            getBack();
+            move();
+        }
+        if(nextToABeeper){
+        	checkline();
+        }
+    }
+
+    program () {
+        todo();
+        turnoff();
+    }
+}

@@ -1,0 +1,126 @@
+class program {
+
+	define turnright(){
+      turnleft();
+      turnleft();
+      turnleft();
+    }
+	define halfturn(){
+      turnleft();
+      turnleft();
+    }    
+    define faceNorth(){
+        while(notFacingNorth){
+          turnleft();
+        }
+    }
+    define faceEast(){
+        while(notFacingEast){
+          turnleft();
+        }
+    }
+    define faceWest(){
+        while(notFacingWest){
+          turnleft();
+        }
+    }
+    define faceSouth(){
+        while(notFacingSouth){
+          turnleft();
+        }
+    }
+    
+    
+    define upperDFS(n){
+    	if(nextToABeeper){
+        	return();
+        }
+        putbeeper();
+        putbeeper();
+        
+        iterate(4){
+          if(frontIsClear){
+              move();
+              if(facingNorth){
+              	upperDFS(succ(n));
+              }else{
+                if(notFacingSouth){
+                  upperDFS(n);
+                }else{
+                	if(!iszero(n)){
+                    	upperDFS(pred(n));
+                    }else{
+                       bottomDFS(0);
+                    }
+                }
+              }
+              halfturn();
+              move();
+              halfturn();
+          }
+          turnleft();
+        }
+
+        
+    }
+    
+    define bottomDFS(n){
+    	if(nextToABeeper){
+        	return();
+        }
+        putbeeper();
+        putbeeper();
+        putbeeper();
+        
+        iterate(4){
+          if(frontIsClear){
+              move();
+              if(facingSouth){
+              	bottomDFS(succ(n));
+              }else{
+                if(notFacingNorth){
+                  bottomDFS(n);
+                }else{
+                	if(!iszero(n)){
+                    	bottomDFS(pred(n));
+                    }else{
+                    	upperDFS(0);
+                    }
+                }
+              }
+              halfturn();
+              move();
+              halfturn();
+          }
+          turnleft();
+        } 
+    }
+    
+    define cleanDFS(){
+    	if(notNextToABeeper){
+        	return();
+        }
+        pickbeeper();
+        if(notNextToABeeper){
+        	putbeeper();
+        	return();
+        }
+        pickbeeper();
+        
+        iterate(4){
+          if(frontIsClear){
+              move();
+              cleanDFS();
+              halfturn();
+              move();
+              halfturn();
+          }
+          turnleft();
+        } 
+    }     
+    
+    program () {
+        bottomDFS(0);
+        cleanDFS();
+    }
+}

@@ -1,0 +1,113 @@
+class program {
+	
+    
+    void norte(){
+    	while(notFacingNorth){
+        	turnleft();
+        }
+    }
+    
+    void este(){
+    	while(notFacingEast){
+        	turnleft();
+        }
+    }
+    
+    void oeste(){
+    	while(notFacingWest){
+        	turnleft();
+        }
+    }
+    
+    void sur(){
+    	while(notFacingSouth){
+        	turnleft();
+        }
+    }
+    
+    void coloreaTodo(){
+    	if(notNextToABeeper){
+	    putbeeper();
+            putbeeper();
+            norte();
+            if(frontIsClear){
+            	move();
+                coloreaTodo();
+                sur();
+                move();
+            }
+            este();
+            if(frontIsClear){
+            	move();
+                coloreaTodo();
+                oeste();
+                move();
+            }
+            oeste();
+            if(frontIsClear){
+            	move();
+                coloreaTodo();
+                este();
+                move();
+            }
+            sur();
+            if(frontIsClear){
+            	move();
+                coloreaTodo();
+                norte();
+                move();
+            }
+        }
+    }
+    
+    void paredes(){
+    	if(nextToABeeper){
+            pickbeeper();
+            if(nextToABeeper){
+            	pickbeeper();
+                iterate(4){
+                    if(frontIsBlocked && notNextToABeeper){
+                    	putbeeper();
+                    }
+                    turnleft();
+                }
+                norte();
+                if(frontIsClear){
+                    move();
+                    paredes();
+                    sur();
+                    move();
+                }
+                este();
+                if(frontIsClear){
+                    move();
+                    paredes();
+                    oeste();
+                    move();
+                }
+                oeste();
+                if(frontIsClear){
+                    move();
+                    paredes();
+                    este();
+                    move();
+                }
+                sur();
+                if(frontIsClear){
+                    move();
+                    paredes();
+                    norte();
+                    move();
+                }
+            } else {
+            	putbeeper();
+            }
+        }
+    }
+
+    program () {
+        coloreaTodo();
+        paredes();
+        turnoff();
+    }
+}

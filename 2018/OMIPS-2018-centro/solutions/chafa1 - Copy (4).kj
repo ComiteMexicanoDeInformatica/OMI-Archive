@@ -1,0 +1,28 @@
+class program {
+define troy(x)
+{
+iterate(x)
+{
+while(notFacingNorth)
+turnleft();
+move();
+while(notFacingEast)
+turnleft();
+move();
+}
+}
+    program () {
+    while(notFacingSouth)
+turnleft();
+while(frontIsClear)
+move();
+while(notFacingWest)
+turnleft();
+while(frontIsClear)
+move();
+    
+   troy(4);
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

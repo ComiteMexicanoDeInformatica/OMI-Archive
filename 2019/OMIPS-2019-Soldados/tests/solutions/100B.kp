@@ -1,0 +1,112 @@
+iniciar-programa
+
+    define-nueva-instrucción norte como inicio
+        mientras no-orientado-al-norte hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción este como inicio
+        mientras no-orientado-al-este hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción sur como inicio
+        mientras no-orientado-al-sur hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción oeste como inicio
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción corre como inicio
+        mientras frente-libre hacer avanza;
+    fin;
+    
+    define-nueva-instrucción gira(n) como inicio
+        repetir n veces gira-izquierda;
+    fin;
+    
+    define-nueva-instrucción copia(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            copia(sucede(x));            
+        fin si-no inicio
+            repetir x veces deja-zumbador;
+            gira(2);
+            avanza;
+            repetir x veces deja-zumbador;
+        fin;
+    fin;
+    
+    define-nueva-instrucción mayor(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            mayor(sucede(x));            
+        fin si-no inicio
+            repetir x veces deja-zumbador;
+            gira(2);
+            avanza;
+            si junto-a-zumbador entonces inicio
+                repetir x veces
+                    si junto-a-zumbador entonces
+                        coge-zumbador;                                            
+            fin;
+            repetir x veces deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instrucción mueve como inicio
+        si frente-libre entonces inicio
+            avanza;
+        fin si-no inicio
+            sur;
+            corre;
+            este;
+            si frente-libre entonces inicio
+                avanza;
+                norte;
+            fin si-no inicio
+                oeste;
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instrucción rellena como inicio
+    
+        mientras no-orientado-al-oeste hacer inicio
+        
+            si no-junto-a-zumbador entonces inicio
+                sur;
+                si frente-libre entonces inicio                
+                    avanza;
+                    copia(0);
+                fin;
+            
+                oeste;
+                si frente-libre entonces inicio
+                    avanza;
+                    mayor(0);                    
+                fin;
+                
+                deja-zumbador;
+                norte;
+                
+            fin;
+            
+            mueve;
+            
+        fin;
+        
+    
+    fin;
+
+    inicia-ejecución
+        
+        si no-junto-a-zumbador entonces
+            deja-zumbador;
+            
+        
+        mueve;       
+        rellena;
+        
+        apágate;
+    termina-ejecución
+finalizar-programa

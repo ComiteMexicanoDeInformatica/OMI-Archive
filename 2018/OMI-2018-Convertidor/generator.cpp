@@ -1,0 +1,1 @@
+tests/solutions/100A.cpp

@@ -1,0 +1,110 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="35" alto="32">
+			<monton x="28" y="12" zumbadores="2"></monton>
+			<monton x="30" y="15" zumbadores="21"></monton>
+			<monton x="19" y="28" zumbadores="35"></monton>
+			<monton x="10" y="6" zumbadores="25"></monton>
+			<monton x="12" y="5" zumbadores="31"></monton>
+			<monton x="6" y="24" zumbadores="29"></monton>
+			<monton x="5" y="10" zumbadores="17"></monton>
+			<monton x="19" y="27" zumbadores="26"></monton>
+			<monton x="5" y="16" zumbadores="22"></monton>
+			<monton x="2" y="12" zumbadores="18"></monton>
+			<monton x="22" y="28" zumbadores="30"></monton>
+			<monton x="13" y="11" zumbadores="13"></monton>
+			<monton x="12" y="9" zumbadores="4"></monton>
+			<monton x="27" y="12" zumbadores="32"></monton>
+			<monton x="8" y="25" zumbadores="15"></monton>
+			<monton x="6" y="16" zumbadores="10"></monton>
+			<monton x="5" y="5" zumbadores="8"></monton>
+			<monton x="16" y="22" zumbadores="14"></monton>
+			<monton x="2" y="15" zumbadores="20"></monton>
+			<monton x="3" y="15" zumbadores="5"></monton>
+			<monton x="19" y="14" zumbadores="24"></monton>
+			<monton x="26" y="7" zumbadores="28"></monton>
+			<monton x="8" y="15" zumbadores="16"></monton>
+			<monton x="19" y="19" zumbadores="6"></monton>
+			<monton x="34" y="10" zumbadores="12"></monton>
+			<monton x="18" y="25" zumbadores="7"></monton>
+			<monton x="29" y="30" zumbadores="9"></monton>
+			<monton x="14" y="25" zumbadores="11"></monton>
+			<posicionDump x="1" y="1"></posicionDump>
+			<posicionDump x="1" y="2"></posicionDump>
+			<posicionDump x="2" y="1"></posicionDump>
+			<posicionDump x="2" y="2"></posicionDump>
+			<posicionDump x="3" y="1"></posicionDump>
+			<posicionDump x="3" y="2"></posicionDump>
+			<posicionDump x="4" y="1"></posicionDump>
+			<posicionDump x="4" y="2"></posicionDump>
+			<posicionDump x="5" y="1"></posicionDump>
+			<posicionDump x="5" y="2"></posicionDump>
+			<posicionDump x="6" y="1"></posicionDump>
+			<posicionDump x="6" y="2"></posicionDump>
+			<posicionDump x="7" y="1"></posicionDump>
+			<posicionDump x="7" y="2"></posicionDump>
+			<posicionDump x="8" y="1"></posicionDump>
+			<posicionDump x="8" y="2"></posicionDump>
+			<posicionDump x="9" y="1"></posicionDump>
+			<posicionDump x="9" y="2"></posicionDump>
+			<posicionDump x="10" y="1"></posicionDump>
+			<posicionDump x="10" y="2"></posicionDump>
+			<posicionDump x="11" y="1"></posicionDump>
+			<posicionDump x="11" y="2"></posicionDump>
+			<posicionDump x="12" y="1"></posicionDump>
+			<posicionDump x="12" y="2"></posicionDump>
+			<posicionDump x="13" y="1"></posicionDump>
+			<posicionDump x="13" y="2"></posicionDump>
+			<posicionDump x="14" y="1"></posicionDump>
+			<posicionDump x="14" y="2"></posicionDump>
+			<posicionDump x="15" y="1"></posicionDump>
+			<posicionDump x="15" y="2"></posicionDump>
+			<posicionDump x="16" y="1"></posicionDump>
+			<posicionDump x="16" y="2"></posicionDump>
+			<posicionDump x="17" y="1"></posicionDump>
+			<posicionDump x="17" y="2"></posicionDump>
+			<posicionDump x="18" y="1"></posicionDump>
+			<posicionDump x="18" y="2"></posicionDump>
+			<posicionDump x="19" y="1"></posicionDump>
+			<posicionDump x="19" y="2"></posicionDump>
+			<posicionDump x="20" y="1"></posicionDump>
+			<posicionDump x="20" y="2"></posicionDump>
+			<posicionDump x="21" y="1"></posicionDump>
+			<posicionDump x="21" y="2"></posicionDump>
+			<posicionDump x="22" y="1"></posicionDump>
+			<posicionDump x="22" y="2"></posicionDump>
+			<posicionDump x="23" y="1"></posicionDump>
+			<posicionDump x="23" y="2"></posicionDump>
+			<posicionDump x="24" y="1"></posicionDump>
+			<posicionDump x="24" y="2"></posicionDump>
+			<posicionDump x="25" y="1"></posicionDump>
+			<posicionDump x="25" y="2"></posicionDump>
+			<posicionDump x="26" y="1"></posicionDump>
+			<posicionDump x="26" y="2"></posicionDump>
+			<posicionDump x="27" y="1"></posicionDump>
+			<posicionDump x="27" y="2"></posicionDump>
+			<posicionDump x="28" y="1"></posicionDump>
+			<posicionDump x="28" y="2"></posicionDump>
+			<posicionDump x="29" y="1"></posicionDump>
+			<posicionDump x="29" y="2"></posicionDump>
+			<posicionDump x="30" y="1"></posicionDump>
+			<posicionDump x="30" y="2"></posicionDump>
+			<posicionDump x="31" y="1"></posicionDump>
+			<posicionDump x="31" y="2"></posicionDump>
+			<posicionDump x="32" y="1"></posicionDump>
+			<posicionDump x="32" y="2"></posicionDump>
+			<posicionDump x="33" y="1"></posicionDump>
+			<posicionDump x="33" y="2"></posicionDump>
+			<posicionDump x="34" y="1"></posicionDump>
+			<posicionDump x="34" y="2"></posicionDump>
+			<posicionDump x="35" y="1"></posicionDump>
+			<posicionDump x="35" y="2"></posicionDump>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="1" yKarel="1" direccionKarel="NORTE" mochilaKarel="INFINITO">
+			<despliega tipo="MUNDO"></despliega>
+		</programa>
+	</programas>
+</ejecucion>

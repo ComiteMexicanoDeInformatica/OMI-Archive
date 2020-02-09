@@ -1,0 +1,34 @@
+class program {
+	void put(x){ iterate (x) putbeeper(); }
+    void turn(x){ iterate (x) turnleft(); }
+    void pick(x){ iterate (x) pickbeeper(); }
+	
+    void find(){
+    	if(nextToABeeper()){
+        	pick(1);
+            if(!nextToABeeper()){
+                while(!facingSouth()) turn(1);
+                turnoff();
+            }else{
+            	put(1);
+            }
+        }else{
+        	put(2);
+            iterate (4){
+            	if(frontIsClear()){
+                	move();
+                    find();
+                    turn(2);
+                    move();
+                    turn(2);
+                }
+                turn(1);
+            }
+        }
+    }
+    program () {
+        
+        find();
+        turnoff();
+    }
+}

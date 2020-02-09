@@ -1,0 +1,150 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion oeste como inicio
+    	mientras no-orientado-al-oeste hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion avanza-pared como inicio
+    	mientras frente-libre hacer inicio
+        	avanza;
+        fin;
+    fin;
+
+    define-nueva-instruccion siguiente-fila como inicio
+    	sur;
+        avanza-pared;
+        este;
+        si frente-libre entonces inicio
+        	avanza;
+        fin sino inicio
+        	norte;
+        fin;
+    fin;
+
+    define-nueva-instruccion ve-al-inicio como inicio
+    	oeste;
+        avanza-pared;
+        sur;
+        avanza-pared;
+        este;
+    fin;
+
+    define-nueva-instruccion ve-a-siguiente como inicio
+    	ve-al-inicio;
+        avanza;
+        norte;
+        mientras no-junto-a-zumbador y frente-libre hacer inicio
+        	avanza;
+        fin;
+    fin;
+
+    define-nueva-instruccion termina como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            termina;
+            deja-zumbador;
+        fin sino inicio
+        	si frente-libre entonces inicio
+            	avanza;
+            fin;
+            si junto-a-zumbador entonces inicio
+            	termina;
+            fin sino inicio
+            	ve-al-inicio;
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instruccion compara(n) como inicio
+    	si junto-a-zumbador y no si-es-cero(n) entonces inicio
+        	coge-zumbador;
+            compara(precede(n));
+            deja-zumbador;
+        fin sino inicio
+        	si no-junto-a-zumbador y si-es-cero(n) entonces inicio
+            	sur;
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instruccion busca(n) como inicio
+    	mientras junto-a-zumbador y orientado-al-norte hacer inicio
+            mientras junto-a-zumbador y orientado-al-norte hacer inicio
+            	compara(n);
+                si orientado-al-sur entonces inicio
+                	siguiente-fila;
+                fin sino inicio
+                	si frente-libre entonces inicio
+                        avanza;
+                    fin sino inicio
+                        sur;
+                    fin;
+                fin;
+            fin;
+            si no-junto-a-zumbador y orientado-al-norte entonces inicio
+            	sur;
+            fin sino inicio;
+            	si orientado-al-este y junto-a-zumbador entonces inicio
+                    norte;
+                fin sino inicio
+                    este;
+                fin;
+            fin;
+        fin;
+
+        si orientado-al-sur entonces inicio
+        	ve-a-siguiente;
+            termina;
+        fin sino inicio
+        	ve-al-inicio;
+            repetir n veces inicio
+            	deja-zumbador;
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instruccion cuenta(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            cuenta(sucede(n));
+        fin sino inicio
+        	siguiente-fila;
+            norte;
+            busca(n);
+        fin;
+    fin;
+
+    define-nueva-instruccion elimina-intrusos como inicio
+        mientras junto-a-zumbador hacer inicio
+        	cuenta(0);
+            ve-a-siguiente;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        ve-a-siguiente;
+        elimina-intrusos;
+        ve-al-inicio;
+        apagate;
+    termina-ejecucion
+finalizar-programa

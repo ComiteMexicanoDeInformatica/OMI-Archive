@@ -1,0 +1,40 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "solutions/0_1.kp",
+      "verdict": "WA",
+      "score": 0
+    },
+    {
+      "filename": "solutions/0_2.kp",
+      "verdict": "WA",
+      "score": 0
+    },
+    {
+      "filename": "solutions/0_3.kp",
+      "verdict": "WA",
+      "score": 0
+    },
+    {
+      "filename": "solutions/ParcialA.kj",
+      "verdict": "RTE",
+      "score": 11
+    },
+    {
+      "filename": "solutions/ParcialB.kj",
+      "verdict": "PA",
+      "score": 6
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

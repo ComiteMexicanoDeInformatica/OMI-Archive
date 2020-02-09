@@ -1,0 +1,37 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.kp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/100B.kj",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_off.kp",
+      "verdict": "WA"
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_left.kp",
+      "verdict": "WA"
+    },
+    {
+      "filename": "../../../default_bad_solutions/put_beeper.kp",
+      "score": 0
+    },
+    {
+      "filename": "../../../default_bad_solutions/north.kj",
+      "score": 0
+    },
+    {
+      "filename": "../../../default_bad_solutions/south.kj",
+      "score": 0
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

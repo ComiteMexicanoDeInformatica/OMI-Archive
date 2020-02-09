@@ -1,0 +1,80 @@
+iniciar-programa
+    define-nueva-instruccion pared como inicio
+        mientras frente-libre hacer avanza;
+    fin;
+
+    define-nueva-instruccion regresa(n) como inicio
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+        pared;
+        gira-izquierda;
+        pared;
+        gira-izquierda;
+        gira-izquierda;
+        si si-es-cero(precede(precede(n))) entonces inicio
+            deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instruccion siguiente como inicio
+        si frente-libre entonces inicio
+            avanza;
+        fin sino si derecha-libre entonces inicio
+            gira-izquierda;
+            gira-izquierda;
+            pared;
+            gira-izquierda;
+            avanza;
+            gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion recorre(n) como inicio
+        {*
+          n = 0 no se agarro ningun zumbador
+          n = 1 se agarro almenos 1 zumbador
+          n = 2 se vacio una casilla
+        *}
+        si frente-bloqueado y derecha-bloqueada entonces inicio
+            si si-es-cero(n) y no-junto-a-zumbador entonces inicio
+                apagate;
+            fin sino inicio
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    si no-junto-a-zumbador entonces inicio
+                        regresa(2);
+                    fin sino inicio
+                        regresa(n);
+                    fin;
+                fin sino inicio
+                    regresa(n);
+                fin;
+            fin;
+        fin sino inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si no-junto-a-zumbador entonces inicio
+                    siguiente;
+                    recorre(2);
+                fin sino inicio
+                    siguiente;
+                    si si-es-cero(n) entonces inicio
+                        recorre(1);
+                    fin sino inicio
+                        recorre(n);
+                    fin;
+                fin;
+            fin sino inicio
+                siguiente;
+                recorre(n);
+            fin;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        repetir 99 veces inicio
+            siguiente;
+            recorre(0);
+        fin;
+        apagate;
+    termina-ejecucion
+finalizar-programa

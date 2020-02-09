@@ -1,0 +1,156 @@
+class program {
+
+	void turn( x ){ iterate( x ) turnleft();  } 
+    void go(){ while( frontIsClear() ) move(); }
+	
+    void fn( y ){
+    	if( nextToABeeper() ){
+        	pickbeeper();
+            fn( succ( y ) );
+        }else{
+        	if( frontIsClear() ){
+            	move();
+                fn( y );
+            }else{
+            	turn( 2 );
+                go();
+                iterate( y ) putbeeper();
+            }
+        }
+    }
+    
+    void gn( y ){
+    	if( nextToABeeper() ){
+        	pickbeeper();
+            gn( succ( y ) );
+            putbeeper();
+        }else{
+        	if( frontIsClear() ){
+            	move();
+                gn( y );
+                move();
+            }else{
+                iterate( y ) putbeeper();
+                turn( 2 );
+            }
+        }
+    }
+    
+    void hn( y ){
+    	if( nextToABeeper() ){
+        	pickbeeper();
+            hn( succ( y ) );
+            putbeeper();
+        }else{
+        	move();
+            if( frontIsClear() ){
+            	hn( y );
+                move();
+            }else{
+            	iterate( y ){
+                	if( nextToABeeper() ) pickbeeper();
+                }
+        		iterate( y ) putbeeper();
+                turn( 2 );
+                move();
+            }
+        }
+    }
+    
+    void aplasta( y ){
+    	if( nextToABeeper() ){
+        	pickbeeper();
+            aplasta( succ( y ) );
+            putbeeper();
+        }else{
+        	move();
+            if( frontIsClear() ){
+            	aplasta( y );
+                move();
+            }else{
+            	iterate( y ) putbeeper();
+                turn( 2 );
+                move();
+            }
+        }
+    }
+    
+    void getMax( x ){
+        	if( nextToABeeper() ){
+            	pickbeeper();
+                getMax( succ( x ) );
+            }else{
+            	move();
+                iterate( x ){
+                	if( nextToABeeper() ) pickbeeper();
+                }
+                iterate( x ) putbeeper();
+                if( frontIsClear() ) getMax( 0 );
+            }
+    }
+    
+    program () {
+        
+        // Subtask 1
+        if( frontIsBlocked() ){
+        	turn( 3 );
+            fn( 0 );
+            turnoff();
+        }
+        
+        // Subtask 2
+        turn( 3 );
+        go();
+        turn( 2 );
+        
+        gn( 0 );
+        
+        turn( 1 );
+        go();
+        turn( 1 );
+        go();
+        turn( 1 );
+        
+        hn( 0 );
+        
+        turn( 3 );
+        move();
+        turn( 3 );
+        
+        while( leftIsClear() ){
+        	aplasta( 0 );
+            turn( 3 );
+            move();
+            turn( 3 );
+        }
+        
+        aplasta( 0 );
+        
+        turn( 2 );
+        go();
+        turn( 2 );
+        move();
+        turn( 1 );
+        
+        while( rightIsClear() ){
+        	aplasta( 0 );
+            turn( 1 );
+            move();
+            turn( 1 );
+        }
+        
+        aplasta( 0 );
+        
+        turn( 2 );
+        go();
+        turn( 1 );
+        
+        getMax( 0 );
+        turn( 1 );
+        go();
+        turn( 2 );
+        getMax( 0 );
+        
+        turnoff();
+    }
+}

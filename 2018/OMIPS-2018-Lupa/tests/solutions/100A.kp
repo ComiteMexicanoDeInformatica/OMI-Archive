@@ -1,0 +1,434 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+        mientras no-orientado-al-norte hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+        mientras no-orientado-al-este hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+        mientras no-orientado-al-sur hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+        mientras no-orientado-al-oeste hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion corre como inicio
+        mientras frente-libre hacer
+            avanza;
+    fin;
+    
+    define-nueva-instruccion reinicio como inicio
+        norte;
+        corre;
+        este;
+        corre;
+        mientras algun-zumbador-en-la-mochila hacer
+            deja-zumbador;
+        oeste;
+        corre;
+        norte;
+    fin;
+
+    define-nueva-instruccion gira(n) como inicio
+        repetir n veces 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion marca(n) como inicio
+        este;
+        corre;
+        repetir 16 veces
+            coge-zumbador;
+        oeste;
+        corre;
+        este;
+        repetir n veces
+            avanza;        
+        deja-zumbador;
+        oeste;
+        corre;
+        este;
+        avanza;
+    fin;
+    
+    define-nueva-instruccion circulo como inicio
+        repetir 4 veces inicio
+            repetir 2 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+            gira-izquierda;
+        fin;
+        sur;
+        repetir 2 veces avanza;
+    fin;
+    
+    define-nueva-instruccion fu como inicio
+        deja-zumbador;
+        sur;
+        repetir 3 veces inicio
+            repetir 2 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+            gira(3);                
+        fin;        
+    fin;    
+    
+    define-nueva-instruccion nueve como inicio
+        circulo;
+        repetir 2 veces inicio
+            repetir 2 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+            gira(3);
+        fin;
+    fin;
+    
+    define-nueva-instruccion ocho(x) como inicio
+        si si-es-cero(x) entonces inicio
+            circulo;
+            coge-zumbador;
+            fu;
+            coge-zumbador; 
+        fin sino inicio
+            nueve;
+        fin;
+    fin;
+    
+    define-nueva-instruccion siete(x) como inicio
+        si si-es-cero(x) entonces inicio
+            deja-zumbador;
+            avanza;
+            deja-zumbador;
+            avanza;
+            deja-zumbador;
+            sur;
+            avanza;
+            este;
+            repetir 2 veces avanza;
+            deja-zumbador;
+            sur;
+            avanza;
+            oeste;
+            repetir 2 veces inicio
+                deja-zumbador;
+                avanza;
+            fin;
+            este;
+            repetir 2 veces avanza;
+            sur;
+            repetir 2 veces inicio
+                avanza;
+                deja-zumbador;                
+            fin;
+        fin sino inicio
+            ocho(precede(x));
+        fin;
+    fin;
+    
+    define-nueva-instruccion c como inicio
+        deja-zumbador;
+        repetir 3 veces inicio
+            repetir 2 veces inicio
+                avanza;
+                deja-zumbador;                
+            fin;
+            gira(1);
+        fin;
+    fin;
+    
+    define-nueva-instruccion seis(x) como inicio
+        si si-es-cero(x) entonces inicio
+            c;
+            coge-zumbador;
+            fu;
+            coge-zumbador;          
+        fin sino inicio
+            siete(precede(x));
+        fin;
+    fin;
+    
+    define-nueva-instruccion cinco(x) como inicio
+        si si-es-cero(x) entonces inicio
+            c;
+            sur;
+            repetir 2 veces inicio
+                repetir 2 veces inicio
+                    avanza;
+                    deja-zumbador;
+                fin;
+                gira(3);
+            fin;
+        fin sino inicio
+            seis(precede(x));
+        fin;
+    fin;
+    
+    define-nueva-instruccion cuatro(x) como inicio
+        si si-es-cero(x) entonces inicio
+            fu;
+            repetir 2 veces inicio
+                repetir 2 veces avanza;
+                gira(3);
+            fin;
+            sur;
+            repetir 2 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+        fin sino inicio
+            cinco(precede(x));
+        fin;
+    fin;
+    
+    define-nueva-instruccion c-inversa como inicio
+        deja-zumbador;
+        avanza;
+        deja-zumbador;
+        avanza;
+        deja-zumbador;
+        este;
+        repetir 2 veces avanza;
+        sur;
+        avanza;
+        deja-zumbador;
+        avanza;
+        oeste;
+        deja-zumbador;
+        avanza;
+        deja-zumbador;
+        avanza;
+        deja-zumbador;
+    fin;
+    
+    define-nueva-instruccion tres(x) como inicio
+        si si-es-cero(x) entonces inicio
+            c-inversa;
+            este;
+            coge-zumbador;
+            repetir 2 veces inicio
+                avanza;
+                coge-zumbador;
+            fin;
+            oeste;
+            c-inversa;
+        fin sino inicio
+            cuatro(precede(x));
+        fin;
+    fin;
+    
+    
+    define-nueva-instruccion dos(x) como inicio
+        si si-es-cero(x) entonces inicio
+            c-inversa;
+            sur;
+            avanza;
+            deja-zumbador;
+            avanza;
+            este;
+            deja-zumbador;
+            avanza;
+            deja-zumbador;
+            avanza;
+            deja-zumbador;
+        fin sino inicio
+            tres(precede(x));
+        fin;
+    fin;
+    
+    define-nueva-instruccion uno(x) como inicio
+        si si-es-cero(x) entonces inicio
+            avanza;
+            deja-zumbador;
+            avanza;
+            deja-zumbador;
+            este;
+            avanza;
+            sur;
+            repetir 4 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+            oeste;
+            avanza;
+            deja-zumbador;
+            este;
+            repetir 2 veces avanza;
+            deja-zumbador;
+        fin sino inicio
+            dos(precede(x));
+        fin;
+    fin;
+    
+    define-nueva-instruccion cero(x) como inicio
+        si si-es-cero(x) entonces inicio
+            deja-zumbador;
+            avanza;
+            deja-zumbador;
+            avanza;
+            deja-zumbador;
+            sur;
+            repetir 4 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+            este;
+            repetir 2 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+            norte;
+            repetir 4 veces inicio
+                avanza;
+                deja-zumbador;
+            fin;
+            coge-zumbador;
+        fin sino inicio
+            uno(precede(x));
+        fin;
+    fin;
+    
+    define-nueva-instruccion dibuja(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            dibuja(sucede(x));
+        fin sino inicio
+            mientras no-junto-a-zumbador hacer 
+                avanza;
+            coge-zumbador;
+            sur;
+            avanza;
+            oeste;
+            cero(x);
+        fin;
+    fin;
+    
+    define-nueva-instruccion centenas como inicio
+        mientras algun-zumbador-en-la-mochila hacer
+            deja-zumbador;
+        mientras no-orientado-al-sur hacer inicio
+            repetir 100 veces inicio
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                fin sino inicio
+                    sur;
+                fin;
+            fin;
+            si orientado-al-norte entonces inicio
+               este;
+               avanza;
+                deja-zumbador;
+                corre;
+                mientras algun-zumbador-en-la-mochila hacer
+                    deja-zumbador;
+                oeste;
+                corre;
+                norte;
+            fin;
+        fin;
+        mientras algun-zumbador-en-la-mochila hacer
+            deja-zumbador;
+        marca(2);        
+        dibuja(0);
+    fin;    
+    
+    define-nueva-instruccion decenas como inicio        
+        mientras algun-zumbador-en-la-mochila hacer
+            deja-zumbador;
+        mientras no-orientado-al-sur hacer inicio
+            repetir 10 veces inicio
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                fin sino inicio
+                    sur;
+                fin;
+            fin;
+            si orientado-al-norte entonces inicio
+                este;
+                avanza;               
+                deja-zumbador;
+                corre;
+                mientras algun-zumbador-en-la-mochila hacer
+                    deja-zumbador;
+                oeste;
+                corre;
+                norte;
+            fin;
+        fin;
+        mientras algun-zumbador-en-la-mochila hacer
+            deja-zumbador;
+        marca(5);
+        dibuja(0);
+    fin;
+    
+    define-nueva-instruccion unidades como inicio
+        mientras algun-zumbador-en-la-mochila hacer
+            deja-zumbador;
+        marca(8);
+        oeste;
+        avanza;
+        este;
+        dibuja(0);
+    fin;
+    
+    define-nueva-instruccion checa10 como inicio
+        repetir 10 veces inicio
+            si algun-zumbador-en-la-mochila entonces inicio
+                deja-zumbador;
+            fin sino inicio
+                sur;
+            fin;
+        fin;
+        mientras junto-a-zumbador hacer 
+            coge-zumbador;
+        si no orientado-al-sur entonces inicio
+            norte;
+            decenas;
+            reinicio;
+            unidades;
+        fin sino inicio
+            norte;
+            unidades;
+        fin;        
+    fin;
+    
+    define-nueva-instruccion checa100 como inicio
+        repetir 100 veces inicio
+            si algun-zumbador-en-la-mochila entonces inicio
+                deja-zumbador;
+            fin sino inicio
+                sur;
+            fin;
+        fin;
+        mientras junto-a-zumbador hacer
+            coge-zumbador;
+        si no-orientado-al-sur entonces inicio
+            norte;
+            centenas;
+            reinicio;   
+            decenas;
+            reinicio;
+            unidades;
+        fin sino inicio
+            norte;            
+            checa10;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        norte;
+        corre; 
+        checa100;
+        apagate;
+    termina-ejecucion
+finalizar-programa

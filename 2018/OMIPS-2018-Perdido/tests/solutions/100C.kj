@@ -1,0 +1,86 @@
+class program
+{
+    define troy(x)
+    {
+        if(nextToABeeper)
+        {
+            pickbeeper();
+            troy(succ(x));
+        }
+        else
+        {
+            while(frontIsClear || rightIsClear)
+            {
+                iterate(x)
+                {
+                    if(nextToABeeper)
+                    {
+                        pickbeeper();
+                    }
+                    else
+                    {
+                        while(notFacingSouth)
+                            turnleft();
+                    }
+                }
+                if(notNextToABeeper && notFacingSouth)
+                {
+                    turnoff();
+                }
+                while(notFacingNorth)
+                    turnleft();
+                if(frontIsBlocked)
+                {
+                    turnleft();
+                    turnleft();
+                    while(frontIsClear)
+                        move();
+                    turnleft();
+                    move();
+                    turnleft();
+                }
+                else
+                {
+                    move();
+                }
+            }
+            iterate(x)
+            {
+                if(nextToABeeper)
+                {
+                    pickbeeper();
+                }
+                else
+                {
+                    while(notFacingSouth)
+                        turnleft();
+                }
+            }
+            if(notNextToABeeper && notFacingSouth)
+            {
+                turnoff();
+            }
+            while(notFacingSouth)
+                turnleft();
+            while(frontIsClear)
+                move();
+            while(notFacingWest)
+                turnleft();
+            while(frontIsClear)
+                move();
+            turnleft();
+            turnoff();
+
+
+
+
+
+
+        }
+    }
+    program ()
+    {
+        troy(0);
+        turnoff();
+    }
+}

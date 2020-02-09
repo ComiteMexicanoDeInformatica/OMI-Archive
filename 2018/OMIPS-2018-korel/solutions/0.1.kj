@@ -1,0 +1,18 @@
+class program {
+	define troy()
+    {
+   
+     while(frontIsClear)
+    {
+    move();
+    }
+    turnleft();
+   }
+    
+    program () {
+   
+    
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

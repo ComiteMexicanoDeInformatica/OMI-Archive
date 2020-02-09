@@ -1,0 +1,32 @@
+{
+    "title": "El tesoro de Moctezuma",
+    "source": "OMI 2018 (Filiberto Fuentes)",
+
+    "limits": {
+        "TimeLimit": 1000,
+        "MemoryLimit": 33554432,
+        "OutputLimit": 16384,
+        "ExtraWallTime": 0,
+        "OverallWallTimeLimit": 60000
+    },
+
+    "validator": {
+        "name": "literal",
+        "limits": {
+            "TimeLimit": 1000
+        }
+    },
+
+    "interactive": {
+        "module_name": "tesoro"
+    },
+
+    "misc": {
+        "alias": "OMI2018-Tesoro",
+        "visibility": 0,
+        "languages": "all",
+        "email_clarifications": 0,
+        "admin-groups": ["OMI-2018"],
+        "tags": ["omi2018", "libinteractive"]
+    }
+}

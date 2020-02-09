@@ -1,0 +1,51 @@
+class program {
+    
+    void turn(n){
+    	iterate(n){
+        	turnleft();
+        }
+    }
+    
+    void avanzaPegado(){
+    	move();
+        while(leftIsClear){
+        	turnleft();
+            move();
+        }
+    }
+    
+    program () {
+    	while(leftIsClear && frontIsClear){
+        	move();
+        }
+        if(leftIsClear){
+        	turn(3);
+        }
+        
+        while(notNextToABeeper){
+        	putbeeper();
+            if(frontIsClear){
+            	avanzaPegado();
+            } else {
+            	turn(3);
+                if(frontIsClear){
+                	avanzaPegado();
+                } else {
+                	turn(3);
+                    if(frontIsClear){
+                    	while(leftIsBlocked && frontIsClear){
+                        	if(notNextToABeeper){
+                            	putbeeper();
+                            }
+                            move();
+                        }
+                        while(leftIsClear){
+                        	turnleft();
+                            move();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

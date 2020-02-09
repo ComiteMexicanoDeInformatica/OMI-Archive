@@ -1,0 +1,117 @@
+class program {
+
+	void troy()
+    {
+    	if(nextToABeeper)
+        	{
+            go();
+            }
+            else
+            {
+            while(frontIsClear)
+            {
+            move();
+            
+            }
+            turnleft();
+            turnleft();
+            }
+            
+    }
+    void go()
+    {
+    if(nextToABeeper)
+    {
+    pickbeeper();
+    go();
+    putbeeper();
+    }
+    else
+    {
+    move();
+    ga();
+    
+    }
+    }
+    void ga()
+    {
+    if(nextToABeeper)
+    {
+    pickbeeper();
+    ga();
+    putbeeper();
+    }
+    else
+    {
+    if(frontIsClear)
+    {
+    move();
+    troy();
+    if(nextToABeeper)
+    move();
+    }
+    else
+    {
+    turnleft();
+    turnleft();
+    while(frontIsClear)
+    {
+    move();
+    }
+    turnleft();
+    move();
+    turnleft();
+    troy();
+    turnleft();
+    turnleft();
+    turnleft();
+    move();
+    turnleft();
+    turnleft();
+    turnleft();
+    while(frontIsClear)
+    move();
+    turnleft();
+    turnleft();
+    }
+    
+    
+    }
+    }
+    void stupid(x)
+    {
+    if(frontIsClear)
+    {
+    move();
+    stupid(succ(x));
+    }
+    else
+    {
+    turnleft();
+    turnleft();
+    turnleft();
+    iterate(x)
+    {
+    while(frontIsClear)
+    move();
+    turnleft();
+    turnleft();
+    }
+    }
+    }
+    program () {
+    	stupid(0);
+        while(notFacingSouth)
+        turnleft();
+        while(frontIsClear)
+        move();
+        while(notFacingWest)
+        turnleft();
+        while(frontIsClear)
+        move();
+        while(notFacingNorth)
+        turnleft();
+       troy();
+        turnoff();
+    }
+}

@@ -1,0 +1,141 @@
+class program {
+	void dejaUnSoloBeeperOIgnoraSiEsMayorQueCero(n) {
+        if(!nextToABeeper()) {
+         	// cero
+            putbeeper();
+            return();
+        }
+    }
+	void regresaPasos(n){
+			turnleft();
+			turnleft();
+			iterate(n){
+			move();
+		}    
+	}
+	void parOimpar(cuenta_monton) {
+    	if (!nextToABeeper()) {
+        	//Par
+        	while(!facingSouth()) {
+            	turnleft();
+            }
+            iterate(cuenta_monton) {
+            	putbeeper();
+            }
+            return();
+        }
+    	pickbeeper();
+        if (!nextToABeeper()) {
+        	//Impar
+        	while(!facingNorth()) {
+            	turnleft();
+            }
+            iterate(succ(cuenta_monton)) {
+            	putbeeper();
+            }            
+        } else {
+        	pickbeeper();
+            parOimpar(succ(succ(cuenta_monton)));
+        }
+    }
+    void aumentaParaImpares(contador) {
+        if (nextToABeeper()) {
+            pickbeeper();
+            aumentaParaImpares(succ(contador));
+        } else {
+            if(!iszero(contador)) {
+              putbeeper();
+              if (frontIsClear()) {
+                  move();            
+                  resuelveImpares(pred(contador));
+              }
+            } else {
+              if (frontIsClear()) {
+                  move();            
+                  resuelveImpares(contador);
+              }            
+            }
+        }
+    }
+    void resuelveImpares(poner_hacia_adelante) {
+    	if (nextToABeeper()) {
+        	pickbeeper();
+            if(!nextToABeeper()) {
+            	putbeeper();
+            } else {
+            	putbeeper();
+        		parOimpar(0);
+                // Si es impar
+				if (facingNorth()) {
+                    while(!facingEast()){
+                        turnleft();
+                    }
+                    iterate(poner_hacia_adelante) {
+                    	if (nextToABeeper()) {
+                        	pickbeeper();
+                        }
+                    }
+					aumentaParaImpares(poner_hacia_adelante);
+                    return();
+				}
+                while(!facingEast()){
+                	turnleft();
+                }
+           }
+        } else if(!iszero(poner_hacia_adelante)){
+        	putbeeper();
+        }
+		if (frontIsClear()){
+			move();
+            if(!iszero(poner_hacia_adelante)){
+				resuelveImpares(pred(poner_hacia_adelante));
+            }else{
+            	resuelveImpares(0);
+            }
+		}       
+    }
+    void aumenta(contador) {
+        if (nextToABeeper()) {
+            pickbeeper();
+            aumenta(succ(contador));
+        } else {
+            if(!iszero(contador)) {
+              putbeeper();
+              if (frontIsClear()) {
+                  move();            
+                  resuelvePares(pred(contador));
+              }
+            } else {
+              if (frontIsClear()) {
+                  move();            
+                  resuelvePares(contador);
+              }            
+            }
+        }
+    }
+    void resuelvePares(contador) {
+        iterate(contador) {
+            if (nextToABeeper()) {
+                pickbeeper();
+            } else {
+                putbeeper();
+                if (frontIsClear()) {
+                    move();                
+                    resuelvePares(pred(contador));
+                }
+                return();
+            }
+        }
+        aumenta(contador);
+    }
+    program () {
+    	while(!facingEast()) {
+        	turnleft();
+        }
+        resuelveImpares(0);
+        turnleft();
+        turnleft();
+        resuelvePares(0);
+		turnoff();
+    }
+}

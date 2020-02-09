@@ -1,0 +1,8 @@
+interface Main {
+	int Preguntar(int i, int j);
+	bool Cavar(int i, int j);
+};
+
+interface tesoro {
+	void BuscaTesoros(int n, int m, int k);
+};

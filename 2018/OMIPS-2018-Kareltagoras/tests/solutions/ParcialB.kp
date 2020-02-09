@@ -1,0 +1,32 @@
+iniciar-programa
+
+    define-nueva-instruccion gira(n) como inicio
+        repetir n veces
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion corre como inicio
+        mientras frente-libre hacer 
+            avanza;
+    fin;
+    
+    define-nueva-instruccion cuadrados(x) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            cuadrados(sucede(x));
+        fin sino inicio
+            gira(2);
+            corre;
+            repetir sucede(x) veces
+                repetir sucede(x) veces 
+                    deja-zumbador;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        cuadrados(0);
+        gira-izquierda;
+        cuadrados(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa

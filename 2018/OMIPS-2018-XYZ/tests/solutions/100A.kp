@@ -1,0 +1,188 @@
+iniciar-programa
+    define-nueva-instruccion siguiente como inicio
+        mientras frente-bloqueado hacer gira-izquierda;
+        avanza;
+        mientras derecha-libre hacer inicio
+            gira-izquierda;
+            gira-izquierda;
+            gira-izquierda;
+            avanza;
+        fin;
+    fin;
+    
+    define-nueva-instruccion otro como inicio
+        mientras no-orientado-al-sur hacer gira-izquierda;
+        apagate;
+    fin;
+    
+    define-nueva-instruccion es-x como inicio
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+        apagate;
+    fin;
+    
+    define-nueva-instruccion es-y como inicio
+        mientras no-orientado-al-norte hacer gira-izquierda;
+        apagate;
+    fin;
+    
+    define-nueva-instruccion es-z como inicio
+        mientras no-orientado-al-este hacer gira-izquierda;
+        apagate;
+    fin;
+    
+    define-nueva-instruccion valida-y como inicio 
+        deja-zumbador;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        repetir 6 veces inicio
+            siguiente;
+            si no-orientado-al-sur entonces sal-de-instruccion;        
+        fin;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        si junto-a-zumbador entonces es-y;
+    fin;
+    
+    define-nueva-instruccion valida-x como inicio 
+        si orientado-al-este entonces inicio
+            repetir 4 veces siguiente;
+        fin;
+        deja-zumbador;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        si junto-a-zumbador entonces es-x;
+    fin;
+    
+    define-nueva-instruccion valida-xy como inicio         
+        siguiente;
+        si frente-libre entonces inicio         
+            valida-y;
+        fin sino inicio
+            valida-x;            
+        fin;
+    fin;
+    
+    define-nueva-instruccion valida-z como inicio 
+        deja-zumbador;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;        
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;        
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;        
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;        
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;       
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;        
+        siguiente;
+        si no-orientado-al-norte entonces sal-de-instruccion;        
+        repetir 4 veces inicio
+            siguiente;
+            si no-orientado-al-oeste entonces sal-de-instruccion;        
+        fin;
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;  
+        siguiente;
+        si no-orientado-al-este entonces sal-de-instruccion;  
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;  
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;  
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion;  
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion;
+        siguiente;
+        si no-orientado-al-oeste entonces sal-de-instruccion; 
+        siguiente;
+        si no-orientado-al-sur entonces sal-de-instruccion; 
+        repetir 4 veces inicio
+            siguiente;
+            si no-orientado-al-este entonces sal-de-instruccion;        
+        fin;                      
+        si junto-a-zumbador entonces es-z;    
+    fin;       
+    
+    inicia-ejecucion
+        { valida 1x1 }
+        si frente-bloqueado y derecha-bloqueada e izquierda-bloqueada entonces inicio
+            gira-izquierda;
+            si izquierda-bloqueada entonces otro;
+        fin;       
+        mientras frente-libre hacer avanza;
+        gira-izquierda;
+        repetir 70 veces inicio
+            siguiente;
+            si frente-bloqueado y derecha-bloqueada e izquierda-bloqueada entonces inicio
+                si orientado-al-sur entonces inicio
+                    valida-xy;
+                    otro;
+                fin;
+                si orientado-al-este entonces inicio
+                    valida-z;
+                    otro;
+                fin;
+             fin;                          
+        fin;
+        otro;
+    termina-ejecucion
+finalizar-programa

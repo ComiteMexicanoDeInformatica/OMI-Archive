@@ -1,0 +1,23 @@
+class program {
+	void avanzaNpasosPonZumbador(n) {
+    	iterate(n) {
+        	if(frontIsClear()){
+        		move();
+         	} else {
+            	turnoff();
+            }
+        }
+        putbeeper();
+    }
+    void repiteConImpares(impar) {
+    	avanzaNpasosPonZumbador(impar);
+        repiteConImpares(succ(succ(impar)));
+    }
+    program () {
+    	while(!facingEast()) {
+        	turnleft();
+        }
+        repiteConImpares(1);
+        turnoff();
+    }
+}

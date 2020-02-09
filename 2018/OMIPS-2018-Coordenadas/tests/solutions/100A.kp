@@ -1,0 +1,115 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+        mientras no-orientado-al-norte hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+        mientras no-orientado-al-este hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+        mientras no-orientado-al-sur hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+        mientras no-orientado-al-oeste hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion corre como inicio
+        mientras frente-libre hacer
+            avanza;
+    fin;    
+
+    define-prototipo-instruccion busca;
+
+    define-nueva-instruccion siguiente como inicio
+        si frente-libre entonces inicio
+            avanza;
+        fin sino inicio
+            sur;
+            corre;
+            este;
+            si frente-libre entonces inicio
+                avanza;
+                norte;
+            fin sino inicio
+                sur;
+            fin;
+        fin;
+    fin;
+
+    define-nueva-instruccion cuenta como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            cuenta;
+            avanza;
+        fin sino inicio
+            norte;
+            siguiente;
+            busca;
+        fin;
+    fin;
+
+    define-nueva-instruccion columna(x) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            columna(sucede(x));
+        fin sino inicio
+            este;
+            repetir precede(x) veces 
+                avanza;
+            coge-zumbador;
+            cuenta;
+            repetir x veces 
+                deja-zumbador;
+        fin;
+    fin;
+
+    define-nueva-instruccion fila(x) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            fila(sucede(x));
+        fin sino inicio
+            norte;
+            repetir precede(x) veces 
+                avanza;
+            oeste;
+            columna(1);
+            norte;
+            avanza;
+            repetir x veces 
+                deja-zumbador;
+            oeste;
+            corre;
+            sur;
+            avanza;
+            este;
+        fin;
+    fin;
+
+    define-nueva-instruccion busca como inicio
+        si no-orientado-al-sur entonces inicio
+            si junto-a-zumbador entonces inicio
+                sur;
+                fila(1);
+            fin sino inicio
+                siguiente;
+                busca;
+            fin;
+        fin sino inicio
+            oeste;
+            corre;
+            este;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        busca;
+        apagate;
+    termina-ejecucion
+finalizar-programa

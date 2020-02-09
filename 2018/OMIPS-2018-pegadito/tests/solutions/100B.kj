@@ -1,0 +1,51 @@
+class program {
+
+	void turn(a) {
+    	iterate(a) turnleft();
+    }
+
+	void dfs() {
+    	if(nextToABeeper) {
+        	pickbeeper();
+            if(nextToABeeper) {
+            	pickbeeper();
+                iterate(4) {
+                	if(frontIsClear) {
+                    	move();
+                        dfs();
+                        turn(2);
+                        move();
+                        turn(2);
+                    } else {
+                    	if(!nextToABeeper)
+                        	putbeeper();
+                    }
+                    turnleft();
+                }
+            } else putbeeper();
+        }
+    }
+
+	void colour() {
+    	if(!nextToABeeper) {
+        	putbeeper();
+            putbeeper();
+            iterate(4) {
+            	if(frontIsClear) {
+                	move();
+                    colour();
+                    turn(2);
+                    move();
+                    turn(2);
+                }
+            	turnleft();
+            }
+        }
+    }
+
+    program () {
+    	colour();
+        dfs();
+        turnoff();
+    }
+}

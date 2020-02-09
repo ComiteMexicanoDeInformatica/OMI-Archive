@@ -1,0 +1,80 @@
+class program {
+define troy()
+{
+if(nextToABeeper)
+{
+pickbeeper();
+troy();
+putbeeper();
+}
+else
+{
+while(frontIsClear)
+{
+move();
+}
+}
+}
+define trash()
+{
+if(nextToABeeper)
+{
+pickbeeper();
+trash();
+if(frontIsClear)
+{
+move();
+}
+else
+{
+while(notFacingNorth)
+{
+turnleft();
+}
+turnoff();
+}
+}
+}
+
+    program () {
+        while(notFacingEast)
+        {
+        turnleft();
+        }
+        while(frontIsClear)
+        {
+        move();
+        }
+        turnleft();
+        turnleft();
+        while(frontIsClear)
+		{
+        if(nextToABeeper)
+        {
+        troy();
+        while(notFacingEast)
+        {
+        turnleft();
+        }
+        while(frontIsClear)
+        {
+        move();
+        }
+        turnleft();
+        turnleft();
+        
+        }
+        move();
+		}
+        turnleft();
+        turnleft();
+        trash();
+        while(notFacingSouth)
+{
+turnleft();
+}
+turnoff();
+    
+        turnoff();
+    }
+}

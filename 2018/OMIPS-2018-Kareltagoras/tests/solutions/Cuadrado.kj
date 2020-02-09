@@ -1,0 +1,45 @@
+class program {
+
+	void turn(a) {
+    	iterate(a) turnleft();
+    }
+    void este() {
+    	while(!facingEast) turnleft();
+    }
+    void norte() {
+    	while(!facingNorth) turnleft();
+    }
+    void oeste() {
+    	while(!facingWest) turnleft();
+    }
+    void sur() {
+    	while(!facingSouth) turnleft();
+    }
+    
+    void cuenta() {
+    	if(frontIsClear) {
+        	move();
+            cuenta();
+        } else {
+        	este();
+            if(frontIsClear) {
+            	move();
+                if(rightIsClear) turn(2);
+                turnleft();
+                cuenta();
+            } else {
+            	oeste();
+                while(frontIsClear) move();
+                sur();
+                while(frontIsClear) move();
+            }
+        }
+        putbeeper();
+        putbeeper();
+    }
+
+    program () {
+    	cuenta();
+        turnoff();
+    }
+}

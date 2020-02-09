@@ -1,0 +1,19 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+		<comando nombre="AVANZA" maximoNumeroDeEjecuciones="38"/>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="19" alto="1">
+			<monton x="2" y="1" zumbadores="2"></monton>
+			<monton x="7" y="1" zumbadores="4"></monton>
+			<monton x="9" y="1" zumbadores="4"></monton>
+			<monton x="11" y="1" zumbadores="2"></monton>
+			<monton x="19" y="1" zumbadores="6"></monton>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="1" yKarel="1" direccionKarel="ESTE" mochilaKarel="0">
+			<despliega tipo="UNIVERSO"></despliega>
+		</programa>
+	</programas>
+</ejecucion>
+

@@ -1,0 +1,59 @@
+iniciar-programa
+	  define-nueva-instruccion gira(n) como inicio
+    	  repetir n veces inicio
+        	gira-izquierda;
+        fin;
+    fin;
+
+    define-nueva-instruccion dibuja(n) como inicio
+    	  si no si-es-cero(n) entonces inicio
+        	  si no-junto-a-zumbador entonces inicio
+            	  deja-zumbador;
+            fin;
+            avanza;
+            dibuja(precede(n));
+            avanza;
+        fin sino inicio
+        	  si no-junto-a-zumbador entonces inicio
+            	  deja-zumbador;
+            fin;
+            gira(2);
+        fin;
+    fin;
+
+    define-nueva-instruccion checa-paridad(n) como inicio
+    	  si junto-a-zumbador entonces inicio
+        	  coge-zumbador;
+            si junto-a-zumbador entonces inicio
+            	  coge-zumbador;
+                checa-paridad(sucede(sucede(n)));
+            fin sino inicio
+            	  gira(2);
+                checa-paridad(sucede(n));
+            fin;
+        fin sino inicio
+        	  dibuja(n);
+            si orientado-al-oeste entonces inicio
+            	  gira(2);
+            fin;
+        fin;
+    fin;
+
+    inicia-ejecucion
+
+        mientras frente-libre hacer inicio
+        	  si junto-a-zumbador entonces inicio
+            	  coge-zumbador;
+                checa-paridad(0);
+            fin;
+            avanza;
+        fin;
+
+        si junto-a-zumbador entonces inicio
+        	  coge-zumbador;
+            checa-paridad(0);
+        fin;
+
+        apagate;
+    termina-ejecucion
+finalizar-programa

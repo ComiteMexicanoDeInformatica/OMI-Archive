@@ -1,0 +1,115 @@
+class program {
+
+    void norte() {
+    	while(notFacingNorth){
+        	turnleft();
+        }
+    }
+
+    void este() {
+    	while(notFacingEast){
+        	turnleft();
+        }
+    }
+
+    void oeste() {
+    	while(notFacingWest){
+        	turnleft();
+        }
+    }
+
+    void sur() {
+    	while(notFacingSouth){
+        	turnleft();
+        }
+    }
+
+    void veAlInicio(){
+    	sur();
+        while(frontIsClear)
+        	move();
+        oeste();
+        while(frontIsClear)
+        	move();
+        norte();
+    }
+
+    void tomaMonton(n){
+    	if(nextToABeeper){
+        	pickbeeper();
+            tomaMonton(succ(n));
+            if(iszero(n)){
+            	putbeeper();
+                veAlInicio();
+            } else
+            	move();
+        } else {
+        	if(frontIsClear){
+            	move();
+            }
+            if(nextToABeeper){
+                tomaMonton(0);
+            } else {
+            	veAlInicio();
+            }
+        }
+    }
+
+    void checa(n){
+    	if(nextToABeeper && !iszero(n)){
+        	pickbeeper();
+            checa(pred(n));
+        } else {
+        	if(notNextToABeeper && iszero(n))
+            	putbeeper();
+        }
+    }
+
+    void recoge(n){
+    	if(nextToABeeper){
+        	pickbeeper();
+            recoge(n);
+            iterate(n){
+            	putbeeper();
+            }
+        } else {
+        	if(frontIsClear){
+            	move();
+                recoge(succ(n));
+            } else {
+            	veAlInicio();
+            }
+        }
+    }
+
+    void termina(n){
+    	veAlInicio();
+        checa(n);
+        while(frontIsClear){
+        	move();
+            checa(n);
+        }
+        veAlInicio();
+        recoge(1);
+    }
+
+
+    void tomaFila(n){
+    	este();
+        iterate(n){
+        	move();
+        }
+        norte();
+        if(nextToABeeper){
+            tomaMonton(0);
+            tomaFila(succ(n));
+        } else {
+        	termina(pred(n));
+        }
+    }
+
+    program () {
+        tomaFila(1);
+        turnoff();
+    }
+}

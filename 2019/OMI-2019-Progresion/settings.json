@@ -1,0 +1,29 @@
+{
+    "title": "Perfectamente Balanceado",
+    "source": "OMI 2019 (Erick Troyo)",
+
+    "limits": {
+        "TimeLimit": 5000,
+        "MemoryLimit": 536870912,
+        "InputLimit": 134217728,
+        "OutputLimit": 134217728,
+        "ExtraWallTime": 0,
+        "OverallWallTimeLimit": 60000
+    },
+
+    "validator": {
+        "name": "token-caseless",
+        "limits": {
+            "TimeLimit": 1000
+        }
+    },
+
+    "misc": {
+        "alias": "OMI-2019-Progresion",
+        "visibility": 0,
+        "languages": "all",
+        "email_clarifications": 0,
+        "admin-groups": ["comi-2019"],
+        "tags": ["OMI-2019"]
+    }
+}

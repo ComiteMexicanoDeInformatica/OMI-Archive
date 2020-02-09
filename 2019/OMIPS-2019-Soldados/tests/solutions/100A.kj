@@ -1,0 +1,59 @@
+class program {
+
+	void turn(a) {
+    	iterate(a) turnleft();
+    }
+    
+    void pasa(x) {
+    	if (nextToABeeper) {
+        	pickbeeper();
+            pasa(succ(x));
+        } else {
+        	iterate(x) putbeeper();
+            move();
+            iterate(x) if(nextToABeeper) pickbeeper();
+            iterate(x) putbeeper();
+        }
+    }
+    
+    void checa() {
+    	if (frontIsClear) {
+        	move();
+            turn(2);
+            pasa(0);
+            turn(2);
+        }
+    }
+    
+    void rellenaCasilla() {
+    	if (!nextToABeeper) {
+        	turn(1);
+            checa();
+            turn(1);
+            checa();
+            turn(2);  
+            putbeeper();
+        }
+    }
+    
+    void rellena() {
+    	rellenaCasilla();
+        while(frontIsClear) {
+        	move();
+            rellenaCasilla();
+        }
+        turn(2);
+        while(frontIsClear) move();
+        turn(1);
+        if (frontIsClear) {
+        	move();
+            turn(1);
+            rellena();
+        }
+    }
+
+    program () {
+        rellena();
+        turnoff();
+    }
+}

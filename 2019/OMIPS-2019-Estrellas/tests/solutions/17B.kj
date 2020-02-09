@@ -1,0 +1,73 @@
+class program {
+
+	void norte() {
+  	while (!facingNorth) turnleft();
+  }
+  void sur() {
+  	while (!facingSouth) turnleft();
+  }
+  void este() {
+  	while (!facingEast) turnleft();
+  }
+  void oeste() {
+  	while (!facingWest) turnleft();
+  }
+
+	void bucketSort(x) {
+    	if (nextToABeeper) {
+        	pickbeeper();
+            bucketSort(succ(x));
+        } else {
+        	iterate(2) {
+            	move();
+                while (nextToABeeper) pickbeeper();
+            }
+            sur();
+            iterate(2) move();
+            este();
+            if (frontIsClear) move();
+            if (nextToABeeper) {
+            	norte();
+                bucketSort(0);
+            }
+            oeste();
+            while (frontIsClear) move();
+            este();
+            iterate (pred(x)) move();
+            putbeeper();
+        }
+    }
+
+    void compress(x) {
+    	if (nextToABeeper) {
+        	pickbeeper();
+            compress(x);
+            iterate(3) {
+            	iterate(x) putbeeper();
+                move();
+            }
+            sur();
+            iterate(3) move();
+            este();
+            if (frontIsClear) move();
+            norte();
+        } else {
+        	if (frontIsClear) {
+            	move();
+                compress(pred(x));
+            } else {
+            	norte();
+            }
+        }
+    }
+
+    program () {
+    	if (!nextToABeeper) turnoff();
+        bucketSort(0);
+        este();
+        while (frontIsClear) move();
+        oeste();
+        compress(100);
+        turnoff();
+    }
+}

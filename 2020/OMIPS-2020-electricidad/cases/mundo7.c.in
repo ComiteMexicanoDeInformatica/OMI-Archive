@@ -1,0 +1,42 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="6" alto="5">
+			<monton x="2" y="1" zumbadores="891"></monton>
+			<monton x="3" y="1" zumbadores="403"></monton>
+			<monton x="4" y="1" zumbadores="882"></monton>
+			<monton x="5" y="1" zumbadores="454"></monton>
+			<monton x="6" y="1" zumbadores="304"></monton>
+			<monton x="1" y="2" zumbadores="518"></monton>
+			<monton x="2" y="2" zumbadores="13"></monton>
+			<monton x="3" y="2" zumbadores="623"></monton>
+			<monton x="4" y="2" zumbadores="699"></monton>
+			<monton x="5" y="2" zumbadores="607"></monton>
+			<monton x="6" y="2" zumbadores="61"></monton>
+			<monton x="1" y="3" zumbadores="607"></monton>
+			<monton x="2" y="3" zumbadores="682"></monton>
+			<monton x="3" y="3" zumbadores="61"></monton>
+			<monton x="4" y="3" zumbadores="514"></monton>
+			<monton x="5" y="3" zumbadores="86"></monton>
+			<monton x="6" y="3" zumbadores="547"></monton>
+			<monton x="1" y="4" zumbadores="718"></monton>
+			<monton x="2" y="4" zumbadores="249"></monton>
+			<monton x="3" y="4" zumbadores="657"></monton>
+			<monton x="4" y="4" zumbadores="717"></monton>
+			<monton x="5" y="4" zumbadores="180"></monton>
+			<monton x="6" y="4" zumbadores="557"></monton>
+			<monton x="1" y="5" zumbadores="45"></monton>
+			<monton x="2" y="5" zumbadores="698"></monton>
+			<monton x="3" y="5" zumbadores="526"></monton>
+			<monton x="4" y="5" zumbadores="783"></monton>
+			<monton x="5" y="5" zumbadores="834"></monton>
+			<monton x="6" y="5" zumbadores="255"></monton>
+			<posicionDump x="1" y="1"></posicionDump>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="1" yKarel="1" direccionKarel="NORTE" mochilaKarel="INFINITO">
+			<despliega tipo="MUNDO"></despliega>
+		</programa>
+	</programas>
+</ejecucion>

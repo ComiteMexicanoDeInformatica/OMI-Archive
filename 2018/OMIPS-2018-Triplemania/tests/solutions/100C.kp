@@ -1,0 +1,162 @@
+iniciar-programa
+
+	define-prototipo-instruccion encuentra-menor(n);
+    
+    define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+    	mientras no-orientado-al-oeste hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion recoge-todo como inicio
+    	mientras junto-a-zumbador hacer inicio
+        	coge-zumbador;
+        fin;
+    fin;
+    
+    define-nueva-instruccion avanza-pared como inicio
+    	mientras frente-libre hacer inicio
+        	avanza;
+        fin;
+    fin;
+    
+    define-nueva-instruccion avanza-zumbador como inicio
+    	mientras no-junto-a-zumbador y frente-libre hacer inicio
+        	avanza;
+        fin;
+    fin;
+    
+    define-nueva-instruccion limpia-fila como inicio
+    	si junto-a-zumbador entonces inicio
+        	este;
+            mientras frente-libre hacer inicio
+            	avanza;
+                recoge-todo;
+            fin;
+            oeste;
+            avanza-zumbador;
+            recoge-todo;
+        fin;
+    fin;
+    
+    define-nueva-instruccion borra-anterior como inicio
+    	sur;
+        si frente-libre entonces inicio
+        	deja-zumbador;
+            avanza;
+            mientras frente-libre hacer inicio
+            	limpia-fila;
+                sur;
+                avanza;
+            fin;
+            limpia-fila;
+            
+            norte;
+            avanza-zumbador;
+            coge-zumbador;
+        fin;
+        norte;
+    fin;
+    
+    define-nueva-instruccion compara(n) como inicio
+    	si junto-a-zumbador y no si-es-cero(n) entonces inicio
+        	coge-zumbador;
+            compara( precede(n) );
+        	deja-zumbador;
+        fin sino inicio
+        	si junto-a-zumbador entonces inicio
+            	recoge-todo;
+                sur;
+            fin sino inicio
+            	si no si-es-cero(n) entonces inicio;
+                    borra-anterior;
+                fin;
+            fin;
+        fin;
+    fin;
+    
+    define-nueva-instruccion cuenta(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            cuenta(sucede(n));
+        fin sino inicio
+        	repetir n veces inicio
+            	deja-zumbador;
+            fin;
+            avanza;
+            encuentra-menor(n)
+        fin;
+    fin;
+    
+    define-nueva-instruccion encuentra-menor(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	compara(n);
+            si orientado-al-sur entonces inicio        
+            	limpia-fila;
+                norte;
+                si frente-libre entonces inicio
+                	avanza;
+                    encuentra-menor(n);
+                fin;
+            fin sino inicio
+            	si frente-libre entonces inicio
+                	cuenta(0);
+                fin;
+            fin;
+        fin sino inicio
+        	si frente-libre entonces inicio
+            	avanza;
+                encuentra-menor(n);
+            fin;
+        fin;
+    fin;
+    
+    define-nueva-instruccion menor-lexicografico como inicio
+    	encuentra-menor(100);
+        sur;
+        avanza-zumbador;
+        si frente-libre entonces inicio
+        	avanza;
+            avanza-zumbador;
+            si no-junto-a-zumbador entonces inicio
+            	norte;
+                avanza-zumbador;
+                sur;
+            fin sino inicio
+            	avanza-pared;
+                este;
+                avanza;
+                norte;
+            fin;
+        fin;
+    fin;
+    
+    inicia-ejecucion
+        mientras orientado-al-norte hacer inicio
+        	menor-lexicografico;
+        fin;
+        
+        oeste;
+        avanza-pared;
+        
+        apagate;
+    termina-ejecucion
+finalizar-programa

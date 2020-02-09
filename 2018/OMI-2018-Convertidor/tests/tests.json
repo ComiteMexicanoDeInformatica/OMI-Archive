@@ -1,0 +1,29 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.cpp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/100B.cpp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/ParcialA.cpp",
+      "score": 50
+    },
+    {
+      "filename": "solutions/ParcialB.cpp",
+      "score": 50
+    },
+    {
+      "filename": "solutions/ParcialC.cpp",
+      "score": 5
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

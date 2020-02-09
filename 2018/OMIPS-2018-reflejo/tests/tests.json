@@ -1,0 +1,25 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "solutions/chafa.kj",
+      "verdict": "WA",
+      "score": 0
+    },
+    {
+      "filename": "solutions/chafa2.kj",
+      "verdict": "WA",
+      "score": 0
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

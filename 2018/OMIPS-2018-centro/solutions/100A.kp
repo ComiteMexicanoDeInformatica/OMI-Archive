@@ -1,0 +1,38 @@
+iniciar-programa
+	define-nueva-instruccion pared como inicio
+    	mientras frente-libre hacer avanza;
+    fin;
+    
+    define-nueva-instruccion regresa(n) como inicio
+    	si no si-es-cero(n) entonces inicio
+        	avanza;
+            regresa(precede(precede(n)));
+        fin;
+    fin;
+    
+    define-nueva-instruccion mitad(n) como inicio
+    	si frente-libre entonces inicio
+        	avanza;
+            mitad(sucede(n))
+        fin sino inicio
+        	gira-izquierda;
+            gira-izquierda;
+            regresa(n);
+        fin;
+    fin;
+    
+    inicia-ejecucion
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+        pared;
+        gira-izquierda;
+        pared;
+        gira-izquierda;        
+        mitad(0);
+        gira-izquierda;
+        gira-izquierda;
+        gira-izquierda;
+        mitad(0);
+        
+        apagate;
+    termina-ejecucion
+finalizar-programa

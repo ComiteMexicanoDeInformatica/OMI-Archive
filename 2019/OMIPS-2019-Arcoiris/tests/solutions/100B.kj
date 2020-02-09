@@ -1,0 +1,63 @@
+class program {
+
+	void gira(a) {
+    	iterate(a) turnleft();
+    }
+
+	void nextColor() {
+    	gira(3);
+        move();
+        gira(1);
+    }
+
+	void pico(h) {
+    	iterate(pred(h)) {
+        	putbeeper();
+            move();
+            gira(3);
+            move();
+            gira(1);
+        }
+        putbeeper();
+        gira(2);
+        iterate(pred(h)) {
+        	move();
+            gira(1);
+            move();
+            gira(3);
+            putbeeper();
+        }
+        gira(3);
+        iterate(pred(h)) iterate(2) move();
+        gira(3);
+    }
+
+	void arcoiris(x) {
+    	if (frontIsClear) {
+        	move();
+            arcoiris(succ(x));
+        } else {
+        	gira(2);
+            iterate(pred(x)) move();
+            gira(2);
+        	iterate(7) pico(x);
+            nextColor();
+            iterate(6) pico(pred(x));
+            nextColor();
+            iterate(5) pico(pred(pred(x)));
+            nextColor();
+            iterate(4) pico(pred(pred(pred(x))));
+            nextColor();
+            iterate(3) pico(pred(pred(pred(pred(x)))));
+            nextColor();
+            iterate(2) pico(pred(pred(pred(pred(pred(x))))));
+            nextColor();
+            iterate(1) pico(pred(pred(pred(pred(pred(pred(x)))))));
+        }
+    }
+
+    program () {
+        arcoiris(1);
+        turnoff();
+    }
+}

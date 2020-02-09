@@ -1,0 +1,140 @@
+class program {
+define ordenar(n) {
+    if(!iszero(n)) {
+        iterate(pred(n))
+            compararColumna();
+        backturn();
+        while(frontIsClear)
+            move();
+        backturn();
+        ordenar(pred(n));
+    }
+}
+
+define medir(n) {
+    if(nextToABeeper && frontIsClear) {
+        move();
+        medir(succ(n));
+    }
+    else {
+        if(frontIsBlocked) {
+            backturn();
+            while(frontIsClear)
+                move();
+            backturn();
+            ordenar(succ(n));
+        }
+        else {
+            backturn();
+            while(frontIsClear)
+                move();
+            backturn();
+            ordenar(n);
+        }
+    }
+}
+
+define intercambia() {
+    if(nextToABeeper) {
+        pickbeeper();
+        intercambia();
+        putbeeper();
+    }
+    else 
+        move();
+}
+
+define intercambiaNumeros() {
+    if(nextToABeeper) {
+        pickbeeper();
+        intercambiaNumeros();
+        putbeeper();
+    }
+    else {
+        move();
+        backturn();
+        intercambia();
+        backturn();
+        move();
+    }
+}
+
+define turnright() {
+    turnleft();
+    turnleft();
+    turnleft();
+}
+
+define backturn() {
+    turnleft();
+    turnleft();
+}
+
+define comparar(n) {
+    if(!iszero(n) && nextToABeeper) {
+        pickbeeper();
+        comparar(pred(n));
+        putbeeper();
+    }
+    else if(iszero(n) && nextToABeeper)     // Numero derecho es mayor.
+        turnright();
+    else if(!iszero(n) && notNextToABeeper) // Numero izquierdo es mayor.
+        backturn();
+    else                                    // Números iguales.
+        turnleft();
+}
+
+define contar(n) {
+    if(nextToABeeper) {
+        pickbeeper();
+        contar(succ(n));
+    }
+    else {
+        iterate(n)
+            putbeeper();
+        move();
+        comparar(n);
+    }
+}
+
+define compararColumna() {
+    iterate(3) {
+        if(facingEast)
+            contar(0);
+        if(facingNorth) {
+            move();
+            turnleft();
+            move();
+            backturn();
+        }
+    }
+    if(facingWest) { // Columna izquierda es mayor
+        turnleft();
+        while(frontIsClear)
+            move();
+        turnright();
+        iterate(3) {
+            intercambiaNumeros();
+            backturn();
+            move();
+            turnleft();
+            move();
+            turnleft();
+        }
+        turnleft();
+        while(frontIsClear)
+            move();
+    }
+    else { // Columna derecha es mayor
+        while(frontIsClear)
+            move();        
+    }
+    turnleft();
+}
+
+    program () {
+        turnright();
+        medir(0);
+        turnoff();
+    }
+}

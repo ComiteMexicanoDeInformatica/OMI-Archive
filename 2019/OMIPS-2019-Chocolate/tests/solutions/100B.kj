@@ -1,0 +1,46 @@
+class program {
+
+	void avanzaPared(){
+    	while(frontIsClear){
+        	move();
+        }
+    }
+
+    void gira(n){
+    	iterate(n){
+        	turnleft();
+        }
+    }
+
+    program () {
+        while(nextToABeeper){
+        	pickbeeper();
+            if(frontIsClear){
+            	move();
+            }
+        }
+
+        gira(2);
+        avanzaPared();
+        gira(3);
+        avanzaPared();
+        gira(2);
+
+        while(anyBeepersInBeeperBag){
+        	while(frontIsClear){
+            	putbeeper();
+                move();
+            }
+            putbeeper();
+            if(leftIsClear) {
+              gira(1);
+              move();
+              gira(1);
+              avanzaPared();
+              gira(2);
+            }
+        }
+
+        turnoff();
+    }
+}

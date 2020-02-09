@@ -1,0 +1,28 @@
+iniciar-programa
+
+    define-nueva-instruccion quita como inicio
+        mientras junto-a-zumbador hacer inicio
+            coge-zumbador;
+        fin;
+        avanza;
+        repetir 3 veces
+            gira-izquierda;            
+    fin;
+
+    define-nueva-instruccion busca como inicio
+        mientras algun-zumbador-en-la-mochila hacer inicio
+            si junto-a-zumbador entonces inicio
+                deja-zumbador;
+            fin;
+            si algun-zumbador-en-la-mochila entonces
+                avanza;
+        fin;        
+    fin;
+
+    inicia-ejecucion
+        quita;
+        busca;
+        apagate;
+    termina-ejecucion
+    
+finalizar-programa

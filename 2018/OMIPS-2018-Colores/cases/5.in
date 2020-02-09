@@ -1,0 +1,45 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="8" alto="8">
+			<monton x="2" y="1" zumbadores="21"></monton>
+			<monton x="4" y="1" zumbadores="23"></monton>
+			<monton x="6" y="1" zumbadores="51"></monton>
+			<monton x="8" y="1" zumbadores="9"></monton>
+			<monton x="1" y="2" zumbadores="42"></monton>
+			<monton x="3" y="2" zumbadores="23"></monton>
+			<monton x="5" y="2" zumbadores="42"></monton>
+			<monton x="7" y="2" zumbadores="56"></monton>
+			<monton x="2" y="3" zumbadores="24"></monton>
+			<monton x="4" y="3" zumbadores="18"></monton>
+			<monton x="6" y="3" zumbadores="50"></monton>
+			<monton x="8" y="3" zumbadores="18"></monton>
+			<monton x="1" y="4" zumbadores="46"></monton>
+			<monton x="3" y="4" zumbadores="55"></monton>
+			<monton x="5" y="4" zumbadores="47"></monton>
+			<monton x="7" y="4" zumbadores="45"></monton>
+			<monton x="2" y="5" zumbadores="36"></monton>
+			<monton x="4" y="5" zumbadores="7"></monton>
+			<monton x="6" y="5" zumbadores="18"></monton>
+			<monton x="8" y="5" zumbadores="53"></monton>
+			<monton x="1" y="6" zumbadores="35"></monton>
+			<monton x="3" y="6" zumbadores="46"></monton>
+			<monton x="5" y="6" zumbadores="24"></monton>
+			<monton x="7" y="6" zumbadores="39"></monton>
+			<monton x="2" y="7" zumbadores="56"></monton>
+			<monton x="4" y="7" zumbadores="46"></monton>
+			<monton x="6" y="7" zumbadores="30"></monton>
+			<monton x="8" y="7" zumbadores="50"></monton>
+			<monton x="1" y="8" zumbadores="12"></monton>
+			<monton x="3" y="8" zumbadores="38"></monton>
+			<monton x="5" y="8" zumbadores="58"></monton>
+			<monton x="7" y="8" zumbadores="37"></monton>
+			<posicionDump x="1" y="1"></posicionDump>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="1" yKarel="1" direccionKarel="NORTE" mochilaKarel="0">
+			<despliega tipo="MUNDO"></despliega>
+		</programa>
+	</programas>
+</ejecucion>

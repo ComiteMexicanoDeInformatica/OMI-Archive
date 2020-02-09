@@ -1,0 +1,27 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "solutions/chafa1.kj",
+      "verdict": "PA"
+    },
+    {
+      "filename": "solutions/ParcialA - casi exhaustiva.kj",
+      "verdict": "TLE"
+    },
+    {
+      "filename": "solutions/ParcialB.kj",
+      "verdict": "PA"
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

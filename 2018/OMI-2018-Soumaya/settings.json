@@ -1,0 +1,28 @@
+{
+    "title": "Soumaya",
+    "source": "OMI 2018 (José Soto)",
+
+    "limits": {
+        "TimeLimit": 1000,
+        "MemoryLimit": 134217728,
+        "OutputLimit": 150000000,
+        "ExtraWallTime": 0,
+        "OverallWallTimeLimit": 60000
+    },
+
+    "validator": {
+        "name": "custom",
+        "limits": {
+            "TimeLimit": 1000
+        }
+    },
+
+    "misc": {
+        "alias": "OMI2018-Soumaya",
+        "visibility": 0,
+        "languages": "all",
+        "email_clarifications": 0,
+        "admin-groups": ["OMI-2018"],
+        "tags": ["omi2018"]
+    }
+}

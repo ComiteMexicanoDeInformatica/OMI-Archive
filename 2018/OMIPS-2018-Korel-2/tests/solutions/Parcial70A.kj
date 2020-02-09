@@ -1,0 +1,46 @@
+class program {
+    void turn(y){ iterate (y) turnleft(); }
+    
+    void busq(x){
+        if(!nextToABeeper()){
+            iterate (2) putbeeper();
+            iterate (4){
+                if(frontIsClear()){
+                    move();
+                    if(iszero(x)){
+                        busq(1);
+                    }else{
+                        busq(0);
+                    }
+                    turn(2);
+                    move();
+                    turn(2);
+                    
+                }
+                turn(1);
+            }
+        }
+        else{
+            pickbeeper();
+            if(!nextToABeeper()){
+                if(iszero(x)){
+                    while(!facingNorth()) turnleft();
+                    turnoff();
+                }else{
+                    while(!facingSouth()) turnleft();
+					while(nextToABeeper()) pickbeeper();
+                    turnoff();
+                }
+                putbeeper();
+            }else{
+                putbeeper();
+            }
+        }
+    }
+    program () {
+        
+        busq(0);
+        
+        turnoff();
+    }
+}

@@ -1,0 +1,80 @@
+class program {
+	void turn(x) {
+    	iterate(x) turnleft();
+    }
+
+    void coloreaArriba(x) {
+    	if(iszero(x)) coloreaAbajo(0);
+        if(nextToABeeper) return();
+        iterate(2) putbeeper();
+
+        iterate(4) {
+        	if (frontIsClear) {
+            	move();
+                if(facingNorth) {
+                	coloreaArriba(succ(x));
+                } else if (facingSouth) {
+                	coloreaArriba(pred(x));
+                } else {
+                	coloreaArriba(x);
+                }
+                turn(2);
+                move();
+                turn(2);
+            }
+            turnleft();
+        }
+    }
+
+
+    void coloreaAbajo(x) {
+    	if (nextToABeeper) return();
+        iterate(3) putbeeper();
+
+        iterate(4) {
+        	if (frontIsClear) {
+            	move();
+                if (facingNorth) {
+                	if(iszero(x)) {
+                    	coloreaArriba(1);
+                    } else {
+                    	coloreaAbajo(pred(x));
+                    }
+                } else if(facingSouth) {
+                	coloreaAbajo(succ(x));
+                } else {
+                	coloreaAbajo(x);
+                }
+                turn(2);
+                move();
+                turn(2);
+            }
+            turnleft();
+        }
+    }
+
+    void pinta() {
+    	if(nextToABeeper) {
+        	pickbeeper();
+            if (nextToABeeper) {
+            	pickbeeper();
+                iterate(4) {
+                	if (frontIsClear) {
+                    	move();
+                        pinta();
+                        turn(2);
+                        move();
+                        turn(2);
+                    }
+                    turnleft();
+                }
+            } else putbeeper();
+        }
+    }
+
+    program () {
+        coloreaAbajo(0);
+        pinta();
+        turnoff();
+    }
+}

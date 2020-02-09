@@ -1,0 +1,34 @@
+iniciar-programa
+	define-nueva-instrucción gira(x) como inicio
+    	repetir x veces gira-izquierda;
+    fin;
+
+	define-nueva-instrucción llenaColumna(x) como inicio
+    	si no-junto-a-zumbador entonces inicio
+        	repetir x veces deja-zumbador;
+        fin;
+
+        si frente-libre entonces inicio
+            avanza;
+            llenaColumna(sucede(x));
+        fin;
+    fin;
+
+    define-nueva-instrucción llenaFila(x) como inicio
+        llenaColumna(x);
+        gira(1);
+        si frente-libre entonces inicio
+            avanza;
+            gira-izquierda;
+            mientras frente-libre hacer avanza;
+            gira(2);
+            llenaFila(sucede(x));
+        fin;
+    fin;
+
+    inicia-ejecución
+        gira(3);
+        llenaFila(1);
+        apagate;
+    termina-ejecucion
+finalizar-programa

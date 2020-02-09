@@ -1,0 +1,38 @@
+iniciar-programa
+
+	define-nueva-instruccion gira(n) como inicio
+    	repetir n veces
+        	gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion busca(x) como inicio
+    	si junto-a-zumbador entonces inicio
+        	si si-es-cero(x) entonces inicio
+            	apagate;
+            fin sino inicio
+            	avanza;
+                busca(precede(x));
+            fin;
+        fin sino inicio
+        	avanza;
+            busca(x);
+        fin;
+    fin;
+
+	define-nueva-instruccion cuenta(x) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            cuenta(sucede(x));
+        fin sino inicio
+        	avanza;
+            gira(3);
+            busca(x);
+        fin;
+    fin;
+
+    inicia-ejecucion
+    	coge-zumbador;
+        cuenta(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa

@@ -1,0 +1,243 @@
+iniciar-programa
+    
+    define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+    	mientras no-orientado-al-oeste hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion deja(n) como inicio
+    	repetir n veces inicio
+        	deja-zumbador
+        fin;
+    fin;
+    
+    define-nueva-instruccion gira(n) como inicio
+    	repetir n veces inicio
+        	gira-izquierda;
+        fin;
+    fin;
+    
+    define-nueva-instruccion orientacion como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            si no-junto-a-zumbador entonces inicio
+            	sur;
+                deja-zumbador;
+            fin sino inicio;
+              coge-zumbador;
+              orientacion;
+              deja-zumbador;
+              deja-zumbador;
+            fin;
+        fin;
+    fin;
+    
+    define-nueva-instruccion solucion(n) como inicio
+    	si junto-a-zumbador y no si-es-cero(n) entonces inicio
+        	coge-zumbador;
+            solucion( precede(n) );
+            deja-zumbador;
+        fin sino inicio
+        	repetir n veces inicio
+            	deja-zumbador;
+            fin;
+        fin;
+    fin;
+    
+    define-nueva-instruccion checa(n) como inicio
+    	si junto-a-zumbador y no si-es-cero(n) entonces inicio
+        	coge-zumbador;
+            checa( precede(n) );
+        fin sino inicio
+        	si no si-es-cero(n) entonces inicio
+            	deja(n);
+            fin;
+        fin;
+    fin;
+    
+    define-nueva-instruccion recoge-todo como inicio
+    	mientras junto-a-zumbador hacer inicio
+        	coge-zumbador;
+        fin;
+    fin;
+    
+    define-nueva-instruccion quita(n) como inicio
+    	repetir n veces inicio
+        	coge-zumbador
+        fin;
+    fin;
+    
+    define-nueva-instruccion final(n) como inicio
+    	norte;
+        deja(n);
+        orientacion;
+        
+        si orientado-al-norte entonces inicio
+        	quita(n);
+            solucion(n);
+        fin sino inicio
+        	recoge-todo;
+        fin;
+    fin;
+    
+    define-nueva-instruccion cuenta(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            cuenta( sucede(n) );
+        fin sino inicio
+        	avanza;
+            final(n);
+        fin;
+    fin;
+    
+    define-nueva-instruccion termina(n) como inicio
+    	repetir n veces inicio
+        	deja-zumbador;
+        fin;
+        
+        checa(100);
+        
+        gira(2);
+        avanza;
+        coge-zumbador;
+        coge-zumbador;
+        gira(2);
+        
+        si orientado-al-este entonces inicio
+        	deja-zumbador;
+        fin;
+        si orientado-al-oeste entonces inicio
+        	coge-zumbador;
+        fin;
+        
+        checa(100);
+        cuenta(0);
+    fin;
+    
+    define-nueva-instruccion mueveZumbadores(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            mueveZumbadores( sucede(n) );
+        fin sino inicio
+        	deja(n);
+            gira(2);
+            avanza;
+            deja(n);
+        fin;
+    fin;
+    
+    define-nueva-instruccion copia(n) como inicio
+    	gira(2);
+        avanza;
+        mueveZumbadores(n);
+    fin;
+    
+    define-nueva-instruccion busqueda(n) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            si no-junto-a-zumbador entonces inicio
+                termina(n);
+                apagate;
+            fin sino inicio
+            	deja-zumbador;
+            fin;
+        fin;
+        si no junto-a-zumbador entonces inicio
+        	copia(0);
+            si orientado-al-este entonces inicio
+            	deja-zumbador;
+            fin; 
+            si orientado-al-oeste entonces inicio
+            	coge-zumbador;
+            fin;
+            
+            norte;
+            si frente-libre entonces inicio
+                avanza;
+                busqueda(sucede(n));
+                sur;
+                avanza;
+            fin;
+            
+            sur;
+            si frente-libre entonces inicio
+            	avanza;
+                busqueda(precede(n));
+                norte;
+                avanza;
+            fin;
+            
+            este;
+            si frente-libre entonces inicio
+            	avanza;
+                busqueda(n);
+                oeste;
+                avanza;
+            fin;
+            
+            oeste;
+            si frente-libre entonces inicio
+            	avanza;
+                busqueda(n);
+                este;
+                avanza;
+            fin;
+        fin;
+    fin;
+    
+    inicia-ejecucion
+        deja(102);
+            
+            norte;
+            si frente-libre entonces inicio
+                avanza;
+                busqueda(101);
+                sur;
+                avanza;
+            fin;
+            
+            sur;
+            si frente-libre entonces inicio
+            	avanza;
+                busqueda(99);
+                norte;
+                avanza;
+            fin;
+            
+            este;
+            si frente-libre entonces inicio
+            	avanza;
+                busqueda(100);
+                oeste;
+                avanza;
+            fin;
+            
+            oeste;
+            si frente-libre entonces inicio
+            	avanza;
+                busqueda(100);
+                este;
+                avanza;
+            fin;
+        apagate;
+    termina-ejecucion
+finalizar-programa

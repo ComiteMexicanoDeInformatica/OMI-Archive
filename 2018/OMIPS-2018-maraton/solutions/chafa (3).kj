@@ -1,0 +1,15 @@
+class program {
+    program () {
+    turnleft();
+    turnleft();
+    turnleft();
+    while(frontIsClear)
+    move();
+    turnleft();
+    turnleft();
+    move();
+    
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

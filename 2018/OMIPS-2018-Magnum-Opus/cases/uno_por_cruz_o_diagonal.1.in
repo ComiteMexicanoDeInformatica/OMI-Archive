@@ -1,0 +1,32 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000" />
+	<mundos>
+		<mundo nombre="mundo_0" ancho="41" alto="41">
+			<monton x="2" y="21" zumbadores="54"></monton>
+			<monton x="6" y="36" zumbadores="10"></monton>
+			<monton x="7" y="7" zumbadores="66"></monton>
+			<monton x="11" y="11" zumbadores="66"></monton>
+			<monton x="15" y="15" zumbadores="90"></monton>
+			<monton x="17" y="17" zumbadores="47"></monton>
+			<monton x="18" y="18" zumbadores="27"></monton>
+			<monton x="21" y="14" zumbadores="4"></monton>
+			<monton x="21" y="38" zumbadores="30"></monton>
+			<monton x="22" y="20" zumbadores="34"></monton>
+			<monton x="23" y="23" zumbadores="20"></monton>
+			<monton x="26" y="26" zumbadores="53"></monton>
+			<monton x="29" y="13" zumbadores="96"></monton>
+			<monton x="30" y="30" zumbadores="69"></monton>
+			<monton x="32" y="10" zumbadores="23"></monton>
+			<monton x="33" y="9" zumbadores="4"></monton>
+			<monton x="34" y="21" zumbadores="19"></monton>
+			<monton x="37" y="37" zumbadores="11"></monton>
+			<monton x="39" y="21" zumbadores="21"></monton>
+			<monton x="41" y="1" zumbadores="66"></monton>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="21" yKarel="21" direccionKarel="NORTE" mochilaKarel="INFINITO" >
+			<despliega tipo="UNIVERSO"></despliega>
+		</programa>
+	</programas>
+</ejecucion>

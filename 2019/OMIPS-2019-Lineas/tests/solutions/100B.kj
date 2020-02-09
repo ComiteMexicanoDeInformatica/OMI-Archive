@@ -1,0 +1,109 @@
+class program {
+
+    void east() {
+    	while(!facingEast) turnleft();
+    }
+
+    void west() {
+    	while(!facingWest) turnleft();
+    }
+
+    void checkParity() {
+    	if (nextToABeeper) {
+        	pickbeeper();
+            if (nextToABeeper) {
+            	pickbeeper();
+                checkParity();
+                putbeeper();
+            } else {
+            	east();
+            }
+            putbeeper();
+        } else {
+        	west();
+        }
+    }
+
+    void extendOddLine(x) {
+    	if(nextToABeeper) {
+        	pickbeeper();
+            extendOddLine(succ(x));
+        } else {
+        	oddLine(x);
+        }
+    }
+
+    void oddLine(x) {
+    	if (nextToABeeper) {
+        	checkParity();
+            if (facingEast) {
+            	// Impar
+                iterate(x) if(nextToABeeper) pickbeeper();
+                extendOddLine(x);
+            } else {
+            	east();
+                if(frontIsClear) {
+                	move();
+                    if(!iszero(x)) oddLine(pred(x));
+                    else oddLine(x);
+                }
+            }
+        } else {
+        	if (frontIsClear) {
+            	if(!iszero(x)) {
+                    putbeeper();
+                    move();
+                    oddLine(pred(x));
+                } else {
+                    move();
+                    oddLine(x);
+                }
+            } else if(!iszero(x)) putbeeper();
+        }
+    }
+
+    void extendEvenLine(x) {
+    	if(nextToABeeper) {
+        	pickbeeper();
+            extendEvenLine(succ(x));
+        } else {
+        	evenLine(x);
+        }
+    }
+
+    void evenLine(x) {
+    	if (nextToABeeper) {
+        	checkParity();
+            if (facingWest) {
+            	// Par
+                iterate(x) if(nextToABeeper) pickbeeper();
+                extendEvenLine(x);
+            } else {
+            	west();
+                if(frontIsClear) {
+                	move();
+                    if(!iszero(x)) evenLine(pred(x));
+                    else evenLine(x);
+                }
+            }
+        } else {
+            if (frontIsClear) {
+            	if(!iszero(x)) {
+                    putbeeper();
+                    move();
+                    evenLine(pred(x));
+                } else {
+                    move();
+                    evenLine(x);
+                }
+            } else if(!iszero(x)) putbeeper();
+        }
+    }
+
+    program () {
+        oddLine(0);
+        west();
+        evenLine(0);
+        turnoff();
+    }
+}

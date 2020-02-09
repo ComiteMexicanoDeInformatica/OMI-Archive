@@ -1,0 +1,86 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+        mientras no-orientado-al-norte hacer
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+        mientras no-orientado-al-este hacer
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+        mientras no-orientado-al-sur hacer
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+        mientras no-orientado-al-oeste hacer
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion corre como inicio
+        mientras frente-libre hacer
+            avanza;
+    fin;
+    
+    define-nueva-instruccion siguiente como inicio
+        si frente-libre entonces inicio
+            avanza;
+        fin sino inicio
+            sur;
+            corre;
+            este;
+            si frente-libre entonces inicio
+                avanza;
+                norte;
+            fin sino inicio
+                oeste;
+            fin;
+        fin;
+    fin;
+    
+    define-nueva-instruccion busca(x) como inicio
+        mientras orientado-al-norte hacer inicio
+            si junto-a-zumbador entonces inicio
+                repetir x veces
+                    si junto-a-zumbador entonces inicio
+                        coge-zumbador;
+                    fin sino inicio
+                        sur;
+                    fin;
+                si orientado-al-sur entonces inicio
+                    norte;
+                fin sino inicio
+                    si no-junto-a-zumbador entonces inicio
+                        sur;
+                    fin;
+                fin;
+            fin;            
+            si orientado-al-norte entonces
+                siguiente;
+        fin;
+        si orientado-al-sur entonces inicio
+            norte;
+        fin sino inicio
+            oeste;
+            corre;
+            sur;
+        fin;
+    fin;
+
+    define-nueva-instruccion quita(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            quita(sucede(x));
+        fin sino inicio
+            busca(x);
+        fin;
+    fin;
+
+    inicia-ejecucion
+        quita(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa

@@ -1,0 +1,130 @@
+{
+    "title": "Pegadito",
+    "source": "OMIPS 2018 (Jorge Fernández)",
+
+    "limits": {
+        "TimeLimit": 4000,
+        "MemoryLimit": 131858432,
+        "OutputLimit": 16384,
+        "ExtraWallTime": 0,
+        "OverallWallTimeLimit": 60000
+    },
+
+    "validator": {
+        "name": "custom",
+        "limits": {
+            "TimeLimit": 1000
+        }
+    },
+
+    "cases": [
+        {
+            "name": "0",
+            "cases": [
+                {
+                    "name": "0",
+                    "weight": 8
+                }
+            ]
+        },
+        {
+            "name": "c1",
+            "cases": [
+                {
+                    "name": "c1",
+                    "weight": 2
+                }
+            ]
+        },
+        {
+            "name": "c2",
+            "cases": [
+                {
+                    "name": "c2",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c3",
+            "cases": [
+                {
+                    "name": "c3",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c4",
+            "cases": [
+                {
+                    "name": "c4",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c5",
+            "cases": [
+                {
+                    "name": "c5",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c6",
+            "cases": [
+                {
+                    "name": "c6",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c7",
+            "cases": [
+                {
+                    "name": "c7",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c8",
+            "cases": [
+                {
+                    "name": "c8",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c9",
+            "cases": [
+                {
+                    "name": "c9",
+                    "weight": 10
+                }
+            ]
+        },
+        {
+            "name": "c10",
+            "cases": [
+                {
+                    "name": "c10",
+                    "weight": 10
+                }
+            ]
+        }
+    ],
+
+    "misc": {
+        "alias": "OMIPS-2018-Pegadito",
+        "visibility": 1,
+        "languages": "karel",
+        "email_clarifications": 0,
+        "admin-groups": ["OMI-2018"],
+        "tags": ["omips2018"]
+    }
+}

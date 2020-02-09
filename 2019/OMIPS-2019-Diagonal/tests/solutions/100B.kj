@@ -1,0 +1,103 @@
+class program {
+	void home()
+    {
+    while(notFacingEast)
+    turnleft();
+    while(frontIsClear)
+    move();
+    while(notFacingSouth)
+    turnleft();
+    while(frontIsClear)
+    move();
+    turnleft();
+    turnleft();
+    
+    }
+  	void go(x)
+    {	
+    	iterate(x)
+        move();
+        ga(x);
+        if(facingWest || facingEast)
+        {
+        turnleft();
+        turnleft();
+        turnleft();
+        }
+        if(notNextToABeeper)
+        {
+        turnleft();
+        turnleft();
+        while(frontIsClear)
+        move();
+        turnleft();
+        turnleft();
+        iterate(x)
+        move();
+        turnleft();
+        turnleft();
+        ga(x);
+        }
+        turnleft();
+        turnleft();
+        pickbeeper();
+        carrythis(0);
+        while(notFacingSouth)
+        turnleft();
+        while(frontIsClear)
+        move();
+        turnleft();
+        turnleft();
+        turnleft();
+        if(frontIsClear)
+        {
+        move();
+        turnleft();
+        turnleft();
+        turnleft();
+        go(succ(x));
+        }
+    }
+    void carrythis(z)
+    {
+    	if(nextToABeeper)
+        {
+        pickbeeper();
+        carrythis(succ(z));
+        }
+        else
+        {
+        iterate(z)
+        move();
+        iterate(z)
+        putbeeper();
+        
+        }
+    }
+    void ga(y)
+    {
+    	if(!nextToABeeper)
+        {
+        if(frontIsClear)
+        {
+        	move();
+            ga(y);
+            if(facingSouth || facingNorth)
+            putbeeper();
+        }
+        else
+        {
+        turnleft();
+        }
+        
+        
+        }
+        
+    }
+    program () {
+    home();
+    go(0);
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

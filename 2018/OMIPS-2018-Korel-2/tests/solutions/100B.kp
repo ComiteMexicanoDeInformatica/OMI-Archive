@@ -1,0 +1,736 @@
+iniciar-programa
+
+    define-nueva-instruccion norte como inicio
+        mientras no-orientado-al-norte hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+        mientras no-orientado-al-este hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+        mientras no-orientado-al-sur hacer 
+            gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+        mientras no-orientado-al-oeste hacer 
+            gira-izquierda;
+    fin;
+
+    define-nueva-instruccion limpia como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    repetir 2 veces deja-zumbador;
+                fin sino inicio
+                    norte;
+                    si frente-libre entonces inicio
+                        avanza;
+                        limpia;
+                        sur;
+                        avanza;
+                    fin;
+                    este;
+                    si frente-libre entonces inicio
+                        avanza;
+                        limpia;
+                        oeste;
+                        avanza;                                        
+                    fin;
+                    sur;
+                    si frente-libre entonces inicio
+                        avanza;
+                        limpia;
+                        norte;
+                        avanza;                    
+                    fin;
+                    oeste;
+                    si frente-libre entonces inicio
+                        avanza;
+                        limpia;
+                        este;
+                        avanza;
+                    fin;
+                fin;
+            fin sino inicio
+                deja-zumbador;
+            fin;
+        fin;
+    fin;
+
+    define-prototipo-instruccion paridad(x) ;
+    
+    define-nueva-instruccion mueve-paridad(x) como inicio
+        si si-es-cero(x) entonces inicio
+            paridad(1);
+        fin sino inicio
+            paridad(0);
+        fin;
+    fin;
+
+    define-nueva-instruccion paridad(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                deja-zumbador;
+            fin sino inicio
+                si no si-es-cero(x) entonces inicio
+                    sur;
+                    apagate;
+                fin;
+                deja-zumbador;
+            fin;
+        fin sino inicio
+        
+            deja-zumbador;
+            deja-zumbador;
+        
+            norte;
+            si frente-libre entonces inicio
+                avanza;
+                mueve-paridad(x);
+                sur;
+                avanza;
+            fin;
+            
+            este;
+            si frente-libre entonces inicio
+                avanza;
+                mueve-paridad(x);
+                oeste;
+                avanza;
+            fin;
+            
+            sur;
+            si frente-libre entonces inicio
+                avanza;
+                mueve-paridad(x);
+                norte;
+                avanza;
+            fin;
+            
+            oeste;
+            si frente-libre entonces inicio
+                avanza;
+                mueve-paridad(x);
+                este;
+                avanza;
+            fin;            
+        fin;
+    fin;       
+    
+    define-prototipo-instruccion columnas(x);
+    
+    define-nueva-instruccion mueve-columnas(x) como inicio
+        norte;
+                si frente-libre entonces inicio
+                avanza;
+                columnas(x);
+                sur;
+                avanza;
+            fin;
+            
+            este;
+            si frente-libre entonces inicio
+                avanza;
+                columnas(sucede(x));
+                oeste;
+                avanza;
+            fin;
+            
+            sur;
+            si frente-libre entonces inicio
+                avanza;
+                columnas(x);
+                norte;
+                avanza;
+            fin;
+            
+            oeste;
+            si frente-libre entonces inicio
+                avanza;
+                columnas(precede(x));
+                este;
+                avanza;
+            fin;       
+    fin;
+    
+    define-nueva-instruccion deja(x) como inicio
+        repetir x veces deja-zumbador;         
+        repetir 3 veces deja-zumbador;        
+    fin;
+    
+    define-nueva-instruccion positivo2(x) como inicio
+                si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(99);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(98);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(97);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(96);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(95);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(94);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(93);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(92);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(91);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(90);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(89);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(88);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(87);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(86);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(85);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(84);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(83);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(82);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(81);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(80);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(79);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(78);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(77);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(76);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(75);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(74);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(73);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(72);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(71);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(70);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(69);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(68);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(67);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(66);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(65);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(64);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(63);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(62);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(61);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(60);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(59);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(58);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(57);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(56);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(55);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(54);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(53);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(52);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(51);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(50);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(49);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(48);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(47);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(46);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(45);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(44);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(43);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(42);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(41);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(40);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(39);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(38);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(37);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(36);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(35);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))) entonces inicio
+            deja(34);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))) entonces inicio
+            deja(33);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))) entonces inicio
+            deja(32);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))) entonces inicio
+            deja(31);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))) entonces inicio
+            deja(30);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))) entonces inicio
+            deja(29);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))) entonces inicio
+            deja(28);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))) entonces inicio
+            deja(27);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))) entonces inicio
+            deja(26);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))) entonces inicio
+            deja(25);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))) entonces inicio
+            deja(24);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))) entonces inicio
+            deja(23);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))) entonces inicio
+            deja(22);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))) entonces inicio
+            deja(21);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))) entonces inicio
+            deja(20);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))) entonces inicio
+            deja(19);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))) entonces inicio
+            deja(18);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))) entonces inicio
+            deja(17);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))) entonces inicio
+            deja(16);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))) entonces inicio
+            deja(15);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))) entonces inicio
+            deja(14);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))) entonces inicio
+            deja(13);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))) entonces inicio
+            deja(12);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))) entonces inicio
+            deja(11);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))) entonces inicio
+            deja(10);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))) entonces inicio
+            deja(9);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))) entonces inicio
+            deja(8);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))) entonces inicio
+            deja(7);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(x))))))) entonces inicio
+            deja(6);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(x)))))) entonces inicio
+            deja(5);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(x))))) entonces inicio
+            deja(4);
+        fin sino si si-es-cero(sucede(sucede(sucede(x)))) entonces inicio
+            deja(3);
+        fin sino si si-es-cero(sucede(sucede(x))) entonces inicio
+            deja(2);
+        fin sino si si-es-cero(sucede(x)) entonces inicio
+            deja(1);
+        fin sino inicio
+            deja(x);
+        fin;
+    fin;
+    
+    define-nueva-instruccion columnas(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                deja-zumbador;
+            fin sino inicio
+                positivo2(x);
+            fin;
+        fin sino inicio
+        
+            deja-zumbador;
+            deja-zumbador;                       
+        
+            mueve-columnas(x);
+        fin;
+    fin;
+    
+    define-prototipo-instruccion regresa;
+    
+    define-nueva-instruccion mueve-regresa como inicio
+        norte;
+        si frente-libre entonces inicio
+            avanza;
+            regresa;
+            sur;
+            avanza;
+        fin;
+        
+        este;
+        si frente-libre entonces inicio
+            avanza;
+            regresa;
+            oeste;
+            avanza;
+        fin;
+        
+        sur;
+        si frente-libre entonces inicio
+            avanza;
+            regresa;
+            norte;
+            avanza;
+        fin;
+        
+        oeste;
+        si frente-libre entonces inicio
+            avanza;
+            regresa;
+            este;
+            avanza;
+        fin;
+    fin;
+    
+    define-nueva-instruccion regresa como inicio            
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                    si junto-a-zumbador entonces inicio
+                        repetir 3 veces deja-zumbador;
+                    fin sino inicio
+                        repetir 2 veces deja-zumbador;
+                        limpia;                         
+                        mueve-columnas(0);
+                    fin;
+                fin sino inicio
+                    repetir 2 veces deja-zumbador;
+                fin;
+            fin sino inicio
+                deja-zumbador;
+            fin;
+        fin sino inicio
+        
+            deja-zumbador;
+            deja-zumbador;
+        
+            mueve-regresa;            
+        fin;
+
+    
+    fin;
+    
+    define-nueva-instruccion mayor(x) como inicio
+        repetir 3 veces coge-zumbador;
+        repetir x veces si junto-a-zumbador entonces coge-zumbador;
+        repetir x veces deja-zumbador;
+    fin;
+    
+    define-nueva-instruccion pre(x) como inicio
+        repetir 2 veces deja-zumbador;
+        limpia;
+        deja-zumbador;
+        mueve-regresa;                
+        mayor(x);
+        norte;
+        apagate;
+    fin;
+    
+    define-nueva-instruccion positivo1(x) como inicio
+                si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(99);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(98);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(97);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(96);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(95);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(94);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(93);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(92);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(91);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(90);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(89);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(88);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(87);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(86);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(85);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(84);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(83);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(82);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(81);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(80);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(79);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(78);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(77);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(76);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(75);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(74);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(73);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(72);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(71);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(70);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(69);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(68);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(67);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(66);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(65);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(64);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(63);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(62);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(61);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(60);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(59);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(58);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(57);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(56);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(55);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(54);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(53);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(52);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(51);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(50);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(49);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(48);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(47);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(46);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(45);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(44);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(43);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(42);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(41);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(40);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(39);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(38);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(37);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(36);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(35);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))))) entonces inicio
+            pre(34);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))))) entonces inicio
+            pre(33);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))))) entonces inicio
+            pre(32);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))))) entonces inicio
+            pre(31);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))))) entonces inicio
+            pre(30);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))))) entonces inicio
+            pre(29);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))))) entonces inicio
+            pre(28);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))))) entonces inicio
+            pre(27);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))))) entonces inicio
+            pre(26);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))))) entonces inicio
+            pre(25);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))))) entonces inicio
+            pre(24);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))))) entonces inicio
+            pre(23);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))))) entonces inicio
+            pre(22);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))))) entonces inicio
+            pre(21);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))))) entonces inicio
+            pre(20);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))))) entonces inicio
+            pre(19);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))))) entonces inicio
+            pre(18);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))))) entonces inicio
+            pre(17);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))))) entonces inicio
+            pre(16);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))))) entonces inicio
+            pre(15);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))))) entonces inicio
+            pre(14);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))))) entonces inicio
+            pre(13);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))))) entonces inicio
+            pre(12);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))))) entonces inicio
+            pre(11);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))))) entonces inicio
+            pre(10);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))))) entonces inicio
+            pre(9);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x))))))))) entonces inicio
+            pre(8);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(sucede(x)))))))) entonces inicio
+            pre(7);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(sucede(x))))))) entonces inicio
+            pre(6);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(sucede(x)))))) entonces inicio
+            pre(5);
+        fin sino si si-es-cero(sucede(sucede(sucede(sucede(x))))) entonces inicio
+            pre(4);
+        fin sino si si-es-cero(sucede(sucede(sucede(x)))) entonces inicio
+            pre(3);
+        fin sino si si-es-cero(sucede(sucede(x))) entonces inicio
+            pre(2);
+        fin sino si si-es-cero(sucede(x)) entonces inicio
+            pre(1);
+        fin sino inicio
+            pre(x);
+        fin;
+    fin;
+    
+    define-prototipo-instruccion filas(x);
+    
+    define-nueva-instruccion mueve-filas(x) como inicio
+        norte;
+            si frente-libre entonces inicio
+            avanza;
+            filas(sucede(x));
+            sur;
+            avanza;
+        fin;
+        
+        este;
+        si frente-libre entonces inicio
+            avanza;
+            filas(x);
+            oeste;
+            avanza;
+        fin;
+        
+        sur;
+        si frente-libre entonces inicio
+            avanza;
+            filas(precede(x));
+            norte;
+            avanza;
+        fin;
+        
+        oeste;
+        si frente-libre entonces inicio
+            avanza;
+            filas(x);
+            este;
+            avanza;
+        fin;       
+    fin;
+    
+    define-nueva-instruccion filas(x) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si junto-a-zumbador entonces inicio
+                deja-zumbador;
+            fin sino inicio
+                positivo1(x);
+            fin;
+        fin sino inicio
+        
+            deja-zumbador;
+            deja-zumbador;
+        
+            mueve-filas(x);     
+        fin;
+    fin;
+
+    inicia-ejecucion
+        paridad(0);
+        limpia;
+        repetir 3 veces deja-zumbador;
+        mueve-filas(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa

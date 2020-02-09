@@ -1,0 +1,7 @@
+interface Main {
+	[NoReturn] long avanza(long casas);
+};
+
+interface moebius {
+	void encuentraCasa(long origen, long destino);
+};

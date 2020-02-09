@@ -1,0 +1,62 @@
+iniciar-programa
+    define-prototipo-instruccion siguiente;
+
+    define-nueva-instruccion gira(n) como inicio
+        repetir n veces gira-izquierda;
+    fin;
+
+    define-nueva-instruccion pared como inicio
+        mientras frente-libre hacer avanza;
+    fin;
+
+    define-nueva-instruccion recuerda2(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            recuerda2(sucede(n));
+            deja-zumbador;
+        fin sino inicio
+            siguiente;
+        fin;
+    fin;
+
+    define-nueva-instruccion recuerda1(n) como inicio
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            recuerda1(sucede(n));
+            deja-zumbador;
+        fin sino inicio
+            avanza;
+            recuerda2(0);
+        fin;
+    fin;
+
+    define-nueva-instruccion siguiente como inicio
+        si frente-libre entonces inicio
+            avanza;
+            si junto-a-zumbador entonces inicio
+                recuerda1(0);
+                avanza;
+            fin sino inicio
+                pared;
+                gira(2);
+            fin;
+        fin sino inicio
+            gira(2);
+            pared;
+            gira(1);
+            avanza;
+            gira(1);
+            recuerda1(0);
+            gira(2);
+            pared;
+            gira(1);
+            avanza;
+            gira(1);
+        fin;
+    fin;
+
+    inicia-ejecucion
+        recuerda1(0);
+        apagate;
+    termina-ejecucion
+finalizar-programa

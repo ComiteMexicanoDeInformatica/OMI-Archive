@@ -1,0 +1,20 @@
+class program {
+    program () {
+    while(nextToABeeper)
+    {
+    pickbeeper();
+    }
+    while(anyBeepersInBeeperBag)
+    {
+    while(frontIsClear)
+    {
+    move();
+    }
+    putbeeper();
+    turnleft();
+    
+    }
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

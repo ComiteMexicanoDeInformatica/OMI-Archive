@@ -1,0 +1,88 @@
+iniciar-programa
+
+	define-nueva-instruccion norte como inicio
+    	mientras no-orientado-al-norte hacer
+        	gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion este como inicio
+    	mientras no-orientado-al-este hacer
+        	gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion sur como inicio
+    	mientras no-orientado-al-sur hacer
+        	gira-izquierda;
+    fin;
+    
+    define-nueva-instruccion oeste como inicio
+    	mientras no-orientado-al-oeste hacer
+        	gira-izquierda;
+    fin;
+    
+    define-prototipo-instruccion busca(x);
+    
+    define-nueva-instruccion mueve(x) como inicio
+    	norte;
+        si frente-libre entonces inicio
+        	avanza;
+            busca(x);
+            sur;
+            avanza;
+        fin;
+        este;
+        si frente-libre entonces inicio
+        	avanza;
+            busca(x);
+            oeste;
+            avanza;
+        fin;
+        sur;
+        si frente-libre entonces inicio
+        	avanza;
+            busca(x);
+            norte;
+            avanza;
+        fin;
+        oeste;
+        si frente-libre entonces inicio
+        	avanza;
+            busca(x);
+            este;
+            avanza;
+        fin;
+    fin;    
+
+	define-nueva-instruccion busca(x) como inicio
+    	si junto-a-zumbador entonces inicio
+        	coge-zumbador;
+            si no-junto-a-zumbador entonces inicio
+            	si no si-es-cero(x) entonces inicio
+                	sur;
+					mientras junto-a-zumbador hacer inicio
+						coge-zumbador;
+					fin;
+            	fin sino inicio
+                  norte;
+            	fin;
+                apagate;
+            fin sino inicio
+            	deja-zumbador;
+            fin;
+        fin sino inicio
+            repetir 2 veces
+            	deja-zumbador;
+            
+            si si-es-cero(x) entonces inicio
+            	mueve(1);
+            fin sino inicio
+            	mueve(0);
+            fin;
+            
+        fin;
+    fin;
+
+    inicia-ejecucion
+		busca(0);
+    termina-ejecucion
+finalizar-programa

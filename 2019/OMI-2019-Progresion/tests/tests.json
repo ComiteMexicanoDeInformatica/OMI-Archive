@@ -1,0 +1,22 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.cpp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/100B.cpp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/100C.cpp",
+      "verdict": "AC",
+      "score": 100
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.cpp"
+  }
+}

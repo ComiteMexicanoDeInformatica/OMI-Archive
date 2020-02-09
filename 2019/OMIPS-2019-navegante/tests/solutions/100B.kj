@@ -1,0 +1,174 @@
+class program {
+
+    void norte() {
+    	while (!facingNorth) turnleft();
+    }
+    void sur() {
+    	while (!facingSouth) turnleft();
+    }
+    void este() {
+    	while (!facingEast) turnleft();
+    }
+    void oeste() {
+    	while (!facingWest) turnleft();
+    }
+
+    void turn(a) {
+    	iterate(a) turnleft();
+    }
+
+    void compare(x) {
+    	if (iszero(x)) {
+        	if (nextToABeeper) este();
+            else norte();
+        } else {
+        	if (!nextToABeeper) oeste();
+            else {
+            	pickbeeper();
+                compare(pred(x));
+                putbeeper();
+            }
+        }
+    }
+
+    void ejecuta() {
+    	if (!nextToABeeper) {
+        	if (frontIsClear) {
+            	move();
+                ejecuta();
+            } else {
+            	turn(3);
+                move();
+            }
+            return();
+        }
+        pickbeeper();
+        if (nextToABeeper) {
+        	pickbeeper();
+            if (nextToABeeper) {
+            	pickbeeper();
+                if (nextToABeeper) {
+                	pickbeeper();
+                    ejecuta();
+                    compare(100);
+                    if (!facingNorth) {
+                        putbeeper();
+                        sur();
+                        move();
+                        putbeeper();
+                        norte();
+                        move();
+                    }
+                } else {
+                	ejecuta();
+                    este();
+                    move();
+                    pickbeeper();
+                    if (nextToABeeper) {
+                        sur();
+                        move();
+                        oeste();
+                        move();
+                        putbeeper();
+                        norte();
+                        move();
+                    } else {
+                        putbeeper();
+                        oeste();
+                        move();
+                    }
+                }
+            } else {
+            	ejecuta();
+                pickbeeper();
+                if (nextToABeeper) {
+                	sur();
+                    move();
+                    putbeeper();
+                    norte();
+                    move();
+                } else {
+                	putbeeper();
+                }
+            }
+        } else {
+        	ejecuta();
+            este();
+            move();
+            compare(100);
+            if (!facingNorth) {
+            	putbeeper();
+                sur();
+                move();
+                oeste();
+                move();
+                putbeeper();
+                norte();
+                move();
+            } else {
+            	oeste();
+                move();
+            }
+        }
+    }
+
+    void diferencia() {
+    	if (!facingNorth) return();
+    	if (nextToABeeper) {
+        	pickbeeper();
+            diferencia();
+            if (nextToABeeper && facingSouth) pickbeeper();
+            else {
+            	norte();
+                putbeeper();
+            }
+        } else {
+        	move();
+            sur();
+        }
+    }
+
+    void suma(x) {
+    	if (nextToABeeper) {
+        	pickbeeper();
+            suma(succ(x));
+        } else {
+        	if (frontIsClear) {
+            	move();
+                suma(x);
+            } else {
+            	sur();
+                move();
+                move();
+                iterate(x) {
+                	if (nextToABeeper) pickbeeper();
+                    else {
+                    	sur();
+                        turnoff();
+                    }
+                }
+                norte();
+                turnoff();
+            }
+        }
+    }
+
+    program () {
+    	turn(3);
+        while(nextToABeeper && frontIsClear) move();
+        turn(2);
+        if (!nextToABeeper) move();
+        ejecuta();
+        norte();
+        diferencia();
+        sur();
+        move();
+        este();
+        move();
+        norte();
+        diferencia();
+        oeste();
+        suma(0);
+        turnoff();
+    }
+}

@@ -1,0 +1,63 @@
+class program {
+    program () {
+    iterate(10)
+    {
+    iterate(10)
+    {
+    while(notFacingSouth)
+    turnleft();
+    if(frontIsClear)
+    move();
+    while(notFacingEast)
+    turnleft();
+    if(frontIsClear)
+    move();
+    }
+    iterate(10)
+    {
+    while(notFacingSouth)
+    turnleft();
+    if(frontIsClear)
+    move();
+    while(notFacingWest)
+    turnleft();
+    if(frontIsClear)
+    move();
+    }
+    }
+    while(notFacingEast)
+    turnleft();
+    while(frontIsClear)
+    move();
+    turnleft();
+    turnleft();
+    if(frontIsClear)
+    move();
+    if(frontIsClear)
+    {
+    turnleft();
+    turnleft();
+    turnoff();
+    }
+    while(notFacingNorth)
+    turnleft();
+    move();
+    if(frontIsClear)
+    {
+    while(notFacingNorth)
+    turnleft();
+    if(leftIsBlocked && rightIsBlocked)
+    turnoff();
+    turnleft();
+    turnleft();
+    turnoff();
+    }
+    turnleft();
+    turnoff();
+    
+    
+    
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

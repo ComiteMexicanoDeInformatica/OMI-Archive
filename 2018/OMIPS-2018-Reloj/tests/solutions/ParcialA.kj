@@ -1,0 +1,29 @@
+class program
+{
+    define go1()
+    {
+        if(nextToABeeper)
+        {
+            pickbeeper();
+            go1();
+            putbeeper();
+        }
+        else
+        {
+            move();
+            turnleft();
+            turnleft();
+            turnleft();
+            move();
+            move();
+            turnleft();
+            turnleft();
+        }
+    }
+    program ()
+    {
+        go1();
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

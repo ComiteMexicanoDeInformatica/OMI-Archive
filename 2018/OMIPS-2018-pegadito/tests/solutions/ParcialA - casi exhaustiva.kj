@@ -1,0 +1,34 @@
+class program {
+
+	void fn(){
+    	if(!nextToABeeper()){
+        	putbeeper();
+            if(frontIsBlocked() || leftIsBlocked() || rightIsBlocked()){
+            	putbeeper();
+            }else{
+            	iterate (2) turnleft();
+                if(frontIsBlocked()) putbeeper();
+                iterate (2) turnleft();
+            }
+            
+            iterate (4)
+            {
+            	if(frontIsClear()){
+                	move();
+                    fn();
+                    iterate (2) turnleft();
+                	move();
+                	iterate (2) turnleft();
+                }
+                turnleft();
+            }
+            
+            pickbeeper();
+        }
+    }
+    
+    program () {
+        fn();
+        turnoff();
+    }
+}

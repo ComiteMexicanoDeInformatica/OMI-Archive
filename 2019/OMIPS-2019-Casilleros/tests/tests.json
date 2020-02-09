@@ -1,0 +1,21 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/100A.kj",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/100B.kj",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/50A.kp",
+      "score": 50
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

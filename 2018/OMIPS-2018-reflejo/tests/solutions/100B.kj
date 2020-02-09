@@ -1,0 +1,40 @@
+class program {
+	void turn(x){ iterate (x) turnleft(); }
+    
+    void path(){
+    	if(leftIsBlocked() || rightIsBlocked()){
+        	if(frontIsClear()){
+            	move();
+                path();
+                if(nextToABeeper()){
+                	pickbeeper();
+                }else{
+                	putbeeper();
+                }
+                move();
+            }else{
+            	if(leftIsClear()){
+                	turn(1);
+                    path();
+                    turn(1);
+                }else{
+                	if(rightIsClear()){
+                    	turn(3);
+                        path();
+                        turn(3);
+                    }
+                }
+            }
+        }else{
+        	turn(2); move(); turn(2);
+            putbeeper();
+        }
+    }
+    
+    program () {
+        while(!frontIsClear()) turn(1);
+        path();
+        putbeeper();
+        turnoff();
+    }
+}

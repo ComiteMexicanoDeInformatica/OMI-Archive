@@ -1,0 +1,190 @@
+class program
+{
+
+    define regresa()
+    {
+        while(notFacingSouth)
+        {
+            turnleft();
+        }
+        while(frontIsClear)
+            move();
+        while(notFacingWest)
+        {
+            turnleft();
+        }
+        while(frontIsClear)
+            move();
+        turnleft();
+        turnleft();
+        turnleft();
+
+    }
+    
+    define come()
+    {
+    if(frontIsClear)
+    {
+    move();
+    come();
+    move();
+    }
+    else
+    {
+    turnleft();
+    come2();
+    turnleft();
+    turnleft();
+    turnleft();
+    }
+    }
+    
+     define come2()
+    {
+    if(frontIsClear)
+    {
+    move();
+    come2();
+    move();
+    }
+    else
+    {
+    putbeeper();
+    turnleft();
+    turnleft();
+    }
+    }
+    
+    
+    
+
+ 
+    define agarra()
+    {
+        while(notFacingSouth)
+        {
+            turnleft();
+        }
+        while(frontIsClear)
+            move();
+        while(notFacingWest)
+        {
+            turnleft();
+        }
+        while(frontIsClear)
+            move();
+        turnleft();
+        turnleft();
+        turnleft();
+		if(frontIsClear)
+		{
+        move();
+		}
+		else
+		{
+		turnleft();
+		turnleft();
+		turnleft();
+		if(frontIsBlocked)
+		turnoff();
+		move();
+		turnleft();
+		}
+        while((frontIsClear || rightIsClear) && notFacingSouth)
+        {
+        	if(nextToABeeper)
+            {
+            pickbeeper();
+            if(notNextToABeeper)
+            {
+            turnleft();
+            come();
+            turnleft();
+            agarra2();
+            }
+            }
+            if(notFacingSouth)
+            {
+            if(frontIsClear)
+            {
+            move();
+            }
+            else
+            {
+            if(rightIsClear)
+            {
+            turnleft();
+            turnleft();
+            while(frontIsClear)
+            move();
+            turnleft();
+            move();
+            turnleft();
+            }
+            }
+            }
+        }
+        if(nextToABeeper && notFacingSouth)
+            {
+            pickbeeper();
+            if(notNextToABeeper)
+            {
+            turnleft();
+            come();
+            turnleft();
+            agarra2();
+            }
+            }
+        
+    }
+    
+    
+    
+    
+    
+    define agarra2()
+    {
+       
+        while(frontIsClear || rightIsClear)
+        {
+        	if(nextToABeeper)
+            pickbeeper();
+            if(frontIsClear)
+            {
+            move();
+            }
+            else
+            {
+            turnleft();
+            turnleft();
+            while(frontIsClear)
+            move();
+            turnleft();
+            move();
+            turnleft();
+            }
+        }
+        if(nextToABeeper)
+        {
+            pickbeeper();
+            turnleft();
+            turnleft();
+            }
+    }
+
+    
+
+
+    program ()
+    {
+
+
+        iterate(110)
+        {
+            agarra();
+          
+        }
+        // TODO poner codigo aqui
+        turnoff();
+    }
+}

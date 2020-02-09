@@ -1,0 +1,31 @@
+{
+  "solutions": [
+    {
+      "filename": "solutions/0.cpp",
+      "verdict": "WA",
+      "score": 0
+    },
+    {
+      "filename": "solutions/14.cpp",
+      "verdict": "PA",
+      "score": 14
+    },
+    {
+      "filename": "solutions/57.cpp",
+      "verdict": "PA",
+      "score": 57
+    },
+    {
+      "filename": "solutions/100b.cpp",
+      "verdict": "AC",
+      "score": 100
+    },
+    {
+      "filename": "solutions/lerp.py",
+      "score_range": [0, 50]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

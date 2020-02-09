@@ -1,0 +1,25 @@
+class program {
+
+	void turn(a) {
+    	iterate(a) turnleft();
+    }
+    
+    void lightsUp(x) {
+    	// first we move 2n + 1 to be on the next square number
+        iterate(x) iterate(2) {
+        	if (frontIsClear) 
+            	move();
+        }
+        if (frontIsClear) {
+        	move();
+            putbeeper();
+            lightsUp(succ(x));
+        }
+    }
+
+    program () {
+        turn(3);
+        lightsUp(0);
+        turnoff();
+    }
+}

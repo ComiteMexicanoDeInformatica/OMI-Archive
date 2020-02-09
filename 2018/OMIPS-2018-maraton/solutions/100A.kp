@@ -1,0 +1,76 @@
+iniciar-programa
+    define-nueva-instruccion gira(n) como inicio
+        repetir n veces gira-izquierda;
+    fin;    
+    
+    define-nueva-instruccion altura(n) como inicio
+        si frente-libre entonces inicio
+            avanza;
+            altura(sucede(n));
+        fin sino inicio
+            gira(2);
+            repetir precede(n) veces avanza;
+            repetir n veces deja-zumbador;            
+            avanza;                        
+        fin;
+    fin;
+    
+    define-nueva-instruccion divide(n) como inicio
+        gira(2);
+        avanza;
+        mientras junto-a-zumbador hacer inicio
+            repetir n veces inicio
+                si junto-a-zumbador entonces inicio
+                    coge-zumbador;
+                fin sino inicio 
+                    gira(2);
+                    avanza;
+                    mientras junto-a-zumbador hacer coge-zumbador;                    
+                    sal-de-instruccion;
+                fin;                
+            fin;    
+            gira(2);
+            avanza;
+            deja-zumbador;
+            gira(2);
+            avanza;            
+        fin;
+        gira(2);
+        avanza;
+    fin;
+    
+    define-nueva-instruccion cuenta-divisor(n) como inicio
+        si si-es-cero(n) y no junto-a-zumbador entonces sal-de-instruccion;
+        si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            cuenta-divisor(sucede(n));
+        fin sino inicio
+            divide(n);
+        fin;           
+    fin;
+    
+    define-nueva-instruccion siguiente como inicio
+        altura(0);
+        cuenta-divisor(0);
+        si izquierda-libre entonces inicio
+            gira-izquierda;
+            avanza;
+            gira-izquierda;
+            siguiente;
+        fin;
+    fin;
+
+    inicia-ejecucion
+        siguiente;
+        gira(3);
+        mientras frente-libre hacer inicio
+            si junto-a-zumbador entonces inicio
+                coge-zumbador;
+                si no-junto-a-zumbador entonces apagate;                
+            fin;
+            avanza;
+            si frente-bloqueado entonces gira(2);            
+        fin;        
+        apagate;
+    termina-ejecucion
+finalizar-programa

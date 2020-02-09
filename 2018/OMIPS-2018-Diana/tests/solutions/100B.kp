@@ -1,0 +1,51 @@
+iniciar-programa
+        define-nueva-instruccion sur como
+    inicio
+        mientras no-orientado-al-sur hacer
+                gira-izquierda;
+    fin;
+
+    define-nueva-instruccion norte como
+    inicio
+        mientras no-orientado-al-norte hacer
+                gira-izquierda;
+    fin;
+
+    define-nueva-instruccion cruz como
+    inicio
+        repetir 4 veces
+        inicio
+                si frente-libre entonces
+            inicio
+                        avanza;
+                si junto-a-zumbador entonces
+                    inicio
+                            gira-izquierda;
+                        gira-izquierda;
+                            avanza;
+                        gira-izquierda;
+                fin
+                    sino
+                inicio
+                        sur;
+                    apagate;
+                    fin;
+           fin;
+        fin;
+        norte;
+    fin;
+
+    inicia-ejecucion
+       si junto-a-zumbador entonces
+       inicio
+        sur;
+        apagate;
+       fin
+       sino
+       inicio
+        cruz;
+       fin;
+
+       apagate;
+    termina-ejecucion
+finalizar-programa
