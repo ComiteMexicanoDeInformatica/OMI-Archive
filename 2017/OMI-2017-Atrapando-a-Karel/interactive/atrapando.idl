@@ -1,0 +1,13 @@
+interface Main {
+    int ponMuro(
+        int f,
+        int c,
+        int d
+    );
+};
+
+interface atrapando {
+    void atrapando(
+        int n
+    );
+};
