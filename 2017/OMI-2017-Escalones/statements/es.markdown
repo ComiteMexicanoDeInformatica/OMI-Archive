@@ -14,7 +14,7 @@ De cada diferencia tienes que sumar el valor absoluto.
 
 # Entrada
 
-En la primera línea habrá dos enteros, $n$ y $m$, el número de datos en la serie y el número de valores en la lista respectivamente. En la segunda línea habrá $n$ enteros $s_i$ que representan los valores de la serie (un valor 0 representa un hueco en la serie que deberás rellenar). En la tercera línea habrá $m$ enteros $v_i$ que representan la lista de números que puedes usar para rellenar (recuerda que esta lista no viene ordenada y puedes usar cada número tantas veces como quieras).
+En la primera línea habrá dos enteros, $n$ y $m$, el número de datos en la serie y el número de valores en la lista respectivamente. En la segunda línea habrá $n$ enteros $s_i$ que representan los valores de la serie (un valor 0 representa un hueco en la serie que deberás rellenar). En la tercera línea habrá $m$ enteros $v_i$ que representan la lista de números que puedes usar para rellenar (recuerda que esta lista no viene ordenada y tienes infinitos elementos de cada número).
 
 # Salida
 
@@ -46,6 +46,6 @@ La serie tiene un valor por rellenar, si se llena con 7, la suma de las diferenc
 
 * $1 \leq n, m, v_i \leq 1,000,000$
 * $0 \leq s_i \leq 1,000,000$
-* Los valores de la lista de números para rellenar no están ordenados.
+* Los valores de la lista de número no están ordenados.
 * Para el 28% de los casos $1 \leq n, m \leq 1,000$
 * Para el 70% de los casos $1 \leq n, m \leq 200,000$
