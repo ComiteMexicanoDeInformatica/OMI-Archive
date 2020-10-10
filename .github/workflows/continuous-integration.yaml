@@ -72,10 +72,6 @@ jobs:
       run: pipenv run python3 ./utils/upload.py --ci --verbose  # Don't use CI_FLAGS to avoid deploying all problems.
       if: github.ref == 'refs/heads/master'
 
-    - name: Push to public branch
-      run: cd utils && bash ./publish
-      if: github.ref == 'refs/heads/master'
-
     - name: Zip logs
       if: ${{ always() }}
       run: |
