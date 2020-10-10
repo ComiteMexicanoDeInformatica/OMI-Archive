@@ -26,17 +26,17 @@ Los montones de 1, 2, 3, y 4 zumbadores no cambian de tamaño. Estos montones su
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) viendo al norte.
-* Karel tiene infinitos zumbadores en la mochila.
-* No hay zumbadores en la columna 1.
-* El mundo siempre medirá 100x100.
-* Ninguna casilla tendrá más de 99 zumbadores.
-* No hay montones con 0 zumbadores.
-* Las únicas paredes en el mundo son las que lo delimitan.
-* Todas las columnas son de la misma altura.
-* Todos los montones de una columna son diferentes.
-* Hay al menos 3 columnas.
-* Las columnas tendrán al menos 3 montones.
-* El montón que cambia será diferente al menos una vez.
-* No importa la posición ni orientación final de Karel.
-* Sólo se evalúan los zumbadores en la casilla (1,1).
+- Karel inicia en la casilla (1,1) viendo al norte.
+- Karel tiene infinitos zumbadores en la mochila.
+- No hay zumbadores en la columna 1.
+- El mundo siempre medirá 100x100.
+- Ninguna casilla tendrá más de 99 zumbadores.
+- No hay montones con 0 zumbadores.
+- Las únicas paredes en el mundo son las que lo delimitan.
+- Todas las columnas son de la misma altura.
+- Todos los montones de una columna son diferentes.
+- Hay al menos 3 columnas.
+- Las columnas tendrán al menos 3 montones.
+- El montón que cambia será diferente al menos una vez.
+- No importa la posición ni orientación final de Karel.
+- Sólo se evalúan los zumbadores en la casilla (1,1).

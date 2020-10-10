@@ -1,0 +1,58 @@
+iniciar-programa
+  define-nueva-instrucción pintar(n) como inicio
+    si algún-zumbador-en-la-mochila entonces inicio
+      si no si-es-cero(n) entonces inicio
+        deja-zumbador;
+        si frente-libre entonces avanza;
+        pintar(precede(n));
+      fin si-no inicio
+        avanza;
+        pintar(3);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción pintura(n) como inicio
+    repetir n veces inicio
+      si no-orientado-al-norte entonces inicio
+        coge-zumbador;
+      fin;
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta-ancho(n) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      cuenta-ancho(sucede(n));
+    fin si-no inicio
+      pintura(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
+
+    mientras frente-libre hacer avanza;
+
+    gira-izquierda;
+    gira-izquierda;
+
+    cuenta-ancho(1);
+
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+    avanza;
+    avanza;
+
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
+
+    pintar(3);
+
+    apágate;
+  termina-ejecución
+finalizar-programa

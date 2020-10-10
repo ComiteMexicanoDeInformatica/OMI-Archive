@@ -1,65 +1,64 @@
 iniciar-programa
-
-    define-nueva-instruccion este como inicio
-    	mientras no-orientado-al-este hacer inicio
-        	gira-izquierda;
-        fin;
+  define-nueva-instrucción este como inicio
+    mientras no-orientado-al-este hacer inicio
+      gira-izquierda;
     fin;
+  fin;
 
-    define-nueva-instruccion oeste como inicio
-    	mientras no-orientado-al-oeste hacer inicio
-        	gira-izquierda;
-        fin;
+  define-nueva-instrucción oeste como inicio
+    mientras no-orientado-al-oeste hacer inicio
+      gira-izquierda;
     fin;
+  fin;
 
-    define-nueva-instruccion veAInicio como inicio
-    	oeste;
-        mientras frente-libre hacer inicio
-        	avanza;
-        fin;
-        este;
+  define-nueva-instrucción veAInicio como inicio
+    oeste;
+    mientras frente-libre hacer inicio
+      avanza;
     fin;
+    este;
+  fin;
 
-    define-nueva-instruccion recorre(n) como inicio
-        mientras no-orientado-al-oeste hacer inicio
-        	repetir n veces inicio
-            	si frente-libre y no-orientado-al-oeste entonces inicio
-                	avanza;
-                fin sino inicio
-                	oeste;
-                fin;
-            fin;
-            si orientado-al-este entonces inicio
-            	si junto-a-zumbador entonces inicio
-                	coge-zumbador;
-                fin sino inicio
-                	deja-zumbador;
-                fin;
-            fin;
+  define-nueva-instrucción recorre(n) como inicio
+    mientras no-orientado-al-oeste hacer inicio
+      repetir n veces inicio
+        si frente-libre y no-orientado-al-oeste entonces inicio
+          avanza;
+        fin si-no inicio
+          oeste;
         fin;
-    fin;
-
-    define-nueva-instruccion cambiaFocos(n) como inicio
-    	si no si-es-cero(n) entonces inicio
-        	recorre(n);
-            veAInicio;
-            cambiaFocos(precede(n));
+      fin;
+      si orientado-al-este entonces inicio
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+        fin si-no inicio
+          deja-zumbador;
         fin;
+      fin;
     fin;
+  fin;
 
-    define-nueva-instruccion interruptores(n) como inicio
-    	si frente-libre entonces inicio
-        	avanza;
-            interruptores(sucede(n));
-        fin sino inicio
-        	veAInicio;
-            cambiaFocos(n);
-        fin;
+  define-nueva-instrucción cambiaFocos(n) como inicio
+    si no si-es-cero(n) entonces inicio
+      recorre(n);
+      veAInicio;
+      cambiaFocos(precede(n));
     fin;
+  fin;
 
-    inicia-ejecucion
-        este;
-        interruptores(0);
-        apagate;
-    termina-ejecucion
+  define-nueva-instrucción interruptores(n) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      interruptores(sucede(n));
+    fin si-no inicio
+      veAInicio;
+      cambiaFocos(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    interruptores(0);
+    apágate;
+  termina-ejecución
 finalizar-programa

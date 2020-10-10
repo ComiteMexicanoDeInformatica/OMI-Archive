@@ -17,8 +17,7 @@ namespace {
 // This function must be injective.
 using RangeTransform = std::function<int64_t(uint64_t, uint64_t)>;
 
-RangeTransform biased_linear_transform(uint64_t bias,
-                                       uint64_t range_width_bits,
+RangeTransform biased_linear_transform(uint64_t bias, uint64_t range_width_bits,
                                        int64_t direction) {
   uint64_t range_width_mask = (1ULL << range_width_bits) - 1;
 
@@ -51,8 +50,7 @@ RangeTransform unsigned_linear_transform(uint64_t range_width_bits,
   };
 }
 
-RangeTransform exponential_transform(double k,
-                                     uint64_t range_width_bits,
+RangeTransform exponential_transform(double k, uint64_t range_width_bits,
                                      int64_t direction) {
   long double max_real_value = std::pow(2, range_width_bits);
   static_assert(sizeof(max_real_value) == 16, "we need moar bits");
@@ -73,9 +71,7 @@ RangeTransform exponential_transform(double k,
 
 template <typename Generator>
 std::vector<uint64_t> monotonically_increasing_uniform_random_stream(
-    Generator& g,
-    uint64_t n,
-    uint64_t width) {
+    Generator& g, uint64_t n, uint64_t width) {
   // Taken from "Generating Sorted Lists of Random Numbers" by Jon Louis
   // Bentley and James B.Saxe.
   double ln_cur_max = 0.0;

@@ -1,99 +1,73 @@
 class program {
-define troy()
-{
-if(nextToABeeper)
-{
-pickbeeper();
-troy();
-putbeeper();
-}
-else
-{
-while(frontIsClear)
-{
-move();
-}
-}
-}
-define trash()
-{
-if(nextToABeeper)
-{
-pickbeeper();
-trash();
-if(frontIsClear)
-{
-move();
-}
-else
-{
-while(notFacingNorth)
-{
-turnleft();
-}
-turnoff();
-}
-}
-}
+  define troy() {
+    if (nextToABeeper) {
+      pickbeeper();
+      troy();
+      putbeeper();
+    } else {
+      while (frontIsClear) {
+        move();
+      }
+    }
+  }
 
-    program () {
-        while(notFacingEast)
-        {
-        turnleft();
-        }
-        while(frontIsClear)
-        {
+  define trash() {
+    if (nextToABeeper) {
+      pickbeeper();
+      trash();
+      if (frontIsClear) {
         move();
+      } else {
+        while (notFacingNorth) {
+          turnleft();
         }
-        turnleft();
-        turnleft();
-        while(frontIsClear)
-		{
-        if(nextToABeeper)
-        {
+        turnoff();
+      }
+    }
+  }
+
+  program() {
+    while (notFacingEast) {
+      turnleft();
+    }
+    while (frontIsClear) {
+      move();
+    }
+    turnleft();
+    turnleft();
+    while (frontIsClear) {
+      if (nextToABeeper) {
         troy();
-        while(notFacingEast)
-        {
-        turnleft();
+        while (notFacingEast) {
+          turnleft();
         }
-        while(frontIsClear)
-        {
-        move();
+        while (frontIsClear) {
+          move();
         }
         turnleft();
         turnleft();
-        
-        }
-        move();
-		}
-        turnleft();
-        turnleft();
-        while(nextToABeeper)
-        pickbeeper();
-        while(anyBeepersInBeeperBag)
-        {
-        if(frontIsClear)
-        {
+      }
+      move();
+    }
+    turnleft();
+    turnleft();
+    while (nextToABeeper) pickbeeper();
+    while (anyBeepersInBeeperBag) {
+      if (frontIsClear) {
         putbeeper();
         move();
+      } else {
+        while (notFacingNorth) {
+          turnleft();
         }
-        else
-        {
-        while(notFacingNorth)
-	{
-	turnleft();
-	}
-	turnoff();
-        }
-        }
-        while(notFacingSouth)
-{
-turnleft();
-}
-turnoff();
-        
-    
-    
         turnoff();
+      }
     }
+    while (notFacingSouth) {
+      turnleft();
+    }
+    turnoff();
+
+    turnoff();
+  }
 }

@@ -1,70 +1,60 @@
-    iniciar-programa
+iniciar-programa
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
 
-    define-nueva-instruccion gira(n) como inicio
-        repetir n veces
-            gira-izquierda;
-    fin;
-    
-    define-nueva-instruccion corre como inicio
-        mientras frente-libre hacer 
-            avanza;
-    fin;
-    
-    define-nueva-instruccion cuadrados(x) como inicio
-        si frente-libre entonces inicio
-            avanza;
-            cuadrados(sucede(x));
-        fin sino inicio
-            gira(2);
-            corre;
-            repetir sucede(x) veces
-                repetir sucede(x) veces 
-                    deja-zumbador;
-        fin;
-    fin;
-    
-    define-nueva-instruccion copia(x) como inicio
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            copia(sucede(x));
-        fin sino inicio
-            repetir x veces
-                deja-zumbador;
-            avanza;
-            repetir x veces
-                deja-zumbador;
-        fin;
-    fin;
-    
-    define-nueva-instruccion entero(x) como inicio
-        repetir x veces
-            repetir x veces inicio
-                si junto-a-zumbador entonces inicio
-                    coge-zumbador;
-                fin sino inicio
-                    si no-orientado-al-sur entonces
-                        gira(2);
-                fin;
-            fin;
-        si junto-a-zumbador entonces inicio
-            repetir x veces
-                repetir x veces
-                    deja-zumbador;
-            entero(sucede(x));
-        fin;
-    fin;
+  define-nueva-instrucción corre como inicio
+    mientras frente-libre hacer avanza;
+  fin;
 
-    inicia-ejecucion
-        cuadrados(0);
-        gira-izquierda;
-        cuadrados(0);
-        gira(3);
-        si frente-libre entonces inicio           
-            copia(0);        
-            entero(1);
-        fin sino inicio
-            gira(2);
+  define-nueva-instrucción cuadrados(x) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      cuadrados(sucede(x));
+    fin si-no inicio
+      gira(2);
+      corre;
+      repetir sucede(x) veces repetir sucede(x) veces deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia(x) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia(sucede(x));
+    fin si-no inicio
+      repetir x veces deja-zumbador;
+      avanza;
+      repetir x veces deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción entero(x) como inicio
+    repetir x veces
+      repetir x veces inicio
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+        fin si-no inicio
+          si no-orientado-al-sur entonces gira(2);
         fin;
-        apagate;
-    termina-ejecucion
+      fin;
+    si junto-a-zumbador entonces inicio
+      repetir x veces repetir x veces deja-zumbador;
+      entero(sucede(x));
+    fin;
+  fin;
+
+  inicia-ejecución
+    cuadrados(0);
+    gira-izquierda;
+    cuadrados(0);
+    gira(3);
+    si frente-libre entonces inicio
+      copia(0);
+      entero(1);
+    fin si-no inicio
+      gira(2);
+    fin;
+    apágate;
+  termina-ejecución
 finalizar-programa

@@ -1,5 +1,6 @@
-#include <iostream>
 #include <windows.h>
+
+#include <iostream>
 
 #include "moebius.h"
 

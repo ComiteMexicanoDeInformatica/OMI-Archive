@@ -1,0 +1,39 @@
+iniciar-programa
+  define-nueva-instrucción salta como inicio
+    mientras no-orientado-al-sur hacer gira-izquierda;
+    si frente-libre entonces inicio
+      avanza;
+      gira-izquierda;
+      si frente-bloqueado entonces inicio
+        gira-izquierda;
+        gira-izquierda;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción busca como inicio
+    mientras algún-zumbador-en-la-mochila hacer inicio
+      si orientado-al-este y derecha-bloqueada entonces inicio
+        deja-zumbador;
+        apágate;
+      fin;
+      si orientado-al-oeste y izquierda-bloqueada entonces inicio
+        deja-zumbador;
+        apágate;
+      fin;
+      si frente-libre entonces
+        avanza
+      si-no
+        salta;
+    fin;
+  fin;
+
+  inicia-ejecución
+    mientras frente-libre hacer avanza;
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
+    busca;
+    apágate;
+  termina-ejecución
+finalizar-programa

@@ -1,0 +1,9 @@
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.in text
+*.md text
+*.out text
+*.kp text
+*.kj text

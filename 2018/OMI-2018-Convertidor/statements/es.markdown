@@ -41,10 +41,10 @@ ABC
 
 # Límites
 
-* $1 \leq X < 2^{63}$.
-* La longitud de la cadena $S$ es menor que 15.
+- $1 \leq X < 2^{63}$.
+- La longitud de la cadena $S$ es menor que 15.
 
 # Subtareas
 
-* En el 50% de los casos $T=0$.
-* En el 50% restante $T=1$.
+- En el 50% de los casos $T=0$.
+- En el 50% restante $T=1$.

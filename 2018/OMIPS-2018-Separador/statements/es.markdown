@@ -1,4 +1,4 @@
-Karel está de vacaciones y cuenta con mucho tiempo libre, por lo que ha decidido leer uno de los libros de su vieja colección. Ayuda a Karel a encontrar el libro que quiere leer. 
+Karel está de vacaciones y cuenta con mucho tiempo libre, por lo que ha decidido leer uno de los libros de su vieja colección. Ayuda a Karel a encontrar el libro que quiere leer.
 
 # Problema
 
@@ -24,15 +24,15 @@ Para este caso el número en la casilla (1,1) es 4, así que Karel debe apagarse
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) viendo al norte.
-* Sólo habrá montones de zumbadores en la segunda fila y en la casilla (1,1).
-* Los montones de zumbadores de la fila 2 siempre son de 1 zumbador.
-* Las únicas paredes son las que delimitan el mundo.
-* El montón de zumbadores en la casilla (1,1) será de 1 hasta 100 zumbadores.
-* Nunca habrá menos libros de los que se indican en la casilla (1,1).
-* Sólo se evaluará que la posición final de Karel sea correcta.
+- Karel inicia en la casilla (1,1) viendo al norte.
+- Sólo habrá montones de zumbadores en la segunda fila y en la casilla (1,1).
+- Los montones de zumbadores de la fila 2 siempre son de 1 zumbador.
+- Las únicas paredes son las que delimitan el mundo.
+- El montón de zumbadores en la casilla (1,1) será de 1 hasta 100 zumbadores.
+- Nunca habrá menos libros de los que se indican en la casilla (1,1).
+- Sólo se evaluará que la posición final de Karel sea correcta.
 
 # Evaluación
 
-* En el 57% de los casos Karel no tiene zumbadores en la mochila.
-* En el 43% de los casos Karel tiene infinitos zumbadores en la mochila.
+- En el 57% de los casos Karel no tiene zumbadores en la mochila.
+- En el 43% de los casos Karel tiene infinitos zumbadores en la mochila.

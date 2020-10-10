@@ -13,6 +13,7 @@ Ayuda a Spiderman a saber cuál es la mayor cantidad de empleados distintos a lo
 En una sola línea 5 enteros: $N$, $M$, $K$, $X$, y $Y$. Estos enteros representan representan el número de pisos, el número de ventanas por piso, la energía inicial, el costo de moverse horizontalmente y el costo de moverse verticalmente, respectivamente.
 
 # Salida
+
 Un entero que indica la máxima cantidad de empleados distintos a los que puede saludar Spiderman.
 
 # Ejemplos
@@ -40,5 +41,6 @@ Spiderman se acaba toda la energía y puede saludar a 5 empleados. Ver figura.
 $1 <= N,M,K,X,Y < 2^{31}$
 
 # Subtareas
-* En el 51% de los puntos, $1 <= N,M,K,X,Y < 10^3$
-* Para el 49% restante no hay consideraciones adicionales.
+
+- En el 51% de los puntos, $1 <= N,M,K,X,Y < 10^3$
+- Para el 49% restante no hay consideraciones adicionales.

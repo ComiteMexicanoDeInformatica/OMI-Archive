@@ -23,19 +23,20 @@ Ayuda a Karel a mover los montones de zumbadores de la granja al granero, juntá
 ![Salida1](sample.out.png)
 
 ### Explicación
-* Karel recoge los 4 zumbadores de las casillas (1, 1) y (1, 2) y deja 8 zumbadores en la casilla (1, 13).
-* Hace lo mismo con los zumbadores de la casilla (1,3) y (1, 4) para dejarlos en la casilla (1, 14).
-* Sigue haciendo el mismo proceso hasta que todos los zumbadores de la granja están dentro del granero.
+
+- Karel recoge los 4 zumbadores de las casillas (1, 1) y (1, 2) y deja 8 zumbadores en la casilla (1, 13).
+- Hace lo mismo con los zumbadores de la casilla (1,3) y (1, 4) para dejarlos en la casilla (1, 14).
+- Sigue haciendo el mismo proceso hasta que todos los zumbadores de la granja están dentro del granero.
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) viendo al norte.
-* Karel tiene infinitos zumbadores en la mochila.
-* Las únicas paredes en el mundo son las que lo delimitan y la cerca que divide al granero de la granja. Siempre dejando la esquina derecha abierta.
-* Todas las posiciones dentro de la granja tienen al menos 1 zumbador.
-* Se evalúan todos los zumbadores del mundo
+- Karel inicia en la casilla (1,1) viendo al norte.
+- Karel tiene infinitos zumbadores en la mochila.
+- Las únicas paredes en el mundo son las que lo delimitan y la cerca que divide al granero de la granja. Siempre dejando la esquina derecha abierta.
+- Todas las posiciones dentro de la granja tienen al menos 1 zumbador.
+- Se evalúan todos los zumbadores del mundo
 
 # Subtareas
 
-* Para obtener el 65% de los puntos de este problema puedes usar la instrucción `avanza()` todas las veces que quieras
-* Para el 35% restante, solo puedes usar la instruccion `avanza()` a lo más 2 veces por cada casilla en el mundo .
+- Para obtener el 65% de los puntos de este problema puedes usar la instrucción `avanza()` todas las veces que quieras
+- Para el 35% restante, solo puedes usar la instruccion `avanza()` a lo más 2 veces por cada casilla en el mundo .

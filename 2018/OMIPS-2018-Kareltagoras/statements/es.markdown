@@ -24,12 +24,12 @@ En este caso los lados del triángulo miden 3 y 5, entonces $c^2$ es 34 y por lo
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) viendo al norte.
-* Karel tiene infinitos zumbadores en la mochila.
-* Solo se evalúan los zumbadores de la casilla (1,1).
+- Karel inicia en la casilla (1,1) viendo al norte.
+- Karel tiene infinitos zumbadores en la mochila.
+- Solo se evalúan los zumbadores de la casilla (1,1).
 
 # Subtareas
 
-* En el 77% de los casos sólo se evalúa $c^2$.
-* En el 23% de los casos restantes también se evalúa la orientación final de Karel. Si $c$ es entero deberás dejar a Karel orientado al norte; de lo contrario, al sur. 
-* Los casos de esta subtarea están agrupados.
+- En el 77% de los casos sólo se evalúa $c^2$.
+- En el 23% de los casos restantes también se evalúa la orientación final de Karel. Si $c$ es entero deberás dejar a Karel orientado al norte; de lo contrario, al sur.
+- Los casos de esta subtarea están agrupados.

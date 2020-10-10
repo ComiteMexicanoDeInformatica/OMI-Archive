@@ -1,0 +1,157 @@
+class program {
+  void turn(y) {
+    iterate (y) turnleft();
+  }
+
+  void fn(x) {
+    if (nextToABeeper()) {
+      pickbeeper();
+      fn(succ(x));
+    } else {
+      if (frontIsClear()) {
+        move();
+        fn(0);
+        move();
+      } else {
+        turn(3);
+        if (frontIsClear()) {
+          move();
+
+          turn(3);
+          while (frontIsClear()) move();
+          turn(2);
+
+          fn(0);
+
+          turn(3);
+          if (frontIsClear()) {
+            move();
+
+            turn(3);
+            while (frontIsClear()) move();
+            turn(2);
+          }
+        } else {
+          turn(3);
+        }
+      }
+      if (iszero(x)) return();
+
+      turn(2);
+      iterate (x) move();
+      turn(1);
+      iterate (x) move();
+      turn(1);
+
+      iterate (2)
+        iterate (pred(x)) {
+          turn(1);
+
+          iterate (2) {
+            iterate (pred(x)) {
+              putbeeper();
+              move();
+            }
+          }
+
+          putbeeper();
+          move();
+          putbeeper();
+          move();
+          putbeeper();
+
+          turn(2);
+          iterate (2) iterate (pred(x)) move();
+          move();
+          move();
+
+          turn(1);
+          move();
+        }
+
+      iterate (2) {
+        turn(1);
+
+        iterate (2) {
+          iterate (pred(x)) {
+            putbeeper();
+            move();
+          }
+        }
+
+        putbeeper();
+        move();
+        putbeeper();
+        move();
+        putbeeper();
+
+        turn(2);
+        iterate (2) iterate (pred(x)) move();
+        move();
+        move();
+
+        turn(1);
+        move();
+      }
+
+      turn(1);
+
+      iterate (2) {
+        iterate (pred(x)) {
+          putbeeper();
+          move();
+        }
+      }
+
+      putbeeper();
+      move();
+      putbeeper();
+      move();
+      putbeeper();
+
+      turn(2);
+      iterate (2) iterate (pred(x)) move();
+      move();
+      move();
+
+      turn(3);
+      iterate (x) move();
+      turn(3);
+      iterate (x) move();
+      turn(3);
+    }
+  }
+
+  void arregla() {
+    if (nextToABeeper()) {
+      pickbeeper();
+      if (nextToABeeper()) {
+        while (nextToABeeper()) pickbeeper();
+      } else {
+        putbeeper();
+      }
+    }
+    if (frontIsClear()) {
+      move();
+      arregla();
+    }
+  }
+
+  program() {
+    fn(0);
+    turn(2);
+
+    while (rightIsClear()) {
+      arregla();
+      turn(3);
+      move();
+      turn(3);
+      while (frontIsClear()) move();
+      turn(2);
+    }
+
+    arregla();
+
+    turnoff();
+  }
+}

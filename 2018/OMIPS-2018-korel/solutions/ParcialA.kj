@@ -1,20 +1,16 @@
 class program {
-    program () {
-    while(nextToABeeper)
-    {
-    pickbeeper();
+  program() {
+    while (nextToABeeper) {
+      pickbeeper();
     }
-    while(anyBeepersInBeeperBag)
-    {
-    while(frontIsClear)
-    {
-    move();
+    while (anyBeepersInBeeperBag) {
+      while (frontIsClear) {
+        move();
+      }
+      putbeeper();
+      turnleft();
     }
-    putbeeper();
-    turnleft();
-    
-    }
-        // TODO poner codigo aqui
-        turnoff();
-    }
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }

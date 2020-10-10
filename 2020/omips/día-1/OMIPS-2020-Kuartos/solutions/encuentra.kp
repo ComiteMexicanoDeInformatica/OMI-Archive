@@ -1,0 +1,20 @@
+iniciar-programa
+  define-nueva-instrucción super-avanza como inicio
+    si frente-bloqueado entonces inicio
+      si izquierda-libre entonces inicio
+        gira-izquierda;
+      fin si-no si derecha-libre entonces inicio
+        repetir 3 veces gira-izquierda;
+      fin;
+    fin;
+
+    avanza;
+  fin;
+
+  inicia-ejecución
+    mientras no-junto-a-zumbador hacer inicio
+      super-avanza;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa

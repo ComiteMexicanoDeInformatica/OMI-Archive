@@ -1,54 +1,48 @@
 iniciar-programa
+  define-nueva-instrucción norte como inicio
+    mientras no-orientado-al-norte hacer gira-izquierda;
+  fin;
 
-    define-nueva-instruccion norte como inicio
-        mientras no-orientado-al-norte hacer 
-            gira-izquierda
-    fin;
-    
-    define-nueva-instruccion este como inicio
-        mientras no-orientado-al-este hacer 
-            gira-izquierda
-    fin;
-    
-    define-nueva-instruccion sur como inicio
-        mientras no-orientado-al-sur hacer 
-            gira-izquierda
-    fin;
-    
-    define-nueva-instruccion oeste como inicio
-        mientras no-orientado-al-oeste hacer 
-            gira-izquierda
-    fin;
-    
-    define-nueva-instruccion busca(x) como inicio
-        si junto-a-zumbador entonces inicio
-            norte;
-            apagate;
-        fin;
-        si frente-libre y no si-es-cero(x) entonces inicio
-            avanza;
-            busca(precede(x));
-            avanza;
-        fin sino inicio
-            repetir 2 veces
-                gira-izquierda;
-        fin;
-    fin;
+  define-nueva-instrucción este como inicio
+    mientras no-orientado-al-este hacer gira-izquierda;
+  fin;
 
-    define-nueva-instruccion cuenta(x) como inicio
-        si frente-libre entonces inicio
-            avanza;
-            cuenta(sucede(x));
-        fin sino inicio
-            oeste;
-            busca(x);
-            busca(x);
-            sur;            
-        fin;
-    fin;
+  define-nueva-instrucción sur como inicio
+    mientras no-orientado-al-sur hacer gira-izquierda;
+  fin;
 
-    inicia-ejecucion
-        cuenta(0);
-        apagate;
-    termina-ejecucion
+  define-nueva-instrucción oeste como inicio
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción busca(x) como inicio
+    si junto-a-zumbador entonces inicio
+      norte;
+      apágate;
+    fin;
+    si frente-libre y no si-es-cero(x) entonces inicio
+      avanza;
+      busca(precede(x));
+      avanza;
+    fin si-no inicio
+      repetir 2 veces gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta(x) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      cuenta(sucede(x));
+    fin si-no inicio
+      oeste;
+      busca(x);
+      busca(x);
+      sur;
+    fin;
+  fin;
+
+  inicia-ejecución
+    cuenta(0);
+    apágate;
+  termina-ejecución
 finalizar-programa

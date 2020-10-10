@@ -6,7 +6,7 @@ Sin embargo, con esta información no sabemos si hay tesoro en la posición $(i,
 a menos que sea la $(1,1)$. Pero podemos usar información de casillas adyacentes para conocerlo.
 Si conocemos lo siguiente:
 
-$T_1$ = `Preguntar(i,j)`,   
+$T_1$ = `Preguntar(i,j)`,  
 $T_2$ = `Preguntar(i-1,j)`,  
 $T_3$ = `Preguntar(i,j-1)`,
 
@@ -35,7 +35,7 @@ cada columna, podemos dejar de preguntar una vez que encontramos el tesoro, redu
 preguntas realizadas. Además, si ya sabemos que en una columna no hay tesoros, podemos conocer por
 nuestra cuenta lo que regresará `Preguntar(i,j)`, ya que será lo mismo que `Preguntar(i,j-1)`, lo cual,
 conocimos de esta misma forma, o porque buscamos la posición de un tesoro y tuvimos que preguntarlo,
-teniendo $nm$ preguntas en el peor de los casos, pero puede crecer la cantidad de puntos. 
+teniendo $nm$ preguntas en el peor de los casos, pero puede crecer la cantidad de puntos.
 
 Ahora, dentro de una columna de la cual ya sabemos que hay un tesoro, en lugar de ir uno por uno,
 podemos cambiarlo por una búsqueda binaria donde ahora, si conocemos la cantidad de tesoros de la posición

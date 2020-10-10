@@ -1,0 +1,55 @@
+{
+  "problems": [
+    {
+      "path": "omips-presencial/OMIPS-2020-Circuito"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Gladiadores"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Kuadtri"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Kuartos"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Mario"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Ovejas"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Rectangulos-1"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Rectangulos-2"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Trampolines"
+    },
+    {
+      "path": "omips-presencial/OMIPS-2020-Vecinos"
+    },
+    {
+      "path": "omi/OMI-2020-Mapas"
+    },
+    {
+      "path": "omi/OMI-2020-Primo"
+    },
+    {
+      "path": "omi/OMI-2020-Rectangulos-3"
+    },
+    {
+      "path": "omi/OMI-2020-Ovejas"
+    },
+    {
+      "path": "omi/OMI-2020-Bits"
+    },
+    {
+      "path": "omi/OMI-2020-Cajas"
+    },
+    {
+      "path": "practica/OMI-2020-Practica-Fichas"
+    }
+  ]
+}

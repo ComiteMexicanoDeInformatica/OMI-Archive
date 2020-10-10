@@ -85,13 +85,13 @@ o despintaste algún cuadrito que inicialmente estaba pintado, obtendrás 0 punt
 
 # Límites
 
-* $1 \leq N,M \leq 1500$
-* $1 \leq NM \leq 10^6$
-* Cada lienzo puede contener desde 1 hasta 400 figuras.
+- $1 \leq N,M \leq 1500$
+- $1 \leq NM \leq 10^6$
+- Cada lienzo puede contener desde 1 hasta 400 figuras.
 
 # Subtareas
 
-* En el 14% de los casos, se cumple que $1 \leq N,M \leq 25$.
-* En el 20% de los casos, se cumple que $1 \leq N,M \leq 50$.
-* En el 36% de los casos, se cumple que $1 \leq NM \leq 10^4$.
-* Para 30% restante de los casos no hay consideraciones adicionales.
+- En el 14% de los casos, se cumple que $1 \leq N,M \leq 25$.
+- En el 20% de los casos, se cumple que $1 \leq N,M \leq 50$.
+- En el 36% de los casos, se cumple que $1 \leq NM \leq 10^4$.
+- Para 30% restante de los casos no hay consideraciones adicionales.

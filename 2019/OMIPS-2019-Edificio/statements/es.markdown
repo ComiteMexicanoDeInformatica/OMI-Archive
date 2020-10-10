@@ -21,10 +21,10 @@ En este caso karel avanzó 18 veces para llegar al primer piso, recuerda que sol
 
 # Consideraciones
 
-* Karel inicia en la fila más alta del edificio, desconoces su orientación.
-* Karel tiene infinitos zumbadores en la mochila.
-* Solo hay paredes horizontales y las que delimitan el edificio.
-* Se garantiza que Karel siempre puede llegar a la coordenada (1,1).
-* Se evalúa el número de zumbadores que haya en la posición (1,1). Nota: No cuánto te tardas en llegar a la casilla (1,1), sino cuánto te tardas en llegar a cualquier casilla de la primera fila.
-* No hay beepers en el mundo.
-* No importa la posición ni orientación final de Karel.
+- Karel inicia en la fila más alta del edificio, desconoces su orientación.
+- Karel tiene infinitos zumbadores en la mochila.
+- Solo hay paredes horizontales y las que delimitan el edificio.
+- Se garantiza que Karel siempre puede llegar a la coordenada (1,1).
+- Se evalúa el número de zumbadores que haya en la posición (1,1). Nota: No cuánto te tardas en llegar a la casilla (1,1), sino cuánto te tardas en llegar a cualquier casilla de la primera fila.
+- No hay beepers en el mundo.
+- No importa la posición ni orientación final de Karel.

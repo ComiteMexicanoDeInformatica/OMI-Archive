@@ -1,0 +1,154 @@
+class program {
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void norte() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void este() {
+    while (!facingEast) turnleft();
+  }
+
+  void oeste() {
+    while (!facingWest) turnleft();
+  }
+
+  void pick(a) {
+    iterate (a) pickbeeper();
+  }
+
+  void pared() {
+    while (frontIsClear) move();
+  }
+
+  void divide3() {
+    if (nextToABeeper) {
+      iterate (3) pickbeeper();
+      divide3();
+      putbeeper();
+    }
+  }
+
+  void mideTam(m) {
+    if (frontIsClear) {
+      move();
+      mideTam(succ(m));
+    } else {
+      iterate (m) {
+        iterate (m) putbeeper();
+      }
+      pickbeeper();
+      divide3();
+      sur();
+    }
+  }
+
+  void restaBasura() {
+    if (nextToABeeper) {
+      pickbeeper();
+      restaBasura();
+      pickbeeper();
+    } else {
+      sur();
+      pared();
+      este();
+    }
+  }
+
+  void compara(x) {
+    if (nextToABeeper) {
+      if (iszero(x)) {
+        norte();
+      } else {
+        pickbeeper();
+        compara(pred(x));
+        putbeeper();
+      }
+    } else {
+      sur();
+    }
+  }
+
+  void mueve(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      mueve(x);
+      putbeeper();
+    } else {
+      if (facingEast || facingNorth) {
+        iterate (x) move();
+      } else if (facingWest) {
+        iterate (x) {
+          este();
+          move();
+          norte();
+          move();
+        }
+      }
+    }
+  }
+
+  void direccion(n) {
+    compara(n);
+    if (facingNorth) {
+      // ahí no es
+      pick(n);
+      compara(n);
+      if (facingNorth) {
+        pick(n);
+        compara(n);
+        if (facingNorth) {
+          pick(n);
+          // Area 4
+          oeste();
+        } else {
+          // Area 3
+          norte();
+        }
+      } else {
+        // Area 2
+        este();
+      }
+    } else {
+      // Area 1
+      // Ahí es
+      sur();
+    }
+  }
+
+  program() {
+    if (!frontIsClear) turnoff();
+    mideTam(1);
+    restaBasura();
+    putbeeper();
+
+    direccion(4096);
+    mueve(64);
+
+    direccion(1024);
+    mueve(32);
+
+    direccion(256);
+    mueve(16);
+
+    direccion(64);
+    mueve(8);
+
+    direccion(16);
+    mueve(4);
+
+    direccion(4);
+    mueve(2);
+
+    direccion(1);
+    mueve(1);
+
+    turnoff();
+  }
+}

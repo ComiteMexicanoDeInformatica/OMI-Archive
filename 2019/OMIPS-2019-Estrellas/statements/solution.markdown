@@ -8,7 +8,7 @@ Para implementar esta solución se debe dividir el problema en sub-problemas, pu
 
 # Comparación.
 
-Los objetos a comparar son ternas $x, y, z$. El criterio que siguen es que un objeto $A$ es mayor que  un objeto $B$ si $A_x > B_x$, en caso de que sean iguales entonces tiene que cumplirse que $A_y > B_y$, en caso de que $A_x = B_x$ y $A_y = B_y$ tiene que cumplirse que $A_z > B_z$.
+Los objetos a comparar son ternas $x, y, z$. El criterio que siguen es que un objeto $A$ es mayor que un objeto $B$ si $A_x > B_x$, en caso de que sean iguales entonces tiene que cumplirse que $A_y > B_y$, en caso de que $A_x = B_x$ y $A_y = B_y$ tiene que cumplirse que $A_z > B_z$.
 
 Es necesario comparar 2 números individuales. Para esto podemos hacerlo de la siguiente manera donde Karel inicia viendo hacia el este sobre el número de la izquierda.
 
@@ -153,4 +153,4 @@ define ordenar(n) {
 }
 ```
 
-El valor $n$ en la instrucción ```ordenar``` indica la cantidad de números menos 1 a ordenar en este recorrido, ya que al término del $i$-ésimo recorrido los $i$ objetos más grandes ya se encontrarán ordenados. Es por esto que podemos parar de ordenar cuando el valor $n$ de la instrucción es 0. Karel debe recorrer la lista de izquierda a derecha, por lo que debe regresar al inicio de la lista al término de cada recorrido.
+El valor $n$ en la instrucción `ordenar` indica la cantidad de números menos 1 a ordenar en este recorrido, ya que al término del $i$-ésimo recorrido los $i$ objetos más grandes ya se encontrarán ordenados. Es por esto que podemos parar de ordenar cuando el valor $n$ de la instrucción es 0. Karel debe recorrer la lista de izquierda a derecha, por lo que debe regresar al inicio de la lista al término de cada recorrido.

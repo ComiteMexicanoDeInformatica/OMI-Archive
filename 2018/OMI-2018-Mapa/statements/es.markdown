@@ -11,6 +11,7 @@ Como aún no sabes qué $K$ lugares te gustaría visitar, quieres saber cuántas
 Dado el mapa con los lugares a visitar marcados, tienes que calcular la cantidad de rectángulos distintos del mapa que tengan exactamente $K$ lugares a visitar.
 
 # Entrada
+
 Tres enteros: $N, M, K$; Seguidos de $N$ líneas con $M$ carácteres cada una: los carácteres pueden ser $0$ (no es un lugar a visitar) o $1$ (es un lugar que se puede visitar).
 
 # Salida
@@ -18,6 +19,7 @@ Tres enteros: $N, M, K$; Seguidos de $N$ líneas con $M$ carácteres cada una: l
 Un entero que representa la cantidad de submapas rectangulares que contengan exactamente $k$ lugares a visitar.
 
 # Ejemplo
+
 ||input
 3 3 2
 101
@@ -26,23 +28,29 @@ Un entero que representa la cantidad de submapas rectangulares que contengan exa
 ||output
 8
 ||description
-En el ejemplo se pueden obtener 8 rectángulos con exactamente 2 lugares para visitar. 
+En el ejemplo se pueden obtener 8 rectángulos con exactamente 2 lugares para visitar.
 
 Por ejemplo, un posible rectángulo con 2 lugares para visitar es:  
-101  
----  
----  
+101
+
+---
+
+---
 
 Otro rectángulo distinto con dos lugares para visitar sería:  
 101  
-000  
----  
+000
+
+---
+
 ||end
 
 # Límites
- * $0\leq k \leq 6$
- * $1 \leq N,M \leq 1500$
+
+- $0\leq k \leq 6$
+- $1 \leq N,M \leq 1500$
 
 # Subtareas
- * En el 20% de los casos $1 \leq N,M \leq 20$.
- * En el 80% restante no hay restricciones adicionales.
+
+- En el 20% de los casos $1 \leq N,M \leq 20$.
+- En el 80% restante no hay restricciones adicionales.

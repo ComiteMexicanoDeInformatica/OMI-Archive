@@ -1,4 +1,4 @@
-Karel es el encargado de hacer la pancarta de la OMI 2018. Para esto, el COMI le dio un boceto del diseño esperado. Antes de empezar a pintar, Karel necesita saber qué colores va a necesitar para irlos a comprar al Zócalo. 
+Karel es el encargado de hacer la pancarta de la OMI 2018. Para esto, el COMI le dio un boceto del diseño esperado. Antes de empezar a pintar, Karel necesita saber qué colores va a necesitar para irlos a comprar al Zócalo.
 
 # Problema
 
@@ -22,13 +22,13 @@ Karel va a utilizar los colores {1, 2, 3, 4}.
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) viendo al norte.
-* Se te asegura que la casilla (1,1) no está pintada inicialmente.
-* Una zona coloreada está representada con un montón de zumbadores que van desde 1 hasta 99.
-* Karel no tiene zumbadores en la mochila.
-* El largo y ancho de la pancarta van desde 1 hasta 40.
-* Solo importa el número de zumbadores en la casilla (1,1).
+- Karel inicia en la casilla (1,1) viendo al norte.
+- Se te asegura que la casilla (1,1) no está pintada inicialmente.
+- Una zona coloreada está representada con un montón de zumbadores que van desde 1 hasta 99.
+- Karel no tiene zumbadores en la mochila.
+- El largo y ancho de la pancarta van desde 1 hasta 40.
+- Solo importa el número de zumbadores en la casilla (1,1).
 
 # Subtareas
 
-* En el 28% de los casos se asegura que ninguna casilla de la primera fila está pintada.
+- En el 28% de los casos se asegura que ninguna casilla de la primera fila está pintada.

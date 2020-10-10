@@ -12,11 +12,12 @@ En la primera parte debemos calcular el valor de $c^2$. Para esto debemos idear 
         fin sino inicio
             gira(2);
             corre;
-            repetir sucede(n) veces 
+            repetir sucede(n) veces
             	deja-zumbador;
         fin;
     fin;
 ```
+
 Si además queremos calcular el valor de $a^2$, en lugar de sólo dejar $n$ zumbadores, podemos repetir $n$ veces ese paso y tenemos el valor de $a^2$:
 
 ```
@@ -28,7 +29,7 @@ Si además queremos calcular el valor de $a^2$, en lugar de sólo dejar $n$ zumb
             gira(2);
             corre;
             repetir sucede(n) veces
-                repetir sucede(n) veces 
+                repetir sucede(n) veces
                     deja-zumbador;
         fin;
     fin;

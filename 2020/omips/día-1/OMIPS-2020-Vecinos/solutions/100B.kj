@@ -1,0 +1,176 @@
+class program {
+  define der() {
+    iterate (3) {
+      turnleft();
+    }
+  }
+
+  define linea() {
+    while (frontIsClear) {
+      move();
+    }
+  }
+
+  define med() {
+    turnleft();
+    turnleft();
+  }
+
+  define nor() {
+    while (notFacingNorth) {
+      turnleft();
+    }
+  }
+
+  define hastaFinal() {
+    while (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        putbeeper();
+      }
+    }
+  }
+
+  define hastaBeeper() {
+    while (frontIsClear && notNextToABeeper) {
+      move();
+    }
+    hastaFinal();
+  }
+
+  define pro() {
+    if (nextToABeeper) {
+      pickbeeper();
+      if (nextToABeeper) {
+        pickbeeper();
+        if (nextToABeeper) {
+          pickbeeper();
+          if (nextToABeeper) {
+            pickbeeper();
+            if (nextToABeeper) {
+              pickbeeper();
+              pro();
+              putbeeper();
+            } else {
+              if (frontIsClear) {
+                move();
+                pro();
+              } else {
+                der();
+                if (frontIsClear) {
+                  move();
+                  der();
+                  linea();
+                  med();
+                  pro();
+                } else {
+                  med();
+                  linea();
+                  turnleft();
+                  linea();
+                }
+              }
+            }
+          } else {
+            if (frontIsClear) {
+              move();
+              pro();
+            } else {
+              der();
+              if (frontIsClear) {
+                move();
+                der();
+                linea();
+                med();
+                pro();
+              } else {
+                med();
+                linea();
+                turnleft();
+                linea();
+              }
+            }
+          }
+        } else {
+          if (frontIsClear) {
+            move();
+            pro();
+          } else {
+            der();
+            if (frontIsClear) {
+              move();
+              der();
+              linea();
+              med();
+              pro();
+            } else {
+              med();
+              linea();
+              turnleft();
+              linea();
+            }
+          }
+        }
+      } else {
+        if (frontIsClear) {
+          move();
+          pro();
+        } else {
+          der();
+          if (frontIsClear) {
+            move();
+            der();
+            linea();
+            med();
+            pro();
+          } else {
+            med();
+            linea();
+            turnleft();
+            linea();
+          }
+        }
+      }
+    } else {
+      if (frontIsClear) {
+        move();
+        pro();
+      } else {
+        der();
+        if (frontIsClear) {
+          move();
+          der();
+          linea();
+          med();
+          pro();
+        } else {
+          med();
+          linea();
+          turnleft();
+          linea();
+        }
+      }
+    }
+  }
+
+  program() {
+    iterate (4) {
+      hastaBeeper();
+      med();
+      linea();
+      med();
+      while (rightIsClear) {
+        der();
+        move();
+        turnleft();
+        hastaBeeper();
+        med();
+        linea();
+        med();
+      }
+      turnleft();
+    }
+    pro();
+    turnoff();
+  }
+}

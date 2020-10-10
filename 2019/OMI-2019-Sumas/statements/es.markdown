@@ -35,6 +35,7 @@ Este es un ejemplo de un corte válido
 Si hay mas de una solución que maximice su ganancia, cualquiera es igualmente aceptable.
 
 # Entrada
+
 En la primera línea 2 enteros: $N$, $M$ separados por un único espacio. El número de filas y columnas de la loza original.
 
 En las siguientes $N$ lineas hay $M$ enteros, de manera que el $j$-ésimo entero de la $i$-ésima línea representa el valor de la casilla $(i - 1, j - 1)$.
@@ -42,6 +43,7 @@ En las siguientes $N$ lineas hay $M$ enteros, de manera que el $j$-ésimo entero
 En las siguientes $N$ lineas, $M$ enteros separados por espacios; representando los colores de cada casilla, un 0 ó 1 que representa el color blanco o negro respectivamente.
 
 # Salida
+
 Cuatro enteros separados por espacios $fil_1, col_1, fil_2$ y $col_2$, donde $(fil_1, col_1)$ es la casilla superior izquierda de la loza resultante y $(fil_2, col_2)$ es la casilla inferior derecha de la loza resultante.
 
 # Ejemplo
@@ -65,20 +67,20 @@ La mayor ganancia posible se obtiene al cortar la loza **rectangular** que conti
 
 # Límites
 
-* $1 \le N, M \le 300$.
-* $0 \le | a_{i,j} | \le 10^9$.
+- $1 \le N, M \le 300$.
+- $0 \le | a_{i,j} | \le 10^9$.
 
 ## Subtareas
 
-* Subtarea 1 (8 puntos):
-  * $1 \le N \le 15$ y $0 \le | a_{i,j} | \le 10^6$.
-* Subtarea 2 (10 puntos):
-  * $1 \le N \le 30$ y $0 \le | a_{i,j} | \le 10^6$.
-* Subtarea 3 (12 puntos):
-  * $1 \le N \le 70$ .
-* Subtarea 4 (15 puntos):
-  * $1 \le a_{i,j} \le 10^9$ (No hay números negativos en la loza original).
-* Subtarea 5 (23 puntos):
-  * La loza original completa está coloreada tablero ajedrez.
-* Subtarea 6 (32 puntos):
-  * No hay consideraciones adicionales.
+- Subtarea 1 (8 puntos):
+  - $1 \le N \le 15$ y $0 \le | a_{i,j} | \le 10^6$.
+- Subtarea 2 (10 puntos):
+  - $1 \le N \le 30$ y $0 \le | a_{i,j} | \le 10^6$.
+- Subtarea 3 (12 puntos):
+  - $1 \le N \le 70$ .
+- Subtarea 4 (15 puntos):
+  - $1 \le a_{i,j} \le 10^9$ (No hay números negativos en la loza original).
+- Subtarea 5 (23 puntos):
+  - La loza original completa está coloreada tablero ajedrez.
+- Subtarea 6 (32 puntos):
+  - No hay consideraciones adicionales.

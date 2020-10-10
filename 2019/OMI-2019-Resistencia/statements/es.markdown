@@ -4,11 +4,11 @@ Antes de desaparecer a la mitad de la población, Thanos practicó su chasquido 
 
 Dado el número $x$, cada que Thanos chasquea los dedos, $x$ se reduce al número que se obtiene al multiplicar todos sus dígitos entre sí. Se le llama _resistencia_ de $x$ al número de veces que Thanos debe chasquear los dedos para reducir $x$ a un número de un solo dígito. Por ejemplo, el número $333$ tiene resistencia $3$:
 
- Chasquido 1. $333$: $3 \times 3 \times 3 = 27$
+Chasquido 1. $333$: $3 \times 3 \times 3 = 27$
 
- Chasquido 2. $27$: $2 \times 7 = 14$
+Chasquido 2. $27$: $2 \times 7 = 14$
 
- Chasquido 3. $14$: $1 \times 4 = 4$ (Después del tercer chasquido se llega a un número de 1 digito)
+Chasquido 3. $14$: $1 \times 4 = 4$ (Después del tercer chasquido se llega a un número de 1 digito)
 
 # Problema
 
@@ -22,4 +22,4 @@ Entre más grande sea la resistencia del número que envíes, más puntos obtend
 
 # Límites
 
-* El numero $X$ debe tener a lo más $1000$ dígitos.
+- El numero $X$ debe tener a lo más $1000$ dígitos.

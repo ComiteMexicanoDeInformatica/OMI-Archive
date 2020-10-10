@@ -33,7 +33,7 @@ void rellenaCasilla() {
     }
 ```
 
-La instrucción ```checa``` se encarga de verificar si existe una pared en las casillas adyacentes, de no ser así, entonces copia el valor de dichas casillas, y deja en la casilla $(x,y)$ el valor mayor.
+La instrucción `checa` se encarga de verificar si existe una pared en las casillas adyacentes, de no ser así, entonces copia el valor de dichas casillas, y deja en la casilla $(x,y)$ el valor mayor.
 
 ```
 void checa() {
@@ -46,7 +46,7 @@ void checa() {
     }
 ```
 
-La instrucción ```pasa``` se encarga de crear una copia del montón de beepers de una casilla adyacente. Finalmente, la instrucción ```rellenaCasilla``` deja un zumbador extra para sumar 1 al valor mayor obtenido.
+La instrucción `pasa` se encarga de crear una copia del montón de beepers de una casilla adyacente. Finalmente, la instrucción `rellenaCasilla` deja un zumbador extra para sumar 1 al valor mayor obtenido.
 
 ```
 void pasa(x) {
@@ -66,7 +66,7 @@ void pasa(x) {
     }
 ```
 
-Para calcular el valor en la casilla $(x,y)$ es necesario primero calcular el valor de las casillas $(x-1,y)$ y $(x,y-1)$, y a su vez, para calcular el valor de la casilla $(x-1,y)$ es necesario calcular primero el valor de las casillas $(x-2,y)$ y $(x-1,y-1)$. Para asegurarnos de que cuando Karel llega a la casilla $(x,y)$ sus casillas adyacentes ya han sido calculadas, podemos comenzar a rellenar las casillas de abajo hacia arriba y de derecha a izquierda, comenzando por la casilla $(1,1)$. 
+Para calcular el valor en la casilla $(x,y)$ es necesario primero calcular el valor de las casillas $(x-1,y)$ y $(x,y-1)$, y a su vez, para calcular el valor de la casilla $(x-1,y)$ es necesario calcular primero el valor de las casillas $(x-2,y)$ y $(x-1,y-1)$. Para asegurarnos de que cuando Karel llega a la casilla $(x,y)$ sus casillas adyacentes ya han sido calculadas, podemos comenzar a rellenar las casillas de abajo hacia arriba y de derecha a izquierda, comenzando por la casilla $(1,1)$.
 
 ```
 void rellena() {
@@ -87,5 +87,4 @@ void rellena() {
     }
 ```
 
-La instrucción ```rellena``` se ejecuta por primera vez en el program cuando Karel se encuentra en la casilla $(1,1)$ mirando hacia el norte.
-
+La instrucción `rellena` se ejecuta por primera vez en el program cuando Karel se encuentra en la casilla $(1,1)$ mirando hacia el norte.

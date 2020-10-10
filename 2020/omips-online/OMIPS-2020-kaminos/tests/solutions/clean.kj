@@ -1,0 +1,33 @@
+class program {
+  void turnright() {
+    turnleft();
+    turnleft();
+    turnleft();
+  }
+
+  void bump() {
+    while (frontIsClear) move();
+  }
+
+  void turn() {
+    turnleft();
+    turnleft();
+  }
+
+  program() {
+    while (iszero(0)) {
+      while (nextToABeeper) pickbeeper();
+
+      if (frontIsClear) {
+        move();
+      } else if (rightIsClear) {
+        turnright();
+        move();
+        turnright();
+        bump();
+        turn();
+      } else
+        turnoff();
+    }
+  }
+}

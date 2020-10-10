@@ -24,15 +24,15 @@ Ayuda a Karel a seguir las pistas reales y haz que se apague en la entrada del c
 
 ### Explicación
 
-* La primera pista en (fila 1, columna 2) te dice que la siguienta pista está en la columna 1 en la fila de arriba, fila 2.
-* La segunda pista en (fila 2, columna 1) te dice que la siguiente pista está en la columna 3, fila de arriba.
-* Como no hay zumbadores en la casila (fila 3, columna 3) es la entrada al cuartel y Karel se debe apagar.
+- La primera pista en (fila 1, columna 2) te dice que la siguienta pista está en la columna 1 en la fila de arriba, fila 2.
+- La segunda pista en (fila 2, columna 1) te dice que la siguiente pista está en la columna 3, fila de arriba.
+- Como no hay zumbadores en la casila (fila 3, columna 3) es la entrada al cuartel y Karel se debe apagar.
 
 # Consideraciones
 
-* Karel empieza en la casilla (1, 1) viendo al norte.
-* Karel no tiene zumbadores en la mochila.
-* No hay paredes internas en el mundo.
-* Solo hay un montón de zumbadores en la primera fila.
-* Los montones de zumbadores en el mundo siempre son menores al ancho del mundo.
-* **Sólo importa la posición final de Karel.**
+- Karel empieza en la casilla (1, 1) viendo al norte.
+- Karel no tiene zumbadores en la mochila.
+- No hay paredes internas en el mundo.
+- Solo hay un montón de zumbadores en la primera fila.
+- Los montones de zumbadores en el mundo siempre son menores al ancho del mundo.
+- **Sólo importa la posición final de Karel.**

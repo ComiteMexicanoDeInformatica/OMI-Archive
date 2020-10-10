@@ -1,12 +1,11 @@
 class program {
-    program () {
+  program() {
     turnleft();
     turnleft();
     turnleft();
-    while(!nextToABeeper)
-    move();
-    
-        // TODO poner codigo aqui
-        turnoff();
-    }
+    while (!nextToABeeper) move();
+
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }

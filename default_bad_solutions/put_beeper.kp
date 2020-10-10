@@ -1,0 +1,6 @@
+iniciar-programa
+  inicia-ejecución
+    deja-zumbador;
+    apágate;
+  termina-ejecución
+finalizar-programa

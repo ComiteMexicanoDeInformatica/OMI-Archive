@@ -1,0 +1,101 @@
+iniciar-programa
+  define-prototipo-instrucción camino;
+
+  define-nueva-instrucción norte como inicio
+    mientras no orientado-al-norte hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción oeste como inicio
+    mientras no orientado-al-oeste hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción sur como inicio
+    mientras no orientado-al-sur hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción este como inicio
+    mientras no orientado-al-este hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción paso(n) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      camino;
+      si orientado-al-sur entonces inicio
+        oeste;
+        repetir n veces gira-izquierda;
+        avanza;
+        sur;
+      fin si-no inicio
+        oeste;
+        repetir n veces gira-izquierda;
+        avanza;
+        norte;
+      fin;
+    fin si-no inicio
+      sur;
+    fin;
+
+    si orientado-al-sur entonces inicio
+      repetir n veces deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción camino como inicio
+    si no junto-a-zumbador entonces inicio
+      norte;
+      sal-de-instrucción;
+    fin;
+
+    este;
+
+    coge-zumbador;
+    gira-izquierda;
+
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      gira-izquierda;
+
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        gira-izquierda;
+
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          gira-izquierda;
+          paso(4);
+        fin si-no inicio
+          paso(3);
+        fin;
+      fin si-no inicio
+        paso(2);
+      fin;
+    fin si-no inicio
+      paso(1);
+    fin;
+  fin;
+
+  define-nueva-instrucción siguiente como inicio
+    este;
+    si frente-libre entonces inicio
+      avanza;
+    fin si-no inicio
+      gira-izquierda;
+      si frente-libre entonces inicio
+        avanza;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+      fin si-no inicio
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    mientras algún-zumbador-en-la-mochila hacer inicio
+      camino;
+      siguiente;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa
