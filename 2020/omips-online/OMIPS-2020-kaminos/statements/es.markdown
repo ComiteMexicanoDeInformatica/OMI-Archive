@@ -31,11 +31,11 @@ Cuando Karel llega a la casilla $(2,4)$ tiene que ir al sur, pero la casilla $(1
 
 # Consideraciones
 
-* Karel inicia en la casilla $(1,1)$.
-* Karel inicia viendo al norte.
-* Karel tiene infinitos zumbadores en la mochila.
-* Todos los montones de zumbadores son instrucciones válidas. Es decir, todas las casillas del mundo tienen entre 1 y 4 zumbadores.
-* La plaza principal tiene forma rectangular y no tiene paredes intermedias.
-* Si Karel está en una casilla junto a un montón de zumbadores que lo haría chocar con una pared. Significa que saldría de la plaza y se iría a su casa.
-* Se evalúan todas las casillas del mundo.
-* No importa la posición ni orientación final de Karel.
+- Karel inicia en la casilla $(1,1)$.
+- Karel inicia viendo al norte.
+- Karel tiene infinitos zumbadores en la mochila.
+- Todos los montones de zumbadores son instrucciones válidas. Es decir, todas las casillas del mundo tienen entre 1 y 4 zumbadores.
+- La plaza principal tiene forma rectangular y no tiene paredes intermedias.
+- Si Karel está en una casilla junto a un montón de zumbadores que lo haría chocar con una pared. Significa que saldría de la plaza y se iría a su casa.
+- Se evalúan todas las casillas del mundo.
+- No importa la posición ni orientación final de Karel.

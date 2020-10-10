@@ -22,18 +22,18 @@ En caso de que la línea que estás pintando no pueda medir $3$ casillas porque 
 
 # Consideraciones
 
-* Karel inicia en la casilla $(1,1)$ viendo al norte.
-* Karel tiene 0 zumbadores en la mochila.
-* El alto del mundo siempre es 5.
-* El ancho del mundo puede ser de 1 hasta 100.
-* No importa la posición ni orientación final de Karel.
+- Karel inicia en la casilla $(1,1)$ viendo al norte.
+- Karel tiene 0 zumbadores en la mochila.
+- El alto del mundo siempre es 5.
+- El ancho del mundo puede ser de 1 hasta 100.
+- No importa la posición ni orientación final de Karel.
 
 # Evaluación
 
 Para cada caso de prueba se evaluará que las líneas queden pintadas correctamente en la fila $3$.
 Adicionalmente, para obtener todos los puntos en este problema debes evitar las siguientes penalizaciones:
 
-* Tienes una penalización de $7\%$ si avanzas $3N$ veces o más.
-* Tienes una penalización de $8\%$ si al final quedan zumbadores en alguna otra línea aparte de la cubeta.
-* Tienes una penalización de $12\%$ si al final tienes zumbadores en la mochila.
-* Tienes una penalización de $13\%$ si ejecutas la instrucción `coge-zumbador` o `pickbeeper` mas veces de las necesarias para pintar la línea.
+- Tienes una penalización de $7\%$ si avanzas $3N$ veces o más.
+- Tienes una penalización de $8\%$ si al final quedan zumbadores en alguna otra línea aparte de la cubeta.
+- Tienes una penalización de $12\%$ si al final tienes zumbadores en la mochila.
+- Tienes una penalización de $13\%$ si ejecutas la instrucción `coge-zumbador` o `pickbeeper` mas veces de las necesarias para pintar la línea.

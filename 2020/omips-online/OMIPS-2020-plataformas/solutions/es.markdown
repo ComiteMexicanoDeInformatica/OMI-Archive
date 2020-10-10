@@ -1,4 +1,4 @@
-# Plataformas -  Solución.
+# Plataformas - Solución.
 
 ![1](1.png)
 
@@ -7,7 +7,6 @@ En este problema nos piden alinear plataformas verticales que se encuentran sobr
 El enfoque clave para el problema es: ¿cuántos movimientos hacen falta para trasladar cada plataforma hacia una columna específica?
 
 De esta forma podemos hacer de este problema 2 sub-problemas: calcula la cantidad de movimientos necesarios para mover todas las plataformas a cada una de las columnas y después encuentra la columna con menos movimientos.
-
 
 ## Contar movimientos.
 
@@ -19,7 +18,7 @@ El siguiente código se encarga de contar los movimientos sobre una columna.
 
 ```
 define cuenta_plataforma() {
-    while(notNextToABeeper) 
+    while(notNextToABeeper)
         move();
     cuenta(1);
     cuenta(1);
@@ -56,7 +55,7 @@ Tenemos que ejecutar la función sobre cada una de las filas del mundo.
 
 ```
 program () {
-    while(notFacingEast) 
+    while(notFacingEast)
         turnleft();
     while(leftIsClear) {
         cuenta_plataforma();
@@ -124,7 +123,6 @@ Al final de este sub problema el mundo se verá como el siguiente:
 
 ![5](5.png)
 
-
 En este punto tenemos en la primer fila sobre cada columna el total de movimientos necesarios para mover todas las plataformas a cada columna, ahora basta con encontrar cual es el menor de estos números y dejarlo en la casilla (1,1).
 
 ## Encuentra el menor montón de zumbadores.
@@ -144,7 +142,7 @@ define encuentraMenor(n) {
     else {
         move();
         iterate(n) {
-            if(nextToABeeper) 
+            if(nextToABeeper)
                 pickbeeper();
             else {
                 turn(1);
@@ -153,12 +151,12 @@ define encuentraMenor(n) {
             }
         }
         if(facingWest) {
-            while(nextToABeeper) 
+            while(nextToABeeper)
                 pickbeeper();
             iterate(n)
                 putbeeper();
         }
-        else 
+        else
             turn(3);
     }
 }
@@ -172,7 +170,7 @@ Debemos ejecutar esta función sobre cada número en la primer fila, esto se log
 program () {
     ...
     turn(3);
-    while(frontIsClear) 
+    while(frontIsClear)
         encuentraMenor(0);
     turnoff();
 }

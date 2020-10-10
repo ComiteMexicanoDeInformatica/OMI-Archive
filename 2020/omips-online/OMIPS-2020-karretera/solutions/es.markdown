@@ -2,7 +2,7 @@ Este problema se puede partir en dos partes: Recoger zumbadores y pintar las lí
 
 Para pintar la linea primero tenemos que recoger los zumbadores necesarios. Esto lo podemos lograr primero contando el ancho del mundo.
 
-Karel puede contar usando recursión:  mientras tengas el frente libre avanzas y llamas la función incrementando el parámetro.
+Karel puede contar usando recursión: mientras tengas el frente libre avanzas y llamas la función incrementando el parámetro.
 
 ```
 define-nueva-instrucción cuenta-ancho(n) como inicio

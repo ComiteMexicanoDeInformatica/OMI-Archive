@@ -6,7 +6,7 @@ El siguiente código busca el menor en una columna y elimina las filas restantes
     define-nueva-instruccion encuentra-menor(n) como inicio
     	si junto-a-zumbador entonces inicio
         	compara(n);
-            si orientado-al-sur entonces inicio        
+            si orientado-al-sur entonces inicio
             	limpia-fila;
                 norte;
                 si frente-libre entonces inicio

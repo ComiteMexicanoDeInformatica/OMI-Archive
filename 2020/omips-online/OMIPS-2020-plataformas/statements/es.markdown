@@ -24,10 +24,10 @@ Karel debe dejar la respuesta en la casilla $(1, 1)$.
 
 # Consideraciones
 
-* Karel empieza en la casilla $(1, 1)$.
-* Karel empieza viendo al norte.
-* Karel lleva infinitos zumbadores en la mochila.
-* El mundo siempre es rectangular.
-* No hay paredes internas.
-* En cada fila hay exactamente una plataforma.
-* Solo se evalúa la cantidad de zumbadores que Karel deja en la casilla $(1, 1)$.
+- Karel empieza en la casilla $(1, 1)$.
+- Karel empieza viendo al norte.
+- Karel lleva infinitos zumbadores en la mochila.
+- El mundo siempre es rectangular.
+- No hay paredes internas.
+- En cada fila hay exactamente una plataforma.
+- Solo se evalúa la cantidad de zumbadores que Karel deja en la casilla $(1, 1)$.

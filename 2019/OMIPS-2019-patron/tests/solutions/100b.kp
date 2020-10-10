@@ -1,65 +1,64 @@
 iniciar-programa
-    define-nueva-instruccion gira(n) como inicio
-        repetir n veces gira-izquierda;
-    fin;
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
 
-    define-nueva-instruccion superavanza como
-    inicio
-        si frente-libre entonces inicio
-            avanza;
-        fin;
-        si frente-bloqueado entonces gira(1);
-        si frente-bloqueado entonces gira(2);
-        si frente-bloqueado entonces gira(1);
+  define-nueva-instrucción superavanza como inicio
+    si frente-libre entonces inicio
+      avanza;
     fin;
+    si frente-bloqueado entonces gira(1);
+    si frente-bloqueado entonces gira(2);
+    si frente-bloqueado entonces gira(1);
+  fin;
 
-    define-nueva-instruccion recorre-patron como inicio
-        mientras junto-a-zumbador hacer superavanza;
+  define-nueva-instrucción recorre-patron como inicio
+    mientras junto-a-zumbador hacer superavanza;
+  fin;
+
+  define-nueva-instrucción voltea como inicio
+    repetir 4 veces inicio
+      gira-izquierda;
+      si frente-libre entonces sal-de-instrucción;
     fin;
+  fin;
 
-    define-nueva-instruccion voltea como inicio
-        repetir 4 veces inicio
-            gira-izquierda;
-            si frente-libre entonces sal-de-instruccion;
-        fin;
-    fin;
-
-    define-nueva-instruccion duplica-patron(n) como inicio
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            duplica-patron(sucede(n));
-            deja-zumbador;
-        fin sino inicio
-            repetir n veces deja-zumbador;
-            si frente-libre entonces inicio
-                superavanza;
-                duplica-patron(0);
-                si frente-libre entonces inicio
-                    superavanza;
-                fin sino inicio
-                    apagate;
-                fin;
-            fin sino inicio
-                voltea;
-                recorre-patron;
-            fin;
-        fin;
-    fin;
-
-    inicia-ejecucion
-        recorre-patron;
-        voltea;
+  define-nueva-instrucción duplica-patron(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      duplica-patron(sucede(n));
+      deja-zumbador;
+    fin si-no inicio
+      repetir n veces deja-zumbador;
+      si frente-libre entonces inicio
         superavanza;
-
-        mientras si-es-cero(0) hacer inicio
-            duplica-patron(0);
-            si frente-libre entonces inicio
-                voltea;
-            fin sino inicio
-                apagate;
-            fin;
+        duplica-patron(0);
+        si frente-libre entonces inicio
+          superavanza;
+        fin si-no inicio
+          apágate;
         fin;
+      fin si-no inicio
+        voltea;
+        recorre-patron;
+      fin;
+    fin;
+  fin;
 
-        apagate;
-    termina-ejecucion
+  inicia-ejecución
+    recorre-patron;
+    voltea;
+    superavanza;
+
+    mientras si-es-cero(0) hacer inicio
+      duplica-patron(0);
+      si frente-libre entonces inicio
+        voltea;
+      fin si-no inicio
+        apágate;
+      fin;
+    fin;
+
+    apágate;
+  termina-ejecución
 finalizar-programa

@@ -22,9 +22,9 @@ Karel debe colocar un solo zumbador sobre la parte más alta de la ciudad (es de
 
 # Consideraciones
 
-* Karel empieza en la casilla $(1, 1)$ orientado al norte.
-* Karel tiene un solo zumbador en la mochila.
-* No importa la posición ni orientación final de Karel.
-* La ciudad tiene un único punto mas alto.
-* Todos los edificios tienen altura entre 1 y 99.
-* La silueta de la ciudad no toca el muro que delimita al mundo del lado oeste.
+- Karel empieza en la casilla $(1, 1)$ orientado al norte.
+- Karel tiene un solo zumbador en la mochila.
+- No importa la posición ni orientación final de Karel.
+- La ciudad tiene un único punto mas alto.
+- Todos los edificios tienen altura entre 1 y 99.
+- La silueta de la ciudad no toca el muro que delimita al mundo del lado oeste.

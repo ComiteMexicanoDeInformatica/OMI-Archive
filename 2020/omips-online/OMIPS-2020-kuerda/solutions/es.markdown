@@ -44,13 +44,13 @@ Para realizar esta tarea podemos contar cual es el valor de <b>n</b> al principi
 
 ![2](2.png)
 
-Comparamos los <b>n-1</b> primeros pares de jugadores de izquierda a derecha. Si el número de la izquierda es mayor que el número de la derecha entonces dejamos un zumbador sobre el montón de la derecha (en la fila 2). 
+Comparamos los <b>n-1</b> primeros pares de jugadores de izquierda a derecha. Si el número de la izquierda es mayor que el número de la derecha entonces dejamos un zumbador sobre el montón de la derecha (en la fila 2).
 
 Esto podemos lograrlo con el siguiente código.
 
 ```
 define programN(n) {
-    /* Función que ubica a Karel en el último 
+    /* Función que ubica a Karel en el último
      * jugador del equipo izquierdo.
      */
     iterate(pred(n)) {
@@ -90,7 +90,7 @@ Luego de ejecutarlo el mundo de Karel se verá como el siguiente:
 
 ![3](3.png)
 
-Lo que sigue es verificar si la secuencia de los primeros <b>n</b> jugadores están formados ascendente o descendentemente. 
+Lo que sigue es verificar si la secuencia de los primeros <b>n</b> jugadores están formados ascendente o descendentemente.
 
 Si en la segunda fila (desde la columna en la que Karel termina) hay <b>n-1</b> montones de un zumbador entonces se cumple que los primeros <b>n</b> jugadores están formados descendentemente, si hay <b>n-1</b> casillas con cero zumbadores entonces se cumple que los primeros <b>n</b> jugadores están formados ascendentemente.
 
@@ -100,7 +100,7 @@ Para esto podemos hacer uso de 2 funciones que cuentan la mayor cantidad de casi
 
 ```
 define contar1(n) {
-    if(frontIsBlocked) 
+    if(frontIsBlocked)
         comparar(n);
     else if(nextToABeeper) {
         pickbeeper();
@@ -114,7 +114,7 @@ define contar1(n) {
 }
 
 define contar0(n) {
-    if(frontIsBlocked) 
+    if(frontIsBlocked)
         comparar(n);
     else if(nextToABeeper) {
         pickbeeper();
@@ -140,19 +140,19 @@ Esto es posible lograrlo con el siguiente código:
 
 ```
 define programN(n) {
-    /* Función que ubica a Karel en el último 
+    /* Función que ubica a Karel en el último
      * jugador del equipo izquierdo.
      */
     ...
     turn(1);
     move();
     turn(1);
-    if(nextToABeeper) 
+    if(nextToABeeper)
         contar1(0);
-    else 
+    else
         contar0(0);
     if(facingSouth) {
-        /* El equipo de la izquierda es 
+        /* El equipo de la izquierda es
          * más grande
          */
         move();
@@ -172,7 +172,7 @@ define programN(n) {
         while(nextToABeeper && frontIsClear)
             move();
         turn(2);
-        if(notNextToABeeper) 
+        if(notNextToABeeper)
             move();
         iterate(n)
             move();
@@ -204,11 +204,11 @@ define sumaFuerzas(n) {
                 putbeeper();
         }
         else {
-            /* Equipo derecha suma más 
+            /* Equipo derecha suma más
              * fuerza.
              */
             turn(2);
-            while(frontIsClear) 
+            while(frontIsClear)
                 move();
             // Comparamos las fuerzas
             comparar(n);
@@ -217,13 +217,13 @@ define sumaFuerzas(n) {
                 turn(2);
             }
             else if(facingNorth) {
-                /* Equipo izquierdo suma más 
+                /* Equipo izquierdo suma más
                  * fuerza.
                  */
                 turn(1);
             }
             else {
-                /* Equipo derecho suma más 
+                /* Equipo derecho suma más
                  * fuerza.
                  */
                 turn(2);
@@ -232,7 +232,7 @@ define sumaFuerzas(n) {
     }
     else if(nextToABeeper) {
         pickbeeper();
-        if(nextToABeeper) 
+        if(nextToABeeper)
             sumaFuerzas(succ(n));
         else {
             if(frontIsClear)

@@ -1,112 +1,100 @@
 iniciar-programa
+  define-nueva-instrucción norte como inicio
+    mientras no-orientado-al-norte hacer gira-izquierda;
+  fin;
 
-    define-nueva-instruccion norte como inicio
-        mientras no-orientado-al-norte hacer 
-            gira-izquierda
-    fin;
-    
-    define-nueva-instruccion este como inicio
-        mientras no-orientado-al-este hacer 
-            gira-izquierda
-    fin;
-    
-    define-nueva-instruccion sur como inicio
-        mientras no-orientado-al-sur hacer 
-            gira-izquierda
-    fin;
-    
-    define-nueva-instruccion oeste como inicio
-        mientras no-orientado-al-oeste hacer 
-            gira-izquierda
-    fin;
+  define-nueva-instrucción este como inicio
+    mientras no-orientado-al-este hacer gira-izquierda;
+  fin;
 
-    define-nueva-instruccion carry como inicio
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
+  define-nueva-instrucción sur como inicio
+    mientras no-orientado-al-sur hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción oeste como inicio
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción carry como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      carry;
+      deja-zumbador;
+    fin si-no inicio
+      avanza;
+      mientras junto-a-zumbador hacer coge-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción esquina(x) como inicio
+    repetir 4 veces inicio
+      repetir 2 veces inicio
+        repetir x veces inicio
+          si junto-a-zumbador entonces inicio
             carry;
-            deja-zumbador;
-        fin sino inicio
+          fin si-no inicio
             avanza;
-            mientras junto-a-zumbador hacer
-                coge-zumbador;
+          fin;
         fin;
+      fin;
+      gira-izquierda;
     fin;
-    
-    define-nueva-instruccion esquina(x) como inicio
-        repetir 4 veces inicio
-            repetir 2 veces inicio
-                repetir x veces inicio
-                    si junto-a-zumbador entonces inicio
-                        carry;
-                    fin sino inicio
-                        avanza;
-                    fin;
-                fin;
-            fin;
-            gira-izquierda;
-        fin;
-    fin;
-    
-    define-nueva-instruccion marca(x) como inicio
-        repetir 4 veces inicio
-            repetir 2 veces
-                repetir x veces avanza;
-            deja-zumbador;
-            gira-izquierda;
-        fin;
-        coge-zumbador;
-    fin;
-    
-    define-nueva-instruccion cuenta(z) como inicio
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            cuenta(sucede(z));
-        fin sino inicio
-            deja-zumbador;
-            repetir 4 veces inicio
-                avanza;
-                mientras no-junto-a-zumbador hacer inicio
-                    repetir z veces
-                        deja-zumbador;
-                    avanza;
-                fin;
-                repetir precede(z) veces
-                    deja-zumbador;
-                gira-izquierda;        
-            fin;
-        fin;
-    fin;
+  fin;
 
-    define-nueva-instruccion pinta(x) como inicio
-        norte;
-        repetir x veces 
-            avanza;
-        oeste;
-        esquina(x);
-        marca(x);
-        si junto-a-zumbador entonces inicio        
-            cuenta(0);
-        fin sino inicio
-            cuenta(1);
-        fin;
-        sur;
-        repetir x veces
-            avanza;
-        este;
-        si frente-libre entonces inicio
-            avanza;
-            pinta(sucede(x));
-        fin;
+  define-nueva-instrucción marca(x) como inicio
+    repetir 4 veces inicio
+      repetir 2 veces repetir x veces avanza;
+      deja-zumbador;
+      gira-izquierda;
     fin;
+    coge-zumbador;
+  fin;
 
-    inicia-ejecucion
-        este;
-        si no-junto-a-zumbador entonces
-            deja-zumbador;  
-        si frente-libre entonces inicio
-            avanza;
-            pinta(1);
+  define-nueva-instrucción cuenta(z) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cuenta(sucede(z));
+    fin si-no inicio
+      deja-zumbador;
+      repetir 4 veces inicio
+        avanza;
+        mientras no-junto-a-zumbador hacer inicio
+          repetir z veces deja-zumbador;
+          avanza;
         fin;
-        apagate;
-    termina-ejecucion
+        repetir precede(z) veces deja-zumbador;
+        gira-izquierda;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción pinta(x) como inicio
+    norte;
+    repetir x veces avanza;
+    oeste;
+    esquina(x);
+    marca(x);
+    si junto-a-zumbador entonces inicio
+      cuenta(0);
+    fin si-no inicio
+      cuenta(1);
+    fin;
+    sur;
+    repetir x veces avanza;
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      pinta(sucede(x));
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    si no-junto-a-zumbador entonces deja-zumbador;
+    si frente-libre entonces inicio
+      avanza;
+      pinta(1);
+    fin;
+    apágate;
+  termina-ejecución
 finalizar-programa

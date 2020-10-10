@@ -1,35 +1,27 @@
 class program {
-define fug()
-{
-if(frontIsClear)
-{
-move();
-move();
-fug();
-move();
-}
-else
-{
-turnleft();
-turnleft();
-}
-}
-    program () {
-    while(notFacingWest)
-    turnleft();
-    while(frontIsClear)
-    move();
-    while(notFacingSouth)
-    turnleft();
-    while(frontIsClear)
-    move();
-    turnleft();
-    turnleft();
-    fug();
-    while(notFacingEast)
-    turnleft();
-    fug();
-        // TODO poner codigo aqui
-        turnoff();
+  define fug() {
+    if (frontIsClear) {
+      move();
+      move();
+      fug();
+      move();
+    } else {
+      turnleft();
+      turnleft();
     }
+  }
+
+  program() {
+    while (notFacingWest) turnleft();
+    while (frontIsClear) move();
+    while (notFacingSouth) turnleft();
+    while (frontIsClear) move();
+    turnleft();
+    turnleft();
+    fug();
+    while (notFacingEast) turnleft();
+    fug();
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }

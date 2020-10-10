@@ -1,12 +1,13 @@
-# Pistas- Solución
+# Pistas- Soluciï¿½n
 
-Para solucionar este problema aprovecharemos que iniciamos con la mochila vacía.
+Para solucionar este problema aprovecharemos que iniciamos con la mochila vacï¿½a.
 
-Lo primero que haremos es encontrar el montón de zumbadores  en la primer fila.
+Lo primero que haremos es encontrar el montï¿½n de zumbadores en la primer fila.
 
-Después, cada vez que lleguemos a un montón de zumbadores los tomaremos todos, dejaremos uno, subiremos a la siguiente fila, y a partir de la primer columna, avanzaremos al este mientras tengamos zumbadores, dejando un zumbador antes de dar cada paso.
+Despuï¿½s, cada vez que lleguemos a un montï¿½n de zumbadores los tomaremos todos, dejaremos uno, subiremos a la siguiente fila, y a partir de la primer columna, avanzaremos al este mientras tengamos zumbadores, dejando un zumbador antes de dar cada paso.
 
-Así, cada vez que lleguemos a un nuevo montón de zumbadores tendremos la mochila vacía, y podremos repetir el proceso hasta que lleguemos a una casilla sin zumbadores, donde deberemos apagar a Karel.
+Asï¿½, cada vez que lleguemos a un nuevo montï¿½n de zumbadores tendremos la mochila vacï¿½a, y podremos repetir el proceso hasta que lleguemos a una casilla sin zumbadores, donde deberemos apagar a Karel.
+
 ```
 iniciar-programa
 	define-nueva-instruccion gira(n) como inicio

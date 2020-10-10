@@ -1,32 +1,31 @@
 iniciar-programa
-    inicia-ejecucion
-        repetir 99 veces coge-zumbador;
-        avanza;
-        avanza;
-        gira-izquierda;
-        gira-izquierda;
-        gira-izquierda;
+  inicia-ejecución
+    repetir 99 veces coge-zumbador;
+    avanza;
+    avanza;
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
+
+    si frente-libre entonces inicio
+      mientras frente-libre hacer inicio
+        repetir 3 veces inicio
+          deja-zumbador;
+          si frente-libre entonces inicio
+            avanza;
+          fin si-no inicio
+            apágate;
+          fin;
+        fin;
 
         si frente-libre entonces inicio
-
-            mientras frente-libre hacer inicio
-                repetir 3 veces inicio
-                    deja-zumbador;
-                    si frente-libre entonces inicio
-                        avanza;
-                    fin sino inicio
-                        apagate;
-                    fin;
-                fin;
-
-                si frente-libre entonces inicio
-                    avanza;
-                    si frente-bloqueado entonces deja-zumbador;
-                fin;
-            fin;
-        fin sino inicio
-            deja-zumbador;
+          avanza;
+          si frente-bloqueado entonces deja-zumbador;
         fin;
-        apagate;
-    termina-ejecucion
+      fin;
+    fin si-no inicio
+      deja-zumbador;
+    fin;
+    apágate;
+  termina-ejecución
 finalizar-programa

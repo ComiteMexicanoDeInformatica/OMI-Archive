@@ -40,9 +40,9 @@ Deberás indicar esos lugares colocando un zumbador en ellos, dejando el resto d
 
 # Consideraciones
 
-* Karel inicia en $(1, 1)$ orientado al norte
-* Karel tiene $n$ zumbadores en la mochila.
-* El mundo es un cuarto de una sola fila y $n$ columnas sin muros interiores.
-* El valor de $n$ estará entre 1 y 5000
-* Karel no puede avanzar más de 5000 veces.
-* Para un conjunto de casos de prueba con valor de 50 puntos, el valor de $n$ será menor o igual que 50
+- Karel inicia en $(1, 1)$ orientado al norte
+- Karel tiene $n$ zumbadores en la mochila.
+- El mundo es un cuarto de una sola fila y $n$ columnas sin muros interiores.
+- El valor de $n$ estará entre 1 y 5000
+- Karel no puede avanzar más de 5000 veces.
+- Para un conjunto de casos de prueba con valor de 50 puntos, el valor de $n$ será menor o igual que 50

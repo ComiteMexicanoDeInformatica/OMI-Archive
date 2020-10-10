@@ -1,50 +1,51 @@
 class program {
+  void north() {
+    while (!facingNorth) turnleft();
+  }
 
-	void north() {
-    	while(!facingNorth) turnleft();
-    }
-    void south() {
-    	while(!facingSouth) turnleft();
-    }
-    void east() {
-    	while(!facingEast) turnleft();
-    }
-    void west() {
-    	while(!facingWest) turnleft();
-    }
+  void south() {
+    while (!facingSouth) turnleft();
+  }
 
-	void turn(a) {
-    	iterate(a) turnleft();
-    }
+  void east() {
+    while (!facingEast) turnleft();
+  }
 
-	void findHole() {
-    	west();
-        while(frontIsClear)
-        	move();
-        east();;
-        while(rightIsBlocked && frontIsClear)
-        	move();
-        south();
-    }
+  void west() {
+    while (!facingWest) turnleft();
+  }
 
-    program () {
-    	findHole();
-        while(frontIsClear) {
-        	move();
-            findHole();
-        }
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void findHole() {
+    west();
+    while (frontIsClear) move();
+    east();
+    ;
+    while (rightIsBlocked && frontIsClear) move();
+    south();
+  }
+
+  program() {
+    findHole();
+    while (frontIsClear) {
+      move();
+      findHole();
+    }
+    north();
+
+    if (rightIsClear || leftIsClear) {
+      east();
+    } else {
+      move();
+      if (rightIsClear || leftIsClear) {
+        west();
+      } else {
         north();
-        
-        if(rightIsClear || leftIsClear) {
-        	east();
-        } else {
-        	move();
-            if(rightIsClear || leftIsClear) {
-            	west();
-            } else {
-            	north();
-            }
-        }
-        turnoff();
+      }
     }
+    turnoff();
+  }
 }

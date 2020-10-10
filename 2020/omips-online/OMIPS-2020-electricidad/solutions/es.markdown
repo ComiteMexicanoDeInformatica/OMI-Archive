@@ -41,7 +41,6 @@ Primero lo que vamos a hacer es realizar la búsqueda en cada una de las filas q
     }
 ```
 
-
 Cuando terminemos de recorrer toda la fila y de obtener todos los zumbadores, debemos retornar a la casilla <b>(1, 1)</b> la cual siempre se ubicará en la izquierda inferior del mundo, es decir, al Suroeste del mundo, para esto, las siguientes funciones nos ayudaran a regresar:
 
 ```
@@ -93,7 +92,6 @@ Una vez situándonos en la casilla <b>(1, 1)</b>, actualizaremos el número máx
         }
     }
 ```
-
 
 ### Regresar cada zumbador a su respectiva casilla
 

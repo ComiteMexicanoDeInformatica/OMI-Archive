@@ -1,102 +1,101 @@
 iniciar-programa
-	define-prototipo-instruccion camino; 
-    
-    define-nueva-instruccion norte como inicio
-    	mientras no orientado-al-norte hacer gira-izquierda;
-    fin;
-    
-    define-nueva-instruccion oeste como inicio
-    	mientras no orientado-al-oeste hacer gira-izquierda;
-    fin;
-    
-    define-nueva-instruccion sur como inicio
-    	mientras no orientado-al-sur hacer gira-izquierda;
-    fin;
-    
-    define-nueva-instruccion este como inicio
-    	mientras no orientado-al-este hacer gira-izquierda;
+  define-prototipo-instrucción camino;
+
+  define-nueva-instrucción norte como inicio
+    mientras no orientado-al-norte hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción oeste como inicio
+    mientras no orientado-al-oeste hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción sur como inicio
+    mientras no orientado-al-sur hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción este como inicio
+    mientras no orientado-al-este hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción paso(n) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      camino;
+      si orientado-al-sur entonces inicio
+        oeste;
+        repetir n veces gira-izquierda;
+        avanza;
+        sur;
+      fin si-no inicio
+        oeste;
+        repetir n veces gira-izquierda;
+        avanza;
+        norte;
+      fin;
+    fin si-no inicio
+      sur;
     fin;
 
-    define-nueva-instruccion paso(n) como inicio
-    	si frente-libre entonces inicio
-        	avanza;
-        	camino;
-        	si orientado-al-sur entonces inicio
-                oeste;
-                repetir n veces gira-izquierda;
-        		avanza;
-                sur;
-        	fin sino inicio
-            	oeste;
-                repetir n veces gira-izquierda;
-				avanza;
-                norte;
-            fin;
-		fin sino inicio
-			sur;
-        fin;
-        
-        si orientado-al-sur entonces inicio
-        	repetir n veces deja-zumbador;
-        fin;
+    si orientado-al-sur entonces inicio
+      repetir n veces deja-zumbador;
     fin;
-    
-    define-nueva-instruccion camino como inicio
-    	si no junto-a-zumbador entonces inicio
-        	norte;
-            sal-de-instrucción;
-        fin;
-        
-        este;
-        
-        
+  fin;
+
+  define-nueva-instrucción camino como inicio
+    si no junto-a-zumbador entonces inicio
+      norte;
+      sal-de-instrucción;
+    fin;
+
+    este;
+
+    coge-zumbador;
+    gira-izquierda;
+
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      gira-izquierda;
+
+      si junto-a-zumbador entonces inicio
         coge-zumbador;
         gira-izquierda;
-            
+
         si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            gira-izquierda;
-                
-            si junto-a-zumbador entonces inicio
-            	coge-zumbador;
-            	gira-izquierda;
-                    
-                si junto-a-zumbador entonces inicio
-                    coge-zumbador;
-                    gira-izquierda;
-                    paso(4);
-                fin sino inicio
-                	paso(3);
-                fin;
-			fin sino inicio
-            	paso(2);
-            fin;
-		fin sino inicio
-        	paso(1);
+          coge-zumbador;
+          gira-izquierda;
+          paso(4);
+        fin si-no inicio
+          paso(3);
         fin;
+      fin si-no inicio
+        paso(2);
+      fin;
+    fin si-no inicio
+      paso(1);
     fin;
-    
-    define-nueva-instruccion siguiente como inicio
-    	este;
-        si frente-libre entonces inicio
-        	avanza;
-        fin sino inicio
-        	gira-izquierda;
-            si frente-libre entonces inicio
-            	avanza;
-                gira-izquierda;
-                mientras frente-libre hacer avanza;
-            fin sino inicio
-            	apagate;
-            fin;
-        fin;
+  fin;
+
+  define-nueva-instrucción siguiente como inicio
+    este;
+    si frente-libre entonces inicio
+      avanza;
+    fin si-no inicio
+      gira-izquierda;
+      si frente-libre entonces inicio
+        avanza;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+      fin si-no inicio
+        apágate;
+      fin;
     fin;
-    
-    inicia-ejecucion
-        mientras algun-zumbador-en-la-mochila hacer inicio
-        	camino;
-            siguiente;
-        fin;
-        apagate;
-    termina-ejecucion
+  fin;
+
+  inicia-ejecución
+    mientras algún-zumbador-en-la-mochila hacer inicio
+      camino;
+      siguiente;
+    fin;
+    apágate;
+  termina-ejecución
 finalizar-programa

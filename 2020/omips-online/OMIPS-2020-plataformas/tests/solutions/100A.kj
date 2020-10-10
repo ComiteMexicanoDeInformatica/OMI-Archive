@@ -1,100 +1,99 @@
 class program {
+  void turn(x) {
+    iterate (x) turnleft();
+  }
 
-	void turn( x ){ iterate( x ) turnleft(); }
-    
-    void pon( x ){
-    	iterate( x ) putbeeper();
-        if( frontIsClear() ){
-        	move();
-            pon( succ( x ) );
-        }else{
-        	if( facingWest() ) return();
-        	turn( 2 );
-             while( nextToABeeper() && frontIsClear() ) move();
-             if( !nextToABeeper() ) pon( 2 );
-        }
+  void pon(x) {
+    iterate (x) putbeeper();
+    if (frontIsClear()) {
+      move();
+      pon(succ(x));
+    } else {
+      if (facingWest()) return();
+      turn(2);
+      while (nextToABeeper() && frontIsClear()) move();
+      if (!nextToABeeper()) pon(2);
     }
-    
-    void traslada(){
-    	while( !nextToABeeper() ) move();
-        while( nextToABeeper() && frontIsClear() ) move();
-        
-        if( !nextToABeeper() ){
-        	pon( 2 );
-        }else{
-        	turn( 2 );
-            while( nextToABeeper() && frontIsClear() ) move();
-            if( !nextToABeeper() ) pon( 2 );
-        }
-        
-        turn( 3 );
-        if( frontIsClear() ) move();
+  }
+
+  void traslada() {
+    while (!nextToABeeper()) move();
+    while (nextToABeeper() && frontIsClear()) move();
+
+    if (!nextToABeeper()) {
+      pon(2);
+    } else {
+      turn(2);
+      while (nextToABeeper() && frontIsClear()) move();
+      if (!nextToABeeper()) pon(2);
     }
-    
-    void aplasta( x ){
-    	if( nextToABeeper() ){
-        	pickbeeper();
-            aplasta( succ( x ) );
-        }else{
-        	if( frontIsClear() ){
-            	move();
-                aplasta( pred( x ) );
-            }else{
-            	iterate( pred( x ) ) putbeeper();
-            }
-        }
+    turn(3);
+    if (frontIsClear()) move();
+  }
+
+  void aplasta(x) {
+    if (nextToABeeper()) {
+      pickbeeper();
+      aplasta(succ(x));
+    } else {
+      if (frontIsClear()) {
+        move();
+        aplasta(pred(x));
+      } else {
+        iterate (pred(x)) putbeeper();
+      }
     }
-    
-    void getMin( x ){
-    	if( frontIsBlocked() ) turnoff();
-        if( nextToABeeper() ){
-        	pickbeeper();
-            getMin( succ( x ) );
-        }else{
-        	move();
-            iterate( x ){
-            	if( nextToABeeper() ){
-                	pickbeeper();
-                }else{
-                	turn( 1 );
-                	iterate( pred( x ) ) putbeeper();
-                }
-            }
-            
-            if( facingSouth() ){
-            	turn( 3 );
-            }else{
-            	while( nextToABeeper() ) pickbeeper();
-                iterate( x ) putbeeper();
-            }
-            getMin( 0 );
+  }
+
+  void getMin(x) {
+    if (frontIsBlocked()) turnoff();
+    if (nextToABeeper()) {
+      pickbeeper();
+      getMin(succ(x));
+    } else {
+      move();
+      iterate (x) {
+        if (nextToABeeper()) {
+          pickbeeper();
+        } else {
+          turn(1);
+          iterate (pred(x)) putbeeper();
         }
+      }
+
+      if (facingSouth()) {
+        turn(3);
+      } else {
+        while (nextToABeeper()) pickbeeper();
+        iterate (x) putbeeper();
+      }
+      getMin(0);
     }
-	
-    program () {
-    
-    	while( frontIsClear() ){
-        	turn( 3 );
-            traslada();
-        }
-        
-        turn( 3 );
-        traslada();
-        
-        turn( 2 );
-        while( leftIsClear() ){
-        	aplasta( 0 );
-        	turn( 2 );
-            while( frontIsClear() ) move();
-            turn( 3 );
-            move();
-            turn( 3 );
-        }
-        aplasta( 0 );
-        
-        turn( 3 );
-        getMin( 0 );
-    	
-        turnoff();
+  }
+
+  program() {
+    while (frontIsClear()) {
+      turn(3);
+      traslada();
     }
+
+    turn(3);
+    traslada();
+
+    turn(2);
+    while (leftIsClear()) {
+      aplasta(0);
+      turn(2);
+      while (frontIsClear()) move();
+      turn(3);
+      move();
+      turn(3);
+    }
+    aplasta(0);
+
+    turn(3);
+    getMin(0);
+
+    turnoff();
+  }
 }

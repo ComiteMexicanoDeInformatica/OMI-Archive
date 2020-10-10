@@ -1,181 +1,175 @@
 iniciar-programa
-    define-nueva-instruccion gira(n) como inicio
-    	repetir n veces gira-izquierda;
-    fin;
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
 
-    define-nueva-instruccion compara-siguiente(n) como inicio
-        {compara la casilla actual con n
+  define-nueva-instrucción compara-siguiente(n) como inicio
+    {compara la casilla actual con n
         se orienta al norte si hay mas
         se orienta al sur si hay exactamente n
         }
 
-        si si-es-cero(n) entonces inicio
-            si junto-a-zumbador entonces inicio
-                mientras no orientado-al-norte hacer gira-izquierda;
-            fin sino inicio
-                mientras no orientado-al-sur hacer gira-izquierda;
-            fin;
-        fin sino inicio
-            si junto-a-zumbador entonces inicio
-                coge-zumbador;
-                compara-siguiente(precede(n));
-                deja-zumbador;
-            fin;
-        fin;
-    fin;
-
-
-
-    define-nueva-instruccion cuenta-primero(n) como inicio
-        {cuenta los zumbadores de la casilla actual para compararlos con la siguiente}
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            cuenta-primero(sucede(n));
-        fin sino inicio
-            repetir n veces deja-zumbador;
-            avanza;
-            compara-siguiente(n);
-
-        fin;
-    fin;
-
-
-    define-nueva-instruccion compara-n-primeros(n) como inicio
-        repetir n veces inicio
-        	cuenta-primero(0);
-            si orientado-al-sur entonces inicio
-            	{si es sur es que el anterior era igual}
-                sal-de-instruccion;
-            fin sino si orientado-al-norte entonces inicio
-            	avanza;
-                deja-zumbador;
-                gira(2);
-                avanza;
-                gira(1);
-            fin;
-
-        fin;
-    fin;
-
-    define-nueva-instruccion valida-zumbador(n) como inicio
-    {valida que los siguientes n casillas tengan zumbador}
-    {se queda viendo al sur si no}
-      repetir n veces inicio
-          si junto-a-zumbador entonces inicio
-              avanza;
-          fin sino inicio
-              gira(1);
-              sal-de-instruccion;
-          fin;
+    si si-es-cero(n) entonces inicio
+      si junto-a-zumbador entonces inicio
+        mientras no orientado-al-norte hacer gira-izquierda;
+      fin si-no inicio
+        mientras no orientado-al-sur hacer gira-izquierda;
+      fin;
+    fin si-no inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        compara-siguiente(precede(n));
+        deja-zumbador;
       fin;
     fin;
+  fin;
 
-    define-nueva-instruccion valida-vacio(n) como inicio
-    {valida que los siguientes n casillas no tengan zumbador}
-    {se queda viendo al sur si no}
-      repetir n veces inicio
-          si no junto-a-zumbador entonces inicio
-              avanza;
-          fin sino inicio
-              gira(1);
-              sal-de-instruccion;
-          fin;
-      fin;
+  define-nueva-instrucción cuenta-primero(n) como inicio
+    {cuenta los zumbadores de la casilla actual para compararlos con la siguiente}
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cuenta-primero(sucede(n));
+    fin si-no inicio
+      repetir n veces deja-zumbador;
+      avanza;
+      compara-siguiente(n);
     fin;
+  fin;
 
-    define-nueva-instruccion encuentra-separacion(n) como inicio
-        {encuentra donde termina el equipo de la izquierda}
+  define-nueva-instrucción compara-n-primeros(n) como inicio
+    repetir n veces inicio
+      cuenta-primero(0);
+      si orientado-al-sur entonces inicio
+        {si es sur es que el anterior era igual}
+        sal-de-instrucción;
+      fin si-no si orientado-al-norte entonces inicio
+        avanza;
+        deja-zumbador;
         gira(2);
         avanza;
         gira(1);
-        compara-n-primeros(n);
-        si orientado-al-sur entonces inicio
-          	gira(3);
-            avanza;
-        fin sino inicio
-        	gira(1);
-            avanza;
-            gira(1);
-            si junto-a-zumbador entonces inicio
-                valida-zumbador(n);
-            fin sino inicio
-                valida-vacio(n);
-            fin;
-
-            si orientado-al-sur entonces inicio
-                {el equipo de la derecha es el mas largo}
-                avanza;
-                gira(1);
-                mientras junto-a-zumbador hacer avanza;
-                gira(2);
-                repetir sucede(sucede(n)) veces avanza;
-            fin sino inicio
-            	gira(1);
-                avanza;
-                gira(1);
-                repetir n veces avanza;
-                gira(2);
-            fin;
-        fin;
+      fin;
     fin;
+  fin;
 
-    define-nueva-instruccion suma-izquierda(n) como inicio
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            suma-izquierda(n);
-            deja-zumbador;
-        fin sino si frente-libre entonces inicio
-            avanza;
-            suma-izquierda(sucede(n));
-        fin sino inicio
-            gira(2);
-            repetir n veces avanza;
-        fin;
-    fin;
-
-    define-nueva-instruccion suma-derecha(n) como inicio
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            suma-derecha(n);
-            deja-zumbador;
-        fin sino inicio
-            avanza;
-            si junto-a-zumbador entonces inicio
-                suma-derecha(sucede(n));
-            fin sino inicio
-            	gira(2);
-                repetir sucede(n) veces avanza;
-            fin;
-        fin;
-    fin;
-
-    define-nueva-instruccion compara-equipos como inicio
-        suma-izquierda(0);
+  define-nueva-instrucción valida-zumbador(n) como inicio
+    {valida que los siguientes n casillas tengan zumbador}
+    {se queda viendo al sur si no}
+    repetir n veces inicio
+      si junto-a-zumbador entonces inicio
         avanza;
-        suma-derecha(0);
-        cuenta-primero(0);
-        si orientado-al-norte entonces inicio
-        	gira(1);
-        fin sino inicio
-        	gira(2);
-        fin;
-
+      fin si-no inicio
+        gira(1);
+        sal-de-instrucción;
+      fin;
     fin;
+  fin;
 
-    define-nueva-instruccion contar(n) como inicio
-        si junto-a-zumbador entonces inicio
-            coge-zumbador;
-            contar(sucede(n));
-        fin sino inicio
-            encuentra-separacion(precede(n));
-            compara-equipos;
-        fin;
-    fin;
-
-    inicia-ejecucion
-        mientras no-orientado-al-norte hacer gira-izquierda;
+  define-nueva-instrucción valida-vacio(n) como inicio
+    {valida que los siguientes n casillas no tengan zumbador}
+    {se queda viendo al sur si no}
+    repetir n veces inicio
+      si no junto-a-zumbador entonces inicio
         avanza;
-        contar(0);
-        apagate;
-    termina-ejecucion
+      fin si-no inicio
+        gira(1);
+        sal-de-instrucción;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción encuentra-separacion(n) como inicio
+    {encuentra donde termina el equipo de la izquierda}
+    gira(2);
+    avanza;
+    gira(1);
+    compara-n-primeros(n);
+    si orientado-al-sur entonces inicio
+      gira(3);
+      avanza;
+    fin si-no inicio
+      gira(1);
+      avanza;
+      gira(1);
+      si junto-a-zumbador entonces inicio
+        valida-zumbador(n);
+      fin si-no inicio
+        valida-vacio(n);
+      fin;
+
+      si orientado-al-sur entonces inicio
+        {el equipo de la derecha es el mas largo}
+        avanza;
+        gira(1);
+        mientras junto-a-zumbador hacer avanza;
+        gira(2);
+        repetir sucede(sucede(n)) veces avanza;
+      fin si-no inicio
+        gira(1);
+        avanza;
+        gira(1);
+        repetir n veces avanza;
+        gira(2);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción suma-izquierda(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      suma-izquierda(n);
+      deja-zumbador;
+    fin si-no si frente-libre entonces inicio
+      avanza;
+      suma-izquierda(sucede(n));
+    fin si-no inicio
+      gira(2);
+      repetir n veces avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción suma-derecha(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      suma-derecha(n);
+      deja-zumbador;
+    fin si-no inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        suma-derecha(sucede(n));
+      fin si-no inicio
+        gira(2);
+        repetir sucede(n) veces avanza;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción compara-equipos como inicio
+    suma-izquierda(0);
+    avanza;
+    suma-derecha(0);
+    cuenta-primero(0);
+    si orientado-al-norte entonces inicio
+      gira(1);
+    fin si-no inicio
+      gira(2);
+    fin;
+  fin;
+
+  define-nueva-instrucción contar(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      contar(sucede(n));
+    fin si-no inicio
+      encuentra-separacion(precede(n));
+      compara-equipos;
+    fin;
+  fin;
+
+  inicia-ejecución
+    mientras no-orientado-al-norte hacer gira-izquierda;
+    avanza;
+    contar(0);
+    apágate;
+  termina-ejecución
 finalizar-programa

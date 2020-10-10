@@ -1,43 +1,43 @@
 iniciar-programa
-   define-nueva-instruccion pintar como inicio
-      mientras frente-libre hacer inicio
-         repetir 3 veces inicio
-            deja-zumbador;
-            si frente-libre entonces inicio
-               avanza;
-            fin sino inicio
-               sal-de-instruccion;
-            fin;
-         fin;
-
-         si frente-libre entonces inicio
-            avanza;
-            si frente-bloqueado entonces deja-zumbador;
-         fin;
+  define-nueva-instrucción pintar como inicio
+    mientras frente-libre hacer inicio
+      repetir 3 veces inicio
+        deja-zumbador;
+        si frente-libre entonces inicio
+          avanza;
+        fin si-no inicio
+          sal-de-instrucción;
+        fin;
       fin;
-   fin;
-
-   inicia-ejecucion
-      repetir 99 veces coge-zumbador;
-      avanza;
-      avanza;
-      gira-izquierda;
-      gira-izquierda;
-      gira-izquierda;
 
       si frente-libre entonces inicio
-         pintar;
-      fin sino inicio
-         deja-zumbador;
+        avanza;
+        si frente-bloqueado entonces deja-zumbador;
       fin;
+    fin;
+  fin;
 
-      gira-izquierda;
-      gira-izquierda;
-      mientras frente-libre hacer avanza;
-      gira-izquierda;
-      avanza;
-      avanza;
-      mientras algun-zumbador-en-la-mochila hacer deja-zumbador;
-      apagate;
-    termina-ejecucion
+  inicia-ejecución
+    repetir 99 veces coge-zumbador;
+    avanza;
+    avanza;
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
+
+    si frente-libre entonces inicio
+      pintar;
+    fin si-no inicio
+      deja-zumbador;
+    fin;
+
+    gira-izquierda;
+    gira-izquierda;
+    mientras frente-libre hacer avanza;
+    gira-izquierda;
+    avanza;
+    avanza;
+    mientras algún-zumbador-en-la-mochila hacer deja-zumbador;
+    apágate;
+  termina-ejecución
 finalizar-programa

@@ -28,17 +28,17 @@ En la ronda 2, todos los luchadores son vencidos por el de división uno y únic
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) viendo al norte.
-* Karel no tiene zumbadores en la mochila.
-* La división de los luchadores va desde 1 hasta 99, siendo 1 la división más alta y 99 la más baja.
-* Las únicas paredes son las que delimitan el mundo.
-* El tamaño del mundo va desde 2x2 hasta 10x10.
-* No importa la orientación final de Karel.
-* No importan los zumbadores finales del mundo.
-* Solo importa la posición final de Karel.
-* Se te asegura que siempre habrá un solo equipo ganador.
+- Karel inicia en la casilla (1,1) viendo al norte.
+- Karel no tiene zumbadores en la mochila.
+- La división de los luchadores va desde 1 hasta 99, siendo 1 la división más alta y 99 la más baja.
+- Las únicas paredes son las que delimitan el mundo.
+- El tamaño del mundo va desde 2x2 hasta 10x10.
+- No importa la orientación final de Karel.
+- No importan los zumbadores finales del mundo.
+- Solo importa la posición final de Karel.
+- Se te asegura que siempre habrá un solo equipo ganador.
 
 # Subtareas
 
-* En el 8% de los casos habrá exactamente 2 rondas.
-* En el 9% de los casos habrá exactamente 3 rondas.
+- En el 8% de los casos habrá exactamente 2 rondas.
+- En el 9% de los casos habrá exactamente 3 rondas.

@@ -1,35 +1,34 @@
 class program {
-	void gd(){ iterate (3) turnleft();}
-    
-    void fn(x){
-    	if(nextToABeeper()){
-        	pickbeeper();
-            fn(succ(x));
+  void gd() {
+    iterate (3) turnleft();
+  }
+
+  void fn(x) {
+    if (nextToABeeper()) {
+      pickbeeper();
+      fn(succ(x));
+    } else {
+      if (frontIsClear()) {
+        move();
+        fn(x);
+      } else {
+        iterate (2) turnleft();
+        iterate (x) {
+          putbeeper();
+          if (frontIsClear()) move();
         }
-        else{
-        	if(frontIsClear()){
-            	move();
-                fn(x);
-            }else{
-            	iterate (2) turnleft();
-                iterate (x){
-                	putbeeper();
-                    if(frontIsClear())
-                    	move();
-                }
-            }
-        }
+      }
     }
-    
-    program () {
-        gd();
-        fn(0);
-        if(nextToABeeper()){
-         gd();
-        }else{
-        	turnleft();
-        }
-        
-        turnoff();
+  }
+
+  program() {
+    gd();
+    fn(0);
+    if (nextToABeeper()) {
+      gd();
+    } else {
+      turnleft();
     }
+    turnoff();
+  }
 }

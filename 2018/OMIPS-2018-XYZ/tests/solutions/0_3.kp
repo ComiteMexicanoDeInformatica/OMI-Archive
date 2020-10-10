@@ -1,5 +1,5 @@
 iniciar-programa
-    inicia-ejecucion 
-        apagate;
-    termina-ejecucion
+  inicia-ejecución
+    apágate;
+  termina-ejecución
 finalizar-programa

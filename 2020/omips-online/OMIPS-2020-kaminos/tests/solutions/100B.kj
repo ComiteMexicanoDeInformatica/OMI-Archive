@@ -1,76 +1,94 @@
 class program {
-	void turnright() {
-		turnleft();
-		turnleft();
-		turnleft();
-	}
+  void turnright() {
+    turnleft();
+    turnleft();
+    turnleft();
+  }
 
-	void bump() { while (frontIsClear) move(); }
-	void turn() { turnleft(); turnleft(); }
+  void bump() {
+    while (frontIsClear) move();
+  }
 
-	void north() { while (notFacingNorth) turnleft(); }
-	void south() { while (notFacingSouth) turnleft(); }
-	void east() { while (notFacingEast) turnleft(); }
-	void west() { while (notFacingWest) turnleft(); }
+  void turn() {
+    turnleft();
+    turnleft();
+  }
 
-	void countAndStep(n){
-		if (nextToABeeper){
-			pickbeeper();
+  void north() {
+    while (notFacingNorth) turnleft();
+  }
 
-			countAndStep(succ(n));
+  void south() {
+    while (notFacingSouth) turnleft();
+  }
 
-			if (facingSouth) putbeeper();
-		} else {
-			north();
-			iterate (pred(n)) turnleft();
+  void east() {
+    while (notFacingEast) turnleft();
+  }
 
-			if (frontIsBlocked) {
-				south();
-				return();
-			}
+  void west() {
+    while (notFacingWest) turnleft();
+  }
 
-			move();
-			go();
+  void countAndStep(n) {
+    if (nextToABeeper) {
+      pickbeeper();
 
-			if (facingSouth){
-				iterate (pred(n)) turnleft();
-				move();
+      countAndStep(succ(n));
 
-				south();
-			} else {
-				south();
+      if (facingSouth) putbeeper();
+    } else {
+      north();
+      iterate (pred(n)) turnleft();
 
-				iterate (pred(n)) turnleft();
-				move();
+      if (frontIsBlocked) {
+        south();
+        return();
+      }
 
-				north();
-			}
-		}
-	}
+      move();
+      go();
 
-	void go(){
-		if (notNextToABeeper){
-			north();
-			return();
-		}
+      if (facingSouth) {
+        iterate (pred(n)) turnleft();
+        move();
 
-		countAndStep(0);
-	}
+        south();
+      } else {
+        south();
 
-	program () {
-		while (iszero(0)){
-			go();
-			north();
+        iterate (pred(n)) turnleft();
+        move();
 
-			if (frontIsClear){
-				move();
-			} else if (rightIsClear){
-				turnright();
-				move();
-				turnright();
-				bump();
-				turn();
-			} else turnoff();
-		}
-	}
+        north();
+      }
+    }
+  }
+
+  void go() {
+    if (notNextToABeeper) {
+      north();
+      return();
+    }
+
+    countAndStep(0);
+  }
+
+  program() {
+    while (iszero(0)) {
+      go();
+      north();
+
+      if (frontIsClear) {
+        move();
+      } else if (rightIsClear) {
+        turnright();
+        move();
+        turnright();
+        bump();
+        turn();
+      } else
+        turnoff();
+    }
+  }
 }

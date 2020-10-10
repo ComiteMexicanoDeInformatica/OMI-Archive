@@ -1,6 +1,6 @@
 iniciar-programa
-    inicia-ejecucion
-        mientras no-orientado-al-oeste hacer gira-izquierda;
-        apagate;
-    termina-ejecucion
+  inicia-ejecución
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+    apágate;
+  termina-ejecución
 finalizar-programa

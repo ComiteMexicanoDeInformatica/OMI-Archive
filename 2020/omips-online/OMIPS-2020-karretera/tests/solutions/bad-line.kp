@@ -1,17 +1,17 @@
 iniciar-programa
-    inicia-ejecucion
-        repetir 99 veces coge-zumbador;
-        avanza;
-        avanza;
-        gira-izquierda;
-        gira-izquierda;
-        gira-izquierda;
+  inicia-ejecución
+    repetir 99 veces coge-zumbador;
+    avanza;
+    avanza;
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
 
-        deja-zumbador;
-        mientras frente-libre hacer inicio
-            avanza;
-            deja-zumbador;
-        fin;
-        apagate;
-    termina-ejecucion
+    deja-zumbador;
+    mientras frente-libre hacer inicio
+      avanza;
+      deja-zumbador;
+    fin;
+    apágate;
+  termina-ejecución
 finalizar-programa

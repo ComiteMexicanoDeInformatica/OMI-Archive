@@ -1,14 +1,14 @@
 {
   "solutions": [
     {
-        "filename": "solutions/100A.kp",
-        "verdict": "AC",
-        "score": 100
+      "filename": "solutions/100A.kp",
+      "verdict": "AC",
+      "score": 100
     },
     {
-        "filename": "solutions/100B.kj",
-        "verdict": "AC",
-        "score": 100
+      "filename": "solutions/100B.kj",
+      "verdict": "AC",
+      "score": 100
     },
     {
       "filename": "solutions/sobrante_en_la_cubeta.kp",
