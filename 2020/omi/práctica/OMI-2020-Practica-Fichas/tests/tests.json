@@ -1,0 +1,27 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solutionB.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/invalid-chars.cpp",
+      "verdict": "WA"
+    },
+    {
+      "filename": "../solutions/invalid-spacing.cpp",
+      "verdict": "WA"
+    },
+    {
+      "filename": "../solutions/trailing-trash.cpp",
+      "verdict": "WA"
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

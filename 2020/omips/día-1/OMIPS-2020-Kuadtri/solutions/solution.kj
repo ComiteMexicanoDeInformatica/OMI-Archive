@@ -1,0 +1,210 @@
+class program {
+  void turnright() {
+    turnleft();
+    turnleft();
+    turnleft();
+  }
+
+  void north() {
+    while (notFacingNorth) turnleft();
+  }
+
+  void south() {
+    while (notFacingSouth) turnleft();
+  }
+
+  void west() {
+    while (notFacingWest) turnleft();
+  }
+
+  void east() {
+    while (notFacingEast) turnleft();
+  }
+
+  void bump() {
+    while (frontIsClear) move();
+  }
+
+  void clear() {
+    while (nextToABeeper) pickbeeper();
+  }
+
+  void times(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      times(n);
+      iterate (n) putbeeper();
+    }
+  }
+
+  void pickAndMove() {
+    if (nextToABeeper) {
+      pickbeeper();
+      pickAndMove();
+      move();
+    }
+  }
+
+  void powerMove(n) {
+    putbeeper();
+    iterate (n) times(2);
+    pickAndMove();
+  }
+
+  void trySubtract(n) {
+    if (!iszero(n)) {
+      if (notNextToABeeper) {
+        west();
+      } else {
+        pickbeeper();
+        trySubtract(pred(n));
+        if (notFacingNorth) putbeeper();
+      }
+    } else
+      north();
+  }
+
+  void countToSubtract(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      countToSubtract(succ(n));
+      putbeeper();
+    } else {
+      west();
+      move();
+      trySubtract(n);
+      east();
+      move();
+    }
+  }
+
+  void prepare(n) {
+    west();
+    bump();
+    east();
+    move();
+    clear();
+    putbeeper();
+    iterate (n) {
+      north();
+      times(4);
+      countToSubtract(0);
+    }
+    clear();
+    west();
+    move();
+    pickbeeper();
+    go(n);
+  }
+
+  void packUpAndMove(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      packUpAndMove(n);
+      putbeeper();
+    } else {
+      east();
+      move();
+
+      if (notNextToABeeper) {
+        west();
+        move();
+        return();
+      }
+      pickbeeper();
+
+      if (notNextToABeeper) {
+        west();
+        move();
+        east();
+        powerMove(n);
+        return();
+      }
+      pickbeeper();
+
+      if (notNextToABeeper) {
+        west();
+        move();
+        north();
+        powerMove(n);
+        return();
+      }
+      pickbeeper();
+
+      west();
+      move();
+      north();
+      powerMove(n);
+      east();
+      powerMove(n);
+      return();
+    }
+  }
+
+  void quotrem(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      quotrem(succ(n));
+    } else {
+      south();
+      move();
+      north();
+      while (facingNorth) {
+        trySubtract(n);
+        if (facingNorth) {
+          east();
+          move();
+          putbeeper();
+          west();
+          move();
+          north();
+        }
+      }
+    }
+  }
+
+  void go(n) {
+    if (iszero(succ(n))) turnoff();
+    north();
+    move();
+    putbeeper();
+    iterate (n) times(4);
+    quotrem(0);
+    packUpAndMove(n);
+    go(pred(n));
+  }
+
+  void fits(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      fits(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      west();
+      bump();
+      east();
+      iterate (pred(n)) move();
+    }
+  }
+
+  void countPower(n) {
+    fits(0);
+    if (frontIsClear) {
+      west();
+      bump();
+      east();
+      move();
+      times(2);
+      countPower(succ(n));
+    } else
+      prepare(pred(n));
+  }
+
+  program() {
+    if (frontIsBlocked) turnoff();
+    turnright();
+    move();
+    putbeeper();
+    countPower(0);
+  }
+}

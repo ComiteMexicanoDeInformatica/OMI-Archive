@@ -1,0 +1,27 @@
+iniciar-programa
+  define-nueva-instrucción revisar(n) como inicio
+    si frente-libre y no junto-a-zumbador entonces inicio
+      avanza;
+      revisar(sucede(n));
+    fin si-no inicio
+      si junto-a-zumbador entonces inicio
+        gira-izquierda;
+        gira-izquierda;
+        repetir n veces avanza;
+        gira-izquierda;
+        gira-izquierda;
+      fin si-no si frente-bloqueado entonces inicio
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    repetir 4 veces inicio
+      revisar(0);
+      gira-izquierda;
+    fin;
+    mientras no orientado-al-sur hacer gira-izquierda;
+  termina-ejecución
+finalizar-programa

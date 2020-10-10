@@ -1,0 +1,171 @@
+iniciar-programa
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
+
+  define-nueva-instrucción pared como inicio
+    mientras frente-libre hacer avanza;
+  fin;
+
+  define-nueva-instrucción recoge como inicio
+    mientras junto-a-zumbador hacer inicio
+      coge-zumbador;
+      si no-junto-a-zumbador entonces avanza;
+    fin;
+    mientras algún-zumbador-en-la-mochila hacer deja-zumbador;
+  fin;
+
+  define-nueva-instrucción avanza2 como inicio
+    avanza;
+    avanza;
+  fin;
+
+  define-nueva-instrucción recoge-sobrantes como inicio
+    pared;
+    gira(3);
+    mientras frente-libre hacer inicio
+      avanza;
+      mientras junto-a-zumbador hacer inicio
+        coge-zumbador;
+      fin;
+    fin;
+    gira(2);
+    pared;
+  fin;
+
+  define-nueva-instrucción restar como inicio
+    mientras junto-a-zumbador hacer inicio
+      coge-zumbador;
+      avanza2;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        gira(2);
+        avanza2;
+        gira(2);
+      fin si-no inicio
+        {gana el de la derecha}
+        gira(2);
+        avanza;
+        repetir 2 veces inicio
+          si algún-zumbador-en-la-mochila entonces inicio
+            deja-zumbador;
+          fin;
+        fin;
+        avanza;
+        gira(2);
+        mientras junto-a-zumbador hacer coge-zumbador;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción compara-final como inicio
+    restar;
+
+    avanza;
+    si junto-a-zumbador entonces inicio
+      {gana derecha}
+      recoge-sobrantes;
+      repetir 2 veces deja-zumbador;
+    fin si-no inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        {gano el de la izquierda}
+        recoge-sobrantes;
+        deja-zumbador;
+      fin si-no inicio
+        {empate}
+        recoge-sobrantes;
+        repetir 3 veces deja-zumbador;
+      fin;
+      gira(2);
+    fin;
+  fin;
+
+  define-nueva-instrucción compara como inicio
+    restar;
+
+    avanza;
+    si junto-a-zumbador entonces inicio
+      gira(2);
+      avanza;
+      deja-zumbador;
+      gira(2);
+    fin si-no inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        {gano el de la izquierda}
+        mientras junto-a-zumbador hacer coge-zumbador;
+        deja-zumbador;
+        gira(2);
+        avanza;
+        deja-zumbador;
+      fin si-no inicio
+        {empate}
+        gira(2);
+        avanza;
+        deja-zumbador;
+        deja-zumbador;
+        deja-zumbador;
+      fin;
+      gira(2);
+    fin;
+
+    pared;
+    mientras algún-zumbador-en-la-mochila hacer deja-zumbador;
+  fin;
+
+  define-nueva-instrucción suma-fila como inicio
+    avanza;
+    gira(3);
+    recoge;
+    pared;
+    gira(2);
+    recoge;
+    compara;
+    pared;
+    gira(3);
+  fin;
+
+  define-nueva-instrucción suma como inicio
+    mientras frente-libre hacer inicio
+      mientras junto-a-zumbador hacer coge-zumbador;
+      avanza;
+    fin;
+
+    mientras algún-zumbador-en-la-mochila hacer deja-zumbador;
+  fin;
+
+  inicia-ejecución
+    mientras frente-libre hacer inicio
+      suma-fila;
+    fin;
+
+    gira(3);
+    avanza;
+    mientras no-junto-a-zumbador hacer avanza;
+    coge-zumbador;
+    si no-junto-a-zumbador entonces inicio
+      deja-zumbador;
+      avanza;
+    fin si-no inicio
+      deja-zumbador;
+    fin;
+    avanza;
+    gira(3);
+    suma;
+    gira(2);
+    pared;
+    gira(1);
+    avanza2;
+    gira(1);
+    suma;
+
+    gira(1);
+    avanza2;
+    gira(2);
+
+    compara-final;
+
+    apágate;
+  termina-ejecución
+finalizar-programa

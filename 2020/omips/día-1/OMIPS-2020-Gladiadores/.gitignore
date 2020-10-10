@@ -1,0 +1,4 @@
+**/*.out
+cases/*.png
+examples/sample.*.png
+statements/sample.*.png

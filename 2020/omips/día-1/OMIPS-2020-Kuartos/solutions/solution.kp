@@ -1,0 +1,55 @@
+iniciar-programa
+  define-nueva-instrucción super-avanza como inicio
+    si frente-bloqueado entonces inicio
+      si izquierda-libre entonces inicio
+        gira-izquierda;
+      fin si-no si derecha-libre entonces inicio
+        repetir 3 veces gira-izquierda;
+      fin;
+    fin;
+
+    avanza;
+  fin;
+
+  define-nueva-instrucción regresa como inicio
+    gira-izquierda;
+    gira-izquierda;
+    mientras no-junto-a-zumbador hacer inicio
+      super-avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si si-es-cero(n) entonces inicio
+      regresa;
+      gira-izquierda;
+      gira-izquierda;
+    fin si-no si frente-bloqueado y izquierda-bloqueada y derecha-bloqueada
+    entonces inicio
+      regresa;
+      super-avanza;
+      gira-izquierda;
+      gira-izquierda;
+      avanza;
+      gira-izquierda;
+      gira-izquierda;
+    fin si-no inicio
+      super-avanza;
+      compara(precede(n));
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta(n) como inicio
+    si junto-a-zumbador entonces inicio
+      compara(n);
+    fin si-no inicio
+      super-avanza;
+      cuenta(sucede(n));
+    fin;
+  fin;
+
+  inicia-ejecución
+    cuenta(1);
+    apágate;
+  termina-ejecución
+finalizar-programa

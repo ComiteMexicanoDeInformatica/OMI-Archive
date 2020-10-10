@@ -1,5 +1,6 @@
 # emacs temp files
 *~
+#*#
 
 * MAC
 *.DS_STORE
@@ -28,4 +29,8 @@ solution
 omegaUp-deploy
 karel.js
 
+# Tests
+results/
+
 .vscode
+.mypy_cache/

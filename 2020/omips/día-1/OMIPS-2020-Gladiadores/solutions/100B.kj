@@ -1,0 +1,285 @@
+class program {
+  void turn(n) {
+    iterate (n) {
+      turnleft();
+    }
+  }
+
+  void getTurnWinners() {
+    while (frontIsClear) {
+      if (notNextToABeeper) {
+        move();
+        move();
+        turn(2);
+        if (notNextToABeeper) {
+          move();
+          iterate (3) {
+            putbeeper();
+          }
+        } else {
+          move();
+          putbeeper();
+        }
+        turn(2);
+        while (frontIsClear) {
+          move();
+          while (nextToABeeper) {
+            pickbeeper();
+          }
+        }
+      } else {
+        pickbeeper();
+        move();
+        move();
+        turn(2);
+      }
+      if (frontIsClear) {
+        if (notNextToABeeper) {
+          move();
+          iterate (2) {
+            putbeeper();
+          }
+          turn(2);
+          while (frontIsClear) {
+            move();
+            while (nextToABeeper) {
+              pickbeeper();
+            }
+          }
+        } else {
+          pickbeeper();
+          move();
+          move();
+          turn(2);
+        }
+      }
+    }
+
+    while (anyBeepersInBeeperBag) {
+      putbeeper();
+    }
+  }
+
+  void startCombat() {
+    while (nextToABeeper) {
+      while (nextToABeeper) {
+        pickbeeper();
+      }
+      move();
+    }
+
+    while (anyBeepersInBeeperBag) {
+      putbeeper();
+    }
+
+    move();
+    move();
+    move();
+
+    while (nextToABeeper) {
+      while (nextToABeeper) {
+        pickbeeper();
+      }
+
+      if (frontIsClear) {
+        move();
+      }
+    }
+
+    turn(2);
+
+    while (notNextToABeeper) {
+      move();
+    }
+
+    turn(2);
+    move();
+    move();
+    turn(2);
+
+    while (anyBeepersInBeeperBag) {
+      putbeeper();
+    }
+
+    getTurnWinners();
+    turn(3);
+  }
+
+  void two() {
+    pickbeeper();
+    if (nextToABeeper) {
+      putbeeper();
+      putbeeper();
+      move();
+    } else {
+      putbeeper();
+      putbeeper();
+      turn(1);
+      move();
+      putbeeper();
+      turn(2);
+      move();
+      turn(1);
+      move();
+    }
+  }
+
+  void one() {
+    clean();
+    pickbeeper();
+    if (nextToABeeper) {
+      two();
+    } else {
+      putbeeper();
+      turn(3);
+      move();
+      putbeeper();
+      turn(2);
+      move();
+      turn(3);
+      move();
+    }
+  }
+
+  void clean() {
+    turn(1);
+    move();
+    turn(2);
+    while (nextToABeeper) {
+      pickbeeper();
+    }
+    move();
+    turn(1);
+  }
+
+  void getWinner() {
+    while (frontIsClear) {
+      one();
+    }
+
+    while (anyBeepersInBeeperBag) {
+      putbeeper();
+    }
+
+    turn(2);
+
+    while (frontIsClear) {
+      move();
+    }
+
+    turn(3);
+    move();
+    turn(3);
+
+    while (frontIsClear) {
+      while (nextToABeeper) {
+        pickbeeper();
+      }
+      move();
+    }
+
+    while (anyBeepersInBeeperBag) {
+      putbeeper();
+    }
+
+    turn(2);
+
+    while (frontIsClear) {
+      move();
+    }
+
+    turn(1);
+    move();
+    move();
+    turn(1);
+
+    while (frontIsClear) {
+      while (nextToABeeper) {
+        pickbeeper();
+      }
+      move();
+    }
+
+    while (anyBeepersInBeeperBag) {
+      putbeeper();
+    }
+
+    turn(1);
+    move();
+
+    while (nextToABeeper) {
+      pickbeeper();
+    }
+
+    move();
+
+    while (frontIsClear) {
+      turn(2);
+      if (notNextToABeeper) {
+        move();
+        move();
+        if (notNextToABeeper) {
+          putWinner(3);
+        } else {
+          putWinner(1);
+        }
+      } else {
+        pickbeeper();
+        move();
+        move();
+      }
+      if (notNextToABeeper) {
+        putWinner(2);
+      } else {
+        pickbeeper();
+        turn(2);
+        move();
+        move();
+      }
+    }
+  }
+
+  void putWinner(n) {
+    while (frontIsClear) {
+      move();
+    }
+    iterate (n) {
+      putbeeper();
+    }
+
+    turnoff();
+  }
+
+  program() {
+    while (frontIsClear) {
+      move();
+      turn(3);
+      startCombat();
+    }
+
+    turn(2);
+
+    while (frontIsClear) {
+      while (nextToABeeper) {
+        pickbeeper();
+      }
+      move();
+    }
+
+    turn(2);
+
+    while (frontIsClear) {
+      move();
+    }
+
+    turn(3);
+
+    while (notNextToABeeper) {
+      move();
+    }
+
+    turn(3);
+
+    getWinner();
+  }
+}
