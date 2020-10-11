@@ -8,6 +8,7 @@ on:
 env:
   OMEGAUPUSER: omips
   OMEGAUPPASS: ${{ secrets.OMEGAUP_PASSWORD }}
+  GIT_USERNAME: ${{ github.actor }}
 
 jobs:
   build-test-deploy:
