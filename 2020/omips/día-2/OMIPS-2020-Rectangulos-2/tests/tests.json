@@ -1,0 +1,61 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/99.kp",
+      "score_range": [0.99, 1.0],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/partialA.kj",
+      "score_range": [0.85, 0.91],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/1-rect.kp",
+      "score_range": [0.04, 0.06],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/2-rect.kp",
+      "score_range": [0.09, 0.11],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/n-rect.kp",
+      "score_range": [0.23, 0.25],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/nxn-rect.kp",
+      "score_range": [0.84, 0.86],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_left.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/put_beeper.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/north.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/south.kp",
+      "score_range": [0, 0]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

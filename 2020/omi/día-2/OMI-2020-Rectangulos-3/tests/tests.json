@@ -1,0 +1,57 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/95.cpp",
+      "score_range": [0.93, 0.99],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/nxn.cpp",
+      "score_range": [0.74, 0.8],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/nxn_extend.cpp",
+      "score_range": [0.83, 0.88],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/columns.cpp",
+      "score_range": [0.04, 0.06],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/two_rects.cpp",
+      "score_range": [0.03, 0.04],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/one_rect.cpp",
+      "score_range": [0.02, 0.03],
+      "allow_fractional_percentages": true
+    },
+    {
+      "filename": "../solutions/invalid1.cpp",
+      "verdict": "WA"
+    },
+    {
+      "filename": "../solutions/invalid2.cpp",
+      "verdict": "WA"
+    },
+    {
+      "filename": "../solutions/invalid3.cpp",
+      "verdict": "WA"
+    },
+    {
+      "filename": "../solutions/invalid4.cpp",
+      "verdict": "WA"
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

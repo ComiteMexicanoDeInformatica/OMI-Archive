@@ -1,0 +1,51 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/put_beeper.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/cantidad_espacios_mundo.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/cantidad_mitad_mundo.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/cantidad_mitad_piso_mundo.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/cantidad_tamanio_mundo.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/cantidad_tamanio_mundo.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/cantidad_zumbadores_mundo.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/caso_ejemplo.kp",
+      "score_range": [0, 0.05]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

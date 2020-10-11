@@ -1,0 +1,265 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción quedan(n) como inicio
+    repetir n veces
+      si frente-libre entonces
+        avanza
+      si-no
+        sur;
+  fin;
+
+  define-nueva-instrucción tramo(n) como inicio
+    repetir n veces inicio
+      deja-zumbador;
+      si frente-libre entonces avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción linea(n) como inicio
+    quedan(precede(n));
+    si no orientado-al-sur entonces inicio
+      gira(2);
+      repetir precede(n) veces avanza;
+      gira(2);
+      tramo(n);
+      si frente-libre entonces inicio
+        avanza;
+        linea(sucede(n));
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuadro como inicio
+    deja-zumbador;
+    mientras frente-libre hacer inicio
+      avanza;
+      deja-zumbador;
+    fin;
+    gira(2);
+    pared;
+    gira(2);
+    si derecha-libre entonces inicio
+      gira(3);
+      avanza;
+      gira(1);
+      cuadro;
+    fin;
+  fin;
+
+  define-nueva-instrucción rellena2 como inicio
+    mientras frente-libre hacer inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        si orientado-al-sur entonces
+          gira(1)
+        si-no
+          gira(3);
+        pared;
+        gira(2);
+        mientras no junto-a-zumbador hacer avanza;
+        gira(2);
+        mientras frente-libre hacer inicio
+          avanza;
+          deja-zumbador;
+        fin;
+        gira(2);
+        pared;
+        si orientado-al-oeste entonces
+          gira(1)
+        si-no
+          gira(3);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción completa como inicio
+    pared;
+    gira(2);
+    mientras no-junto-a-zumbador hacer avanza;
+    gira(2);
+    mientras frente-libre hacer inicio
+      avanza;
+      deja-zumbador;
+    fin;
+    gira(2);
+    pared;
+  fin;
+
+  define-nueva-instrucción doble-relleno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+    completa;
+    norte;
+    mientras frente-libre hacer inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        este;
+        completa;
+        norte;
+      fin;
+    fin;
+    sur;
+    pared;
+    norte;
+    completa;
+    este;
+    mientras frente-libre hacer inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        norte;
+        completa;
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción mayor-sobrante(n) como inicio
+    si no-junto-a-zumbador entonces inicio
+      avanza;
+      mayor-sobrante(sucede(n));
+    fin si-no inicio
+      norte;
+      pared;
+      oeste;
+      pared;
+      sur;
+      repetir n veces si no-junto-a-zumbador entonces avanza;
+      si junto-a-zumbador entonces inicio
+        este;
+        pared;
+        sur;
+        pared;
+        oeste;
+        mientras no junto-a-zumbador hacer avanza;
+        gira(2);
+        si frente-libre entonces inicio
+          avanza;
+          si frente-libre entonces inicio
+            avanza;
+            norte;
+            cuadro;
+            oeste;
+            espacio;
+            rellena2;
+            norte;
+            pared;
+            sur;
+            espacio;
+            este;
+            mientras no junto-a-zumbador y frente-libre hacer avanza;
+            si junto-a-zumbador entonces inicio
+              sur;
+              avanza;
+              este;
+              coge-zumbador;
+              mientras frente-libre hacer inicio
+                avanza;
+                coge-zumbador;
+              fin;
+            fin;
+          fin si-no
+            doble-relleno;
+        fin si-no
+          doble-relleno;
+      fin si-no inicio
+        mientras no junto-a-zumbador hacer avanza;
+        gira(2);
+        si frente-libre entonces inicio
+          avanza;
+          si frente-libre entonces inicio
+            avanza;
+            este;
+            pared;
+            gira(2);
+            cuadro;
+            sur;
+            espacio;
+            oeste;
+            pared;
+            sur;
+            rellena2;
+            este;
+            pared;
+            oeste;
+            espacio;
+            norte;
+            mientras no junto-a-zumbador y frente-libre hacer avanza;
+            si junto-a-zumbador entonces inicio
+              oeste;
+              avanza;
+              coge-zumbador;
+              norte;
+              mientras frente-libre hacer inicio
+                avanza;
+                coge-zumbador;
+              fin;
+            fin;
+          fin si-no
+            doble-relleno;
+        fin si-no
+          doble-relleno;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    linea(1);
+    oeste;
+    pared;
+    norte;
+    coge-zumbador;
+    linea(1);
+    sur;
+    pared;
+    este;
+    mientras frente-libre hacer inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        norte;
+        coge-zumbador;
+        linea(1);
+        sur;
+        pared;
+        este;
+      fin;
+    fin;
+
+    oeste;
+    mayor-sobrante(0);
+
+    apágate;
+  termina-ejecución
+finalizar-programa

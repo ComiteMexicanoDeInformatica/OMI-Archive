@@ -1,0 +1,40 @@
+iniciar-programa
+  define-nueva-instrucción contar como inicio
+    si frente-libre entonces inicio
+      avanza;
+      contar;
+      deja-zumbador;
+    fin si-no inicio
+      gira-izquierda;
+      gira-izquierda;
+      mientras frente-libre hacer avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    avanza;
+    mientras orientado-al-norte hacer inicio
+      mientras frente-libre hacer avanza;
+      gira-izquierda;
+      gira-izquierda;
+      mientras frente-libre hacer inicio
+        mientras junto-a-zumbador hacer coge-zumbador;
+        si frente-libre entonces avanza;
+      fin;
+      gira-izquierda;
+      si frente-libre entonces inicio
+        avanza;
+        gira-izquierda;
+        avanza;
+      fin;
+    fin;
+    gira-izquierda;
+    gira-izquierda;
+    mientras frente-libre hacer avanza;
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
+    avanza;
+    contar;
+  termina-ejecución
+finalizar-programa

@@ -1,0 +1,54 @@
+class program {
+  void turn(n) {
+    iterate (n) {
+      turnleft();
+    }
+  }
+
+  void build(n) {
+    iterate (n) {
+      if (notNextToABeeper) {
+        putbeeper();
+      }
+
+      if (frontIsClear) {
+        move();
+      }
+    }
+
+    if (frontIsClear) {
+      move();
+      build(succ(n));
+    }
+  }
+
+  void buildRectangles(n) {
+    iterate (n) {
+      turn(3);
+      build(succ(0));
+      turn(2);
+
+      while (frontIsClear) {
+        move();
+      }
+
+      turn(3);
+
+      if (frontIsClear) {
+        move();
+      } else {
+        turnoff();
+      }
+    }
+
+    if (frontIsClear) {
+      move();
+      buildRectangles(succ(n));
+    }
+  }
+
+  program() {
+    buildRectangles(succ(0));
+    turnoff();
+  }
+}

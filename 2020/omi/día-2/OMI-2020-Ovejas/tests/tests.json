@@ -1,0 +1,31 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/parcialA.cpp",
+      "score_range": [0.2, 0.2]
+    },
+    {
+      "filename": "../solutions/parcialB.cpp",
+      "score_range": [0.55, 0.55]
+    },
+    {
+      "filename": "../solutions/chafaA.cpp",
+      "score_range": [0.0, 0.1]
+    },
+    {
+      "filename": "../solutions/parcialC.cpp",
+      "score_range": [0.2, 0.2]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

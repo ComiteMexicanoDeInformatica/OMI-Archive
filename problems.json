@@ -1,6 +1,9 @@
 {
   "problems": [
     {
+      "path": "2020/omi/práctica/OMI-2020-Practica-Fichas"
+    },
+    {
       "path": "2020/omips/día-1/OMIPS-2020-Circuito"
     },
     {
@@ -25,7 +28,28 @@
       "path": "2020/omi/día-1/OMI-2020-Primo"
     },
     {
-      "path": "2020/omi/práctica/OMI-2020-Practica-Fichas"
+      "path": "2020/omips/día-2/OMIPS-2020-Mario"
+    },
+    {
+      "path": "2020/omips/día-2/OMIPS-2020-Ovejas"
+    },
+    {
+      "path": "2020/omips/día-2/OMIPS-2020-Rectangulos-1"
+    },
+    {
+      "path": "2020/omips/día-2/OMIPS-2020-Rectangulos-2"
+    },
+    {
+      "path": "2020/omips/día-2/OMIPS-2020-Trampolines"
+    },
+    {
+      "path": "2020/omi/día-2/OMI-2020-Rectangulos-3"
+    },
+    {
+      "path": "2020/omi/día-2/OMI-2020-Ovejas"
+    },
+    {
+      "path": "2020/omi/día-2/OMI-2020-Cajas"
     }
   ]
 }

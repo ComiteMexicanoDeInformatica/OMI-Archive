@@ -1,0 +1,31 @@
+iniciar-programa
+  define-nueva-instrucción avanzar como inicio
+    si no-junto-a-zumbador entonces inicio
+      deja-zumbador;
+      avanzar;
+      deja-zumbador;
+    fin si-no si frente-libre entonces inicio
+      avanza;
+      avanzar;
+    fin si-no inicio
+      gira-izquierda;
+      gira-izquierda;
+      mientras frente-libre hacer avanza;
+      gira-izquierda;
+      si frente-libre entonces inicio
+        avanza;
+        gira-izquierda;
+        avanzar;
+      fin si-no inicio
+        gira-izquierda;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+        mientras junto-a-zumbador hacer coge-zumbador;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    avanzar;
+  termina-ejecución
+finalizar-programa

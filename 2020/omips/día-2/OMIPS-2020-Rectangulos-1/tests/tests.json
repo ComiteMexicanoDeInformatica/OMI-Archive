@@ -1,0 +1,39 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/rectangulos-adyacentes.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_left.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/put_beeper.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/north.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/south.kp",
+      "score_range": [0, 0]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

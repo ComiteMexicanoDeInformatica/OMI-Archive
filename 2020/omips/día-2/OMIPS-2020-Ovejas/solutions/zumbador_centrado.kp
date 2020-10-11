@@ -1,0 +1,39 @@
+iniciar-programa
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
+
+  define-nueva-instrucción mitad como inicio
+    si frente-libre entonces avanza;
+    si frente-libre entonces inicio
+      avanza;
+      mitad;
+      avanza;
+    fin si-no
+      gira(2);
+  fin;
+
+  define-nueva-instrucción exp(n) como inicio
+    repetir 4 veces inicio
+      repetir n veces inicio
+        si junto-a-zumbador entonces apágate;
+        si frente-libre entonces avanza;
+      fin;
+      gira(1);
+    fin;
+    gira(2);
+    si frente-libre entonces avanza;
+    gira(1);
+    si frente-libre entonces avanza;
+    gira(1);
+    exp(sucede(sucede(n)));
+  fin;
+
+  inicia-ejecución
+    mitad;
+    gira(1);
+    mitad;
+    gira(1);
+    exp(1);
+  termina-ejecución
+finalizar-programa
