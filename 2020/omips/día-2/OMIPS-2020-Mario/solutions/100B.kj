@@ -1,0 +1,72 @@
+class program {
+  void turn(x) {
+    iterate (x) turnleft();
+  }
+
+  void north() {
+    while (!facingNorth) turnleft();
+  }
+
+  void south() {
+    while (!facingSouth) turnleft();
+  }
+
+  void east() {
+    while (!facingEast) turnleft();
+  }
+
+  void west() {
+    while (!facingWest) turnleft();
+  }
+
+  void makeCall(x) {
+    if (iszero(x)) {
+      recorre(1);
+    } else {
+      recorre(0);
+    }
+  }
+
+  void avanza(x) {
+    if (frontIsClear) {
+      move();
+      makeCall(x);
+    } else {
+      east();
+      if (frontIsClear) {
+        move();
+        if (leftIsClear) {
+          turn(1);
+        } else {
+          turn(3);
+        }
+        makeCall(x);
+      } else {
+        south();
+        while (frontIsClear) move();
+        west();
+        while (frontIsClear) move();
+      }
+    }
+  }
+
+  void recorre(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      avanza(x);
+      if (!iszero(x)) {
+        putbeeper();
+      }
+    } else {
+      avanza(x);
+      if (iszero(x)) {
+        putbeeper();
+      }
+    }
+  }
+
+  program() {
+    recorre(1);
+    turnoff();
+  }
+}

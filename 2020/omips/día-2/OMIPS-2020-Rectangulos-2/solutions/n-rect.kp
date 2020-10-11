@@ -1,0 +1,54 @@
+iniciar-programa
+  define-nueva-instrucción super-avanza como inicio
+    si frente-libre entonces inicio
+      avanza;
+    fin si-no inicio
+      repetir 3 veces gira-izquierda;
+      avanza;
+      repetir 3 veces gira-izquierda;
+      mientras frente-libre hacer avanza;
+      repetir 2 veces gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción corta(n) como inicio
+    repetir n veces inicio
+      si frente-libre entonces inicio
+        avanza;
+      fin si-no inicio
+        sal-de-instrucción;
+      fin;
+    fin;
+
+    gira-izquierda;
+
+    mientras junto-a-zumbador hacer inicio
+      coge-zumbador;
+      si frente-libre entonces avanza;
+    fin;
+
+    repetir 2 veces gira-izquierda;
+
+    mientras frente-libre hacer avanza;
+    gira-izquierda;
+
+    si frente-libre entonces inicio
+      avanza;
+      corta(sucede(n));
+    fin;
+  fin;
+
+  inicia-ejecución
+    deja-zumbador;
+    mientras frente-libre o derecha-libre hacer inicio
+      super-avanza;
+      deja-zumbador;
+    fin;
+
+    gira-izquierda;
+
+    corta(1);
+
+    apágate;
+  termina-ejecución
+finalizar-programa

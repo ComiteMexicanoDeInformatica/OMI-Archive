@@ -1,0 +1,100 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
+
+  define-nueva-instrucción contar(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      contar(sucede(n));
+    fin si-no
+      repetir n veces si frente-libre entonces avanza;
+  fin;
+
+  define-nueva-instrucción saltos(n) como inicio
+    si junto-a-zumbador entonces inicio
+      contar(0);
+      saltos(sucede(n));
+    fin si-no inicio
+      si frente-bloqueado entonces inicio
+        girar(2);
+        mientras frente-libre hacer avanza;
+        repetir n veces deja-zumbador;
+      fin si-no inicio
+        girar(2);
+        mientras frente-libre hacer avanza;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción mover-monton(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      mover-monton(sucede(n));
+    fin si-no inicio
+      avanza;
+      repetir n veces deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción menor-monton(n) como inicio
+    girar(1);
+    si no junto-a-zumbador entonces inicio
+      avanza;
+      girar(3);
+      mientras junto-a-zumbador hacer coge-zumbador;
+      repetir n veces deja-zumbador;
+    fin si-no inicio
+      avanza;
+      si no junto-a-zumbador entonces inicio
+        repetir n veces deja-zumbador;
+        girar(3);
+      fin si-no inicio
+        coge-zumbador;
+        girar(2);
+        avanza;
+        coge-zumbador;
+        girar(1);
+        menor-monton(sucede(n));
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción comparar como inicio
+    si no junto-a-zumbador entonces inicio
+      girar(1);
+      avanza;
+      girar(3);
+    fin si-no inicio
+      girar(1);
+      avanza;
+      si no junto-a-zumbador entonces inicio
+        girar(2);
+        avanza;
+        girar(2);
+        mover-monton(0);
+        girar(3);
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(1);
+        menor-monton(0);
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    avanza;
+    mientras orientado-al-norte hacer inicio
+      saltos(0);
+      gira-izquierda;
+      si frente-libre entonces inicio
+        avanza;
+        girar(1);
+        avanza;
+      fin;
+    fin;
+    girar(1);
+    mientras izquierda-libre hacer comparar;
+  termina-ejecución
+finalizar-programa

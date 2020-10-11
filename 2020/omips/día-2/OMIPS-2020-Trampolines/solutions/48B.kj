@@ -1,0 +1,124 @@
+class program {
+  void sube(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      sube(n);
+      if (frontIsClear) move();
+      if (frontIsBlocked) {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        iterate (n) putbeeper();
+        turnleft();
+        if (frontIsBlocked) {
+          iterate (2) turnleft();
+          while (notNextToABeeper) move();
+          cuenta(0);
+        } else {
+          move();
+          turnleft();
+          move();
+          doit(1);
+        }
+      }
+    }
+  }
+
+  void gravedad(n) {
+    iterate (2) turnleft();
+    while (notNextToABeeper) {
+      if (frontIsBlocked) {
+        turnleft();
+        if (frontIsBlocked) {
+          iterate (2) turnleft();
+          while (notNextToABeeper) move();
+          cuenta(0);
+        } else {
+          move();
+          turnleft();
+          move();
+          doit(1);
+        }
+      } else {
+        move();
+      }
+    }
+    iterate (2) turnleft();
+  }
+
+  void cuenta(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      cuenta(succ(n));
+    } else {
+      respuesta(n);
+    }
+  }
+
+  void respuesta(n) {
+    if (notNextToABeeper) {
+      if (frontIsClear)
+        move();
+      else {
+        iterate (n) putbeeper();
+        turnoff();
+      }
+      respuesta(n);
+    } else {
+      minimo(n);
+      if (frontIsClear)
+        move();
+      else {
+        iterate (n) putbeeper();
+        turnoff();
+      }
+      respuesta(n);
+    }
+  }
+
+  void minimo(n) {
+    iterate (n) {
+      if (nextToABeeper) {
+        pickbeeper();
+      } else {
+        iterate (3) turnleft();
+        move();
+        putbeeper();
+        iterate (2) turnleft();
+        move();
+        iterate (3) turnleft();
+      }
+    }
+    if (nextToABeeper) {
+      while (nextToABeeper) pickbeeper();
+      respuesta(n);
+    } else {
+      iterate (n) putbeeper();
+      iterate (3) turnleft();
+      move();
+      while (nextToABeeper) {
+        pickbeeper();
+        iterate (2) turnleft();
+        move();
+        iterate (2) turnleft();
+        pickbeeper();
+        move();
+      }
+      iterate (2) turnleft();
+      move();
+      iterate (3) turnleft();
+      cuenta(0);
+    }
+  }
+
+  void doit(n) {
+    sube(n);
+    gravedad(n);
+    doit(succ(n));
+  }
+
+  program() {
+    move();
+    doit(1);
+    turnoff();
+  }
+}

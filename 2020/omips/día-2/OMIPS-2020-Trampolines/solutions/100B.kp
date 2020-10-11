@@ -1,0 +1,118 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción zumbador como
+    mientras no-junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como inicio
+    repetir n veces inicio
+      si junto-a-zumbador entonces
+        coge-zumbador
+      si-no
+        sur;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-menor(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      deja-menor(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      coge-todo;
+    fin;
+  fin;
+
+  define-nueva-instrucción salto como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      salto;
+      si frente-libre entonces avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción columna(n) como inicio
+    si frente-libre entonces inicio
+      salto;
+      si frente-libre y no junto-a-zumbador entonces inicio
+        sur;
+        zumbador;
+        si junto-a-zumbador entonces inicio
+          mientras frente-libre hacer inicio
+            avanza;
+            coge-todo;
+          fin;
+          norte;
+          zumbador;
+        fin;
+      fin si-no inicio
+        sur;
+        mientras frente-libre hacer inicio
+          avanza;
+          coge-todo;
+        fin;
+        norte;
+        zumbador;
+      fin;
+      columna(sucede(n));
+    fin si-no inicio
+      si orientado-al-norte entonces inicio
+        sur;
+        pared;
+        deja(n);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción coge-y-deja-menor(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      coge-y-deja-menor(sucede(n));
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        si junto-a-zumbador entonces
+          deja-menor(n)
+        si-no
+          deja(n);
+      fin si-no
+        deja(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    avanza;
+    columna(0);
+    norte;
+    mientras derecha-libre hacer inicio
+      este;
+      avanza;
+      norte;
+      avanza;
+      columna(0);
+      norte;
+    fin;
+    oeste;
+    zumbador;
+    mientras frente-libre hacer coge-y-deja-menor(0);
+  termina-ejecución
+finalizar-programa

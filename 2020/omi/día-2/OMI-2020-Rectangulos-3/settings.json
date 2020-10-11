@@ -1,0 +1,25 @@
+{
+  "title": "Ciudad Rectángulo",
+  "source": "OMI 2020 (Alexis Cervantes)",
+  "limits": {
+    "TimeLimit": 1000,
+    "MemoryLimit": 33554432,
+    "InputLimit": 33554432,
+    "OutputLimit": 1048576,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+  "validator": {
+    "name": "custom",
+    "limits": {
+      "TimeLimit": 3000
+    }
+  },
+  "misc": {
+    "alias": "OMI-2020-Rectangulos-3",
+    "visibility": "private",
+    "languages": "c11-gcc,c11-clang,cpp11-gcc,cpp11-clang,cpp17-gcc,cpp17-clang,java,py2,py3,rb,cs,pas,cat,hs,lua",
+    "email_clarifications": 0,
+    "admin-groups": ["comi-2020"]
+  }
+}

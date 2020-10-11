@@ -1,0 +1,118 @@
+class program {
+  define med() {
+    turnleft();
+    turnleft();
+  }
+
+  define der() {
+    med();
+    turnleft();
+  }
+
+  define linea() {
+    while (frontIsClear) {
+      move();
+    }
+  }
+
+  define nor() {
+    while (notFacingNorth) {
+      turnleft();
+    }
+  }
+
+  define agarra() {
+    while (nextToABeeper) {
+      pickbeeper();
+    }
+  }
+
+  define avanza() {
+    if (frontIsClear) {
+      move();
+    } else {
+      if (facingNorth) {
+        der();
+        move();
+        der();
+      } else {
+        turnleft();
+        move();
+        turnleft();
+      }
+    }
+  }
+
+  define En1() {
+    if (nextToABeeper) {
+      if (frontIsClear ||
+          ((facingNorth && rightIsClear) || (facingSouth && leftIsClear))
+      ) {
+        avanza();
+        En2();
+        putbeeper();
+      } else {
+        nor();
+        med();
+        linea();
+        der();
+        linea();
+        agarra();
+        putbeeper();
+      }
+    } else {
+      if (frontIsClear ||
+          ((facingNorth && rightIsClear) || (facingSouth && leftIsClear))
+      ) {
+        avanza();
+        En2();
+      } else {
+        nor();
+        med();
+        linea();
+        der();
+        linea();
+        agarra();
+      }
+    }
+  }
+
+  define En2() {
+    if (nextToABeeper) {
+      if (frontIsClear ||
+          ((facingNorth && rightIsClear) || (facingSouth && leftIsClear))
+      ) {
+        avanza();
+        En1();
+      } else {
+        nor();
+        med();
+        linea();
+        der();
+        linea();
+        agarra();
+      }
+    } else {
+      if (frontIsClear ||
+          ((facingNorth && rightIsClear) || (facingSouth && leftIsClear))
+      ) {
+        avanza();
+        En1();
+        putbeeper();
+      } else {
+        nor();
+        med();
+        linea();
+        der();
+        linea();
+        agarra();
+        putbeeper();
+      }
+    }
+  }
+
+  program() {
+    En1();
+    turnoff();
+  }
+}

@@ -1,0 +1,92 @@
+class program {
+  define turn(n) {
+    iterate (n) turnleft();
+  }
+
+  define bounce(a) {
+    if (!nextToABeeper) {
+      iterate (a) {
+        if (frontIsClear) move();
+      }
+      if (!nextToABeeper && frontIsClear && !iszero(a)) {
+        turn(2);
+        iterate (a) {
+          if (frontIsClear) move();
+          if (nextToABeeper) {
+            turn(2);
+            bounce(0);
+          }
+        }
+      } else if (frontIsClear && !iszero(a)) bounce(0);
+      while (frontIsBlocked && nextToABeeper) pickbeeper();
+    }
+    if (nextToABeeper) {
+      pickbeeper();
+      bounce(succ(a));
+    }
+    if (iszero(a)) {
+      turn(2);
+      while (frontIsClear) move();
+      turn(2);
+      putbeeper();
+      while (frontIsClear) move();
+    }
+  }
+
+  define countMin(a) {
+    while (!nextToABeeper && frontIsClear) {
+      move();
+    }
+    if (frontIsBlocked && !nextToABeeper)
+      turnoff();
+    else {
+      turn(2);
+      while (frontIsClear) move();
+      turn(2);
+    }
+    if (nextToABeeper) {
+      pickbeeper();
+      if (!nextToABeeper) {
+        while (frontIsClear) move();
+        while (nextToABeeper) pickbeeper();
+        iterate (a) putbeeper();
+        turnoff();
+      }
+    }
+    while (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        pickbeeper();
+        if (!nextToABeeper) {
+          while (frontIsClear) move();
+          while (nextToABeeper) pickbeeper();
+          iterate (a) putbeeper();
+          turnoff();
+        }
+      }
+    }
+    turn(2);
+    while (frontIsClear) move();
+    turn(2);
+    countMin(succ(a));
+  }
+
+  program() {
+    // TODO poner codigo aqui
+    move();
+    while (frontIsClear) {
+      if (nextToABeeper) bounce(0);
+      while (!facingSouth) turn(1);
+      while (frontIsClear) move();
+      turn(1);
+      if (frontIsClear) {
+        move();
+        turn(1);
+        move();
+      }
+    }
+    turn(2);
+    countMin(1);
+    turnoff();
+  }
+}

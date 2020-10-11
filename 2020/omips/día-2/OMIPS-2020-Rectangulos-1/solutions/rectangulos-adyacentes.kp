@@ -1,0 +1,23 @@
+iniciar-programa
+  inicia-ejecución
+    repetir 2 veces inicio
+      deja-zumbador;
+      avanza;
+    fin;
+    repetir 3 veces gira-izquierda;
+    avanza;
+    repetir 3 veces gira-izquierda;
+    repetir 2 veces inicio
+      avanza;
+      deja-zumbador;
+    fin;
+
+    gira-izquierda;
+    avanza;
+    gira-izquierda;
+    repetir 2 veces avanza;
+    deja-zumbador;
+
+    apágate;
+  termina-ejecución
+finalizar-programa

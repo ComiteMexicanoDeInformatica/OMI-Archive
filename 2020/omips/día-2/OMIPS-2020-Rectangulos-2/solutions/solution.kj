@@ -1,0 +1,165 @@
+//esta solucion va construyendo de en incrementos de uno,
+//si en algun momento ya no cabe el siguiente tamaño
+//cuenta cual fue el ultimo ancho y construye el siguiente
+
+class program {
+  void turn(n) {
+    iterate (n) {
+      turnleft();
+    }
+  }
+
+  void build(n) {
+    iterate (n) {
+      putbeeper();
+
+      if (frontIsClear) {
+        move();
+      } else {
+        turn(2);
+        iterate (pred(n)) {
+          if (nextToABeeper && frontIsClear) {
+            move();
+          }
+        }
+
+        if (notNextToABeeper) {
+          putbeeper();
+        }
+
+        turn(2);
+        return();
+      }
+    }
+
+    if (frontIsClear) {
+      move();
+      build(succ(n));
+    } else {
+      putbeeper();
+    }
+  }
+
+  void lastBuild(n) {
+    if (rightIsBlocked) {
+      turn(2);
+      build(1);
+    } else {
+      while (rightIsClear) {
+        turn(3);
+        move();
+        turn(3);
+        build(n);
+        turn(2);
+
+        while (frontIsClear) {
+          move();
+        }
+      }
+    }
+    turnoff();
+  }
+
+  void count(n) {
+    if (frontIsBlocked) {
+      turn(1);
+      move();
+      turn(1);
+      while (frontIsClear) {
+        move();
+      }
+      lastBuild(n);
+    } else {
+      if (frontIsClear) {
+        move();
+      }
+
+      if (notNextToABeeper) {
+        count(succ(n));
+      } else {
+        count(n);
+      }
+    }
+  }
+
+  void validate(n) {
+    //valida que pueda construir el siguiente nivel
+    iterate (pred(n)) {
+      if (frontIsClear()) {
+        move();
+      } else {
+        turn(2);
+        while (notNextToABeeper) {
+          move();
+        }
+
+        turn(1);
+        count(1);
+      }
+    }
+    turn(2);
+    iterate (pred(n)) {
+      move();
+    }
+    turn(2);
+  }
+
+  void buildRectangles(n) {
+    validate(n);
+
+    iterate (n) {
+      turn(3);
+      build(1);
+      turn(2);
+
+      while (frontIsClear) {
+        move();
+      }
+
+      turn(3);
+
+      if (frontIsClear) {
+        move();
+      } else {
+        turnoff();
+      }
+    }
+
+    if (frontIsClear) {
+      move();
+      buildRectangles(succ(n));
+    } else {
+      turn(3);
+      build(1);
+    }
+  }
+
+  void rotateIfTaller() {
+    while (frontIsClear && rightIsClear) {
+      if (frontIsClear) {
+        move();
+      }
+      if (rightIsClear) {
+        turn(3);
+        move();
+        turn(1);
+      }
+    }
+
+    if (frontIsBlocked) {
+      turn(3);
+    } else {
+      turn(2);
+    }
+    while (frontIsClear) {
+      move();
+    }
+    turn(3);
+  }
+
+  program() {
+    rotateIfTaller();
+    buildRectangles(1);
+    turnoff();
+  }
+}
