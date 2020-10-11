@@ -8,6 +8,7 @@ on:
 env:
   OMEGAUPUSER: omips
   OMEGAUPPASS: ${{ secrets.OMEGAUP_PASSWORD }}
+  GIT_USERNAME: ${{ github.actor }}
 
 jobs:
   build-test-deploy:
@@ -15,14 +16,14 @@ jobs:
     steps:
     - name: Set base commit (pull request)
       run: |
-        echo "::set-env name=GITHUB_BASE_COMMIT::${{ github.event.pull_request.base.sha }}"
-        echo "::set-env name=GITHUB_CURRENT_COMMIT::${{ github.event.pull_request.head.sha }}"
+        echo "GITHUB_BASE_COMMIT=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
+        echo "GITHUB_CURRENT_COMMIT=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
       if: github.ref != 'refs/heads/master'
 
     - name: Set base commit (master)
       run: |
-        echo "::set-env name=GITHUB_BASE_COMMIT::${{ github.event.before }}"
-        echo "::set-env name=GITHUB_CURRENT_COMMIT::${{ github.event.after }}"
+        echo "GITHUB_BASE_COMMIT=${{ github.event.before }}" >> $GITHUB_ENV
+        echo "GITHUB_CURRENT_COMMIT=${{ github.event.after }}" >> $GITHUB_ENV
       if: github.ref == 'refs/heads/master'
 
     - name: Set up environment
@@ -37,7 +38,7 @@ jobs:
 
     - uses: actions/checkout@v2
       with:
-        ref: ${{ github.event.pull_request.head.sha }}
+        ref: ${{ env.GITHUB_CURRENT_COMMIT }}
         fetch-depth: 0
         submodules: true
 
@@ -51,9 +52,9 @@ jobs:
         # When the utils/ directory is changed, run all tests to avoid
         # regressions. Exit status of 0 means "unmodified".
         if git diff-tree --quiet ${{ env.GITHUB_BASE_COMMIT }} ${{ env.GITHUB_CURRENT_COMMIT }} -- utils/; then
-          echo "::set-env name=CI_FLAGS::--ci"
+          echo "CI_FLAGS=--ci" >> $GITHUB_ENV
         else
-          echo "::set-env name=CI_FLAGS::--ci --all"
+          echo "CI_FLAGS=--ci --all" >> $GITHUB_ENV
         fi
 
     - name: Download omegaUp-ci container
@@ -73,8 +74,18 @@ jobs:
       if: github.ref == 'refs/heads/master'
 
     - name: Push to public branch
-      run: cd utils && bash ./publish
       if: github.ref == 'refs/heads/master'
+      run: |
+        shopt -s extglob
+        git config --global user.name "${{ env.GIT_USERNAME }}"
+        git config --global user.email "${{ env.GIT_USERNAME }}@users.noreply.github.com"
+        git add -f !(results)
+        git commit -m "Generated files from $GITHUB_SHA"
+        TMP_COMMIT=$(git rev-parse HEAD)
+        git checkout public
+        git merge --no-commit --no-ff -X theirs $TMP_COMMIT
+        git commit -m "Auto deployed from $GITHUB_SHA"
+        git push origin public
 
     - name: Zip logs
       if: ${{ always() }}
