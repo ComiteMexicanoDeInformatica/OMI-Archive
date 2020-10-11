@@ -17,7 +17,7 @@
   },
   "misc": {
     "alias": "OMIPS-2020-Ovejas",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "karel",
     "email_clarifications": 0,
     "admin-groups": ["comi-2020"]
