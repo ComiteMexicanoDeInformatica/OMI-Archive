@@ -20,7 +20,7 @@
 
   "misc": {
     "alias": "OMI-2020-Cajas",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "all",
     "email_clarifications": 0,
     "admin-groups": ["comi-2020"]
