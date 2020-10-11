@@ -15,14 +15,14 @@ jobs:
     steps:
     - name: Set base commit (pull request)
       run: |
-        echo "::set-env name=GITHUB_BASE_COMMIT::${{ github.event.pull_request.base.sha }}"
-        echo "::set-env name=GITHUB_CURRENT_COMMIT::${{ github.event.pull_request.head.sha }}"
+        echo "GITHUB_BASE_COMMIT=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
+        echo "GITHUB_CURRENT_COMMIT=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
       if: github.ref != 'refs/heads/master'
 
     - name: Set base commit (master)
       run: |
-        echo "::set-env name=GITHUB_BASE_COMMIT::${{ github.event.before }}"
-        echo "::set-env name=GITHUB_CURRENT_COMMIT::${{ github.event.after }}"
+        echo "GITHUB_BASE_COMMIT=${{ github.event.before }}" >> $GITHUB_ENV
+        echo "GITHUB_CURRENT_COMMIT=${{ github.event.after }}" >> $GITHUB_ENV
       if: github.ref == 'refs/heads/master'
 
     - name: Set up environment
@@ -99,6 +99,8 @@ jobs:
     - name: Push to public branch
       run: |
         shopt -s extglob
+        git config --global user.name "${{ env.GIT_USERNAME }}"
+        git config --global user.email "${{ env.GIT_USERNAME }}@users.noreply.github.com"
         git add -f !(results)
         git commit -m "Generated files from $GITHUB_SHA"
         git checkout public
