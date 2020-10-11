@@ -98,7 +98,7 @@ jobs:
         path: results.zip
         
     - name: Push to public branch
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master' || true
       run: |
         shopt -s extglob
         git config --global user.name "${{ env.GIT_USERNAME }}"
