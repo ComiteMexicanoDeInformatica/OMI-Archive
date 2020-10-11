@@ -1,143 +1,153 @@
 class program {
-	void turnNorth() {
-    	while(!facingNorth()) {
-        	turnleft();
-        }    
+  void turnNorth() {
+    while (!facingNorth()) {
+      turnleft();
     }
-    void turnSouth() {
-    	while(!facingSouth()) {
-        	turnleft();
-        }    
+  }
+
+  void turnSouth() {
+    while (!facingSouth()) {
+      turnleft();
     }
-	void turnEast() {
-    	while(!facingEast()) {
-        	turnleft();
-        }
+  }
+
+  void turnEast() {
+    while (!facingEast()) {
+      turnleft();
     }
-    void turnWest() {
-    	while(!facingWest()) {
-        	turnleft();
-        }
+  }
+
+  void turnWest() {
+    while (!facingWest()) {
+      turnleft();
     }
-    void cuenta(a) {
-    	if (nextToABeeper()) {
-          pickbeeper();
-          cuenta(succ(a));
-        } else {
-        	iterate(a) {
-            	putbeeper();
-            }
-            regresaDespuesCompara(a);
-        }
+  }
+
+  void cuenta(a) {
+    if (nextToABeeper()) {
+      pickbeeper();
+      cuenta(succ(a));
+    } else {
+      iterate (a) {
+        putbeeper();
+      }
+      regresaDespuesCompara(a);
     }
-    void regresaDespuesCompara(a) {
-    	turnWest();
-        if(frontIsClear()) {
-        	move();
-        	regresaDespuesCompara(a);
-            turnEast();
-            move();
-        } else {
-        	comparaTodos(
-            	pred(pred(pred(pred(pred(a)))))
-            );
-        }
+  }
+
+  void regresaDespuesCompara(a) {
+    turnWest();
+    if (frontIsClear()) {
+      move();
+      regresaDespuesCompara(a);
+      turnEast();
+      move();
+    } else {
+      comparaTodos(pred(pred(pred(pred(pred(a))))));
     }
-    void comparaTodos(a) {
-    	if (nextToABeeper()) {
-        	compara(a);
-            turnEast();
-            if(frontIsClear()) {
-                move();
-                comparaTodos(a);
-                turnWest();
-                if(frontIsClear()) {
-                	move();
-                }
-            }
+  }
+
+  void comparaTodos(a) {
+    if (nextToABeeper()) {
+      compara(a);
+      turnEast();
+      if (frontIsClear()) {
+        move();
+        comparaTodos(a);
+        turnWest();
+        if (frontIsClear()) {
+          move();
         }
+      }
     }
-    void compara(a) {
-    	iterate(a) {
-          if (nextToABeeper()) {
-              pickbeeper();
-          }
-        }
-        
-        if (nextToABeeper()) {
-        	// Todo bien
-        	iterate (a) {
-        		putbeeper();
-        	}
-        } else {
-        	// Guachicoleado
-            putbeeper(); // para que no se rompa la linea
-            comeFila();
-            return();
-        }
+  }
+
+  void compara(a) {
+    iterate (a) {
+      if (nextToABeeper()) {
+        pickbeeper();
+      }
     }
-    void irAInicioDeFila() {
-    	turnWest();
-        while(frontIsClear()) {
-        	move();
-        }
+
+    if (nextToABeeper()) {
+      // Todo bien
+      iterate (a) {
+        putbeeper();
+      }
+    } else {
+      // Guachicoleado
+      putbeeper(); // para que no se rompa la linea
+      comeFila();
+      return();
     }
-    void comeFila() {
-    	irAInicioDeFila();
-        turnEast();
-        while(nextToABeeper()) {
-        	pickbeeper();
-            if(!nextToABeeper() && frontIsClear()) {
-            	move();
-            }
-        }
-        irAInicioDeFila();
+  }
+
+  void irAInicioDeFila() {
+    turnWest();
+    while (frontIsClear()) {
+      move();
     }
-    void hayMasDe(n) {
-    	if (iszero(n)) {
-        	if (nextToABeeper()) {
-            	turnNorth();
-            } else {
-            	turnSouth();
-            }
-        } else {
-        	if (nextToABeeper()) {
-            	pickbeeper();
-                hayMasDe(pred(n));
-                putbeeper();
-            } else {
-            	turnSouth();
-            }        	
-        }
+  }
+
+  void comeFila() {
+    irAInicioDeFila();
+    turnEast();
+    while (nextToABeeper()) {
+      pickbeeper();
+      if (!nextToABeeper() && frontIsClear()) {
+        move();
+      }
     }
-    void resuelveFila() {
-    	while(nextToABeeper()) {
-    		turnEast();
-            hayMasDe(5);
-            if (facingNorth()) {
-            	// hay mas de 5
-            	cuenta(0);
-            }
-            turnEast();
-            if (frontIsClear()) {
-            	move();
-            } else {
-            	return();
-            }
-        }
+    irAInicioDeFila();
+  }
+
+  void hayMasDe(n) {
+    if (iszero(n)) {
+      if (nextToABeeper()) {
+        turnNorth();
+      } else {
+        turnSouth();
+      }
+    } else {
+      if (nextToABeeper()) {
+        pickbeeper();
+        hayMasDe(pred(n));
+        putbeeper();
+      } else {
+        turnSouth();
+      }
     }
-    program () {
-    	turnNorth();
-    	while(nextToABeeper()) {
-    		resuelveFila();
-    		irAInicioDeFila();            
-    		turnNorth();            
-            if (frontIsClear()) {
-            	move();
-            } else {
-            	turnoff();
-            }
-        }
+  }
+
+  void resuelveFila() {
+    while (nextToABeeper()) {
+      turnEast();
+      hayMasDe(5);
+      if (facingNorth()) {
+        // hay mas de 5
+        cuenta(0);
+      }
+      turnEast();
+      if (frontIsClear()) {
+        move();
+      } else {
+        return();
+      }
+    }
+  }
+
+  program() {
+    turnNorth();
+    while (nextToABeeper()) {
+      resuelveFila();
+      irAInicioDeFila();
+      turnNorth();
+      if (frontIsClear()) {
+        move();
+      } else {
         turnoff();
+      }
     }
+    turnoff();
+  }
 }

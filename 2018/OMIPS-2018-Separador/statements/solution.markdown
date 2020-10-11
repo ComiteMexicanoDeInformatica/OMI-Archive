@@ -14,7 +14,7 @@ El siguiente código muestra como hacer lo que acabamos de describir.
             fin;
             si algun-zumbador-en-la-mochila entonces
                 avanza;
-        fin;        
+        fin;
     fin;
 ```
 
@@ -55,9 +55,9 @@ Hay una solución más que utiliza recursividad sin parámetros. Con un método 
 	define-nueva-instruccion avanza-zumbadores como inicio
     	si junto-a-zumbador entonces inicio
         	coge-zumbador;
-            
+
             avanza-zumbadores;
-            
+
             mientras no-junto-a-zumbador hacer inicio
             	avanza;
             fin;

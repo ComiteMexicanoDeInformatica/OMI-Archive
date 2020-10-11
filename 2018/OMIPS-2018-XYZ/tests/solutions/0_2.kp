@@ -1,8 +1,6 @@
 iniciar-programa
-    inicia-ejecucion
-        
-        repetir 5 veces
-        	si frente-libre entonces gira-izquierda; 
-        apagate;
-    termina-ejecucion
+  inicia-ejecución
+    repetir 5 veces si frente-libre entonces gira-izquierda;
+    apágate;
+  termina-ejecución
 finalizar-programa

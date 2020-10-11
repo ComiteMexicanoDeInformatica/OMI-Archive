@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main()
-{
-    printf("0\n0\n");
-}
+int main() { printf("0\n0\n"); }

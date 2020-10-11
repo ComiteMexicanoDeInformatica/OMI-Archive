@@ -1,0 +1,214 @@
+class program {
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void put(a) {
+    iterate (a) putbeeper();
+  }
+
+  void pick(a) {
+    iterate (a) pickbeeper();
+  }
+
+  void north() {
+    while (!facingNorth) turnleft();
+  }
+
+  void south() {
+    while (!facingSouth) turnleft();
+  }
+
+  void east() {
+    while (!facingEast) turnleft();
+  }
+
+  void west() {
+    while (!facingWest) turnleft();
+  }
+
+  void esquina() {
+    south();
+    while (frontIsClear) move();
+    west();
+    while (frontIsClear) move();
+    north();
+  }
+
+  void checkParity() {
+    if (nextToABeeper) {
+      pick(1);
+      if (nextToABeeper) {
+        pick(1);
+        checkParity();
+        put(2);
+      } else {
+        south();
+        put(1);
+      }
+    } else {
+      north();
+    }
+  }
+
+  void derecha(x) {
+    if (iszero(x)) {
+      put(2);
+      turn(2);
+    } else {
+      if (frontIsClear) {
+        move();
+        derecha(pred(x));
+        move();
+      } else {
+        turn(2);
+      }
+    }
+  }
+
+  void triangulo(x) {
+    turn(3);
+    derecha(x);
+    turn(3);
+    if (!iszero(x)) {
+      if (frontIsClear) {
+        move();
+        triangulo(pred(x));
+        move();
+      } else {
+        turn(2);
+      }
+    } else {
+      turn(2);
+    }
+  }
+
+  void quita(x) {
+    if (iszero(x)) {
+      pick(2);
+      turn(2);
+    } else {
+      if (frontIsClear) {
+        move();
+        quita(pred(x));
+        move();
+      } else {
+        turn(2);
+      }
+    }
+  }
+
+  void markDist(x) {
+    if (iszero(x)) {
+      put(2);
+      return();
+    }
+    iterate (4) {
+      triangulo(x);
+      turn(3);
+    }
+    iterate (4) {
+      quita(x);
+      turn(3);
+    }
+  }
+
+  void checaMayor(n) {
+    if (iszero(n)) {
+      south();
+    }
+    if (nextToABeeper) {
+      pick(1);
+      if (nextToABeeper) {
+        pick(1);
+        checaMayor(pred(n));
+        put(2);
+      } else {
+        put(1);
+      }
+    }
+  }
+
+  void check(n) {
+    north();
+    checaMayor(n);
+    if (facingSouth) {
+      turnoff();
+    } else {
+      if (frontIsClear) {
+        move();
+        check(n);
+      } else {
+        south();
+        while (frontIsClear) move();
+        east();
+        if (frontIsClear) {
+          move();
+          check(n);
+        } else {
+          esquina();
+        }
+      }
+    }
+  }
+
+  void transita(n) {
+    if (frontIsClear) {
+      move();
+      cuenta(n);
+    } else {
+      south();
+      while (frontIsClear) move();
+      east();
+      if (frontIsClear) {
+        move();
+        cuenta(n);
+      } else {
+        esquina();
+        check(n);
+      }
+    }
+  }
+
+  void cuenta(n) {
+    north();
+    checkParity();
+    if (facingSouth) {
+      north();
+      transita(succ(n));
+    } else {
+      transita(n);
+    }
+  }
+
+  void expande(x) {
+    north();
+    checkParity();
+    if (facingSouth) {
+      markDist(x);
+      north();
+    }
+    if (frontIsClear) {
+      move();
+      expande(x);
+    } else {
+      south();
+      while (frontIsClear) move();
+      east();
+      if (frontIsClear) {
+        move();
+        expande(x);
+      } else {
+        esquina();
+        cuenta(0);
+        expande(succ(x));
+      }
+    }
+  }
+
+  program() {
+    expande(0);
+
+    turnoff();
+  }
+}

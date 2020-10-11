@@ -25,19 +25,19 @@ Karel se apaga sobre el zumbador y se orienta al norte porque el primo Korel sí
 
 # Consideraciones
 
-* La posición y la orientación inicial de Karel son desconocidas.
-* La posición inicial de Karel es su casa.
-* Korel inicia desde la misma casilla que Karel.
-* Korel puede atravesar paredes, incluso las que delimitan al mundo.
-* Karel tiene infinitos zumbadores en la mochila.
-* En el mundo puede haber paredes internas, incluyendo islas.
-* Solo existe un zumbador en el mundo.
-* Si Korel no puede llegar al zumbador, se considera que el número mínimo de pasos es cero.
-* Se asegura que Karel siempre va a poder llegar al zumbador.
-* No importa cómo queden los zumbadores del mundo al final, salvo el de la casilla del Ángel.
-* Se evalúa la posición y orientación final de Karel.
+- La posición y la orientación inicial de Karel son desconocidas.
+- La posición inicial de Karel es su casa.
+- Korel inicia desde la misma casilla que Karel.
+- Korel puede atravesar paredes, incluso las que delimitan al mundo.
+- Karel tiene infinitos zumbadores en la mochila.
+- En el mundo puede haber paredes internas, incluyendo islas.
+- Solo existe un zumbador en el mundo.
+- Si Korel no puede llegar al zumbador, se considera que el número mínimo de pasos es cero.
+- Se asegura que Karel siempre va a poder llegar al zumbador.
+- No importa cómo queden los zumbadores del mundo al final, salvo el de la casilla del Ángel.
+- Se evalúa la posición y orientación final de Karel.
 
 # Subtareas
 
-* En el 70% de los casos solamente se evalúa la posición y orientación final de Karel.
-* En el 30% restante se evalúa además la cantidad de zumbadores que quedan al final en la casilla del Ángel.
+- En el 70% de los casos solamente se evalúa la posición y orientación final de Karel.
+- En el 30% restante se evalúa además la cantidad de zumbadores que quedan al final en la casilla del Ángel.

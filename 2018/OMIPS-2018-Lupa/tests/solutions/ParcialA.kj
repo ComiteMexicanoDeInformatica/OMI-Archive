@@ -1,47 +1,40 @@
 class program {
-void gira(g)
-{
-    iterate(g)
-        turnleft();
-}
-void fondo()
-{
-    while(frontIsClear)
-        move();
-}
-void cero()
-{
-    iterate(2)
-    {
-        iterate(4)
-        {
-            putbeeper();
-            move();
-        }
-        putbeeper();
-        turnleft();
-        move();
+  void gira(g) {
+    iterate (g) turnleft();
+  }
+
+  void fondo() {
+    while (frontIsClear) move();
+  }
+
+  void cero() {
+    iterate (2) {
+      iterate (4) {
         putbeeper();
         move();
-        turnleft();
+      }
+      putbeeper();
+      turnleft();
+      move();
+      putbeeper();
+      move();
+      turnleft();
     }
-}
-void uno()
-{
+  }
+
+  void uno() {
     turnleft();
-    iterate(2)
-    {
-        putbeeper();
-        move();
+    iterate (2) {
+      putbeeper();
+      move();
     }
     putbeeper();
     gira(2);
     move();
     turnleft();
-    iterate(4)
-    {
-        move();
-        putbeeper();
+    iterate (4) {
+      move();
+      putbeeper();
     }
     turnleft();
     move();
@@ -52,28 +45,24 @@ void uno()
     gira(3);
     fondo();
     gira(2);
-}
-void dos()
-{
+  }
+
+  void dos() {
     turnleft();
-    iterate(3)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        gira(3);
+    iterate (3) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      gira(3);
     }
     gira(2);
-    iterate(2)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        turnleft();
+    iterate (2) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      turnleft();
     }
     putbeeper();
     turnleft();
@@ -82,13 +71,12 @@ void dos()
     gira(3);
     fondo();
     gira(2);
-}
-void tres()
-{
-    iterate(4)
-    {
-        putbeeper();
-        move();
+  }
+
+  void tres() {
+    iterate (4) {
+      putbeeper();
+      move();
     }
     putbeeper();
     gira(2);
@@ -96,11 +84,10 @@ void tres()
     gira(3);
     move();
     gira(3);
-    iterate(2)
-    {
-        putbeeper();
-        move();
-        move();
+    iterate (2) {
+      putbeeper();
+      move();
+      move();
     }
     putbeeper();
     gira(2);
@@ -108,11 +95,10 @@ void tres()
     gira(3);
     move();
     gira(3);
-    iterate(2)
-    {
-        putbeeper();
-        move();
-        move();
+    iterate (2) {
+      putbeeper();
+      move();
+      move();
     }
     putbeeper();
     gira(3);
@@ -121,13 +107,12 @@ void tres()
     gira(3);
     fondo();
     gira(2);
-}
-void cuatro()
-{
-    iterate(4)
-    {
-        putbeeper();
-        move();
+  }
+
+  void cuatro() {
+    iterate (4) {
+      putbeeper();
+      move();
     }
     putbeeper();
     gira(2);
@@ -149,60 +134,52 @@ void cuatro()
     gira(3);
     fondo();
     gira(2);
-}
-void cinco()
-{
+  }
+
+  void cinco() {
     turnleft();
     move();
     move();
     gira(2);
-    iterate(3)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        turnleft();
+    iterate (3) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      turnleft();
     }
     gira(2);
-    iterate(2)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        gira(3);
+    iterate (2) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      gira(3);
     }
     putbeeper();
     fondo();
     gira(2);
-}
-void seis()
-{
+  }
+
+  void seis() {
     turnleft();
     move();
     move();
     gira(2);
-    iterate(3)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        turnleft();
+    iterate (3) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      turnleft();
     }
     gira(2);
-    iterate(2)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        gira(3);
+    iterate (2) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      gira(3);
     }
     putbeeper();
     move();
@@ -218,9 +195,9 @@ void seis()
     move();
     move();
     turnleft();
-}
-void siete()
-{
+  }
+
+  void siete() {
     putbeeper();
     move();
     putbeeper();
@@ -247,28 +224,24 @@ void siete()
     gira(3);
     fondo();
     gira(2);
-}
-void ocho()
-{
-    iterate(4)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        turnleft();
+  }
+
+  void ocho() {
+    iterate (4) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      turnleft();
     }
     move();
     move();
-    iterate(3)
-    {
-        iterate(2)
-        {
-            move();
-            putbeeper();
-        }
-        turnleft();
+    iterate (3) {
+      iterate (2) {
+        move();
+        putbeeper();
+      }
+      turnleft();
     }
     pickbeeper();
     move();
@@ -276,105 +249,76 @@ void ocho()
     gira(3);
     fondo();
     gira(2);
-}
-void nueve()
-{
+  }
+
+  void nueve() {
     turnleft();
     move();
     move();
     gira(2);
-    iterate(3)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        turnleft();
+    iterate (3) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      turnleft();
     }
     gira(2);
-    iterate(2)
-    {
-        iterate(2)
-        {
-            putbeeper();
-            move();
-        }
-        gira(3);
+    iterate (2) {
+      iterate (2) {
+        putbeeper();
+        move();
+      }
+      gira(3);
     }
     putbeeper();
     move();
     putbeeper();
     fondo();
     gira(2);
-}
-void unidades(n)
-{
-    if(anyBeepersInBeeperBag)
-    {
-        putbeeper();
-        unidades(succ(n));
+  }
+
+  void unidades(n) {
+    if (anyBeepersInBeeperBag) {
+      putbeeper();
+      unidades(succ(n));
+    } else {
+      while (nextToABeeper) pickbeeper();
+      gira(3);
+      fondo();
+      turnleft();
+      fondo();
+      iterate (20) pickbeeper();
+      gira(2);
+      fondo();
+      gira(2);
+      if (iszero(n)) {
+        cero();
+      } else if (iszero(pred(n))) {
+        uno();
+      } else if (iszero(pred(pred(n)))) {
+        dos();
+      } else if (iszero(pred(pred(pred(n))))) {
+        tres();
+      } else if (iszero(pred(pred(pred(pred(n)))))) {
+        cuatro();
+      } else if (iszero(pred(pred(pred(pred(pred(n))))))) {
+        cinco();
+      } else if (iszero(pred(pred(pred(pred(pred(pred(n)))))))) {
+        seis();
+      } else if (iszero(pred(pred(pred(pred(pred(pred(pred(n))))))))) {
+        siete();
+      } else if (iszero(pred(pred(pred(pred(pred(pred(pred(pred(n)))))))))) {
+        ocho();
+      } else {
+        nueve();
+      }
     }
-    else
-    {
-        while(nextToABeeper)
-            pickbeeper();
-        gira(3);
-        fondo();
-        turnleft();
-        fondo();
-        iterate(20)
-            pickbeeper();
-        gira(2);
-        fondo();
-        gira(2);
-        if(iszero(n))
-        {
-            cero();
-        }
-        else if(iszero(pred(n)))
-        {
-            uno();
-        }
-        else if(iszero(pred(pred(n))))
-        {
-            dos();
-        }
-        else if(iszero(pred(pred(pred(n)))))
-        {
-            tres();
-        }
-        else if(iszero(pred(pred(pred(pred(n))))))
-        {
-            cuatro();
-        }
-        else if(iszero(pred(pred(pred(pred(pred(n)))))))
-        {
-            cinco();
-        }
-        else if(iszero(pred(pred(pred(pred(pred(pred(n))))))))
-        {
-            seis();
-        }
-        else if(iszero(pred(pred(pred(pred(pred(pred(pred(n)))))))))
-        {
-            siete();
-        }
-        else if(iszero(pred(pred(pred(pred(pred(pred(pred(pred(n))))))))))
-        {
-            ocho();
-        }
-        else
-        {
-            nueve();
-        }
-    }
-}
-program() {
-    while(!facingNorth)
-        turnleft();
+  }
+
+  program() {
+    while (!facingNorth) turnleft();
     unidades(0);
     turnoff();
-}
-
+  }
 }

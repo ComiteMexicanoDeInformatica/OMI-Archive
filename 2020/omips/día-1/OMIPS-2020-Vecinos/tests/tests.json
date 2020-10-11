@@ -1,0 +1,59 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/put_beeper.kp",
+      "score_range": [0, 0.05]
+    },
+    {
+      "filename": "../solutions/dejar2.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/dejar3.kp",
+      "score_range": [0, 0.15]
+    },
+    {
+      "filename": "../solutions/dejar4.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/dejar5.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/dejar6.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/dejar7.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/dejar8.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/dejar9.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/dejar10.kp",
+      "score_range": [0, 0.1]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

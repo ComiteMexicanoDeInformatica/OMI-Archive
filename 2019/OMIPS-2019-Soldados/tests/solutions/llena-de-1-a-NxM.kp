@@ -1,33 +1,33 @@
 iniciar-programa
-	define-nueva-instrucción llena(x) como inicio
-    	si no-junto-a-zumbador entonces inicio
-        	repetir x veces deja-zumbador;
-        fin;
-
-        si frente-libre entonces inicio
-        	avanza;
-        fin si-no inicio
-        	gira-izquierda;
-            si frente-libre entonces inicio
-            	avanza;
-                gira-izquierda;
-                mientras frente-libre hacer avanza;
-                gira-izquierda;
-                gira-izquierda;
-            fin si-no inicio
-            	sal-de-instrucción;
-            fin;
-        fin;
-        llena(sucede(x));
+  define-nueva-instrucción llena(x) como inicio
+    si no-junto-a-zumbador entonces inicio
+      repetir x veces deja-zumbador;
     fin;
 
-    inicia-ejecución
+    si frente-libre entonces inicio
+      avanza;
+    fin si-no inicio
+      gira-izquierda;
+      si frente-libre entonces inicio
+        avanza;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
         gira-izquierda;
         gira-izquierda;
-        gira-izquierda;
+      fin si-no inicio
+        sal-de-instrucción;
+      fin;
+    fin;
+    llena(sucede(x));
+  fin;
 
-        llena(1);
+  inicia-ejecución
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
 
-        apagate;
-    termina-ejecucion
+    llena(1);
+
+    apágate;
+  termina-ejecución
 finalizar-programa

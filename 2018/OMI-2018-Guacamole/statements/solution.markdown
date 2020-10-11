@@ -1,5 +1,5 @@
 Para llegar a la solución de 100 puntos hay que partir de la idea de fuerza bruta.
-Este es simular pegarle a cada topo en el segundo 1 y hacer todos los posibles movimientos. 
+Este es simular pegarle a cada topo en el segundo 1 y hacer todos los posibles movimientos.
 
 Esta idea es fácil de implementar con una función recursiva.
 
@@ -9,7 +9,7 @@ La transición de esta idea a la óptima utilizando programación dinámica es h
 
 El estado de la DP es `fila`,`columna` y `tiempo`, que guardará lo siguiente:
 
-***Si golpeo el topo en la casilla `[fila][columna]` cuando han transcurrido `tiempo` segundos, ¿Cuál es la mayor cantidad de puntos que puedo obtener?***
+**_Si golpeo el topo en la casilla `[fila][columna]` cuando han transcurrido `tiempo` segundos, ¿Cuál es la mayor cantidad de puntos que puedo obtener?_**
 
 Debido a esto se debe ocupar una matriz de tres dimensiones, `DP[N][M][T]`, para almacenar las respuestas y no volver a calcularlas.
 

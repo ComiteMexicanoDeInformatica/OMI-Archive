@@ -1,12 +1,12 @@
 Nos podemos dar cuenta que primero van todas las cadenas de longitud 1:
 
-```A, B, C, ..., Z.```
+`A, B, C, ..., Z.`
 
 Que en total son 26 cadenas.
 
 Después vienen las cadenas de longitud 2:
 
-```AA, AB, ..., AZ, BA, BB, ..., BZ, CA, ..., CZ, ..., ZA, ..., ZZ.```
+`AA, AB, ..., AZ, BA, BB, ..., BZ, CA, ..., CZ, ..., ZA, ..., ZZ.`
 
 Por cada A del lado izquierdo en su lado derecho aparecen las 26 letras. Lo mismo pasa para todas las letras,
 por lo que el total de cadenas de longitud 2 es $26 \cdot 26$ = $26^2$. De esta forma, hasta el

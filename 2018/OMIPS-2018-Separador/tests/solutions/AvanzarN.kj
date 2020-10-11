@@ -1,21 +1,20 @@
 class program {
-
-	void separador() {
-    	if(nextToABeeper) {
-        	pickbeeper();
-            separador();
-            move();
-        } else {
-        	move();
-            iterate(3) turnleft();
-        }
+  void separador() {
+    if (nextToABeeper) {
+      pickbeeper();
+      separador();
+      move();
+    } else {
+      move();
+      iterate (3) turnleft();
     }
+  }
 
-    program () {
-    	pickbeeper();
-    	separador();
-        while(!nextToABeeper) move();
-        turnleft();
-        turnoff();
-    }
+  program() {
+    pickbeeper();
+    separador();
+    while (!nextToABeeper) move();
+    turnleft();
+    turnoff();
+  }
 }

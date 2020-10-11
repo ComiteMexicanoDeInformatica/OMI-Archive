@@ -1,0 +1,42 @@
+class program {
+  void busqueda() {
+    iterate (4) {
+      if (frontIsClear) {
+        move();
+        if (notNextToABeeper) {
+          putbeeper();
+          busqueda();
+        }
+        iterate (2) turnleft();
+        move();
+        iterate (2) turnleft();
+      } else {
+        fuera();
+      }
+      turnleft();
+    }
+  }
+
+  void fuera() {
+    while (notFacingWest) turnleft();
+    while (frontIsClear) move();
+    turnleft();
+    while (frontIsClear) move();
+    iterate (2) turnleft();
+    turnoff();
+  }
+
+  void dentro() {
+    while (notFacingWest) turnleft();
+    while (frontIsClear) move();
+    turnleft();
+    while (frontIsClear) move();
+    turnoff();
+  }
+
+  program() {
+    busqueda();
+    dentro();
+    turnoff();
+  }
+}

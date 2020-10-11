@@ -5,6 +5,7 @@ Una solución $O(n^3 m^3)$ funciona.
 La idea se trata de probar con todos los pares de esquinas cuáles son soluciones válidas, y entre todas las soluciones válidas, tomar aquella que tenga el mayor valor.
 
 Algo así como:
+
 ```cpp
     vector<int> mejor_solucion;
     int64_t suma_mejor_solucion = -1;
@@ -54,7 +55,7 @@ Sin embargo es suficiente con que cada casilla compare su color con su casilla d
           }
           if (c > c1 && Color[f][c] == Color[f][c - 1]) {
             return false;
-          }          
+          }
       }
       return true;
     }
@@ -243,10 +244,10 @@ Una vez fijados $f_1$ y $f_2$, vamos a definir $T(c_2)$ como el valor de $c_1$ p
 
 Aquí hay que darse cuenta que si ya se conoce $(f_1, T(c_2), f_2, c_2)$ y se quiere calcular $T(c_2 + 1)$, puede pasar una de 3 cosas:
 
-* La región $(f_1, c_2 + 1, f_2, c_2 + 1)$ no es alternante, así que no hay región a tomar en cuenta.
+- La región $(f_1, c_2 + 1, f_2, c_2 + 1)$ no es alternante, así que no hay región a tomar en cuenta.
 
-* La región $(f_1, c_2 + 1, f_2, c_2 + 1)$ es alternante, pero está coloreada con el mismo patrón que la columna a su izquierda $(f_1, c_2, f_2, c_2)$, por lo que $T(c_2 + 1) = c_2 + 1$ (la única región posible sería de una sola columna).
+- La región $(f_1, c_2 + 1, f_2, c_2 + 1)$ es alternante, pero está coloreada con el mismo patrón que la columna a su izquierda $(f_1, c_2, f_2, c_2)$, por lo que $T(c_2 + 1) = c_2 + 1$ (la única región posible sería de una sola columna).
 
-* La región $(f_1, c_2 + 1, f_2, c_2 + 1)$ es alternante y es del patrón opuesto que el de la columna a su izquierda  $(f_1, c_2, f_2, c_2)$. En ese caso $T(c_2 + 1)$ puede tener 2 valores(hay que considerar ambos): $T(c_2 + 1) = c_2 + 1$ (una sola columna) ó $T(c_2 + 1) = T(c_2)$ (el óptimo en la columna de la izquierda, añadiéndole la nueva columna).
+- La región $(f_1, c_2 + 1, f_2, c_2 + 1)$ es alternante y es del patrón opuesto que el de la columna a su izquierda $(f_1, c_2, f_2, c_2)$. En ese caso $T(c_2 + 1)$ puede tener 2 valores(hay que considerar ambos): $T(c_2 + 1) = c_2 + 1$ (una sola columna) ó $T(c_2 + 1) = T(c_2)$ (el óptimo en la columna de la izquierda, añadiéndole la nueva columna).
 
 Las sumas se pueden calcular en tiempo constante(como ya se mencionó en la tercera sub-tarea). Para saber si un segmento de columna tiene colores alternantes en $O(1)$, se puede usar un procedimiento análogo al usado en la segunda sub-tarea para las filas.

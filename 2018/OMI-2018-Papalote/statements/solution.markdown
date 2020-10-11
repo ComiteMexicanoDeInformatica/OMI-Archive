@@ -5,5 +5,5 @@ De este modo, sabemos que llegaremos a la suma máxima total en a lo más $100NM
 Esto ya que siempre la suma es creciente, y aumenta al menos por 2 por cada operación.
 
 Por lo tanto, solo basta invertir los signos de cada fila y cada columna si la suma respectiva de cada fila o columna es menor a cero.
-Y por lo anterior, sabemos que esto no nos va a tomar mas de $100NM$ operaciones, y cada inversión nos toma $O(n)$ operaciones. 
+Y por lo anterior, sabemos que esto no nos va a tomar mas de $100NM$ operaciones, y cada inversión nos toma $O(n)$ operaciones.
 Para restaurar la respuesta, solo basta con imprimir las filas y columnas a las cuales les aplicamos una cantidad impar de operaciones.

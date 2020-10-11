@@ -24,9 +24,9 @@ En la primer columna Karel tiene que mover el zumbador 3 casillas hacia arriba p
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) viendo al norte.
-* Karel tiene infinitos zumbadores en la mochila.
-* Las únicas paredes en el mundo son las que lo delimitan.
-* El mundo es cuadrado. Es decir, el alto y el ancho son del mismo tamaño.
-* Hay exactamente un zumbador en cada columna del mundo.
-* Se evalúan todos los zumbadores del mundo.
+- Karel inicia en la casilla (1,1) viendo al norte.
+- Karel tiene infinitos zumbadores en la mochila.
+- Las únicas paredes en el mundo son las que lo delimitan.
+- El mundo es cuadrado. Es decir, el alto y el ancho son del mismo tamaño.
+- Hay exactamente un zumbador en cada columna del mundo.
+- Se evalúan todos los zumbadores del mundo.

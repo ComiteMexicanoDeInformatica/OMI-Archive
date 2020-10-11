@@ -1,0 +1,100 @@
+//esta solucion va construyendo de en incrementos de uno,
+//si en algun momento ya no cabe el siguiente tamaño rellena el anterior
+//para evitar duplicados y maximizar zumbadores
+
+class program {
+  void turn(n) {
+    iterate (n) {
+      turnleft();
+    }
+  }
+
+  void build(n) {
+    iterate (n) {
+      putbeeper();
+
+      if (frontIsClear) {
+        move();
+      } else {
+        turn(2);
+        while (nextToABeeper && frontIsClear) {
+          move();
+        }
+        if (notNextToABeeper) {
+          putbeeper();
+        }
+        turn(2);
+        return();
+      }
+    }
+
+    if (frontIsClear) {
+      move();
+      build(succ(n));
+    }
+  }
+
+  void validate(n) {
+    //valida que pueda construir el siguiente nivel
+    iterate (n) {
+      if (frontIsClear()) {
+        move();
+      } else {
+        turn(3);
+        while (notNextToABeeper) {
+          build(1);
+          turn(2);
+
+          while (frontIsClear) {
+            move();
+          }
+
+          turn(1);
+          move();
+          turn(1);
+        }
+        turnoff();
+      }
+    }
+    turn(2);
+    iterate (n) {
+      move();
+    }
+    turn(2);
+  }
+
+  void buildRectangles(n) {
+    validate(n);
+
+    iterate (n) {
+      turn(3);
+      build(1);
+      turn(2);
+
+      while (frontIsClear) {
+        move();
+      }
+
+      turn(3);
+
+      if (frontIsClear) {
+        move();
+      } else {
+        turnoff();
+      }
+    }
+
+    if (frontIsClear) {
+      move();
+      buildRectangles(succ(n));
+    } else {
+      turn(3);
+      build(1);
+    }
+  }
+
+  program() {
+    buildRectangles(1);
+    turnoff();
+  }
+}

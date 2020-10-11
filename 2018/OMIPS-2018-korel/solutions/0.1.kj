@@ -1,18 +1,13 @@
 class program {
-	define troy()
-    {
-   
-     while(frontIsClear)
-    {
-    move();
+  define troy() {
+    while (frontIsClear) {
+      move();
     }
     turnleft();
-   }
-    
-    program () {
-   
-    
-        // TODO poner codigo aqui
-        turnoff();
-    }
+  }
+
+  program() {
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }

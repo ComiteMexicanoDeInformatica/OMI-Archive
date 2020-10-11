@@ -1,6 +1,6 @@
 class program {
-    program () {
-    	putbeeper();
-        turnoff();
-    }
+  program() {
+    putbeeper();
+    turnoff();
+  }
 }

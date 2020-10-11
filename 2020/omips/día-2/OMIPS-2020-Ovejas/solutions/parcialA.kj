@@ -1,0 +1,59 @@
+class program {
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void elimina() {
+    if (frontIsClear) {
+      move();
+      while (!nextToABeeper && frontIsClear) move();
+      if (!nextToABeeper) return();
+      turn(2);
+      move();
+      while (!nextToABeeper) move();
+      pickbeeper();
+      turn(2);
+      while (!nextToABeeper) move();
+      elimina();
+    }
+  }
+
+  void mitad() {
+    if (!nextToABeeper) {
+      move();
+      if (!nextToABeeper) {
+        move();
+        mitad();
+      } else {
+        turn(2);
+      }
+    } else {
+      turn(2);
+    }
+    move();
+  }
+
+  program() {
+    turn(3);
+    while (!nextToABeeper && frontIsClear) move();
+    if (!frontIsClear) {
+      turnoff();
+    }
+    move();
+    while (!nextToABeeper && frontIsClear) move();
+    if (!nextToABeeper) {
+      turn(2);
+      while (!nextToABeeper) move();
+      turnoff();
+    }
+    elimina();
+    turn(2);
+    while (!nextToABeeper) move();
+    move();
+    while (!nextToABeeper) move();
+    turn(2);
+    move();
+    mitad();
+    turnoff();
+  }
+}

@@ -1,0 +1,671 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="9" alto="95">
+			<monton x="1" y="2" zumbadores="34"></monton>
+			<monton x="2" y="2" zumbadores="4"></monton>
+			<monton x="3" y="2" zumbadores="26"></monton>
+			<monton x="7" y="2" zumbadores="33"></monton>
+			<monton x="8" y="2" zumbadores="36"></monton>
+			<monton x="9" y="2" zumbadores="41"></monton>
+			<monton x="1" y="3" zumbadores="36"></monton>
+			<monton x="2" y="3" zumbadores="42"></monton>
+			<monton x="3" y="3" zumbadores="36"></monton>
+			<monton x="7" y="3" zumbadores="41"></monton>
+			<monton x="8" y="3" zumbadores="33"></monton>
+			<monton x="9" y="3" zumbadores="14"></monton>
+			<monton x="1" y="4" zumbadores="32"></monton>
+			<monton x="2" y="4" zumbadores="14"></monton>
+			<monton x="3" y="4" zumbadores="29"></monton>
+			<monton x="7" y="4" zumbadores="25"></monton>
+			<monton x="8" y="4" zumbadores="8"></monton>
+			<monton x="9" y="4" zumbadores="49"></monton>
+			<monton x="1" y="5" zumbadores="33"></monton>
+			<monton x="2" y="5" zumbadores="42"></monton>
+			<monton x="3" y="5" zumbadores="28"></monton>
+			<monton x="7" y="5" zumbadores="12"></monton>
+			<monton x="8" y="5" zumbadores="30"></monton>
+			<monton x="9" y="5" zumbadores="26"></monton>
+			<monton x="1" y="6" zumbadores="12"></monton>
+			<monton x="2" y="6" zumbadores="3"></monton>
+			<monton x="3" y="6" zumbadores="5"></monton>
+			<monton x="7" y="6" zumbadores="34"></monton>
+			<monton x="8" y="6" zumbadores="50"></monton>
+			<monton x="9" y="6" zumbadores="4"></monton>
+			<monton x="1" y="7" zumbadores="45"></monton>
+			<monton x="2" y="7" zumbadores="37"></monton>
+			<monton x="3" y="7" zumbadores="3"></monton>
+			<monton x="7" y="7" zumbadores="15"></monton>
+			<monton x="8" y="7" zumbadores="15"></monton>
+			<monton x="9" y="7" zumbadores="21"></monton>
+			<monton x="1" y="8" zumbadores="16"></monton>
+			<monton x="2" y="8" zumbadores="30"></monton>
+			<monton x="3" y="8" zumbadores="23"></monton>
+			<monton x="7" y="8" zumbadores="14"></monton>
+			<monton x="8" y="8" zumbadores="50"></monton>
+			<monton x="9" y="8" zumbadores="47"></monton>
+			<monton x="1" y="9" zumbadores="16"></monton>
+			<monton x="2" y="9" zumbadores="37"></monton>
+			<monton x="3" y="9" zumbadores="12"></monton>
+			<monton x="7" y="9" zumbadores="39"></monton>
+			<monton x="8" y="9" zumbadores="43"></monton>
+			<monton x="9" y="9" zumbadores="18"></monton>
+			<monton x="1" y="10" zumbadores="12"></monton>
+			<monton x="2" y="10" zumbadores="8"></monton>
+			<monton x="3" y="10" zumbadores="3"></monton>
+			<monton x="7" y="10" zumbadores="45"></monton>
+			<monton x="8" y="10" zumbadores="9"></monton>
+			<monton x="9" y="10" zumbadores="9"></monton>
+			<monton x="1" y="11" zumbadores="27"></monton>
+			<monton x="2" y="11" zumbadores="28"></monton>
+			<monton x="3" y="11" zumbadores="37"></monton>
+			<monton x="7" y="11" zumbadores="6"></monton>
+			<monton x="8" y="11" zumbadores="10"></monton>
+			<monton x="9" y="11" zumbadores="9"></monton>
+			<monton x="1" y="12" zumbadores="5"></monton>
+			<monton x="2" y="12" zumbadores="11"></monton>
+			<monton x="3" y="12" zumbadores="5"></monton>
+			<monton x="7" y="12" zumbadores="45"></monton>
+			<monton x="8" y="12" zumbadores="4"></monton>
+			<monton x="9" y="12" zumbadores="4"></monton>
+			<monton x="1" y="13" zumbadores="17"></monton>
+			<monton x="2" y="13" zumbadores="44"></monton>
+			<monton x="3" y="13" zumbadores="46"></monton>
+			<monton x="7" y="13" zumbadores="17"></monton>
+			<monton x="8" y="13" zumbadores="25"></monton>
+			<monton x="9" y="13" zumbadores="3"></monton>
+			<monton x="1" y="14" zumbadores="29"></monton>
+			<monton x="2" y="14" zumbadores="5"></monton>
+			<monton x="3" y="14" zumbadores="47"></monton>
+			<monton x="7" y="14" zumbadores="30"></monton>
+			<monton x="8" y="14" zumbadores="25"></monton>
+			<monton x="9" y="14" zumbadores="11"></monton>
+			<monton x="1" y="15" zumbadores="30"></monton>
+			<monton x="2" y="15" zumbadores="11"></monton>
+			<monton x="3" y="15" zumbadores="25"></monton>
+			<monton x="7" y="15" zumbadores="44"></monton>
+			<monton x="8" y="15" zumbadores="8"></monton>
+			<monton x="9" y="15" zumbadores="27"></monton>
+			<monton x="1" y="16" zumbadores="24"></monton>
+			<monton x="2" y="16" zumbadores="39"></monton>
+			<monton x="3" y="16" zumbadores="3"></monton>
+			<monton x="7" y="16" zumbadores="44"></monton>
+			<monton x="8" y="16" zumbadores="30"></monton>
+			<monton x="9" y="16" zumbadores="21"></monton>
+			<monton x="1" y="17" zumbadores="30"></monton>
+			<monton x="2" y="17" zumbadores="29"></monton>
+			<monton x="3" y="17" zumbadores="11"></monton>
+			<monton x="7" y="17" zumbadores="37"></monton>
+			<monton x="8" y="17" zumbadores="43"></monton>
+			<monton x="9" y="17" zumbadores="7"></monton>
+			<monton x="1" y="18" zumbadores="4"></monton>
+			<monton x="2" y="18" zumbadores="8"></monton>
+			<monton x="3" y="18" zumbadores="33"></monton>
+			<monton x="7" y="18" zumbadores="28"></monton>
+			<monton x="8" y="18" zumbadores="9"></monton>
+			<monton x="9" y="18" zumbadores="41"></monton>
+			<monton x="1" y="19" zumbadores="14"></monton>
+			<monton x="2" y="19" zumbadores="6"></monton>
+			<monton x="3" y="19" zumbadores="14"></monton>
+			<monton x="7" y="19" zumbadores="40"></monton>
+			<monton x="8" y="19" zumbadores="35"></monton>
+			<monton x="9" y="19" zumbadores="12"></monton>
+			<monton x="1" y="20" zumbadores="43"></monton>
+			<monton x="2" y="20" zumbadores="44"></monton>
+			<monton x="3" y="20" zumbadores="13"></monton>
+			<monton x="7" y="20" zumbadores="16"></monton>
+			<monton x="8" y="20" zumbadores="22"></monton>
+			<monton x="9" y="20" zumbadores="12"></monton>
+			<monton x="1" y="21" zumbadores="39"></monton>
+			<monton x="2" y="21" zumbadores="47"></monton>
+			<monton x="3" y="21" zumbadores="41"></monton>
+			<monton x="7" y="21" zumbadores="28"></monton>
+			<monton x="8" y="21" zumbadores="49"></monton>
+			<monton x="9" y="21" zumbadores="36"></monton>
+			<monton x="1" y="22" zumbadores="40"></monton>
+			<monton x="2" y="22" zumbadores="42"></monton>
+			<monton x="3" y="22" zumbadores="45"></monton>
+			<monton x="7" y="22" zumbadores="18"></monton>
+			<monton x="8" y="22" zumbadores="3"></monton>
+			<monton x="9" y="22" zumbadores="11"></monton>
+			<monton x="1" y="23" zumbadores="12"></monton>
+			<monton x="2" y="23" zumbadores="18"></monton>
+			<monton x="3" y="23" zumbadores="29"></monton>
+			<monton x="7" y="23" zumbadores="28"></monton>
+			<monton x="8" y="23" zumbadores="21"></monton>
+			<monton x="9" y="23" zumbadores="37"></monton>
+			<monton x="1" y="24" zumbadores="10"></monton>
+			<monton x="2" y="24" zumbadores="10"></monton>
+			<monton x="3" y="24" zumbadores="49"></monton>
+			<monton x="7" y="24" zumbadores="9"></monton>
+			<monton x="8" y="24" zumbadores="23"></monton>
+			<monton x="9" y="24" zumbadores="22"></monton>
+			<monton x="1" y="25" zumbadores="48"></monton>
+			<monton x="2" y="25" zumbadores="49"></monton>
+			<monton x="3" y="25" zumbadores="48"></monton>
+			<monton x="7" y="25" zumbadores="20"></monton>
+			<monton x="8" y="25" zumbadores="10"></monton>
+			<monton x="9" y="25" zumbadores="8"></monton>
+			<monton x="1" y="26" zumbadores="31"></monton>
+			<monton x="2" y="26" zumbadores="10"></monton>
+			<monton x="3" y="26" zumbadores="49"></monton>
+			<monton x="7" y="26" zumbadores="21"></monton>
+			<monton x="8" y="26" zumbadores="7"></monton>
+			<monton x="9" y="26" zumbadores="42"></monton>
+			<monton x="1" y="27" zumbadores="45"></monton>
+			<monton x="2" y="27" zumbadores="46"></monton>
+			<monton x="3" y="27" zumbadores="42"></monton>
+			<monton x="7" y="27" zumbadores="47"></monton>
+			<monton x="8" y="27" zumbadores="10"></monton>
+			<monton x="9" y="27" zumbadores="17"></monton>
+			<monton x="1" y="28" zumbadores="5"></monton>
+			<monton x="2" y="28" zumbadores="36"></monton>
+			<monton x="3" y="28" zumbadores="31"></monton>
+			<monton x="7" y="28" zumbadores="3"></monton>
+			<monton x="8" y="28" zumbadores="45"></monton>
+			<monton x="9" y="28" zumbadores="44"></monton>
+			<monton x="1" y="29" zumbadores="29"></monton>
+			<monton x="2" y="29" zumbadores="3"></monton>
+			<monton x="3" y="29" zumbadores="40"></monton>
+			<monton x="7" y="29" zumbadores="5"></monton>
+			<monton x="8" y="29" zumbadores="50"></monton>
+			<monton x="9" y="29" zumbadores="29"></monton>
+			<monton x="1" y="30" zumbadores="28"></monton>
+			<monton x="2" y="30" zumbadores="26"></monton>
+			<monton x="3" y="30" zumbadores="23"></monton>
+			<monton x="7" y="30" zumbadores="35"></monton>
+			<monton x="8" y="30" zumbadores="4"></monton>
+			<monton x="9" y="30" zumbadores="10"></monton>
+			<monton x="1" y="31" zumbadores="39"></monton>
+			<monton x="2" y="31" zumbadores="38"></monton>
+			<monton x="3" y="31" zumbadores="9"></monton>
+			<monton x="7" y="31" zumbadores="22"></monton>
+			<monton x="8" y="31" zumbadores="22"></monton>
+			<monton x="9" y="31" zumbadores="10"></monton>
+			<monton x="1" y="32" zumbadores="38"></monton>
+			<monton x="2" y="32" zumbadores="12"></monton>
+			<monton x="3" y="32" zumbadores="46"></monton>
+			<monton x="7" y="32" zumbadores="14"></monton>
+			<monton x="8" y="32" zumbadores="35"></monton>
+			<monton x="9" y="32" zumbadores="45"></monton>
+			<monton x="1" y="33" zumbadores="17"></monton>
+			<monton x="2" y="33" zumbadores="27"></monton>
+			<monton x="3" y="33" zumbadores="24"></monton>
+			<monton x="7" y="33" zumbadores="35"></monton>
+			<monton x="8" y="33" zumbadores="19"></monton>
+			<monton x="9" y="33" zumbadores="40"></monton>
+			<monton x="1" y="34" zumbadores="28"></monton>
+			<monton x="2" y="34" zumbadores="29"></monton>
+			<monton x="3" y="34" zumbadores="29"></monton>
+			<monton x="7" y="34" zumbadores="28"></monton>
+			<monton x="8" y="34" zumbadores="6"></monton>
+			<monton x="9" y="34" zumbadores="38"></monton>
+			<monton x="1" y="35" zumbadores="8"></monton>
+			<monton x="2" y="35" zumbadores="20"></monton>
+			<monton x="3" y="35" zumbadores="43"></monton>
+			<monton x="7" y="35" zumbadores="32"></monton>
+			<monton x="8" y="35" zumbadores="30"></monton>
+			<monton x="9" y="35" zumbadores="8"></monton>
+			<monton x="1" y="36" zumbadores="8"></monton>
+			<monton x="2" y="36" zumbadores="23"></monton>
+			<monton x="3" y="36" zumbadores="27"></monton>
+			<monton x="7" y="36" zumbadores="14"></monton>
+			<monton x="8" y="36" zumbadores="15"></monton>
+			<monton x="9" y="36" zumbadores="8"></monton>
+			<monton x="1" y="37" zumbadores="23"></monton>
+			<monton x="2" y="37" zumbadores="47"></monton>
+			<monton x="3" y="37" zumbadores="4"></monton>
+			<monton x="7" y="37" zumbadores="6"></monton>
+			<monton x="8" y="37" zumbadores="19"></monton>
+			<monton x="9" y="37" zumbadores="5"></monton>
+			<monton x="1" y="38" zumbadores="7"></monton>
+			<monton x="2" y="38" zumbadores="40"></monton>
+			<monton x="3" y="38" zumbadores="23"></monton>
+			<monton x="7" y="38" zumbadores="22"></monton>
+			<monton x="8" y="38" zumbadores="44"></monton>
+			<monton x="9" y="38" zumbadores="29"></monton>
+			<monton x="1" y="39" zumbadores="26"></monton>
+			<monton x="2" y="39" zumbadores="10"></monton>
+			<monton x="3" y="39" zumbadores="9"></monton>
+			<monton x="7" y="39" zumbadores="46"></monton>
+			<monton x="8" y="39" zumbadores="20"></monton>
+			<monton x="9" y="39" zumbadores="40"></monton>
+			<monton x="1" y="40" zumbadores="29"></monton>
+			<monton x="2" y="40" zumbadores="17"></monton>
+			<monton x="3" y="40" zumbadores="48"></monton>
+			<monton x="7" y="40" zumbadores="6"></monton>
+			<monton x="8" y="40" zumbadores="11"></monton>
+			<monton x="9" y="40" zumbadores="5"></monton>
+			<monton x="1" y="41" zumbadores="3"></monton>
+			<monton x="2" y="41" zumbadores="8"></monton>
+			<monton x="3" y="41" zumbadores="22"></monton>
+			<monton x="7" y="41" zumbadores="37"></monton>
+			<monton x="8" y="41" zumbadores="32"></monton>
+			<monton x="9" y="41" zumbadores="31"></monton>
+			<monton x="1" y="42" zumbadores="22"></monton>
+			<monton x="2" y="42" zumbadores="5"></monton>
+			<monton x="3" y="42" zumbadores="39"></monton>
+			<monton x="7" y="42" zumbadores="28"></monton>
+			<monton x="8" y="42" zumbadores="44"></monton>
+			<monton x="9" y="42" zumbadores="12"></monton>
+			<monton x="1" y="43" zumbadores="16"></monton>
+			<monton x="2" y="43" zumbadores="38"></monton>
+			<monton x="3" y="43" zumbadores="30"></monton>
+			<monton x="7" y="43" zumbadores="39"></monton>
+			<monton x="8" y="43" zumbadores="24"></monton>
+			<monton x="9" y="43" zumbadores="31"></monton>
+			<monton x="1" y="44" zumbadores="39"></monton>
+			<monton x="2" y="44" zumbadores="5"></monton>
+			<monton x="3" y="44" zumbadores="4"></monton>
+			<monton x="7" y="44" zumbadores="23"></monton>
+			<monton x="8" y="44" zumbadores="11"></monton>
+			<monton x="9" y="44" zumbadores="43"></monton>
+			<monton x="1" y="45" zumbadores="49"></monton>
+			<monton x="2" y="45" zumbadores="44"></monton>
+			<monton x="3" y="45" zumbadores="40"></monton>
+			<monton x="7" y="45" zumbadores="29"></monton>
+			<monton x="8" y="45" zumbadores="34"></monton>
+			<monton x="9" y="45" zumbadores="35"></monton>
+			<monton x="1" y="46" zumbadores="29"></monton>
+			<monton x="2" y="46" zumbadores="17"></monton>
+			<monton x="3" y="46" zumbadores="47"></monton>
+			<monton x="7" y="46" zumbadores="19"></monton>
+			<monton x="8" y="46" zumbadores="13"></monton>
+			<monton x="9" y="46" zumbadores="48"></monton>
+			<monton x="1" y="47" zumbadores="19"></monton>
+			<monton x="2" y="47" zumbadores="35"></monton>
+			<monton x="3" y="47" zumbadores="10"></monton>
+			<monton x="7" y="47" zumbadores="37"></monton>
+			<monton x="8" y="47" zumbadores="30"></monton>
+			<monton x="9" y="47" zumbadores="41"></monton>
+			<monton x="1" y="48" zumbadores="42"></monton>
+			<monton x="2" y="48" zumbadores="9"></monton>
+			<monton x="3" y="48" zumbadores="40"></monton>
+			<monton x="7" y="48" zumbadores="42"></monton>
+			<monton x="8" y="48" zumbadores="45"></monton>
+			<monton x="9" y="48" zumbadores="40"></monton>
+			<monton x="1" y="49" zumbadores="20"></monton>
+			<monton x="2" y="49" zumbadores="27"></monton>
+			<monton x="3" y="49" zumbadores="38"></monton>
+			<monton x="7" y="49" zumbadores="45"></monton>
+			<monton x="8" y="49" zumbadores="17"></monton>
+			<monton x="9" y="49" zumbadores="13"></monton>
+			<monton x="1" y="50" zumbadores="19"></monton>
+			<monton x="2" y="50" zumbadores="7"></monton>
+			<monton x="3" y="50" zumbadores="48"></monton>
+			<monton x="7" y="50" zumbadores="46"></monton>
+			<monton x="8" y="50" zumbadores="45"></monton>
+			<monton x="9" y="50" zumbadores="7"></monton>
+			<monton x="1" y="51" zumbadores="10"></monton>
+			<monton x="2" y="51" zumbadores="32"></monton>
+			<monton x="3" y="51" zumbadores="14"></monton>
+			<monton x="7" y="51" zumbadores="9"></monton>
+			<monton x="8" y="51" zumbadores="4"></monton>
+			<monton x="9" y="51" zumbadores="6"></monton>
+			<monton x="1" y="52" zumbadores="38"></monton>
+			<monton x="2" y="52" zumbadores="15"></monton>
+			<monton x="3" y="52" zumbadores="29"></monton>
+			<monton x="7" y="52" zumbadores="42"></monton>
+			<monton x="8" y="52" zumbadores="42"></monton>
+			<monton x="9" y="52" zumbadores="10"></monton>
+			<monton x="1" y="53" zumbadores="3"></monton>
+			<monton x="2" y="53" zumbadores="45"></monton>
+			<monton x="3" y="53" zumbadores="17"></monton>
+			<monton x="7" y="53" zumbadores="14"></monton>
+			<monton x="8" y="53" zumbadores="4"></monton>
+			<monton x="9" y="53" zumbadores="23"></monton>
+			<monton x="1" y="54" zumbadores="16"></monton>
+			<monton x="2" y="54" zumbadores="29"></monton>
+			<monton x="3" y="54" zumbadores="17"></monton>
+			<monton x="7" y="54" zumbadores="16"></monton>
+			<monton x="8" y="54" zumbadores="37"></monton>
+			<monton x="9" y="54" zumbadores="10"></monton>
+			<monton x="1" y="55" zumbadores="25"></monton>
+			<monton x="2" y="55" zumbadores="35"></monton>
+			<monton x="3" y="55" zumbadores="43"></monton>
+			<monton x="7" y="55" zumbadores="45"></monton>
+			<monton x="8" y="55" zumbadores="29"></monton>
+			<monton x="9" y="55" zumbadores="30"></monton>
+			<monton x="1" y="56" zumbadores="39"></monton>
+			<monton x="2" y="56" zumbadores="46"></monton>
+			<monton x="3" y="56" zumbadores="10"></monton>
+			<monton x="7" y="56" zumbadores="6"></monton>
+			<monton x="8" y="56" zumbadores="39"></monton>
+			<monton x="9" y="56" zumbadores="7"></monton>
+			<monton x="1" y="57" zumbadores="12"></monton>
+			<monton x="2" y="57" zumbadores="29"></monton>
+			<monton x="3" y="57" zumbadores="24"></monton>
+			<monton x="7" y="57" zumbadores="16"></monton>
+			<monton x="8" y="57" zumbadores="16"></monton>
+			<monton x="9" y="57" zumbadores="48"></monton>
+			<monton x="1" y="58" zumbadores="33"></monton>
+			<monton x="2" y="58" zumbadores="11"></monton>
+			<monton x="3" y="58" zumbadores="44"></monton>
+			<monton x="7" y="58" zumbadores="35"></monton>
+			<monton x="8" y="58" zumbadores="45"></monton>
+			<monton x="9" y="58" zumbadores="41"></monton>
+			<monton x="1" y="59" zumbadores="33"></monton>
+			<monton x="2" y="59" zumbadores="10"></monton>
+			<monton x="3" y="59" zumbadores="21"></monton>
+			<monton x="7" y="59" zumbadores="31"></monton>
+			<monton x="8" y="59" zumbadores="40"></monton>
+			<monton x="9" y="59" zumbadores="39"></monton>
+			<monton x="1" y="60" zumbadores="9"></monton>
+			<monton x="2" y="60" zumbadores="23"></monton>
+			<monton x="3" y="60" zumbadores="16"></monton>
+			<monton x="7" y="60" zumbadores="8"></monton>
+			<monton x="8" y="60" zumbadores="14"></monton>
+			<monton x="9" y="60" zumbadores="39"></monton>
+			<monton x="1" y="61" zumbadores="33"></monton>
+			<monton x="2" y="61" zumbadores="26"></monton>
+			<monton x="3" y="61" zumbadores="4"></monton>
+			<monton x="7" y="61" zumbadores="49"></monton>
+			<monton x="8" y="61" zumbadores="46"></monton>
+			<monton x="9" y="61" zumbadores="28"></monton>
+			<monton x="1" y="62" zumbadores="22"></monton>
+			<monton x="2" y="62" zumbadores="19"></monton>
+			<monton x="3" y="62" zumbadores="23"></monton>
+			<monton x="7" y="62" zumbadores="37"></monton>
+			<monton x="8" y="62" zumbadores="15"></monton>
+			<monton x="9" y="62" zumbadores="12"></monton>
+			<monton x="1" y="63" zumbadores="10"></monton>
+			<monton x="2" y="63" zumbadores="40"></monton>
+			<monton x="3" y="63" zumbadores="17"></monton>
+			<monton x="7" y="63" zumbadores="33"></monton>
+			<monton x="8" y="63" zumbadores="8"></monton>
+			<monton x="9" y="63" zumbadores="21"></monton>
+			<monton x="1" y="64" zumbadores="32"></monton>
+			<monton x="2" y="64" zumbadores="34"></monton>
+			<monton x="3" y="64" zumbadores="5"></monton>
+			<monton x="7" y="64" zumbadores="10"></monton>
+			<monton x="8" y="64" zumbadores="50"></monton>
+			<monton x="9" y="64" zumbadores="13"></monton>
+			<monton x="1" y="65" zumbadores="33"></monton>
+			<monton x="2" y="65" zumbadores="7"></monton>
+			<monton x="3" y="65" zumbadores="46"></monton>
+			<monton x="7" y="65" zumbadores="10"></monton>
+			<monton x="8" y="65" zumbadores="12"></monton>
+			<monton x="9" y="65" zumbadores="48"></monton>
+			<monton x="1" y="66" zumbadores="10"></monton>
+			<monton x="2" y="66" zumbadores="37"></monton>
+			<monton x="3" y="66" zumbadores="37"></monton>
+			<monton x="7" y="66" zumbadores="7"></monton>
+			<monton x="8" y="66" zumbadores="8"></monton>
+			<monton x="9" y="66" zumbadores="48"></monton>
+			<monton x="1" y="67" zumbadores="27"></monton>
+			<monton x="2" y="67" zumbadores="49"></monton>
+			<monton x="3" y="67" zumbadores="28"></monton>
+			<monton x="7" y="67" zumbadores="11"></monton>
+			<monton x="8" y="67" zumbadores="22"></monton>
+			<monton x="9" y="67" zumbadores="23"></monton>
+			<monton x="1" y="68" zumbadores="29"></monton>
+			<monton x="2" y="68" zumbadores="18"></monton>
+			<monton x="3" y="68" zumbadores="37"></monton>
+			<monton x="7" y="68" zumbadores="6"></monton>
+			<monton x="8" y="68" zumbadores="3"></monton>
+			<monton x="9" y="68" zumbadores="36"></monton>
+			<monton x="1" y="69" zumbadores="14"></monton>
+			<monton x="2" y="69" zumbadores="12"></monton>
+			<monton x="3" y="69" zumbadores="19"></monton>
+			<monton x="7" y="69" zumbadores="7"></monton>
+			<monton x="8" y="69" zumbadores="40"></monton>
+			<monton x="9" y="69" zumbadores="43"></monton>
+			<monton x="1" y="70" zumbadores="28"></monton>
+			<monton x="2" y="70" zumbadores="24"></monton>
+			<monton x="3" y="70" zumbadores="33"></monton>
+			<monton x="7" y="70" zumbadores="4"></monton>
+			<monton x="8" y="70" zumbadores="50"></monton>
+			<monton x="9" y="70" zumbadores="4"></monton>
+			<monton x="1" y="71" zumbadores="11"></monton>
+			<monton x="2" y="71" zumbadores="32"></monton>
+			<monton x="3" y="71" zumbadores="20"></monton>
+			<monton x="7" y="71" zumbadores="49"></monton>
+			<monton x="8" y="71" zumbadores="11"></monton>
+			<monton x="9" y="71" zumbadores="21"></monton>
+			<monton x="1" y="72" zumbadores="3"></monton>
+			<monton x="2" y="72" zumbadores="29"></monton>
+			<monton x="3" y="72" zumbadores="34"></monton>
+			<monton x="7" y="72" zumbadores="22"></monton>
+			<monton x="8" y="72" zumbadores="8"></monton>
+			<monton x="9" y="72" zumbadores="47"></monton>
+			<monton x="1" y="73" zumbadores="16"></monton>
+			<monton x="2" y="73" zumbadores="31"></monton>
+			<monton x="3" y="73" zumbadores="26"></monton>
+			<monton x="7" y="73" zumbadores="34"></monton>
+			<monton x="8" y="73" zumbadores="4"></monton>
+			<monton x="9" y="73" zumbadores="41"></monton>
+			<monton x="1" y="74" zumbadores="15"></monton>
+			<monton x="2" y="74" zumbadores="6"></monton>
+			<monton x="3" y="74" zumbadores="44"></monton>
+			<monton x="7" y="74" zumbadores="41"></monton>
+			<monton x="8" y="74" zumbadores="14"></monton>
+			<monton x="9" y="74" zumbadores="14"></monton>
+			<monton x="1" y="75" zumbadores="3"></monton>
+			<monton x="2" y="75" zumbadores="33"></monton>
+			<monton x="3" y="75" zumbadores="41"></monton>
+			<monton x="7" y="75" zumbadores="50"></monton>
+			<monton x="8" y="75" zumbadores="22"></monton>
+			<monton x="9" y="75" zumbadores="23"></monton>
+			<monton x="1" y="76" zumbadores="43"></monton>
+			<monton x="2" y="76" zumbadores="10"></monton>
+			<monton x="3" y="76" zumbadores="12"></monton>
+			<monton x="7" y="76" zumbadores="40"></monton>
+			<monton x="8" y="76" zumbadores="43"></monton>
+			<monton x="9" y="76" zumbadores="37"></monton>
+			<monton x="1" y="77" zumbadores="8"></monton>
+			<monton x="2" y="77" zumbadores="6"></monton>
+			<monton x="3" y="77" zumbadores="45"></monton>
+			<monton x="7" y="77" zumbadores="25"></monton>
+			<monton x="8" y="77" zumbadores="37"></monton>
+			<monton x="9" y="77" zumbadores="6"></monton>
+			<monton x="1" y="78" zumbadores="41"></monton>
+			<monton x="2" y="78" zumbadores="3"></monton>
+			<monton x="3" y="78" zumbadores="28"></monton>
+			<monton x="7" y="78" zumbadores="25"></monton>
+			<monton x="8" y="78" zumbadores="33"></monton>
+			<monton x="9" y="78" zumbadores="24"></monton>
+			<monton x="1" y="79" zumbadores="49"></monton>
+			<monton x="2" y="79" zumbadores="32"></monton>
+			<monton x="3" y="79" zumbadores="10"></monton>
+			<monton x="7" y="79" zumbadores="27"></monton>
+			<monton x="8" y="79" zumbadores="15"></monton>
+			<monton x="9" y="79" zumbadores="19"></monton>
+			<monton x="1" y="80" zumbadores="8"></monton>
+			<monton x="2" y="80" zumbadores="24"></monton>
+			<monton x="3" y="80" zumbadores="37"></monton>
+			<monton x="7" y="80" zumbadores="32"></monton>
+			<monton x="8" y="80" zumbadores="6"></monton>
+			<monton x="9" y="80" zumbadores="40"></monton>
+			<monton x="1" y="81" zumbadores="4"></monton>
+			<monton x="2" y="81" zumbadores="40"></monton>
+			<monton x="3" y="81" zumbadores="17"></monton>
+			<monton x="7" y="81" zumbadores="48"></monton>
+			<monton x="8" y="81" zumbadores="31"></monton>
+			<monton x="9" y="81" zumbadores="15"></monton>
+			<monton x="1" y="82" zumbadores="44"></monton>
+			<monton x="2" y="82" zumbadores="50"></monton>
+			<monton x="3" y="82" zumbadores="9"></monton>
+			<monton x="7" y="82" zumbadores="12"></monton>
+			<monton x="8" y="82" zumbadores="18"></monton>
+			<monton x="9" y="82" zumbadores="25"></monton>
+			<monton x="1" y="83" zumbadores="7"></monton>
+			<monton x="2" y="83" zumbadores="48"></monton>
+			<monton x="3" y="83" zumbadores="7"></monton>
+			<monton x="7" y="83" zumbadores="41"></monton>
+			<monton x="8" y="83" zumbadores="31"></monton>
+			<monton x="9" y="83" zumbadores="49"></monton>
+			<monton x="1" y="84" zumbadores="12"></monton>
+			<monton x="2" y="84" zumbadores="34"></monton>
+			<monton x="3" y="84" zumbadores="34"></monton>
+			<monton x="7" y="84" zumbadores="50"></monton>
+			<monton x="8" y="84" zumbadores="26"></monton>
+			<monton x="9" y="84" zumbadores="29"></monton>
+			<monton x="1" y="85" zumbadores="25"></monton>
+			<monton x="2" y="85" zumbadores="19"></monton>
+			<monton x="3" y="85" zumbadores="21"></monton>
+			<monton x="7" y="85" zumbadores="13"></monton>
+			<monton x="8" y="85" zumbadores="45"></monton>
+			<monton x="9" y="85" zumbadores="7"></monton>
+			<monton x="1" y="86" zumbadores="36"></monton>
+			<monton x="2" y="86" zumbadores="43"></monton>
+			<monton x="3" y="86" zumbadores="25"></monton>
+			<monton x="7" y="86" zumbadores="13"></monton>
+			<monton x="8" y="86" zumbadores="36"></monton>
+			<monton x="9" y="86" zumbadores="48"></monton>
+			<monton x="1" y="87" zumbadores="16"></monton>
+			<monton x="2" y="87" zumbadores="46"></monton>
+			<monton x="3" y="87" zumbadores="8"></monton>
+			<monton x="7" y="87" zumbadores="16"></monton>
+			<monton x="8" y="87" zumbadores="29"></monton>
+			<monton x="9" y="87" zumbadores="31"></monton>
+			<monton x="1" y="88" zumbadores="10"></monton>
+			<monton x="2" y="88" zumbadores="14"></monton>
+			<monton x="3" y="88" zumbadores="25"></monton>
+			<monton x="7" y="88" zumbadores="34"></monton>
+			<monton x="8" y="88" zumbadores="26"></monton>
+			<monton x="9" y="88" zumbadores="13"></monton>
+			<monton x="1" y="89" zumbadores="33"></monton>
+			<monton x="2" y="89" zumbadores="41"></monton>
+			<monton x="3" y="89" zumbadores="40"></monton>
+			<monton x="7" y="89" zumbadores="49"></monton>
+			<monton x="8" y="89" zumbadores="34"></monton>
+			<monton x="9" y="89" zumbadores="19"></monton>
+			<monton x="1" y="90" zumbadores="10"></monton>
+			<monton x="2" y="90" zumbadores="48"></monton>
+			<monton x="3" y="90" zumbadores="15"></monton>
+			<monton x="7" y="90" zumbadores="11"></monton>
+			<monton x="8" y="90" zumbadores="9"></monton>
+			<monton x="9" y="90" zumbadores="30"></monton>
+			<monton x="1" y="91" zumbadores="45"></monton>
+			<monton x="2" y="91" zumbadores="4"></monton>
+			<monton x="3" y="91" zumbadores="29"></monton>
+			<monton x="7" y="91" zumbadores="29"></monton>
+			<monton x="8" y="91" zumbadores="8"></monton>
+			<monton x="9" y="91" zumbadores="38"></monton>
+			<monton x="1" y="92" zumbadores="27"></monton>
+			<monton x="2" y="92" zumbadores="32"></monton>
+			<monton x="3" y="92" zumbadores="44"></monton>
+			<monton x="7" y="92" zumbadores="34"></monton>
+			<monton x="8" y="92" zumbadores="27"></monton>
+			<monton x="9" y="92" zumbadores="3"></monton>
+			<monton x="1" y="93" zumbadores="26"></monton>
+			<monton x="2" y="93" zumbadores="44"></monton>
+			<monton x="3" y="93" zumbadores="40"></monton>
+			<monton x="7" y="93" zumbadores="5"></monton>
+			<monton x="8" y="93" zumbadores="20"></monton>
+			<monton x="9" y="93" zumbadores="12"></monton>
+			<monton x="1" y="94" zumbadores="36"></monton>
+			<monton x="2" y="94" zumbadores="42"></monton>
+			<monton x="3" y="94" zumbadores="11"></monton>
+			<monton x="7" y="94" zumbadores="35"></monton>
+			<monton x="8" y="94" zumbadores="7"></monton>
+			<monton x="9" y="94" zumbadores="37"></monton>
+			<monton x="1" y="95" zumbadores="32"></monton>
+			<monton x="2" y="95" zumbadores="30"></monton>
+			<monton x="3" y="95" zumbadores="16"></monton>
+			<monton x="7" y="95" zumbadores="20"></monton>
+			<monton x="8" y="95" zumbadores="43"></monton>
+			<monton x="9" y="95" zumbadores="50"></monton>
+			<posicionDump x="1" y="1"></posicionDump>
+			<posicionDump x="5" y="2"></posicionDump>
+			<posicionDump x="5" y="3"></posicionDump>
+			<posicionDump x="5" y="4"></posicionDump>
+			<posicionDump x="5" y="5"></posicionDump>
+			<posicionDump x="5" y="6"></posicionDump>
+			<posicionDump x="5" y="7"></posicionDump>
+			<posicionDump x="5" y="8"></posicionDump>
+			<posicionDump x="5" y="9"></posicionDump>
+			<posicionDump x="5" y="10"></posicionDump>
+			<posicionDump x="5" y="11"></posicionDump>
+			<posicionDump x="5" y="12"></posicionDump>
+			<posicionDump x="5" y="13"></posicionDump>
+			<posicionDump x="5" y="14"></posicionDump>
+			<posicionDump x="5" y="15"></posicionDump>
+			<posicionDump x="5" y="16"></posicionDump>
+			<posicionDump x="5" y="17"></posicionDump>
+			<posicionDump x="5" y="18"></posicionDump>
+			<posicionDump x="5" y="19"></posicionDump>
+			<posicionDump x="5" y="20"></posicionDump>
+			<posicionDump x="5" y="21"></posicionDump>
+			<posicionDump x="5" y="22"></posicionDump>
+			<posicionDump x="5" y="23"></posicionDump>
+			<posicionDump x="5" y="24"></posicionDump>
+			<posicionDump x="5" y="25"></posicionDump>
+			<posicionDump x="5" y="26"></posicionDump>
+			<posicionDump x="5" y="27"></posicionDump>
+			<posicionDump x="5" y="28"></posicionDump>
+			<posicionDump x="5" y="29"></posicionDump>
+			<posicionDump x="5" y="30"></posicionDump>
+			<posicionDump x="5" y="31"></posicionDump>
+			<posicionDump x="5" y="32"></posicionDump>
+			<posicionDump x="5" y="33"></posicionDump>
+			<posicionDump x="5" y="34"></posicionDump>
+			<posicionDump x="5" y="35"></posicionDump>
+			<posicionDump x="5" y="36"></posicionDump>
+			<posicionDump x="5" y="37"></posicionDump>
+			<posicionDump x="5" y="38"></posicionDump>
+			<posicionDump x="5" y="39"></posicionDump>
+			<posicionDump x="5" y="40"></posicionDump>
+			<posicionDump x="5" y="41"></posicionDump>
+			<posicionDump x="5" y="42"></posicionDump>
+			<posicionDump x="5" y="43"></posicionDump>
+			<posicionDump x="5" y="44"></posicionDump>
+			<posicionDump x="5" y="45"></posicionDump>
+			<posicionDump x="5" y="46"></posicionDump>
+			<posicionDump x="5" y="47"></posicionDump>
+			<posicionDump x="5" y="48"></posicionDump>
+			<posicionDump x="5" y="49"></posicionDump>
+			<posicionDump x="5" y="50"></posicionDump>
+			<posicionDump x="5" y="51"></posicionDump>
+			<posicionDump x="5" y="52"></posicionDump>
+			<posicionDump x="5" y="53"></posicionDump>
+			<posicionDump x="5" y="54"></posicionDump>
+			<posicionDump x="5" y="55"></posicionDump>
+			<posicionDump x="5" y="56"></posicionDump>
+			<posicionDump x="5" y="57"></posicionDump>
+			<posicionDump x="5" y="58"></posicionDump>
+			<posicionDump x="5" y="59"></posicionDump>
+			<posicionDump x="5" y="60"></posicionDump>
+			<posicionDump x="5" y="61"></posicionDump>
+			<posicionDump x="5" y="62"></posicionDump>
+			<posicionDump x="5" y="63"></posicionDump>
+			<posicionDump x="5" y="64"></posicionDump>
+			<posicionDump x="5" y="65"></posicionDump>
+			<posicionDump x="5" y="66"></posicionDump>
+			<posicionDump x="5" y="67"></posicionDump>
+			<posicionDump x="5" y="68"></posicionDump>
+			<posicionDump x="5" y="69"></posicionDump>
+			<posicionDump x="5" y="70"></posicionDump>
+			<posicionDump x="5" y="71"></posicionDump>
+			<posicionDump x="5" y="72"></posicionDump>
+			<posicionDump x="5" y="73"></posicionDump>
+			<posicionDump x="5" y="74"></posicionDump>
+			<posicionDump x="5" y="75"></posicionDump>
+			<posicionDump x="5" y="76"></posicionDump>
+			<posicionDump x="5" y="77"></posicionDump>
+			<posicionDump x="5" y="78"></posicionDump>
+			<posicionDump x="5" y="79"></posicionDump>
+			<posicionDump x="5" y="80"></posicionDump>
+			<posicionDump x="5" y="81"></posicionDump>
+			<posicionDump x="5" y="82"></posicionDump>
+			<posicionDump x="5" y="83"></posicionDump>
+			<posicionDump x="5" y="84"></posicionDump>
+			<posicionDump x="5" y="85"></posicionDump>
+			<posicionDump x="5" y="86"></posicionDump>
+			<posicionDump x="5" y="87"></posicionDump>
+			<posicionDump x="5" y="88"></posicionDump>
+			<posicionDump x="5" y="89"></posicionDump>
+			<posicionDump x="5" y="90"></posicionDump>
+			<posicionDump x="5" y="91"></posicionDump>
+			<posicionDump x="5" y="92"></posicionDump>
+			<posicionDump x="5" y="93"></posicionDump>
+			<posicionDump x="5" y="94"></posicionDump>
+			<posicionDump x="5" y="95"></posicionDump>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="1" yKarel="1" direccionKarel="NORTE" mochilaKarel="0">
+			<despliega tipo="MUNDO"></despliega>
+		</programa>
+	</programas>
+</ejecucion>

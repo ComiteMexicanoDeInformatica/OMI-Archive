@@ -18,7 +18,7 @@ La posición de Karel representa el lugar donde cayó la flecha que lanzó. Debe
 
 ![Salida1](salida1.png)
 
-### Entrada 
+### Entrada
 
 ![Entrada2](entrada2.png)
 
@@ -28,8 +28,8 @@ La posición de Karel representa el lugar donde cayó la flecha que lanzó. Debe
 
 # Consideraciones
 
-* La posición y la orientación inicial de Karel son desconocidas.
-* Karel no tiene zumbadores en la mochila.
-* El mundo siempre será el mismo; sólo cambiarán la posición y la orientación inicial de Karel.
-* Solo se evaluará que la orientación final de Karel sea correcta.
-* Los casos de prueba están agrupados en pares. Esto quiere decir que si siempre te apagas viendo al norte o siempre te apagas viendo al sur, vas a obtener 0 puntos.
+- La posición y la orientación inicial de Karel son desconocidas.
+- Karel no tiene zumbadores en la mochila.
+- El mundo siempre será el mismo; sólo cambiarán la posición y la orientación inicial de Karel.
+- Solo se evaluará que la orientación final de Karel sea correcta.
+- Los casos de prueba están agrupados en pares. Esto quiere decir que si siempre te apagas viendo al norte o siempre te apagas viendo al sur, vas a obtener 0 puntos.

@@ -1,0 +1,25 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/ParcialA.cpp",
+      "allow_fractional_percentages": true,
+      "score_range": [0.0, 0.3]
+    },
+    {
+      "filename": "../solutions/ParcialB.cpp",
+      "allow_fractional_percentages": true,
+      "score_range": [0.35, 0.7]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/25.cpp",
+      "score_range": [0.25, 0.25]
+    },
+    {
+      "filename": "../solutions/50Inv.cpp",
+      "score_range": [0.5, 0.5]
+    },
+    {
+      "filename": "../solutions/50Giro.cpp",
+      "score_range": [0.5, 0.5]
+    },
+    {
+      "filename": "../solutions/75.cpp",
+      "score_range": [0.75, 0.75]
+    },
+    {
+      "filename": "../solutions/count.cpp",
+      "score_range": [0, 0.1]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

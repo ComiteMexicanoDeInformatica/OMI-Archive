@@ -1,19 +1,19 @@
-# Instrusos - Solución
+# Instrusos - Soluciï¿½n
 
 Sabemos que:
 
-* Todos los montones de una columna son diferentes
-* Habrá un montón que cambia al menos una vez
+- Todos los montones de una columna son diferentes
+- Habrï¿½ un montï¿½n que cambia al menos una vez
 
-Con esta información, podemos saber que todos los montones que no cambian aparecerán en el mundo una cantidad de veces igual al número de columnas. También sabemos que habrán dos o más montones que aparecerán en el mundo una cantidad de veces menor al número de columnas.
+Con esta informaciï¿½n, podemos saber que todos los montones que no cambian aparecerï¿½n en el mundo una cantidad de veces igual al nï¿½mero de columnas. Tambiï¿½n sabemos que habrï¿½n dos o mï¿½s montones que aparecerï¿½n en el mundo una cantidad de veces menor al nï¿½mero de columnas.
 
-Ahora podemos resolver el problema si podemos identificar a los montones que aparecen una cantidad de veces igual al número de columnas, ya que estos son los que tenemos que sumar.
+Ahora podemos resolver el problema si podemos identificar a los montones que aparecen una cantidad de veces igual al nï¿½mero de columnas, ya que estos son los que tenemos que sumar.
 
-Dado que tenemos la columna 1 vacía y ningún montón tendrá más de 100 zumbadores, por cada montón podemos dejar un zumbador en la columna 1 y en la fila del tamaño del montón.
+Dado que tenemos la columna 1 vacï¿½a y ningï¿½n montï¿½n tendrï¿½ mï¿½s de 100 zumbadores, por cada montï¿½n podemos dejar un zumbador en la columna 1 y en la fila del tamaï¿½o del montï¿½n.
 
-Cuando hayamos hecho esto con todas las columnas, tendremos marcado cuantas veces aparece cada montón y sabremos cuantas columnas hay.
+Cuando hayamos hecho esto con todas las columnas, tendremos marcado cuantas veces aparece cada montï¿½n y sabremos cuantas columnas hay.
 
-Ahora solo tenemos que intentar quitar uno menos que el número de columnas en cada posición de la columna 1, y los montones que queden indicarán los números que tenemos que sumar. Por cada marca, dejamos una cantidad de zumbadores igual al número de la fila en la posición (1,1).
+Ahora solo tenemos que intentar quitar uno menos que el nï¿½mero de columnas en cada posiciï¿½n de la columna 1, y los montones que queden indicarï¿½n los nï¿½meros que tenemos que sumar. Por cada marca, dejamos una cantidad de zumbadores igual al nï¿½mero de la fila en la posiciï¿½n (1,1).
 
 ```
 iniciar-programa

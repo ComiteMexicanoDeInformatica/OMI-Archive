@@ -1,0 +1,132 @@
+class program {
+  void turnright() {
+    turnleft();
+    turnleft();
+    turnleft();
+  }
+
+  void bump() {
+    while (frontIsClear) move();
+  }
+
+  void turn() {
+    turnleft();
+    turnleft();
+  }
+
+  void row(n) {
+    iterate (n) {
+      putbeeper();
+      move();
+    }
+    putbeeper();
+    turn();
+    iterate (n) move();
+    turn();
+  }
+
+  void actuallyPaint(n) {
+    iterate (n) {
+      row(n);
+      turnleft();
+      move();
+      turnright();
+    }
+    row(n);
+    turnright();
+    iterate (n) move();
+    turnleft();
+  }
+
+  void countAndGo(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      countAndGo(succ(n));
+    } else
+      actuallyPaint(n);
+  }
+
+  void cleanAndMeasure(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      cleanAndMeasure(n);
+      putbeeper();
+    } else {
+      iterate (n) putbeeper();
+      iterate (n) putbeeper();
+      countAndGo(0);
+    }
+  }
+
+  void paint(n) {
+    if (iszero(n)) return();
+
+    iterate (n) move();
+    turnleft();
+    iterate (n) move();
+    turnleft();
+    cleanAndMeasure(n);
+    iterate (n) move();
+    turnleft();
+    iterate (n) move();
+    turnleft();
+  }
+
+  void expand(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      expand(succ(n));
+      return();
+    } else if (frontIsClear) {
+      move();
+      expand(0);
+      move();
+    } else if (rightIsClear) {
+      turnright();
+      move();
+      turnright();
+      bump();
+      turn();
+
+      expand(0);
+
+      turn();
+      bump();
+      turnleft();
+      move();
+      turnleft();
+    } else {
+      turn();
+    }
+    paint(n);
+  }
+
+  void clean() {
+    while (iszero(0)) {
+      if (nextToABeeper) {
+        pickbeeper();
+        if (nextToABeeper) {
+          while (nextToABeeper) pickbeeper();
+        } else
+          putbeeper();
+      }
+
+      if (frontIsClear) {
+        move();
+      } else if (rightIsClear) {
+        turnright();
+        move();
+        turnright();
+        bump();
+        turn();
+      } else
+        return();
+    }
+  }
+
+  program() {
+    expand(0);
+    turn();
+    clean();
+  }
+}

@@ -1,0 +1,62 @@
+class program {
+  void turn(x) {
+    iterate (x) turnleft();
+  }
+
+  void pinta(y) {
+    iterate (y) pickbeeper();
+    turn(3);
+    move();
+    move();
+    turn(3);
+
+    while (anyBeepersInBeeperBag()) {
+      iterate (3) {
+        if (anyBeepersInBeeperBag()) putbeeper();
+        if (frontIsClear()) move();
+      }
+      if (frontIsClear()) move();
+    }
+  }
+
+  void solve(x) {
+    if (facingNorth()) {
+      turn(1);
+      while (frontIsClear()) move();
+      pinta(x);
+    } else {
+      if (frontIsClear()) {
+        move();
+        if (frontIsClear()) {
+          move();
+          if (frontIsClear()) {
+            move();
+            if (frontIsClear()) {
+              move();
+              solve(succ(succ(succ(x))));
+            } else {
+              turn(1);
+              solve(succ(succ(succ(x))));
+            }
+          } else {
+            turn(1);
+            solve(succ(succ(succ(x))));
+          }
+        } else {
+          turn(1);
+          solve(succ(succ(x)));
+        }
+      } else {
+        turn(1);
+        solve(succ(x));
+      }
+    }
+  }
+
+  program() {
+    turn(3);
+    solve(0);
+
+    turnoff();
+  }
+}

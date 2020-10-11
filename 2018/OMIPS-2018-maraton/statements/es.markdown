@@ -13,8 +13,8 @@ Cada corredor da pasos de distinto tamaño: en cada punto de partida hay un mont
 
 Un corredor gana la carrera si:
 
-* Puede llegar en un número exacto de pasos a su meta.
-* Este número de pasos es menor a los pasos que necesitan los otros corredores para llegar a cada una de sus metas.
+- Puede llegar en un número exacto de pasos a su meta.
+- Este número de pasos es menor a los pasos que necesitan los otros corredores para llegar a cada una de sus metas.
 
 Un corredor choca con la pared y pierde si en el último paso no puede avanzar todas las casillas de su paso sin toparse con la pared de su meta.
 
@@ -38,21 +38,21 @@ El corredor del carril 3 es el ganador.
 
 # Consideraciones
 
-* Karel inicia en la casilla (1,1) orientado al norte.
-* Karel tiene infinitos zumbadores en la mochila.
-* Las únicas paredes en el mundo son las que lo delimitan.
-* Los únicos zumbadores en el mundo son los de la fila 1.
-* La velocidad de los corredores puede ser entre 0 y 99.
-* La longitud de las pistas puede ser entre 2 y 100 casillas.
-* Puede haber hasta 100 corredores.
-* Siempre habrá un solo ganador.
-* Karel se debe apagar en la fila 1, en la columna del corredor ganador.
-* No importa la orientación final de karel.
-* No importa cómo queden los zumbadores del mundo al final.
+- Karel inicia en la casilla (1,1) orientado al norte.
+- Karel tiene infinitos zumbadores en la mochila.
+- Las únicas paredes en el mundo son las que lo delimitan.
+- Los únicos zumbadores en el mundo son los de la fila 1.
+- La velocidad de los corredores puede ser entre 0 y 99.
+- La longitud de las pistas puede ser entre 2 y 100 casillas.
+- Puede haber hasta 100 corredores.
+- Siempre habrá un solo ganador.
+- Karel se debe apagar en la fila 1, en la columna del corredor ganador.
+- No importa la orientación final de karel.
+- No importa cómo queden los zumbadores del mundo al final.
 
 # Subtareas
 
-* Para el 8% de los casos todas las metas son a la misma altura y ningún corredor choca con la pared.
-* Para el 9% de los casos todos los corredores corren a la misma velocidad y ningún corredor choca con la pared.
-* Para el 24% de los casos ningún corredor choca con la pared.
-* Para el 59% restante no hay consideraciones adicionales.
+- Para el 8% de los casos todas las metas son a la misma altura y ningún corredor choca con la pared.
+- Para el 9% de los casos todos los corredores corren a la misma velocidad y ningún corredor choca con la pared.
+- Para el 24% de los casos ningún corredor choca con la pared.
+- Para el 59% restante no hay consideraciones adicionales.

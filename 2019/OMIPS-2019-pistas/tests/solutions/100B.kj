@@ -1,45 +1,38 @@
 class program {
-    define go(x)
-    {
-        if(nextToABeeper)
-        {
-        pickbeeper();
-        go(succ(x));
-        }
-        else
-        {
-        turnleft();
-        turnleft();
-        while(frontIsClear)
-        move();
-        turnleft();
-        turnleft();
-        turnleft();
-        move();
-        turnleft();
-        turnleft();
-        turnleft();
-        iterate(x)
-        move();
-        if(nextToABeeper)
-        {
+  define go(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      go(succ(x));
+    } else {
+      turnleft();
+      turnleft();
+      while (frontIsClear) move();
+      turnleft();
+      turnleft();
+      turnleft();
+      move();
+      turnleft();
+      turnleft();
+      turnleft();
+      iterate (x) move();
+      if (nextToABeeper) {
         pickbeeper();
         go(0);
-        }
-        }
+      }
     }
-    program () {
+  }
+
+  program() {
     turnleft();
     turnleft();
     turnleft();
-    while(!nextToABeeper)
-    {
-    move();
+    while (!nextToABeeper) {
+      move();
     }
     pickbeeper();
     go(0);
-    
-        // TODO poner codigo aqui
-        turnoff();
-    }
+
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }

@@ -1,21 +1,21 @@
 # Reflejo
 
-Para poder reflejar el camino que hicimos es necesario guardar cada instrucción que hizo Karel. Esto se puede hacer con recursión.
+Para poder reflejar el camino que hicimos es necesario guardar cada instrucciï¿½n que hizo Karel. Esto se puede hacer con recursiï¿½n.
 
-Para concebir dicha función recursiva debemos aclarar bien que debe guardar karel en la pila de llamadas. Además, debemos de tener claro que el camino para salir del laberinto es único y se podemos alcanzar la salida de la siguiente forma: avanzamos si hay camino libre o giramos donde haya pared. Esto hasta que nos encontremos con la salida (una casilla sin pared izquierda ni derecha).
+Para concebir dicha funciï¿½n recursiva debemos aclarar bien que debe guardar karel en la pila de llamadas. Ademï¿½s, debemos de tener claro que el camino para salir del laberinto es ï¿½nico y se podemos alcanzar la salida de la siguiente forma: avanzamos si hay camino libre o giramos donde haya pared. Esto hasta que nos encontremos con la salida (una casilla sin pared izquierda ni derecha).
 
 Por cada casilla que crucemos debemos poner un zumbador. Debemos notar que los giros no nos cambian de casilla, por lo que solo hay que poner zumbador cada que avancemos.
 
-Como la pila cumple que lo ultimo que entra es lo primero que ejecutará, basta con que nos ubiquemos en la última posición del laberinto y literalmente copiar los mismos movimientos que hizo Karel de ida.
+Como la pila cumple que lo ultimo que entra es lo primero que ejecutarï¿½, basta con que nos ubiquemos en la ï¿½ltima posiciï¿½n del laberinto y literalmente copiar los mismos movimientos que hizo Karel de ida.
 
-Adjunto el código en pascal:
+Adjunto el cï¿½digo en pascal:
 
     define-nueva-instruccion refleja como inicio
     	si izquierda-bloqueada o derecha-bloqueada entonces inicio
-        	(*Me encuentro todavía dentro del laberinto*)
+        	(*Me encuentro todavï¿½a dentro del laberinto*)
             si frente-libre entonces inicio
-            	(*Avanzo y en mi reflejo regresaré de donde vine
-                y marcaré con un zumbador*)
+            	(*Avanzo y en mi reflejo regresarï¿½ de donde vine
+                y marcarï¿½ con un zumbador*)
                 avanza;
                 refleja;
                 avanza;
@@ -33,8 +33,8 @@ Adjunto el código en pascal:
                 fin;
             fin;
         fin sino inicio
-        	(*Estoy fuera del laberinto y 
-            debo regresar a la última casilla*)
+        	(*Estoy fuera del laberinto y
+            debo regresar a la ï¿½ltima casilla*)
             gira-izquierda;
             gira-izquierda;
             avanza;

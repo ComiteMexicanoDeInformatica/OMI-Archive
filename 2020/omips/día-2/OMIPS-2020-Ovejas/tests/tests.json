@@ -1,0 +1,51 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/parcialA.kj",
+      "score_range": [0.1, 0.2]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0.01]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/turn_left.kp",
+      "score_range": [0, 0.01]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/put_beeper.kp",
+      "score_range": [0, 0.01]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/north.kp",
+      "score_range": [0, 0.01]
+    },
+    {
+      "filename": "../../../../../default_bad_solutions/south.kp",
+      "score_range": [0, 0.01]
+    },
+    {
+      "filename": "../solutions/mitad_mundo.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/zumbador_centrado.kp",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/zumbador_centrado2.kp",
+      "score_range": [0, 0.1]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

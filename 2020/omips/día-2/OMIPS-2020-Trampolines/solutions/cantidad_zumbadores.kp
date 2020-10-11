@@ -1,0 +1,12 @@
+iniciar-programa
+  inicia-ejecución
+    mientras frente-libre hacer inicio
+      si frente-libre entonces avanza;
+      mientras junto-a-zumbador hacer coge-zumbador;
+    fin;
+    gira-izquierda;
+    gira-izquierda;
+    mientras frente-libre hacer avanza;
+    mientras algún-zumbador-en-la-mochila hacer deja-zumbador;
+  termina-ejecución
+finalizar-programa

@@ -6,7 +6,7 @@ El problema se reduce entonces a encontrar la columna central (para esto basta v
 
 A continuación se muestra una forma de encontrar la columna central.
 
-```  
+```
    define-nueva-instruccion centro como inicio
     	si frente-libre entonces inicio
         	avanza;
@@ -20,7 +20,7 @@ A continuación se muestra una forma de encontrar la columna central.
 
 Y esta es la implementación para dibujar una de las escaleras del arcoíris. Nota que usamos recursividad para volver a la columna central.
 
-```  
+```
    define-nueva-instruccion escalera-izq(n) como inicio
     	si izquierda-libre entonces inicio
         	avanza;

@@ -10,7 +10,7 @@ Con todo lo anterior, podemos programar una funcion que nos diga en un parámetr
 
 El código se ve así:
 
-```  
+```
   define-nueva-instruccion prendeInterruptores(pasos) como inicio
   	 avanzaNpasosPonZumbador(pasos);
      prendeInterruptores(sucede(sucede(pasos)));

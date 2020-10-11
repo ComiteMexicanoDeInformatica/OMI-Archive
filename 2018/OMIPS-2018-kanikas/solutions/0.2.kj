@@ -1,20 +1,13 @@
 class program {
-    program () {
-    
-   while(notFacingEast)
-   turnleft();
+  program() {
+    while (notFacingEast) turnleft();
     move();
-    if(!nextToABeeper)
-    {
-    while(notFacingNorth)
-    turnleft();
+    if (!nextToABeeper) {
+      while (notFacingNorth) turnleft();
+    } else {
+      while (notFacingSouth) turnleft();
     }
-    else
-    {
-    while(notFacingSouth)
-    turnleft();
-    }
-        // TODO poner codigo aqui
-        turnoff();
-    }
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }

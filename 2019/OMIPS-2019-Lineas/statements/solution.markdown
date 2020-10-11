@@ -4,7 +4,7 @@ Calculemos la paridad de un montón de beepers sin hacer movimientos.
 
 El código es este:
 
-```  
+```
 void checkParity() {
     	if (nextToABeeper) {
         	pickbeeper();
@@ -29,7 +29,8 @@ Consideremos el primer montón de beepers (solo consideramos los de tamaño impa
 Para dibujar las líneas, basta con usar una función recursiva con un parámetro que nos sirva como contador.
 
 El código es este:
-```  
+
+```
 void extendOddLine(x) {
     	if(nextToABeeper) {
         	pickbeeper();
@@ -67,13 +68,13 @@ void extendOddLine(x) {
             } else if(!iszero(x)) putbeeper();
         }
     }
-```  
+```
 
 Al terminar de pintar las líneas de tamaño impar, estamos en el extremo derecho del mundo y ahora el problema es pintar las líneas de tamaño par en una corrida de derecha z izquierda. Observemos que es casi el mismo problema que acabamos de resolver, solo basta con considerar únicamente montones de tamaño par.
 
 El código es este:
 
-```  
+```
  void oddLine(x) {
     	if (nextToABeeper) {
         	checkParity();

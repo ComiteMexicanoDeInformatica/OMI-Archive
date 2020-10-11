@@ -1,0 +1,125 @@
+class program {
+  void nor() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void est() {
+    while (!facingEast) turnleft();
+  }
+
+  void wes() {
+    while (!facingWest) turnleft();
+  }
+
+  void sube() {
+    if (nextToABeeper) {
+      pickbeeper();
+      sube();
+      if (frontIsClear) move();
+    }
+  }
+
+  void cae() {
+    if (frontIsClear) {
+      sur();
+      while (!nextToABeeper && frontIsClear) move();
+      if (frontIsClear) {
+        nor();
+        salto();
+      } else {
+        while (nextToABeeper) pickbeeper();
+      }
+    } else {
+      sur();
+      while (frontIsClear) move();
+    }
+  }
+
+  void idavuelta() {
+    sur();
+    if (frontIsClear) {
+      move();
+      idavuelta();
+      nor();
+      move();
+    } else
+      putbeeper();
+  }
+
+  void salto() {
+    sube();
+    idavuelta();
+    cae();
+  }
+
+  void jalabeeper() {
+    if (nextToABeeper) {
+      move();
+      if (nextToABeeper) {
+        pickbeeper();
+        est();
+        move();
+        pickbeeper();
+        wes();
+        jalabeeper();
+        putbeeper();
+      }
+    } else {
+      move();
+      while (nextToABeeper) pickbeeper();
+    }
+  }
+
+  program() {
+    nor();
+    move();
+    if (nextToABeeper)
+      salto();
+    else {
+      sur();
+      move();
+    }
+    est();
+    while (frontIsClear) {
+      move();
+      nor();
+      move();
+      if (nextToABeeper)
+        salto();
+      else {
+        sur();
+        move();
+      }
+      est();
+    }
+    wes();
+    while (!nextToABeeper) move();
+    while (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        est();
+        move();
+        wes();
+        jalabeeper();
+      } else {
+        est();
+        move();
+        wes();
+        while (nextToABeeper) {
+          pickbeeper();
+          move();
+          putbeeper();
+          est();
+          move();
+          wes();
+        }
+        move();
+      }
+    }
+    turnoff();
+  }
+}

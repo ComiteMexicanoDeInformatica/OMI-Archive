@@ -1,0 +1,97 @@
+class program {
+  void north() {
+    while (notFacingNorth) turnleft();
+  }
+
+  void south() {
+    while (notFacingSouth) turnleft();
+  }
+
+  void bumpToBeeper() {
+    while (notNextToABeeper && frontIsClear) move();
+  }
+
+  void turn() {
+    turnleft();
+    turnleft();
+  }
+
+  void turnright() {
+    turnleft();
+    turnleft();
+    turnleft();
+  }
+
+  void back() {
+    turn();
+    move();
+    turn();
+  }
+
+  void orient() {
+    if (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        back();
+        return();
+      }
+      back();
+    }
+
+    turnleft();
+
+    if (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        back();
+        return();
+      }
+      back();
+    }
+
+    turn();
+  }
+
+  void follow() {
+    orient();
+    if (frontIsClear) move();
+  }
+
+  void tryCrossing(n) {
+    if (notFacingEast) return();
+
+    if (rightIsBlocked) return();
+    turnright();
+    move();
+
+    if (nextToABeeper) {
+      turn();
+      move();
+      turnright();
+      return();
+    }
+
+    go(succ(n));
+  }
+
+  void go(n) {
+    bumpToBeeper();
+
+    if (notNextToABeeper) {
+      north();
+      iterate (n) turn();
+      turnoff();
+    }
+
+    turnleft();
+    while (iszero(0)) {
+      tryCrossing(n);
+      follow();
+    }
+  }
+
+  program() {
+    south();
+    go(0);
+  }
+}

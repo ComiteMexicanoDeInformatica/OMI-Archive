@@ -1,0 +1,112 @@
+class program {
+  void norte() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void oeste() {
+    while (!facingWest) turnleft();
+  }
+
+  void este() {
+    while (!facingEast) turnleft();
+  }
+
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void esquina() {
+    sur();
+    while (frontIsClear) move();
+    oeste();
+    while (frontIsClear) move();
+  }
+
+  void quitaEsquinasNorte() {
+    move();
+    if (nextToABeeper) {
+      quitaEsquinasNorte();
+    } else {
+      turn(2);
+      move();
+      turn(2);
+      turnleft();
+      move();
+      if (nextToABeeper) {
+        // era esquina
+        turn(2);
+        move();
+        turn(1);
+        if (facingNorth) {
+          pickbeeper();
+        }
+        turn(1);
+        move();
+        quitaEsquinasNorte();
+      } else {
+        turn(2);
+        move();
+        move();
+        if (nextToABeeper) {
+          // Era esquina
+          turn(2);
+          move();
+          turn(3);
+          if (facingNorth) {
+            pickbeeper();
+          }
+          turn(3);
+          move();
+          quitaEsquinasNorte();
+        }
+      }
+    }
+  }
+
+  void buscaParedVertical() {
+    norte();
+    while (frontIsClear && !nextToABeeper) {
+      move();
+    }
+    if (!nextToABeeper) {
+      sur();
+      while (frontIsClear) move();
+      este();
+      move();
+      buscaParedVertical();
+    }
+  }
+
+  program() {
+    while (frontIsClear && !nextToABeeper) move();
+    if (!nextToABeeper) {
+      norte();
+      turnoff();
+    }
+    turnleft();
+    quitaEsquinasNorte();
+    esquina();
+    buscaParedVertical();
+    while (nextToABeeper) move();
+    // En teoría estoy en una esquina
+    turn(1);
+    move();
+    if (!nextToABeeper) {
+      turn(2);
+      move();
+      move();
+    }
+
+    if (nextToABeeper) {
+      // Es correcto el sentido
+      norte();
+    } else {
+      sur();
+    }
+    turnoff();
+  }
+}

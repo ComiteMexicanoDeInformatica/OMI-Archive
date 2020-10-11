@@ -6,7 +6,7 @@ La nueva atracción “Para-k-idista”, a la cual Karel desea subirse, consiste
 
 # Problema
 
-Karel caerá en una pista representada por la fila $1$. A lo largo de la pista se encuentran trampolines representados por zumbadores. La función de los trampolines es asegurar que la caída sea suave. Debido a que la atracción es nueva, Karel teme  que desde el punto donde va a descender no pueda caer sobre un trampolín.
+Karel caerá en una pista representada por la fila $1$. A lo largo de la pista se encuentran trampolines representados por zumbadores. La función de los trampolines es asegurar que la caída sea suave. Debido a que la atracción es nueva, Karel teme que desde el punto donde va a descender no pueda caer sobre un trampolín.
 
 Ayuda a Karel a saber si podrá tener una caída suave en la atracción. Deberás orientar a Karel al norte si es posible que caiga sobre uno de los trampolines, u orientarlo al sur en caso contrario.
 
@@ -20,12 +20,11 @@ Ayuda a Karel a saber si podrá tener una caída suave en la atracción. Deberá
 
 ![Salida](out.png)
 
-
 # Consideraciones
 
-* Karel inicia sobre la posición donde empieza a caer viendo al sur.
-* Karel no tiene zumbadores en la mochila.
-* Karel nunca inicia en la fila $1$.
-* El mundo de Karel tendrá una altura y un ancho desconocidos.
-* Las únicas paredes son las que delimitan el mundo.
-* Solo importa la orientación final de Karel.
+- Karel inicia sobre la posición donde empieza a caer viendo al sur.
+- Karel no tiene zumbadores en la mochila.
+- Karel nunca inicia en la fila $1$.
+- El mundo de Karel tendrá una altura y un ancho desconocidos.
+- Las únicas paredes son las que delimitan el mundo.
+- Solo importa la orientación final de Karel.

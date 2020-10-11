@@ -30,13 +30,13 @@ Cada uno de los cuadrados del mundo se pintó para que coincidiera con los color
 
 # Consideraciones
 
-* El lienzo de Karel es un cuadrado.
-* El centro del lienzo es una sola casilla.
-* Las únicas paredes son las que delimitan el mundo.
-* Karel inicia en el centro del lienzo, viendo al norte.
-* Karel tiene infinitos zumbadores en la mochila.
-* Los colores posibles van del 1 al 99.
-* No hay instrucciones contradictorias. Es decir, ninguna instrucción va a decir que pintes un cuadrado de un color distinto que otra instrucción.
-* Se evalúa cómo quedan todos los zumbadores del mundo al final.
-* No importa cómo quede la mochila de Karel al final.
-* No importa la posición y orientación final de Karel.
+- El lienzo de Karel es un cuadrado.
+- El centro del lienzo es una sola casilla.
+- Las únicas paredes son las que delimitan el mundo.
+- Karel inicia en el centro del lienzo, viendo al norte.
+- Karel tiene infinitos zumbadores en la mochila.
+- Los colores posibles van del 1 al 99.
+- No hay instrucciones contradictorias. Es decir, ninguna instrucción va a decir que pintes un cuadrado de un color distinto que otra instrucción.
+- Se evalúa cómo quedan todos los zumbadores del mundo al final.
+- No importa cómo quede la mochila de Karel al final.
+- No importa la posición y orientación final de Karel.

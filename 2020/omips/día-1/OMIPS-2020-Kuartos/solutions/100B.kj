@@ -1,0 +1,48 @@
+class program {
+  void turn() {
+    turnleft();
+    turnleft();
+  }
+
+  void orient() {
+    if (frontIsBlocked) turnleft();
+    if (frontIsBlocked) turn();
+  }
+
+  void follow() {
+    orient();
+    if (frontIsClear) move();
+  }
+
+  void compare(n) {
+    if (iszero(n)) {
+      turn();
+      while (notNextToABeeper) follow();
+      turn();
+      orient();
+      turnoff();
+    } else if (frontIsBlocked && leftIsBlocked && rightIsBlocked) {
+      turn();
+      while (notNextToABeeper) follow();
+      orient();
+      turnoff();
+    } else {
+      follow();
+      compare(pred(n));
+    }
+  }
+
+  void count(n) {
+    if (notNextToABeeper) {
+      follow();
+      count(succ(n));
+    } else {
+      follow();
+      compare(n);
+    }
+  }
+
+  program() {
+    count(0);
+  }
+}

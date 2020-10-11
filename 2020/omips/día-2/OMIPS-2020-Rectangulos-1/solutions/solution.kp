@@ -1,0 +1,87 @@
+iniciar-programa
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
+
+  define-nueva-instrucción norte como inicio
+    mientras no-orientado-al-norte hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción pared como inicio
+    mientras frente-libre hacer avanza;
+  fin;
+
+  define-nueva-instrucción rellena como inicio
+    deja-zumbador;
+    mientras frente-libre hacer inicio
+      avanza;
+      si frente-bloqueado entonces inicio
+        norte;
+        si frente-libre entonces inicio
+          deja-zumbador;
+          avanza;
+          si izquierda-libre entonces inicio
+            gira(1);
+          fin si-no inicio
+            gira(3);
+          fin;
+        fin;
+      fin;
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción salta(n) como inicio
+    si no-junto-a-zumbador y frente-libre entonces avanza;
+    repetir n veces inicio
+      si frente-libre entonces inicio
+        avanza;
+      fin si-no inicio
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción busca-ultima como inicio
+    pared;
+    gira(2);
+    mientras frente-libre y junto-a-zumbador hacer avanza;
+  fin;
+
+  define-nueva-instrucción borra-linea como inicio
+    mientras frente-libre hacer inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      avanza;
+    fin;
+    si junto-a-zumbador entonces coge-zumbador;
+  fin;
+
+  define-nueva-instrucción borra(n) como inicio
+    repetir 2 veces inicio
+      gira-izquierda;
+      busca-ultima;
+      gira(2);
+      salta(n);
+      si frente-bloqueado entonces apágate;
+      gira(1);
+      borra-linea;
+      gira-izquierda;
+      mientras frente-libre hacer avanza;
+    fin;
+
+    gira(1);
+    pared;
+    gira(1);
+    pared;
+
+    borra(sucede(n));
+  fin;
+
+  inicia-ejecución
+    { TODO poner codigo aqui }
+    gira(3);
+    rellena;
+    borra(1);
+    apágate;
+  termina-ejecución
+finalizar-programa

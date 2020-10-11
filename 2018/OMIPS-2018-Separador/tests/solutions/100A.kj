@@ -1,29 +1,21 @@
-class program
-{
-    define go()
-    {
-        if(nextToABeeper)
-        {
-            pickbeeper();
-            go();
-            while(notNextToABeeper)
-                move();
-            pickbeeper();
-
-        }
-        else
-        {
-            move();
-            turnleft();
-            turnleft();
-            turnleft();
-        }
-
+class program {
+  define go() {
+    if (nextToABeeper) {
+      pickbeeper();
+      go();
+      while (notNextToABeeper) move();
+      pickbeeper();
+    } else {
+      move();
+      turnleft();
+      turnleft();
+      turnleft();
     }
-    program ()
-    {
-        go();
-        // TODO poner codigo aqui
-        turnoff();
-    }
+  }
+
+  program() {
+    go();
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }

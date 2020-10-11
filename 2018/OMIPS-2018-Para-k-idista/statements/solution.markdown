@@ -3,7 +3,7 @@ solo importa cuántas veces se movió a la izquierda o a la derecha.
 
 Por ejemplo, si Karel se encuentra inicialmente en la fila 7, significa que Karel deberá
 bajar 6 filas para llegar a la pista. De tal manera que puede moverse hasta 6 columnas a
-la izquierda o a la derecha de la columna en la que inicia. 
+la izquierda o a la derecha de la columna en la que inicia.
 
 Por lo tanto, para saber si Karel puede caer en un zumbador, debemos medir la distancia de
 Karel a la pista; llamemos a esta distancia $d$. Si hay algún zumbador que se encuentra a

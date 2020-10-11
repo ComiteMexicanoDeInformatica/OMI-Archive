@@ -1,167 +1,119 @@
-class program
-{
-    define go1()
-    {
-        if(nextToABeeper)
-        {
+class program {
+  define go1() {
+    if (nextToABeeper) {
+      pickbeeper();
+      go1();
+      putbeeper();
+    } else {
+      move();
+      turnleft();
+      turnleft();
+      turnleft();
+      move();
+      move();
+      turnleft();
+      turnleft();
+    }
+  }
+
+  define go2() {
+    if (notFacingNorth) {
+      iterate (60) {
+        if (facingWest) {
+          if (nextToABeeper) {
             pickbeeper();
-            go1();
+          } else {
+            turnleft();
+            turnleft();
+            turnleft();
             putbeeper();
+          }
+        } else {
+          putbeeper();
         }
-        else
-        {
-            move();
-            turnleft();
-            turnleft();
-            turnleft();
-            move();
-            move();
-            turnleft();
-            turnleft();
-        }
-    }
-    define go2()
-    {
-        if(notFacingNorth)
-        {
-            iterate(60)
-            {
-                if(facingWest)
-                {
-                    if(nextToABeeper)
-                    {
-                        pickbeeper();
-                    }
-                    else
-                    {
-                        turnleft();
-                        turnleft();
-                        turnleft();
-                        putbeeper();
-                    }
-                }
-                else
-                {
-                    putbeeper();
-                }
-            }
-            go2();
-            putbeeper();
-        }
-        else
-        {
-            turnleft();
-            iterate(60)
-            {
-                if(facingWest)
-                {
-                    if(nextToABeeper)
-                    {
-                        pickbeeper();
-                    }
-                    else
-                    {
-                        turnleft();
-                        turnleft();
-                        turnleft();
-                        putbeeper();
-                    }
-                }
-                else
-                {
-                    putbeeper();
-                }
-            }
-            while(notFacingWest)
-                turnleft();
-
-            move();
-
-        }
-    }
-
-
-    define go3()
-    {
-        if(notFacingNorth)
-        {
-            iterate(24)
-            {
-                if(facingWest)
-                {
-                    if(nextToABeeper)
-                    {
-                        pickbeeper();
-                    }
-                    else
-                    {
-                        turnleft();
-                        turnleft();
-                        turnleft();
-                        putbeeper();
-                    }
-                }
-                else
-                {
-                    putbeeper();
-                }
-            }
-            go3();
-            //putbeeper();
-        }
-        else
-        {
-            turnleft();
-            iterate(24)
-            {
-                if(facingWest)
-                {
-                    if(nextToABeeper)
-                    {
-                        pickbeeper();
-                    }
-                    else
-                    {
-                        turnleft();
-                        turnleft();
-                        turnleft();
-                        putbeeper();
-                    }
-                }
-                else
-                {
-                    putbeeper();
-                }
-            }
-            while(notFacingWest)
-                turnleft();
-
-        }
-    }
-
-
-    program ()
-    {
-        move();
-        move();
-        iterate(10000)
-        {
+      }
+      go2();
+      putbeeper();
+    } else {
+      turnleft();
+      iterate (60) {
+        if (facingWest) {
+          if (nextToABeeper) {
             pickbeeper();
+          } else {
+            turnleft();
+            turnleft();
+            turnleft();
+            putbeeper();
+          }
+        } else {
+          putbeeper();
         }
-        turnleft();
-        turnleft();
-        move();
-        move();
-        turnleft();
-        turnleft();
-        go1();
-        go2();
-        pickbeeper();
-        go2();
-        pickbeeper();
-        go3();
+      }
+      while (notFacingWest) turnleft();
 
-        // TODO poner codigo aqui
-        turnoff();
+      move();
     }
+  }
+
+  define go3() {
+    if (notFacingNorth) {
+      iterate (24) {
+        if (facingWest) {
+          if (nextToABeeper) {
+            pickbeeper();
+          } else {
+            turnleft();
+            turnleft();
+            turnleft();
+            putbeeper();
+          }
+        } else {
+          putbeeper();
+        }
+      }
+      go3();
+    //putbeeper();
+    } else {
+      turnleft();
+      iterate (24) {
+        if (facingWest) {
+          if (nextToABeeper) {
+            pickbeeper();
+          } else {
+            turnleft();
+            turnleft();
+            turnleft();
+            putbeeper();
+          }
+        } else {
+          putbeeper();
+        }
+      }
+      while (notFacingWest) turnleft();
+    }
+  }
+
+  program() {
+    move();
+    move();
+    iterate (10000) {
+      pickbeeper();
+    }
+    turnleft();
+    turnleft();
+    move();
+    move();
+    turnleft();
+    turnleft();
+    go1();
+    go2();
+    pickbeeper();
+    go2();
+    pickbeeper();
+    go3();
+
+    // TODO poner codigo aqui
+    turnoff();
+  }
 }
