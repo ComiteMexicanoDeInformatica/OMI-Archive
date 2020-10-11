@@ -34,7 +34,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
       std::getline(std::cin, fila);
 
-      while (fila.back() == '\n' || fila.back() == ' ' || fila.back() == 13)
+      while (fila.back() == '\n' || fila.back() == ' ' || fila.back() == '\r')
         fila.pop_back();
 
       if (fila.size() != m) error("Una fila no tiene m caracteres");
