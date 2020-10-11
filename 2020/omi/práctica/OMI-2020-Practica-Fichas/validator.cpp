@@ -33,7 +33,7 @@ int main() {
     std::string fila;
     for (int i = 0; i < n; ++i) {
       std::getline(std::cin, fila);
-      
+
       while (fila.back() == '\n' || fila.back() == ' ' || fila.back() == 13)
         fila.pop_back();
 
