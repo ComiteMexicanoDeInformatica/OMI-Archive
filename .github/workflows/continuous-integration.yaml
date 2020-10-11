@@ -80,11 +80,11 @@ jobs:
         git config --global user.name "${{ env.GIT_USERNAME }}"
         git config --global user.email "${{ env.GIT_USERNAME }}@users.noreply.github.com"
         git add -f !(results)
-        git commit -m "Generated files from $GITHUB_SHA"
+        git commit --allow-empty -m "Generated files from $GITHUB_SHA"
         TMP_COMMIT=$(git rev-parse HEAD)
         git checkout public
         git merge --no-commit --no-ff -X theirs $TMP_COMMIT
-        git commit -m "Auto deployed from $GITHUB_SHA"
+        git commit --allow-empty -m "Auto deployed from $GITHUB_SHA"
         git push origin public
 
     - name: Zip logs
