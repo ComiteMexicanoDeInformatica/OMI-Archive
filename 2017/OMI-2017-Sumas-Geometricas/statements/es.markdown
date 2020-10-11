@@ -72,5 +72,5 @@ Te intentaron estafar pues no hay ninguna solución.
 # Consideraciones
 
 - $1 \leq n \leq 10^5$
-- Los elementos de la secuencia descompuesta serán mayor igual a 1 y menor igual a $10^{16}$
-- Los elementos de la lista de entrada siempre estarán en orden creciente
+- Los elementos de la secuencia descompuesta serán mayor igual a 1 y menor igual a $10^{16}$.
+- Los elementos de la lista de entrada siempre estarán en orden creciente.
