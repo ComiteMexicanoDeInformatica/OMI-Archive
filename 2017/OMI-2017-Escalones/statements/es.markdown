@@ -44,8 +44,8 @@ La serie tiene un valor por rellenar, si se llena con 7, la suma de las diferenc
 
 # Consideraciones
 
-* $1 \leq n, m, v_i \leq 1,000,000$
-* $0 \leq s_i \leq 1,000,000$
-* Los valores de la lista de número no están ordenados.
-* Para el 28% de los casos $1 \leq n, m \leq 1,000$
-* Para el 70% de los casos $1 \leq n, m \leq 200,000$
+- $1 \leq n, m, v_i \leq 1,000,000$
+- $0 \leq s_i \leq 1,000,000$
+- Los valores de la lista de número no están ordenados.
+- Para el 28% de los casos $1 \leq n, m \leq 1,000$
+- Para el 70% de los casos $1 \leq n, m \leq 200,000$

@@ -40,10 +40,11 @@ Las personas 0, 1 y 2 forman el grupo más grande de amigos que se conocen todos
 ||end
 
 # Consideraciones
-* $2\leq N \leq 1,000,000$
-* $1\leq M \leq 200,000$
-* Para un 20% de los casos, $1\leq N \leq 200$
-* Para un 40% de los casos, $1\leq N \leq 1000$
-* Para un 40% de los casos, $1\leq M \leq 1000$
-* No hay personas que sean amigas de sí mismas
-* No hay amistades repetidas
+
+- $2\leq N \leq 1,000,000$
+- $1\leq M \leq 200,000$
+- Para un 20% de los casos, $1\leq N \leq 200$
+- Para un 40% de los casos, $1\leq N \leq 1000$
+- Para un 40% de los casos, $1\leq M \leq 1000$
+- No hay personas que sean amigas de sí mismas
+- No hay amistades repetidas

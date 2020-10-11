@@ -42,7 +42,7 @@ El evaluador buscará en tu código esta función y la llamará con el número $
 
 ### Parámetros
 
-* `N`: Un entero indicando el tamaño de la cuadrícula.
+- `N`: Un entero indicando el tamaño de la cuadrícula.
 
 ## Función del evaluador `ponMuro()`
 
@@ -145,12 +145,12 @@ $20 < N < 500$
 
 # Consideraciones
 
-* Debes encerrar a Karel en una casilla para atraparlo
-* Siempre hay al menos una forma de atrapar a Karel
-* Si Karel sale de la cuadricula obtendras 0 puntos en ese caso
-* Si mandas llamar más de $100N$ veces la funcion ponMuro obtendrás 0 puntos
-* Se garantiza que siempre recibirás una $N$ para la cual será posible atrapar a Karel
-* Mientras menos muros pongas obtendrás más puntos
-* $N$ siempre será un número impar
+- Debes encerrar a Karel en una casilla para atraparlo
+- Siempre hay al menos una forma de atrapar a Karel
+- Si Karel sale de la cuadricula obtendras 0 puntos en ese caso
+- Si mandas llamar más de $100N$ veces la funcion ponMuro obtendrás 0 puntos
+- Se garantiza que siempre recibirás una $N$ para la cual será posible atrapar a Karel
+- Mientras menos muros pongas obtendrás más puntos
+- $N$ siempre será un número impar
 
 {{libinteractive:download}}

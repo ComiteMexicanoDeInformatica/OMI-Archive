@@ -4,15 +4,15 @@ Andrea, la matemágica alfa, administra toda la mensajería ultra secreta de la 
 
 Andrea sabe que la logia tiene $N$ cuarteles ultra secretos en el estado de Querétaro y que están numerados de $0$ a $N-1$. También sabe que las rutas para enviar los mensajes van de cuartel a cuartel y funcionan de la siguiente manera:
 
- - El cuartel $0$ tiene una ruta de envío con el cuartel $1$.
- - El cuartel $1$ tiene una ruta de envío con el cuartel $2$.
- - Y así sucesivamente hasta el cuartel $N-1$ que tiene una ruta de mensajería con el cuartel $0$.
+- El cuartel $0$ tiene una ruta de envío con el cuartel $1$.
+- El cuartel $1$ tiene una ruta de envío con el cuartel $2$.
+- Y así sucesivamente hasta el cuartel $N-1$ que tiene una ruta de mensajería con el cuartel $0$.
 
 Las rutas de envío de un cuartel a otro tienen un costo ($a_i$) y funcionan en ambos sentidos, es decir, la ruta del cuartel $0$ al cuartel $1$ también funciona del cuartel $1$ al cuartel $0$ con el mismo costo.
 
 Para minimizar los costos, Andrea puede poner centrales de envío en cualquier cuartel y enviar el mensaje desde todas las centrales disponibles al mismo tiempo.
 
-Poner una central de envío tiene un costo $K$. 
+Poner una central de envío tiene un costo $K$.
 
 Sin embargo, la ventaja de poner nuevas centrales de envío en otros cuarteles es que estos cuarteles ahora pueden enviar mensajes a los demás cuarteles sin ningún costo adicional más que el de las rutas usadas.
 
@@ -54,6 +54,6 @@ Andrea pone una central en el cuartel $0$ y de éste se toma la ruta al cuartel 
 
 # Límites
 
-* $2 \leq N \leq 1,000,000$
-* $1 \leq a_i,K \leq 1,000$
-* Para un 36% de los casos, $N \leq 1,000$
+- $2 \leq N \leq 1,000,000$
+- $1 \leq a_i,K \leq 1,000$
+- Para un 36% de los casos, $N \leq 1,000$

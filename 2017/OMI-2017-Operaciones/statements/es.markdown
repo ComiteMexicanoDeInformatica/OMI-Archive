@@ -4,9 +4,9 @@ Ethan el matemágico ha empezado a armar su nuevo truco de magia y matemáticas.
 
 El truco de Ethan consiste en agarrar un número y modificarlo varias veces con alguno de los siguientes actos:
 
- - Sumarle 1 al número que tiene.
- - Restarle 1 al número que tiene.
- - Dividir entre 2 siempre y cuando el número que tiene sea par.
+- Sumarle 1 al número que tiene.
+- Restarle 1 al número que tiene.
+- Dividir entre 2 siempre y cuando el número que tiene sea par.
 
 El truco termina cuando el número que tiene sea 1.
 
@@ -50,5 +50,6 @@ Se divide entre 2 para obtener 5, se le resta 1 para obtener 4, se divide entre 
 ||end
 
 # Consideraciones
-* $2\leq N \leq 10^6$
-* Para un 27% de los casos $2\leq N \leq 20$
+
+- $2\leq N \leq 10^6$
+- Para un 27% de los casos $2\leq N \leq 20$

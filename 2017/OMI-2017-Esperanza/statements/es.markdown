@@ -4,10 +4,10 @@ Roque el filósofo, el malvado archienemigo de los matemágicos, está preparand
 
 Los matemágicos acaban de recibir la señal del rastreador con la ruta que Roque utilizó para llegar hasta él. La ruta está representada por una cadena de caracteres, cada caracter representa un paso a una casilla de la ruta y estos caracteres pueden ser:
 
-* 'L' indicando que Roque se movió una casilla a la izquierda
-* 'R' indicando que Roque se movió una casilla a la derecha
-* 'U' indicando que Roque se movió una casilla hacia arriba
-* 'D' indicando que Roque se movió una casilla hacia abajo
+- 'L' indicando que Roque se movió una casilla a la izquierda
+- 'R' indicando que Roque se movió una casilla a la derecha
+- 'U' indicando que Roque se movió una casilla hacia arriba
+- 'D' indicando que Roque se movió una casilla hacia abajo
 
 Los matemágicos podrán detener a tiempo el lanzamiento del misil si la ruta que Roque les dio es la más corta hasta él. En caso de que, utilizando solo casillas por las que Roque pasó, exista otra ruta al misil que llegue en menos pasos, no lo podrán detener.
 
@@ -21,7 +21,7 @@ Pero en este otro caso existe una ruta al misil que utiliza solo casillas por la
 
 # Problema
 
-Tu trabajo es escribir un programa que dada la cadena de pasos que realizó Roque, escriba la letra *S* si la ruta era la ruta más corta posible o *N* si existía una ruta más corta.
+Tu trabajo es escribir un programa que dada la cadena de pasos que realizó Roque, escriba la letra _S_ si la ruta era la ruta más corta posible o _N_ si existía una ruta más corta.
 
 # Entrada
 
@@ -31,7 +31,7 @@ En la segunda línea se encuentra una cadena de $N$ caracteres que describe los 
 
 # Salida
 
-Deberás escribir la letra mayúscula *S* si Roque utilizó la ruta más corta posible o la letra mayúscula *N* si existía una ruta más corta distinta a la que Roque tomó.
+Deberás escribir la letra mayúscula _S_ si Roque utilizó la ruta más corta posible o la letra mayúscula _N_ si existía una ruta más corta distinta a la que Roque tomó.
 
 # Ejemplo
 
@@ -53,6 +53,6 @@ Esta entrada corresponde a la segunda figura de la descripción del problema.
 
 # Consideraciones
 
-* $1 \leq N \leq 10^6$
-* Para un 24% de los casos $1 \leq N \leq 1000$
-* Para un 60% de los casos $1 \leq N \leq 20000$
+- $1 \leq N \leq 10^6$
+- Para un 24% de los casos $1 \leq N \leq 1000$
+- Para un 60% de los casos $1 \leq N \leq 20000$
