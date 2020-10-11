@@ -33,7 +33,10 @@ int main() {
     std::string fila;
     for (int i = 0; i < n; ++i) {
       std::getline(std::cin, fila);
-      while (fila.back() == '\n' || fila.back() == ' ') fila.pop_back();
+
+      while (fila.back() == '\n' || fila.back() == ' ' || fila.back() == '\r')
+        fila.pop_back();
+
       if (fila.size() != m) error("Una fila no tiene m caracteres");
       for (int j = 0; j < m; ++j) contestant[i][j] = fila[j];
     }
