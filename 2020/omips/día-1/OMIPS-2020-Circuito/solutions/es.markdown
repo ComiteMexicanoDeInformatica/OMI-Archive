@@ -20,4 +20,8 @@ Por lo tanto, el problema se reduce a saber en qué sentido recorre Karel el cir
 
 5. Si no hay zumbador en esa esquina significa que empezamos fuera del polígono, pues en el recorrido que hicimos inicialmente sí quitó el zumbador de la esquina acorde a un recorrido en sentido de las manecillas del reloj. En caso contrario significa que comenzamos fuera. Por lo tanto, orientamos a Karel acorde a la respuesta y terminamos ejecución.
 
+<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=N34Wkr9UJbg)
+=======
+[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=N34Wkr9UJbg)
+>>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

@@ -22,4 +22,8 @@ Para optimizar la solución anterior, usamos la técnica de guardar nuestros dat
 
 </details>
 
+<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=1wpSpE9nW8Y)
+=======
+[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=1wpSpE9nW8Y)
+>>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

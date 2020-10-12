@@ -12,4 +12,8 @@ Para trabajar con el problema de no confundirnos con los zumbadores iniciales, p
 
 Finalmente, solo elegimos la casilla con la menor cantidad de zumbadores y nos apagamos allí. Recordar que si hay empates tiene que ser la más al oeste y más al sur.
 
+<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=SQ7rOzu_c_M)
+=======
+[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=SQ7rOzu_c_M)
+>>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743
