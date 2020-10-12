@@ -18,8 +18,4 @@ Así, **no importa el camino que elijamos, siempre tendremos el mismo estado en 
 
 Por lo tanto, la solución es sencilla. Hacer un recorrido en zigzag en el mundo, donde si estamos en una casilla negra y hay un zumbador, contamos una moneda y si estamos en una casilla blanca y no hay zumbador, también lo contamos (porque habríamos llegado en un tiempo impar, que cambiaría el estado de esa casilla).
 
-<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=0o8iIHCDHhE)
-=======
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=0o8iIHCDHhE)
->>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

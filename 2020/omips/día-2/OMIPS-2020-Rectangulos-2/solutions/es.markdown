@@ -37,8 +37,4 @@ La solución oficial construye un rectángulo de la siguiente forma (nota: esta 
 
 ![solución oficial](full-score.png)
 
-<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=4euwpzYETxc)
-=======
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=4euwpzYETxc)
->>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

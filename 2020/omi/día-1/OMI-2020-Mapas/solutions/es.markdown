@@ -42,8 +42,4 @@ Con las observaciones de las Subtasks 2 y 3, se puede llegar a la observación s
 
 </details>
 
-<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=YxSLPX1zKX4)
-=======
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=YxSLPX1zKX4)
->>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

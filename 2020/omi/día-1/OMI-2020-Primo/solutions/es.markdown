@@ -17,8 +17,4 @@ Para minimizar el número de llamadas podemos hacer una [búsqueda binaria](http
 
 </details>
 
-<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=y2zK_tt8VSY)
-=======
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=y2zK_tt8VSY)
->>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

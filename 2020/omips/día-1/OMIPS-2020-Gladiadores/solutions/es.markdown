@@ -196,8 +196,4 @@ El siguiente código es la implementación sin recursión
 finalizar-programa
 ```
 
-<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=y5BcQM1-AYQ)
-=======
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=y5BcQM1-AYQ)
->>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

@@ -17,8 +17,4 @@ Para resolver el problema, entonces, necesitamos calcular $n$, restar las potenc
 y finalmente ir calculando los coeficientes $a_i$ uno por uno, para así recursivamente ir siguiendo las
 instrucciones para llegar a la casilla deseada.
 
-<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=5K3bqaRNjy4)
-=======
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=5K3bqaRNjy4)
->>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743

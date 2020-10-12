@@ -12,8 +12,4 @@ Análogamente hacemos lo mismo para los vecinos superiores, izquierdos y derecho
 
 Finalmente, basta con contar aquellas casillas que terminaron con 5 zumbadores (la casa inicial y los cuatro vecinos que se le sumaron en el proceso) y dejarlo en la $(1, 1)$.
 
-<<<<<<< HEAD
 [Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=RIleigayBhg)
-=======
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=RIleigayBhg)
->>>>>>> dae8c62def296f34a7ded3a69a93c336cc80f743
