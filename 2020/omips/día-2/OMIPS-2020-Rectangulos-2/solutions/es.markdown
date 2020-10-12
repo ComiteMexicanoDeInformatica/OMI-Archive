@@ -36,3 +36,5 @@ Esta construcción solo es óptima en los mundos cuadrados donde los cortes sean
 La solución oficial construye un rectángulo de la siguiente forma (nota: esta construcción no es la óptima, pero cualquiera mejor o igual obtiene todos los puntos).
 
 ![solución oficial](full-score.png)
+
+[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=4euwpzYETxc)
