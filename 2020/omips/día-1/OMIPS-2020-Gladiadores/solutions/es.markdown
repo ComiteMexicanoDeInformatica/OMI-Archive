@@ -195,3 +195,5 @@ El siguiente código es la implementación sin recursión
     termina-ejecucion
 finalizar-programa
 ```
+
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=y5BcQM1-AYQ)

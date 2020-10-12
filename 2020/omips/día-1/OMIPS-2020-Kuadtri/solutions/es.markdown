@@ -16,3 +16,5 @@ llegar a la región donde vive Kuadtri.
 Para resolver el problema, entonces, necesitamos calcular $n$, restar las potencias de $4$ que no necesitamos,
 y finalmente ir calculando los coeficientes $a_i$ uno por uno, para así recursivamente ir siguiendo las
 instrucciones para llegar a la casilla deseada.
+
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=5K3bqaRNjy4)

@@ -21,3 +21,5 @@ Para optimizar la solución anterior, usamos la técnica de guardar nuestros dat
 {{solutionB.cpp}}
 
 </details>
+
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=1wpSpE9nW8Y)

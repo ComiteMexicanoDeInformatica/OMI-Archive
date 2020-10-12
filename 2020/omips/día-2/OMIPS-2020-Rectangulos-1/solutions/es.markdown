@@ -27,3 +27,5 @@ Esta construcción es la mejor para un mundo cuadrado. Si intentamos partir cual
 ![nxn rectángulos](nxn-rect.png)
 
 Esta construcción solo es óptima en los mundos cuadrados donde los cortes sean exactos. Para mundos donde no se alcance a poner el ultimo corte conviene más no hacer el último corte para maximizar el área y no tener repetidos.
+
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=4euwpzYETxc)

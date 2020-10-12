@@ -16,3 +16,5 @@ Para minimizar el número de llamadas podemos hacer una [búsqueda binaria](http
 {{solution.cpp}}
 
 </details>
+
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=y2zK_tt8VSY)

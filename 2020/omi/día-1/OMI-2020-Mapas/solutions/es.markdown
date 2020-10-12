@@ -41,3 +41,5 @@ Con las observaciones de las Subtasks 2 y 3, se puede llegar a la observación s
 {{solution.cpp}}
 
 </details>
+
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=YxSLPX1zKX4)
