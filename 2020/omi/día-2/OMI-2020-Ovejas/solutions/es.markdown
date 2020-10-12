@@ -64,4 +64,4 @@ Complejidad en tiempo de $O(\textbf{maxÁrea} + Q)$
 
 </details>
 
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=mmbnd8zZ0gU)
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=mmbnd8zZ0gU)

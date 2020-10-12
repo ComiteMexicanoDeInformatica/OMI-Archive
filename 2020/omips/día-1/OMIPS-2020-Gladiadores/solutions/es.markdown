@@ -196,4 +196,4 @@ El siguiente código es la implementación sin recursión
 finalizar-programa
 ```
 
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=y5BcQM1-AYQ)
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=y5BcQM1-AYQ)

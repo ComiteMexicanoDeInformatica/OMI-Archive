@@ -60,4 +60,4 @@ La solución oficial construye un rectángulo de la siguiente forma.
 
 </details>
 
-[Aquí puedes encontrar un video explicando la solución](https://www.youtube.com/watch?v=4euwpzYETxc)
+[Aquí puedes encontrar un video explicando la solución.](https://www.youtube.com/watch?v=4euwpzYETxc)
