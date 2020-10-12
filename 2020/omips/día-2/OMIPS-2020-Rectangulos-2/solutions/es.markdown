@@ -29,7 +29,7 @@ Esta construcción es la mejor para un mundo cuadrado. Si intentamos partir cual
 Esta construcción solo es óptima en los mundos cuadrados donde los cortes sean exactos. Para mundos rectangulares o con cortes no exactos hay que considerar las siguentes observaciones:
 
 - Conviene más no hacer el último corte para maximizar el área y no tener repetidos.
-- El area sobrante se puede dividir en 2 rectángulos.
+- El area sobrante se puede dividir en dos rectángulos.
 - En estos rectángulos se puede continuar haciendo cortes partiendo del último tamaño que se hizo completo.
 - Se puede decidir primero si el mundo es mas alto o ancho y empezar a construir en el que maximice tu construcción.
 
