@@ -26,7 +26,7 @@ Sabiendo esto, se puede ir construyendo la respuesta bit por bit, de más signif
 
 Sabiendo esto, se puede el problema con programación dinámica. Se define $dp[i][a][b]$ como el número de errores que existen en todos los números con $i$ bits, en dónde $num1$ tiene $a$ bits encendidos, $num2$ tiene $b$ bits encendidos.
 
-La respuesta estará en $dp[N][A][B]$. En cada caso podemos prender ambos o no prender ninguno. Si en algun momento difiere, podemos usar n sobre k para calcular cuántas maneras fallaran a partir de ahi. Es importante siempre ir a estados válidos.
+La respuesta estará en $dp[N][A][B]$. En cada caso podemos prender ambos o no prender ninguno. Si en algún momento difiere, podemos usar n sobre k para calcular cuántas maneras fallarán a partir de ahí. Es importante siempre ir a estados válidos.
 
 Las transiciones son las siguientes:
 
