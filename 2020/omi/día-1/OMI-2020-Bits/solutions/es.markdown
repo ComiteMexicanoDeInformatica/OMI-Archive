@@ -13,7 +13,7 @@ Si tenemos un número $num$ con $A$ bits encendidos, y $A > B$, todos los númer
 
 Otras posible solución es crear dos arreglos, uno con todos los números con $A$ bits, y otro con todos los números con $B$ bits, y usar búsqueda binaria o dos punteros para obtener lo equivalente a los cálculos que teníamos en prefijos / sufijos.
 
-## Subtarea 3 $(N \le 200)$
+## Subtarea 4 $(N \le 200)$
 
 En esta subtarea ya no es posible generar los números como un entero, pues exceden los límites incluso de un long long. Esto quiere decir que la solución involucra ver los números en su representación binaria y buscar alguna propiedad que nos ayude.
 
@@ -22,23 +22,23 @@ La propiedad clave es: En caso de que dos números sean diferentes, el primer bi
 
 Prueba: Asumamos que el bit más significativo que difiere es $i$. Todos los bits $> i$ son iguales, pues si alguno más significativo difiere, $i$ no sería el bit más significativo diferente. Como sabemos que $i$ difiere, $num1$ tiene el bit encendido, y $num2$ tiene el bit apagado. Aún si todos los siguientes bits son encendidos en $num2$ y nada se enciende en $num1$ (que es el peor caso), $num1$ seguirá siendo mayor, pues $2^i > 2^{i - 1} + 2^{i - 2} + ... + 2^0$.
 
-Sabiendo esto, se puede ir construyendo la respuesta bit por bit, de más significativo a menos significativo, siempre manteniendo información de en que bit vamos, cuantos bits están prendidos en $num1$, cuántos en $num2$ y algo que contenga información sobre si $num1$ es mayor, $num2$ es mayor, o si son iguales, para al final poder determinar si existió un error o no. En cada bit tenemos 4 opciones , $(0,0)$ , $(0,1)$, $(1,0)$ o $1,1$. Simular esto toma $4^N$, o equivalentemente $2^N*2^N$, la misma complejidad que la subtarea 1. Sin embargo, se puede ver ver que el problema cada vez se hace más pequeño (de tener $i$ bits a $i-1$ cada vez que determinamos uno). Además, muchos de estos subproblemas coinciden. Es decir, es posible reusar información y ahorrar operaciones.
+Sabiendo esto, se puede ir construyendo la respuesta bit por bit, de más significativo a menos significativo, siempre manteniendo información de en que bit vamos, cuantos bits están prendidos en $num1$, cuántos en $num2$. En cada bit tenemos 4 opciones , $(0,0)$ , $(0,1)$, $(1,0)$ o $1,1$. Simular esto toma $4^N$, o equivalentemente $2^N*2^N$, la misma complejidad que la subtarea 1. Sin embargo, se puede ver ver que el problema cada vez se hace más pequeño (de tener $i$ bits a $i-1$ cada vez que determinamos uno). Además, muchos de estos subproblemas coinciden. Es decir, es posible reusar información y ahorrar operaciones.
 
-Sabiendo esto, se puede el problema con programación dinámica. Se define $dp[i][a][b][f]$ como el número de errores que existen en todos los números con $i$ bits restantes por colocar, en dónde $num1$ tiene $a$ bits encendidos, $num2$ tiene $b$ bits encendidos. $f$ es una bandera extra que podemos utilizar para saber si $num1$ es mayor , $num2$ es mayor o son iguales. (0 si son iguales, 1 si $num1$ es mayor, 2 si $num2$ es mayor)
+Sabiendo esto, se puede el problema con programación dinámica. Se define $dp[i][a][b]$ como el número de errores que existen en todos los números con $i$ bits, en dónde $num1$ tiene $a$ bits encendidos, $num2$ tiene $b$ bits encendidos.
 
-La respuesta estará en $dp[N][0][0][0]$, pues al principio tenemos $N$ bits por colocar, y al inicio comenzamos con dos números iguales y ninguno tiene bits encendidos. El caso base es $dp[0][A][B][f]$. Tenemos que ya haber colocado todos los bits, por lo que $num1$ necesita tener $A$ bits encendidos y $num2$ necesita tener $B$ bits encendidos y f depende de lo que estamos buscando.($A > B$, $A < B$ o $A = B$, para determinar cuales estados en $f$ causaran un error al final.
+La respuesta estará en $dp[N][A][B]$. En cada caso podemos prender ambos o no prender ninguno. Si en algún momento difiere, podemos usar n sobre k para calcular cuántas maneras fallarán a partir de ahí. Es importante siempre ir a estados válidos.
 
 Las transiciones son las siguientes:
 
-$dp[i][a][b][f]$ = Suma de:
+$dp[i][a][b]$ = Suma de:
 
-Encender solo en $num1$: $dp[i - 1][a + 1][b][f ? f : 1]$
+Encender solo en $num1$: $dp[i - 1][a - 1][b]$
 
-Encender solo en $num2$: $dp[i - 1][a][b + 1][f ? f : 2]$
+Encender solo en $num2$: $dp[i - 1][a][b - 1]$
 
-Encender en ambos: $dp[i - 1][a + 1][b + 1][f]$
+Encender en ambos: $dp[i - 1][a - 1][b - 1]$
 
-No encender en ninguno: $dp[i - 1][a][b][f]$
+No encender en ninguno: $dp[i - 1][a][b]$
 
 Esta dp tiene $N^3$ estados y 4 transiciones por lo que la complejidad final es $O(N^3)$, lo cual es suficiente para obtener los puntos de esta subtarea.
 

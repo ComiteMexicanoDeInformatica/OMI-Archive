@@ -1,43 +1,54 @@
 #include <cstring>
 #include <iostream>
+typedef long long ll;
 
-int N, A, B, correct;
-const int MAX = 205;
-const int MOD = 1e9 + 7;
-int memo[MAX][MAX][MAX][3];
+ll N, A, B, correct;
+const ll MAX = 205;
+const ll MOD = 1e9 + 7;
+ll memo[MAX][MAX][MAX];
+ll nck[MAX][MAX];
 
-// t = quien es mayor (2 = A / 1 = B / 0 = iguales)
-int dp(int pos, int a, int b, int t) {
-  if (memo[pos][a][b][t] != -1) return memo[pos][a][b][t];
+ll dp(ll pos, ll a, ll b) {
+  if (memo[pos][a][b] != -1) return memo[pos][a][b];
+  if (pos == 0) return 0;
 
-  if (pos > N) {
-    if (!a && !b && t != correct) return 1;
-    return 0;
+  ll ans = 0;
+  // Prende ambos
+  if (a > 0 && b > 0) ans = dp(pos - 1, a - 1, b - 1) % MOD;
+  // No prendas ninguno
+  ans = (ans + dp(pos - 1, a, b)) % MOD;
+  // Si solo prendemos A no habrá error, por lo que no lo consideraremos
+
+  // Solo prendemos B, causa error para todo adelante
+  if (b > 0) {
+    ll tmp = (nck[pos - 1][a] * nck[pos - 1][b - 1]) % MOD;
+    ans = (ans + tmp) % MOD;
   }
 
-  long long ans = 0;
-
-  // No prendas ninguno
-  ans = (ans + dp(pos + 1, a, b, t)) % MOD;
-
-  // Prende los dos
-  if (a > 0 && b > 0) ans = (ans + dp(pos + 1, a - 1, b - 1, t)) % MOD;
-
-  // Prende a, no b
-  if (a > 0) ans = (ans + dp(pos + 1, a - 1, b, (t ? t : 2))) % MOD;
-
-  // Prende b, no a
-  if (b > 0) ans = (ans + dp(pos + 1, a, b - 1, (t ? t : 1))) % MOD;
-
-  return memo[pos][a][b][t] = ans;
+  return memo[pos][a][b] = ans;
 }
 
 int main() {
   std::cin >> N >> A >> B;
   if (N > 200) exit(0);
-  if (A > B) correct = 2;
-  if (B > A) correct = 1;
+
+  for (ll n = 0; n <= N; n++)
+    for (ll k = 0; k <= n; k++) {
+      if (k == 0 or k == n)
+        nck[n][k] = 1;
+      else
+        nck[n][k] = (nck[n - 1][k] + nck[n - 1][k - 1]) % MOD;
+    }
+
+  if (A == B) {
+    ll ans = (nck[N][A] * nck[N][B]) % MOD;
+    ans = (ans - nck[N][A] + MOD) % MOD;
+    std::cout << ans << "\n";
+    exit(0);
+  }
+  if (A < B) std::swap(A, B);
+
   memset(memo, -1, sizeof memo);
-  std::cout << dp(1, A, B, 0) << "\n";
+  std::cout << dp(N, A, B) << "\n";
   return 0;
 }
