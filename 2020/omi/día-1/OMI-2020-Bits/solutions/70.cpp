@@ -17,7 +17,7 @@ ll dp(ll pos, ll a, ll b) {
   if (a > 0 && b > 0) ans = dp(pos - 1, a - 1, b - 1) % MOD;
   // No prendas ninguno
   ans = (ans + dp(pos - 1, a, b)) % MOD;
-  // Si solo prendemos A no habra error, por lo que no lo consideraremos
+  // Si solo prendemos A no habrá error, por lo que no lo consideraremos
 
   // Solo prendemos B, causa error para todo adelante
   if (b > 0) {
