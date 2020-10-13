@@ -13,7 +13,6 @@ Si tenemos un número $num$ con $A$ bits encendidos, y $A > B$, todos los númer
 
 Otras posible solución es crear dos arreglos, uno con todos los números con $A$ bits, y otro con todos los números con $B$ bits, y usar búsqueda binaria o dos punteros para obtener lo equivalente a los cálculos que teníamos en prefijos / sufijos.
 
-
 ## Subtarea 4 $(N \le 200)$
 
 En esta subtarea ya no es posible generar los números como un entero, pues exceden los límites incluso de un long long. Esto quiere decir que la solución involucra ver los números en su representación binaria y buscar alguna propiedad que nos ayude.
@@ -25,9 +24,9 @@ Prueba: Asumamos que el bit más significativo que difiere es $i$. Todos los bit
 
 Sabiendo esto, se puede ir construyendo la respuesta bit por bit, de más significativo a menos significativo, siempre manteniendo información de en que bit vamos, cuantos bits están prendidos en $num1$, cuántos en $num2$. En cada bit tenemos 4 opciones , $(0,0)$ , $(0,1)$, $(1,0)$ o $1,1$. Simular esto toma $4^N$, o equivalentemente $2^N*2^N$, la misma complejidad que la subtarea 1. Sin embargo, se puede ver ver que el problema cada vez se hace más pequeño (de tener $i$ bits a $i-1$ cada vez que determinamos uno). Además, muchos de estos subproblemas coinciden. Es decir, es posible reusar información y ahorrar operaciones.
 
-Sabiendo esto, se puede el problema con programación dinámica. Se define $dp[i][a][b]$ como el número de errores que existen en todos los números con $i$ bits, en dónde $num1$ tiene $a$ bits encendidos, $num2$ tiene $b$ bits encendidos. 
+Sabiendo esto, se puede el problema con programación dinámica. Se define $dp[i][a][b]$ como el número de errores que existen en todos los números con $i$ bits, en dónde $num1$ tiene $a$ bits encendidos, $num2$ tiene $b$ bits encendidos.
 
-La respuesta estará en $dp[N][A][B]$. En cada caso podemos prender ambos o no prender ninguno. Si en algun momento difiere, podemos usar n sobre k para calcular cuántas maneras fallaran a partir de ahi.  Es importante siempre ir a estados válidos. 
+La respuesta estará en $dp[N][A][B]$. En cada caso podemos prender ambos o no prender ninguno. Si en algun momento difiere, podemos usar n sobre k para calcular cuántas maneras fallaran a partir de ahi. Es importante siempre ir a estados válidos.
 
 Las transiciones son las siguientes:
 
