@@ -3,7 +3,7 @@
 using namespace std;
 
 /// Solución alternativa a Ovejas
-/// Créditos: Luis Martín Jim. Rdz.
+/// Créditos: Luis Martín Jiménez Rodríguez (ChOmPs)
 
 const int MAX = 1000;
 
