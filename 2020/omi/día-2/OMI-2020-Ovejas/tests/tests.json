@@ -9,6 +9,10 @@
       "verdict": "AC"
     },
     {
+      "filename": "../solutions/100C.cpp",
+      "verdict": "AC"
+    },
+    {
       "filename": "../solutions/parcialA.cpp",
       "score_range": [0.2, 0.2]
     },
