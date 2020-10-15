@@ -11,7 +11,7 @@ from omegaup.validator import validatortest
 class MyTest(unittest.TestCase):
     def test_input(self):
         with open('data.in', 'r') as f:
-	    original_input = f.read()
+	    	original_input = f.read()
 
         regex = re.compile(r'^(\d+) (\d+)\n$')
         results = re.match(regex, original_input).groups()
