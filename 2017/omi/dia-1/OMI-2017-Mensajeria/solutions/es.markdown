@@ -6,7 +6,7 @@ Si todas las rutas de envío tienen costo menor a $K$, entonces quita la ruta m�
 
 ## Justificación
 
-Una manera de justificar el algorimo anterior es la siguiente. Imagina un grafo con $N+1$ nodos inicialmente desconectados. Los $N$ primeros nodos son los cuarteles y el otro nodo es la central de envío. 
+Una manera de justificar el algorimo anterior es la siguiente. Imagina un grafo con $N+1$ nodos inicialmente desconectados. Los $N$ primeros nodos son los cuarteles y el otro nodo es la central de envío.
 
 El objetivo es entonces conectar todos estos nodos con el menor costo, donde las aristas posibles son las que van desde el nodo "central de envío" a todos cualquier $N$ cuartel con costo $K$ y además las que conectan los cuarteles $i$ con $i+1$ con costo $a_i$.
 
