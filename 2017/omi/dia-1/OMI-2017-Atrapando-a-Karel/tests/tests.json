@@ -1,0 +1,27 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solutionB.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/binaria_sin_esquinas_optimas.cpp",
+      "score_range": [0.1, 0.1]
+    },
+    {
+      "filename": "../solutions/binaria.cpp",
+      "score_range": [0.25, 0.25]
+    },
+    {
+      "filename": "../solutions/bloqueos_brutos.cpp",
+      "score_range": [0.7, 0.7]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}
