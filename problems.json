@@ -1,10 +1,13 @@
 {
   "problems": [
     {
-      "path": "2017/OMI-2017-Mensajeria"
+      "path": "2017/omi/dia-1/OMI-2017-Atrapando-a-Karel"
     },
     {
-      "path": "2017/OMI-2017-Logias"
+      "path": "2017/omi/dia-1/OMI-2017-Mensajeria"
+    },
+    {
+      "path": "2017/omi/dia-2/OMI-2017-Logias"
     },
     {
       "path": "2020/omi/práctica/OMI-2020-Practica-Fichas"
