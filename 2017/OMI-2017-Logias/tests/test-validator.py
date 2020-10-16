@@ -13,7 +13,7 @@ class MyTest(unittest.TestCase):
 		with open('data.in', 'r') as f:
 			original_input = f.read()
 
-		regex = re.compile(r'^(\d+) (\d+)\n$')
+		regex = re.compile(r'^(\d+) (\d+)$')
 		results = re.match(regex, original_input).groups()
 		self.assertEqual(len(results), 2)
 
