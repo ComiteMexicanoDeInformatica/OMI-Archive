@@ -26,14 +26,17 @@ class Test(unittest.TestCase):
         K = int(lines[0][1])
         self.assertTrue(0 <= N <= 10**6)
         self.assertTrue(0 <= K <= 1000)
+        self.assertEqual(len(lines), 2)
 
-        self.assertEqual(len(lines), N + 1)
+        arr = lines[1].split(' ')
+        ints = [int(v) for v in arr]
 
-        regex = re.compile(r'^(\d+)$')
-        for i in range(1, len(lines)):
-            self.assertTrue(regex.match(lines[i]))
-            ai = int(lines[i])
-            self.assertTrue(0 <= ai <= 1000)
+        self.assertEqual(len(ints), N)
+
+        self.assertTrue(all(
+            0 <= v <= 1000
+            for v in ints
+        ))
 
 
 if __name__ == '__main__':
