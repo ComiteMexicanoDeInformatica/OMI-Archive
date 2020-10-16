@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <cmath>
-#include <stdio>
-#include <stdlib>
+#include <cstdio>
+#include <cstdlib>
 
 #include "atrapando.h"
 
