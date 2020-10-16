@@ -88,7 +88,7 @@ int move(int dir) {
   }
   fprintf(stderr, "karel se movio a %d %d\n", fila_karel, columna_karel);
   if (columna_karel < 1 || columna_karel > n || fila_karel < 1 ||
-      fila_karel > n){
+      fila_karel > n) {
     fprintf(stderr, "karel logró escapar. n = %d\n", n);
     abortar();
   }
