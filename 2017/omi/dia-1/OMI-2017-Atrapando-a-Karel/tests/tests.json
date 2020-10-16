@@ -5,20 +5,16 @@
       "verdict": "AC"
     },
     {
-      "filename": "../solutions/solutionB.cpp",
-      "verdict": "AC"
-    },
-    {
       "filename": "../solutions/binaria_sin_esquinas_optimas.cpp",
-      "score_range": [0.1, 0.1]
+      "verdict": "WA"
     },
     {
       "filename": "../solutions/binaria.cpp",
-      "score_range": [0.25, 0.25]
+      "verdict": "WA"
     },
     {
       "filename": "../solutions/bloqueos_brutos.cpp",
-      "score_range": [0.7, 0.7]
+      "verdict": "AC"
     }
   ],
   "inputs": {
