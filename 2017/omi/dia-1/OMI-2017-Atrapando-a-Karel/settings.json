@@ -1,0 +1,33 @@
+{
+  "title": "Atrapando a Karel",
+  "source": "OMI 2017 (Alexis Cervantes)",
+
+  "limits": {
+    "TimeLimit": 1000,
+    "MemoryLimit": 419430400,
+    "InputLimit": 33554432,
+    "OutputLimit": 16384,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "literal",
+    "limits": {
+      "TimeLimit": 1000
+    }
+  },
+
+  "interactive": {
+    "ModuleName": "atrapando",
+    "ParentLang": "cpp17-gcc"
+  },
+
+  "misc": {
+    "alias": "OMI-2017-Atrapando-a-Karel",
+    "visibility": "public",
+    "languages": "all",
+    "email_clarifications": 0,
+    "admin-groups": ["comi-2020"]
+  }
+}
