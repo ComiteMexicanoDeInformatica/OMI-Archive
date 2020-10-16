@@ -32,22 +32,12 @@ La suma que minimice el costo de enviar un mensaje, considerando el costo de pon
 
 # Ejemplo
 
-||input
-4 5
-2
-6
-3
-8
-||output
-15
+||examplefile
+sample
 ||description
 Andrea pone una central en el cuartel $1$ y en el cuartel $3$, cada una con costo $K$ (5 para este caso). Luego para enviar el mensaje al cuartel $0$, se toma la ruta desde el cuartel $1$ (con costo 2, recuerda que las rutas son bidireccionales y el costo de enviar de $0$ a $1$ es el mismo que de $1$ a $0$) y para el cuartel $2$ se toma la ruta desde el cuartel $3$ (con un costo 3), los cuarteles 1 y 3 reciben el mensaje sin costo por tener una central de envío. La suma total del costo es 15 = 5 + 5 + 3 + 3.
-||input
-2 3
-2
-5
-||output
-5
+||examplefile
+sample2
 ||description
 Andrea pone una central en el cuartel $0$ y de éste se toma la ruta al cuartel $1$. El costo de poner una central en el cuartel $0$ es de 3. De ahí se envía al cuartel $1$ utilizando la ruta que va de $0$ a $1$ la cual tiene un costo 2. La suma del costo toal es 3 + 2 = 5.
 ||end
