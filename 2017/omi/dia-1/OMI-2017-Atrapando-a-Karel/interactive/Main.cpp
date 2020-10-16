@@ -27,6 +27,7 @@ int nsum, ssum, esum, wsum;
 
 int abortar() {
   puts("0.0");
+  fflush(stderr);
   exit(0);
 }
 
@@ -52,6 +53,7 @@ int puntaje() {
 
   printf("%.2f\n", score);
   fprintf(stderr, "%d %.2f\n", fcount, score);
+  fflush(stderr);
   exit(0);
 }
 
@@ -86,8 +88,10 @@ int move(int dir) {
   }
   fprintf(stderr, "karel se movio a %d %d\n", fila_karel, columna_karel);
   if (columna_karel < 1 || columna_karel > n || fila_karel < 1 ||
-      fila_karel > n)
+      fila_karel > n){
+    fprintf(stderr, "karel logró escapar. n = %d\n", n);
     abortar();
+  }
 }
 
 int its_a_trap(int d) {
