@@ -6,7 +6,8 @@
     },
     {
       "filename": "../solutions/solutionB.cpp",
-      "score_range": [0.93, 1]
+      "score_range": [0.95, 1],
+      "allow_fractional_percentages": true
     },
     {
       "filename": "../solutions/binaria_sin_esquinas_optimas.cpp",
