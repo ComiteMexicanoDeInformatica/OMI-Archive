@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+#include <cmath>
+
 #include "atrapando.h"
 
 using namespace std;
