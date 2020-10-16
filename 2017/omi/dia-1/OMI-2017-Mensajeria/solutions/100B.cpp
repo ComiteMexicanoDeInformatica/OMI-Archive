@@ -1,22 +1,22 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <algorithm>
 
 int n, k;
 int S;
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cin >> n >> k;
+  std::ios_base::sync_with_stdio(0);
+  std::cin.tie(0);
+  std::cin >> n >> k;
   int mayor = -(1 << 30);
   bool flag = false;
   for (int i = 0; i < n; i++) {
     int x;
-    cin >> x;
-    mayor = max(mayor, x);
+    std::cin >> x;
+    mayor = std::max(mayor, x);
     S += x < k ? x : k;
   }
   if (mayor < k) S += k - mayor;
-  cout << S << "\n";
+  std::cout << S << "\n";
   return 0;
 }
