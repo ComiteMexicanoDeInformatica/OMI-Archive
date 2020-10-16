@@ -26,7 +26,7 @@ class Test(unittest.TestCase):
         K = int(lines[0][1])
         self.assertTrue(0 <= N <= 10**6)
         self.assertTrue(0 <= K <= 1000)
-        self.assertEqual(len(lines), 3)
+        self.assertEqual(len(lines), 2)
 
         arr = lines[1].split(' ')
         ints = [int(v) for v in arr]
