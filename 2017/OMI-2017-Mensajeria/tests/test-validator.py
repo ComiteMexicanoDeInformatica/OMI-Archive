@@ -15,7 +15,6 @@ class Test(unittest.TestCase):
             original_input = handle.read()
 
         lines = original_input.split('\n')
-        self.assertEqual(lines[-1], '')
         lines.pop()
 
         regex = re.compile(r'^(\d+) (\d+)$')
