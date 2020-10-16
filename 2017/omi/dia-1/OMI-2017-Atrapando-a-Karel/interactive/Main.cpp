@@ -57,7 +57,7 @@ int puntaje() {
   exit(0);
 }
 
-int move(int dir) {
+void move(int dir) {
   // penaliza a ir en direccion contraria
   penalty[last_move] = 0;
   last_move = ((dir + 1) % 4) + 1;
