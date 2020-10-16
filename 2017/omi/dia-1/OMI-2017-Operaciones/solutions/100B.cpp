@@ -1,15 +1,15 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+
 #define MAX 2000009
 int n;
 int r;
 char v[MAX];
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cin >> n;
+  std::ios_base::sync_with_stdio(0);
+  std::cin.tie(0);
+  std::cin >> n;
   for (int i = n - 1; i >= 0; i--) {
-    cin >> v[i];
+    std::cin >> v[i];
   }
   for (int i = 0; i < n;) {
     if (i == n - 2 && v[i] == '1' && v[i + 1] == '1') {
@@ -35,5 +35,5 @@ int main() {
       r++;
     }
   }
-  cout << r << "\n";
+  std::cout << r << "\n";
 }
