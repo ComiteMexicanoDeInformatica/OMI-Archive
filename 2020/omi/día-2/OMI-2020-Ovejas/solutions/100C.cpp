@@ -51,8 +51,7 @@ int found(int x, int y, int d) {
 }
 
 int dist(int x, int y) {
-  int lo = 0;
-  int hi = MAX;
+  int lo = 0, hi = MAX;
   while (lo <= hi) {
     int mid = lo + (hi - lo) / 2;
     if (found(x, y, mid)) {
