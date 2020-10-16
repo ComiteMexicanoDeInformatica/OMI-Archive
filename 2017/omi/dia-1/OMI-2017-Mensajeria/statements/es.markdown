@@ -24,7 +24,7 @@ Ayuda a Andrea a minimizar el costo total de enviar un mensaje a todos los cuart
 
 # Entrada
 
-En la primera línea se encuentran los enteros $N$ y $K$. En las siguientes $N$ líneas hay un entero $a_i$ representando el costo de la ruta de mensajería del cuartel $i$ al cuartel $i+1$.
+En la primera línea se encuentran los enteros $N$ y $K$. En la segunda línea se encuentran $N$ enteros separados por un espacio. Cada entero $a_i$ representando el costo de la ruta de mensajería del cuartel $i$ al cuartel $i+1$.
 
 # Salida
 
