@@ -28,21 +28,15 @@ Un entero que indique la mínima cantidad de actos que tiene que hacer Ethan el 
 
 # Ejemplo
 
-||input
-2
-11
-||output
-2
+||examplefile
+sample
 ||description
 3->2->1
 El número inicial (en notación decimal) es 3.
 La primera operación es restarle 1, con lo que queda como 2.
 La segunda operación es dividirlo entre 2, con lo que se obtiene un 1 y el acto ha terminado después de 2 pasos.
-||input
-4
-1010
-||output
-4
+||examplefile
+sample2
 ||description
 10->5->4->2->1
 El número inicial en notación decimal es 10.
@@ -51,5 +45,5 @@ Se divide entre 2 para obtener 5, se le resta 1 para obtener 4, se divide entre 
 
 # Consideraciones
 
-- $2\leq N \leq 10^6$
-- Para un 27% de los casos $2\leq N \leq 20$
+- $2 \leq N \leq 10^6$
+- Para un 27% de los casos $2 \leq N \leq 20$
