@@ -5,6 +5,10 @@
       "verdict": "AC"
     },
     {
+      "filename": "../solutions/solutionB.cpp",
+      "score_range": [.9, 1]
+    },
+    {
       "filename": "../solutions/binaria_sin_esquinas_optimas.cpp",
       "verdict": "WA"
     },
