@@ -1,12 +1,8 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#define optimizar_io            \
-  ios_base::sync_with_stdio(0); \
-  cin.tie(0);
-using namespace std;
 
-bool completo(int u, int v, vector<vector<int> > &E) {
+bool completo(int u, int v, std::vector<std::vector<int> > &E) {
   int n = v - u + 1;
   int sum =
       E[v][v] + (u > 0 ? -E[v][u - 1] - E[u - 1][v] + E[u - 1][u - 1] : 0);
@@ -14,19 +10,19 @@ bool completo(int u, int v, vector<vector<int> > &E) {
 }
 
 int main() {
-  optimizar_io
+  std::ios_base::sync_with_stdio(0);
+  std::cin.tie(0);
 
-      int n,
-      m;
-  cin >> n >> m;
+  int n, m;
+  std::cin >> n >> m;
 
-  vector<vector<int> > E(n, vector<int>(n, 0));
+  std::vector<std::vector<int> > E(n, std::vector<int>(n, 0));
 
   int i, j;
   int u, v;
 
   for (i = 0; i < m; i++) {
-    cin >> u >> v;
+    std::cin >> u >> v;
     E[u][v]++;
     E[v][u]++;
   }
@@ -47,7 +43,7 @@ int main() {
       else
         break;
 
-  cout << res << "\n";
+  std::cout << res << "\n";
 
   return 0;
 }

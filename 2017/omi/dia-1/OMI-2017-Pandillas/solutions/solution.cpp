@@ -1,25 +1,21 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#define optimizar_io            \
-  ios_base::sync_with_stdio(0); \
-  cin.tie(0);
-using namespace std;
 
 int main() {
-  optimizar_io
+  std::ios_base::sync_with_stdio(0);
+  std::cin.tie(0);
 
-      int n,
-      m;
-  cin >> n >> m;
+  int n, m;
+  std::cin >> n >> m;
 
-  vector<pair<int, int> > E(m);
-  vector<int> largo(n), maximo(n);
+  std::vector<std::pair<int, int> > E(m);
+  std::vector<int> largo(n), maximo(n);
   int i;
 
   for (i = 0; i < m; i++) {
-    cin >> E[i].first >> E[i].second;
-    if (E[i].first > E[i].second) swap(E[i].first, E[i].second);
+    std::cin >> E[i].first >> E[i].second;
+    if (E[i].first > E[i].second) std::swap(E[i].first, E[i].second);
   }
   sort(E.begin(), E.end());
 
@@ -31,11 +27,11 @@ int main() {
   maximo[0] = 0;
   int res = 1;
   for (i = 1; i < n; i++) {
-    maximo[i] = max(maximo[i - 1], largo[i]);
-    res = max(res, i - maximo[i] + 1);
+    maximo[i] = std::max(maximo[i - 1], largo[i]);
+    res = std::max(res, i - maximo[i] + 1);
   }
 
-  cout << res << "\n";
+  std::cout << res << "\n";
 
   return 0;
 }

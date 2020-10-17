@@ -1,9 +1,10 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <algorithm>
+#include <iostream>
+
 const int MAXN = 1000002;
 
 int n, m;
-pair<int, int> aristas[MAXN];
+std::pair<int, int> aristas[MAXN];
 int R[MAXN];
 
 void init() {
@@ -21,23 +22,23 @@ void init() {
 }
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cin >> n >> m;
+  std::ios_base::sync_with_stdio(0);
+  std::cin.tie(0);
+  std::cin >> n >> m;
   for (int i = 0; i < m; i++) {
-    cin >> aristas[i].first >> aristas[i].second;
+    std::cin >> aristas[i].first >> aristas[i].second;
     if (aristas[i].first > aristas[i].second)
-      swap(aristas[i].first, aristas[i].second);
+      std::swap(aristas[i].first, aristas[i].second);
   }
   sort(aristas, aristas + m);
-  fill(R, R + n, 1);
+  std::fill(R, R + n, 1);
   init();
 
   int r = 1;
   for (int i = n - 2; i >= 0; i--) {
-    R[i] = min(R[i] - 1, R[i + 1]) + 1;
-    r = max(r, R[i]);
+    R[i] = std::min(R[i] - 1, R[i + 1]) + 1;
+    r = std::max(r, R[i]);
   }
-  cout << r << "\n";
+  std::cout << r << "\n";
   return 0;
 }

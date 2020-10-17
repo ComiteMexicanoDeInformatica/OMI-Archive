@@ -43,6 +43,7 @@ class Test(unittest.TestCase):
         for line in lines:
             regex = re.compile(r'^(\d+) (\d+)$')
             self.assertTrue(regex.match(line))
+            line = line.split(' ')
             a = int(line[0])
             b = int(line[1])
             self.assertTrue(0 <= a < N)
