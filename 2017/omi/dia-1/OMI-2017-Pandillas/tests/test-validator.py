@@ -29,13 +29,12 @@ class Test(unittest.TestCase):
         caseName = sys.argv[1]
         if 'small' in caseName:
             self.assertTrue(1 <= N <= 200)
-            self.assertTrue(1 <= M <= 1000)
         elif 'medium' in caseName:
             self.assertTrue(1 <= N <= 1000)
-            self.assertTrue(1 <= M <= 1000)
         else:
             self.assertTrue(1 <= N <= 1000000)
-            self.assertTrue(1 <= M <= 200000)
+        
+        self.assertTrue(1 <= M <= 200000)
 
         # En las siguientes M líneas las amistades
         lines = lines[1:]

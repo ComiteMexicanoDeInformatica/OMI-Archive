@@ -16,8 +16,5 @@
       "filename": "../solutions/chafa.cpp",
       "score_range": [0.0, 0.3]
     }
-  ],
-  "inputs": {
-    "filename": "test-validator.py"
-  }
+  ]
 }
