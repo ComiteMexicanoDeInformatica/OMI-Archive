@@ -10,7 +10,7 @@ int main() {
   std::cin >> n >> m;
 
   std::vector<std::pair<int, int> > E(m);
-  std::vector<int> largo(n);
+  std::vector<int> largo(n), maximo(n);
   int i;
 
   for (i = 0; i < m; i++) {
@@ -21,10 +21,14 @@ int main() {
 
   for (i = 0; i < n; i++) largo[i] = i;
 
-  int res = 1;
-  for (i = m - 1; i >= 0; i--) {
+  for (i = m - 1; i >= 0; i--)
     if (largo[E[i].second] == E[i].first + 1) largo[E[i].second] = E[i].first;
-    res = std::max(res, E[i].second - largo[E[i].second] + 1);
+
+  maximo[0] = 0;
+  int res = 1;
+  for (i = 1; i < n; i++) {
+    maximo[i] = std::max(maximo[i - 1], largo[i]);
+    res = std::max(res, i - maximo[i] + 1);
   }
 
   std::cout << res << "\n";
