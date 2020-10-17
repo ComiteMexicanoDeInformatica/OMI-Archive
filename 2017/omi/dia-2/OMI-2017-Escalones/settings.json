@@ -12,7 +12,7 @@
   },
 
   "validator": {
-    "name": "token-caseless",
+    "name": "literal",
     "limits": {
       "TimeLimit": 1000
     }
