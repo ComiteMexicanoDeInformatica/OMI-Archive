@@ -20,23 +20,12 @@ Un entero representando el tamaño del grupo más grande de personas que cumplan
 
 # Ejemplo
 
-||input
-4 4
-0 3
-1 2
-0 2
-1 0
-||output
-3
+||examplefile
+sample
 ||description
 Las personas 0, 1 y 2 forman el grupo más grande de amigos que se conocen todos entre sí y que además son números consecutivos.
-||input
-2 1
-0 1
-||output
-2
-||description
-
+||examplefile
+sample2
 ||end
 
 # Consideraciones
