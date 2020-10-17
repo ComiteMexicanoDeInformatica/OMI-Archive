@@ -1,0 +1,27 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/20A.cpp",
+      "score_range": [0.2, 0.2]
+    },
+    {
+      "filename": "../solutions/40.cpp",
+      "score_range": [0.4, 0.4]
+    },
+    {
+      "filename": "../solutions/chafa.cpp",
+      "score_range": [0.0, 0.0]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}
