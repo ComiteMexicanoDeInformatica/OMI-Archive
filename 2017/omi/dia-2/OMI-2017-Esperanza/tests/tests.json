@@ -1,0 +1,27 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/Sol_Hash.pas",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solutionB.cpp",
+      "score_range": [0.24, 0.6]
+    },
+    {
+      "filename": "../solutions/solutionC.cpp",
+      "verdict": "RTE"
+    },
+    {
+      "filename": "../solutions/solutionD.cpp",
+      "score_range": [0.94, 0.94]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}
