@@ -5,7 +5,8 @@
   "limits": {
     "TimeLimit": 3000,
     "MemoryLimit": 33554432,
-    "OutputLimit": 210000,
+    "InputLimit": 10240,
+    "OutputLimit": 33554432,
     "ExtraWallTime": 0,
     "OverallWallTimeLimit": 60000
   },
@@ -18,11 +19,11 @@
   },
 
   "misc": {
-    "alias": "OMI2018-Metro",
+    "alias": "OMI-2018-Metro",
     "visibility": 0,
     "languages": "all",
     "email_clarifications": 0,
-    "admin-groups": ["OMI-2018"],
+    "admin-groups": ["OMI-2020"],
     "tags": ["omi2018"]
   }
 }
