@@ -5,6 +5,7 @@
   "limits": {
     "TimeLimit": 2000,
     "MemoryLimit": 134217728,
+    "InputLimit": 10240,
     "OutputLimit": 16384,
     "ExtraWallTime": 0,
     "OverallWallTimeLimit": 60000
@@ -18,11 +19,11 @@
   },
 
   "misc": {
-    "alias": "OMI2018-Mapa",
+    "alias": "OMI-2018-Mapa",
     "visibility": 0,
     "languages": "all",
     "email_clarifications": 0,
-    "admin-groups": ["OMI-2018"],
+    "admin-groups": ["OMI-2020"],
     "tags": ["omi2018"]
   }
 }
