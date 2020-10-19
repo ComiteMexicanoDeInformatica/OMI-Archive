@@ -5,6 +5,7 @@
   "limits": {
     "TimeLimit": 1000,
     "MemoryLimit": 33554432,
+    "InputLimit": 10240,
     "OutputLimit": 16384,
     "ExtraWallTime": 0,
     "OverallWallTimeLimit": 60000

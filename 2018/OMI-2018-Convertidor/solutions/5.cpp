@@ -91,7 +91,7 @@ int main() {
         z--;
         k1.push_back(troy[z] + 'A');
       }
-      cout << k1 << endl;
+      //cout << k1 << endl;
       if (k1 == k) {
         cout << res;
         return 0;

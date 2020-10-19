@@ -1,26 +1,24 @@
 {
   "solutions": [
     {
-      "filename": "solutions/100A.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/100B.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solutionB.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/ParcialA.cpp",
-      "score": 50
+      "filename": "../solutions/50A.cpp",
+      "score_range": [0.5, 0.5]
     },
     {
-      "filename": "solutions/ParcialB.cpp",
-      "score": 50
+      "filename": "../solutions/50B.cpp",
+      "score_range": [0.5, 0.5]
     },
     {
-      "filename": "solutions/ParcialC.cpp",
-      "score": 5
+      "filename": "../solutions/5.cpp",
+      "score_range": [0.02, 0.02]
     }
   ],
   "inputs": {
