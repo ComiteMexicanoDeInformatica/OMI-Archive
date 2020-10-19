@@ -5,6 +5,7 @@
   "limits": {
     "TimeLimit": 2000,
     "MemoryLimit": 536870912,
+    "InputLimit": 10240,
     "OutputLimit": 16384,
     "ExtraWallTime": 0,
     "OverallWallTimeLimit": 60000
@@ -18,7 +19,7 @@
   },
 
   "misc": {
-    "alias": "OMI2018-Guacamole",
+    "alias": "OMI-2018-Guacamole",
     "visibility": 0,
     "languages": "all",
     "email_clarifications": 0,
