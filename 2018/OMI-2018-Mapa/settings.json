@@ -23,7 +23,6 @@
     "visibility": 0,
     "languages": "all",
     "email_clarifications": 0,
-    "admin-groups": ["OMI-2020"],
-    "tags": ["omi2018"]
+    "admin-groups": ["comi-2020"]
   }
 }
