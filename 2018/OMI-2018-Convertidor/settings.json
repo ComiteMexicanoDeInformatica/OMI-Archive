@@ -5,6 +5,7 @@
   "limits": {
     "TimeLimit": 1000,
     "MemoryLimit": 33554432,
+    "InputLimit": 10240,
     "OutputLimit": 16384,
     "ExtraWallTime": 0,
     "OverallWallTimeLimit": 60000
@@ -22,7 +23,7 @@
     "visibility": 0,
     "languages": "all",
     "email_clarifications": 0,
-    "admin-groups": ["OMI-2018"],
+    "admin-groups": ["OMI-2020"],
     "tags": ["omi2018"]
   }
 }
