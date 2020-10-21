@@ -19,11 +19,10 @@
   },
 
   "misc": {
-    "alias": "OMI-2018-Mapa",
+    "alias": "OMI2018-Mapa",
     "visibility": 0,
     "languages": "all",
     "email_clarifications": 0,
-    "admin-groups": ["comi-2020"],
-    "tags": ["omi2018"]
+    "admin-groups": ["comi-2020"]
   }
 }
