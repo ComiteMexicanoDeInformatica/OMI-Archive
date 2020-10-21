@@ -28,8 +28,5 @@
       "filename": "../solutions/mod2B.cpp",
       "verdict": "WA"
     }
-  ],
-  "inputs": {
-    "filename": "test-validator.py"
-  }
+  ]
 }
