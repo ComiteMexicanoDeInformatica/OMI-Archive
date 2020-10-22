@@ -5,6 +5,7 @@
   "limits": {
     "TimeLimit": 1000,
     "MemoryLimit": 33554432,
+    "InputLimit": 10240,
     "OutputLimit": 16384,
     "ExtraWallTime": 0,
     "OverallWallTimeLimit": 60000
@@ -18,11 +19,10 @@
   },
 
   "misc": {
-    "alias": "OMI2018-Papalote",
+    "alias": "OMI-2018-Papalote",
     "visibility": 0,
     "languages": "all",
     "email_clarifications": 0,
-    "admin-groups": ["OMI-2018"],
-    "tags": ["omi2018"]
+    "admin-groups": ["comi-2020"]
   }
 }
