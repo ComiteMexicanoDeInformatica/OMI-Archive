@@ -52,7 +52,7 @@ jobs:
         # When the utils/ directory is changed, run all tests to avoid
         # regressions. Exit status of 0 means "unmodified".
         if git diff-tree --quiet ${{ env.GITHUB_BASE_COMMIT }} ${{ env.GITHUB_CURRENT_COMMIT }} -- utils/ || \
-           git log --format=%B ${{ env.GITHUB_BASE_COMMIT }} ${{ env.GITHUB_CURRENT_COMMIT }} | grep -q "#ci-run-all" ; then
+           git log --format=%B ${{ env.GITHUB_BASE_COMMIT }}..${{ env.GITHUB_CURRENT_COMMIT }} | grep -q "#ci-run-all" ; then
           echo "CI_FLAGS=--ci" >> $GITHUB_ENV
         else
           echo "CI_FLAGS=--ci --all" >> $GITHUB_ENV
