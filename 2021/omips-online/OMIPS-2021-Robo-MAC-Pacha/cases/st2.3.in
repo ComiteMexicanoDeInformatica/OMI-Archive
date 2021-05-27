@@ -1,0 +1,36 @@
+<ejecucion>
+        <condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000">
+            <comando nombre="AVANZA" maximoNumeroDeEjecuciones="400"/>
+        </condiciones>
+        <mundos>
+            <mundo nombre="mundo_0" ancho="25" alto="2">
+                <monton x="1" y="2" zumbadores="1"></monton>
+                <monton x="2" y="1" zumbadores="1"></monton>
+                <monton x="25" y="1" zumbadores="1"></monton>
+                <monton x="24" y="1" zumbadores="1"></monton>
+                <monton x="21" y="2" zumbadores="1"></monton>
+                <monton x="20" y="2" zumbadores="1"></monton>
+                <monton x="11" y="2" zumbadores="1"></monton>
+                <monton x="21" y="1" zumbadores="1"></monton>
+                <monton x="8" y="1" zumbadores="1"></monton>
+                <monton x="5" y="2" zumbadores="1"></monton>
+                <monton x="19" y="2" zumbadores="1"></monton>
+                <monton x="14" y="1" zumbadores="1"></monton>
+                <monton x="17" y="2" zumbadores="1"></monton>
+                <monton x="4" y="2" zumbadores="1"></monton>
+                <monton x="13" y="1" zumbadores="1"></monton>
+                <monton x="17" y="1" zumbadores="1"></monton>
+                <monton x="5" y="1" zumbadores="1"></monton>
+                <monton x="13" y="2" zumbadores="1"></monton>
+                <monton x="4" y="1" zumbadores="1"></monton>
+                <monton x="23" y="1" zumbadores="1"></monton>
+                <monton x="10" y="2" zumbadores="1"></monton>
+                <monton x="11" y="1" zumbadores="1"></monton>
+            </mundo>
+        </mundos>
+        <programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+            <programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="1" yKarel="1" direccionKarel="NORTE" mochilaKarel="INFINITO">
+                <despliega tipo="UNIVERSO"></despliega>
+            </programa>
+        </programas>
+    </ejecucion>

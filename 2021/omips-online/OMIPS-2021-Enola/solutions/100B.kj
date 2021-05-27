@@ -1,0 +1,103 @@
+class program {
+  void norte() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void oeste() {
+    while (!facingWest) turnleft();
+  }
+
+  void este() {
+    while (!facingEast) turnleft();
+  }
+
+  void pared() {
+    while (frontIsClear) move();
+  }
+
+  void checa(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      if (!nextToABeeper) {
+        norte();
+        move();
+        iterate (x) putbeeper();
+        sur();
+        move();
+        este();
+      }
+    }
+  }
+
+  void graba(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      graba(succ(x));
+    } else {
+      iterate (x) putbeeper();
+      if (frontIsClear) {
+        move();
+        graba(0);
+        oeste();
+        pared();
+        este();
+      } else {
+        este();
+        pared();
+        norte();
+        move();
+        este();
+        move();
+        sur();
+        move();
+        este();
+      }
+      // Los unos los transformamos en x
+      checa(x);
+      while (frontIsClear) {
+        move();
+        checa(x);
+      }
+    }
+  }
+
+  void baja() {
+    if (nextToABeeper) {
+      pickbeeper();
+      baja();
+      putbeeper();
+    } else {
+      if (frontIsClear) {
+        move();
+        baja();
+        move();
+      } else {
+        sur();
+        move();
+        oeste();
+      }
+    }
+  }
+
+  program() {
+    este();
+    pared();
+    oeste();
+    graba(0);
+    oeste();
+    while (frontIsClear) {
+      while (nextToABeeper) pickbeeper();
+      move();
+    }
+    while (nextToABeeper) pickbeeper();
+    norte();
+    move();
+    este();
+    baja();
+    turnoff();
+  }
+}

@@ -1,0 +1,68 @@
+iniciar-programa
+  define-prototipo-instrucción direccion(n);
+
+  define-nueva-instrucción norte como inicio
+    mientras no-orientado-al-norte hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción oeste como inicio
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción sur como inicio
+    mientras no-orientado-al-sur hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción este como inicio
+    mientras no-orientado-al-este hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción regresa como inicio
+    sur;
+    mientras frente-libre hacer avanza;
+    norte;
+  fin;
+
+  {recoger y avanzar recursivamente}
+  define-nueva-instrucción paso(n) como inicio
+    coge-zumbador;
+    si junto-a-zumbador entonces inicio
+      paso(sucede(n));
+    fin si-no inicio
+      oeste;
+      avanza;
+      direccion(0);
+    fin;
+    avanza;
+  fin;
+
+  {recoger y girar recursivamente}
+  define-nueva-instrucción direccion(n) como inicio
+    coge-zumbador;
+    si junto-a-zumbador entonces inicio
+      direccion(sucede(n));
+    fin si-no inicio
+      sur;
+      si frente-libre entonces inicio
+        avanza;
+        este;
+        avanza;
+        paso(0);
+      fin;
+      {antes de empezar a girar debemos estar viendo al este}
+      este;
+    fin;
+    gira-izquierda;
+  fin;
+
+  inicia-ejecución
+    {primero nos movemos a la última instrucción para ejecutarlas en el orden correcto}
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+    sur;
+    avanza;
+    este;
+    avanza;
+    paso(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

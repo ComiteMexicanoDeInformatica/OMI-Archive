@@ -1,0 +1,16 @@
+iniciar-programa
+  define-nueva-instrucción súper-avanza como inicio
+    si frente-bloqueado entonces gira-izquierda;
+    avanza;
+    si junto-a-zumbador entonces súper-avanza;
+  fin;
+
+  inicia-ejecución
+    mientras algún-zumbador-en-la-mochila hacer inicio
+      súper-avanza;
+      súper-avanza;
+      deja-zumbador;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa
