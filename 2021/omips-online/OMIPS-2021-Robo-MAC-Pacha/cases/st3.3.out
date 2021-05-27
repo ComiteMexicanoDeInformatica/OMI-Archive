@@ -1,0 +1,32 @@
+<resultados>
+	<mundos>
+		<mundo nombre="mundo_0">
+			<linea fila="40" compresionDeCeros="true">(1) 1 </linea>
+			<linea fila="39" compresionDeCeros="true">(4) 1 </linea>
+			<linea fila="35" compresionDeCeros="true">(7) 1 </linea>
+			<linea fila="34" compresionDeCeros="true">(11) 1 </linea>
+			<linea fila="33" compresionDeCeros="true">(14) 1 </linea>
+			<linea fila="29" compresionDeCeros="true">(20) 1 </linea>
+			<linea fila="28" compresionDeCeros="true">(22) 1 </linea>
+			<linea fila="27" compresionDeCeros="true">(23) 1 </linea>
+			<linea fila="25" compresionDeCeros="true">(26) 1 </linea>
+			<linea fila="24" compresionDeCeros="true">(30) 1 </linea>
+			<linea fila="20" compresionDeCeros="true">(31) 1 </linea>
+			<linea fila="18" compresionDeCeros="true">(34) 1 </linea>
+			<linea fila="17" compresionDeCeros="true">(38) 1 </linea>
+			<linea fila="16" compresionDeCeros="true">(39) 1 </linea>
+			<linea fila="13" compresionDeCeros="true">(40) 1 </linea>
+			<linea fila="11" compresionDeCeros="true">(42) 1 </linea>
+			<linea fila="9" compresionDeCeros="true">(44) 1 </linea>
+			<linea fila="8" compresionDeCeros="true">(47) 1 </linea>
+			<linea fila="7" compresionDeCeros="true">(48) 1 </linea>
+			<linea fila="6" compresionDeCeros="true">(50) 1 </linea>
+			<linea fila="5" compresionDeCeros="true">(51) 1 </linea>
+			<linea fila="1" compresionDeCeros="true">(53) 1 </linea>
+		</mundo>
+	</mundos>
+	<programas>
+		<programa nombre="p1" resultadoEjecucion="FIN PROGRAMA"/>
+	</programas>
+</resultados>
+
