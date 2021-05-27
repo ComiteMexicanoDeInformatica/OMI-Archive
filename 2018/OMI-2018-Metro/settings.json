@@ -19,8 +19,8 @@
   },
 
   "misc": {
-    "alias": "OMI-2018-Metro",
-    "visibility": 0,
+    "alias": "OMI2018-Metro",
+    "visibility": "public",
     "languages": "all",
     "email_clarifications": 0,
     "admin-groups": ["comi-2020"]
