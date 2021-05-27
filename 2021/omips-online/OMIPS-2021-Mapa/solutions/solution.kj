@@ -1,0 +1,62 @@
+class program {
+  void sur() {
+    while (notFacingSouth) turnleft();
+  }
+
+  void est() {
+    while (notFacingEast) turnleft();
+  }
+
+  void nor() {
+    while (notFacingNorth) turnleft();
+  }
+
+  void wes() {
+    while (notFacingWest) turnleft();
+  }
+
+  void ProcesaGiros() {
+    if (nextToABeeper()) {
+      pickbeeper();
+      ProcesaGiros();
+      turnleft();
+    } else {
+      sur();
+      if (frontIsClear) move();
+      ProcesaInstruccion();
+      est();
+    }
+  }
+
+  void ProcesaMovimientos() {
+    if (nextToABeeper) {
+      pickbeeper();
+      ProcesaMovimientos();
+      move();
+    } else {
+      wes();
+      move();
+      ProcesaGiros();
+    }
+  }
+
+  void ProcesaInstruccion() {
+    if (nextToABeeper) {
+      est();
+      move();
+      ProcesaMovimientos();
+    }
+  }
+
+  program() {
+    nor();
+    while (frontIsClear && nextToABeeper) move();
+    sur();
+    if (notNextToABeeper && frontIsClear) {
+      move();
+    }
+    ProcesaInstruccion();
+    ;
+    turnoff();
+  }
+}

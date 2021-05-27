@@ -1,0 +1,75 @@
+iniciar-programa
+  define-prototipo-instrucción busca(altura);
+
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
+
+  {usamos recursion para limpiar hasta la pared y volver a la casilla actual}
+  define-nueva-instrucción limpia como inicio
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces coge-zumbador;
+      limpia;
+      avanza;
+    fin si-no inicio
+      gira(2);
+    fin;
+  fin;
+
+  {avanza n veces o hasta llegar a pared o zumbador}
+  define-nueva-instrucción avanza-veces(n) como inicio
+    repetir n veces inicio
+      si frente-libre y no-junto-a-zumbador entonces inicio
+        avanza;
+      fin si-no inicio
+        sal-de-instrucción;
+      fin;
+    fin;
+    gira(2);
+  fin;
+
+  {usamos recursion con parametros para contar la altura y con esto buscamos en la siguiente columna}
+  define-nueva-instrucción cuenta-altura(altura) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      cuenta-altura(sucede(altura));
+    fin si-no inicio
+      si izquierda-bloqueada entonces apágate;
+      gira-izquierda;
+      avanza;
+      gira-izquierda;
+      busca(altura);
+    fin;
+  fin;
+
+  {busca el primer zumbador solo hasta la altura definida }
+  define-nueva-instrucción busca(altura) como inicio
+    avanza-veces(altura);
+
+    si orientado-al-norte y frente-bloqueado entonces inicio
+      gira(2);
+      si no-junto-a-zumbador entonces inicio
+        {caso cuando no ha encontrado el primero}
+        cuenta-altura(1);
+      fin si-no inicio
+        {caso cuando el primero está hasta el norte}
+        cuenta-altura(0);
+      fin;
+    fin;
+
+    {todos los demas}
+    si orientado-al-sur entonces inicio
+      gira(2);
+      si junto-a-zumbador entonces coge-zumbador;
+    fin;
+
+    limpia;
+    cuenta-altura(0);
+  fin;
+
+  inicia-ejecución
+    busca(101);
+    apágate;
+  termina-ejecución
+finalizar-programa

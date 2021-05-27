@@ -1,0 +1,20 @@
+<resultados>
+	<mundos>
+		<mundo nombre="mundo_0">
+			<linea fila="21" compresionDeCeros="true">(1) 57 </linea>
+			<linea fila="19" compresionDeCeros="true">(1) 2 </linea>
+			<linea fila="16" compresionDeCeros="true">(1) 63 </linea>
+			<linea fila="15" compresionDeCeros="true">(1) 2 </linea>
+			<linea fila="14" compresionDeCeros="true">(1) 7 </linea>
+			<linea fila="9" compresionDeCeros="true">(1) 1 </linea>
+			<linea fila="8" compresionDeCeros="true">(1) 2 </linea>
+			<linea fila="7" compresionDeCeros="true">(1) 49 </linea>
+			<linea fila="5" compresionDeCeros="true">(1) 3 </linea>
+			<linea fila="4" compresionDeCeros="true">(1) 30 </linea>
+		</mundo>
+	</mundos>
+	<programas>
+		<programa nombre="p1" resultadoEjecucion="FIN PROGRAMA"/>
+	</programas>
+</resultados>
+

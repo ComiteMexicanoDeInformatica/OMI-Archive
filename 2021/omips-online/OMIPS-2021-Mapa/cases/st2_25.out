@@ -1,0 +1,8 @@
+<resultados>
+	<programas>
+		<programa nombre="p1" resultadoEjecucion="FIN PROGRAMA">
+			<karel x="12" y="55"/>
+		</programa>
+	</programas>
+</resultados>
+

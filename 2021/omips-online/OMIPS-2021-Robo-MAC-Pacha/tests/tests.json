@@ -1,0 +1,43 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/parcialA.kj",
+      "score_range": [0.9, 0.9]
+    },
+    {
+      "filename": "../solutions/parcialB.kp",
+      "score_range": [0.4, 0.5]
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_left.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../default_bad_solutions/put_beeper.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../default_bad_solutions/north.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../default_bad_solutions/south.kp",
+      "score_range": [0, 0]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

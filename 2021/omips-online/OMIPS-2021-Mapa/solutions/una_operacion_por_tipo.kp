@@ -1,0 +1,104 @@
+iniciar-programa
+  define-prototipo-instrucción base;
+
+  define-nueva-instrucción norte como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      norte;
+      mientras no-orientado-al-norte hacer gira-izquierda;
+      avanza;
+    fin si-no inicio
+      avanza;
+      gira-izquierda;
+      si frente-libre entonces avanza;
+      base;
+    fin;
+  fin;
+
+  define-nueva-instrucción oeste como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      oeste;
+      mientras no-orientado-al-oeste hacer gira-izquierda;
+      avanza;
+    fin si-no inicio
+      avanza;
+      gira-izquierda;
+      si frente-libre entonces avanza;
+      base;
+    fin;
+  fin;
+
+  define-nueva-instrucción sur como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      sur;
+      mientras no-orientado-al-sur hacer gira-izquierda;
+      avanza;
+    fin si-no inicio
+      avanza;
+      gira-izquierda;
+      si frente-libre entonces avanza;
+      base;
+    fin;
+  fin;
+
+  define-nueva-instrucción este como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      este;
+      mientras no-orientado-al-este hacer gira-izquierda;
+      avanza;
+    fin si-no inicio
+      avanza;
+      gira-izquierda;
+      si frente-libre entonces avanza;
+      base;
+    fin;
+  fin;
+
+  define-nueva-instrucción base como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            gira-izquierda;
+            avanza;
+            repetir 2 veces gira-izquierda;
+            este;
+          fin si-no inicio
+            gira-izquierda;
+            avanza;
+            repetir 2 veces gira-izquierda;
+            sur;
+          fin;
+        fin si-no inicio
+          gira-izquierda;
+          avanza;
+          repetir 2 veces gira-izquierda;
+          oeste;
+        fin;
+      fin si-no inicio
+        gira-izquierda;
+        avanza;
+        repetir 2 veces gira-izquierda;
+        norte;
+      fin;
+    fin si-no inicio
+      gira-izquierda;
+      gira-izquierda;
+    fin;
+  fin;
+
+  inicia-ejecución
+    repetir 3 veces si junto-a-zumbador y frente-libre entonces avanza;
+    gira-izquierda;
+    gira-izquierda;
+    si no-junto-a-zumbador entonces avanza;
+    base;
+  termina-ejecución
+finalizar-programa
