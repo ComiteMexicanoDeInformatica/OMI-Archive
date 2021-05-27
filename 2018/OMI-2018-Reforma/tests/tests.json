@@ -1,28 +1,24 @@
 {
   "solutions": [
     {
-      "filename": "solutions/100A.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/100B.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solutionB.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/ParcialA.cpp",
-      "verdict": "TLE",
-      "score": 56
+      "filename": "../solutions/solutionC.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/ParcialB.cpp",
-      "score": 56
+      "filename": "../solutions/solutionD.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/ParcialCubica.cpp",
-      "verdict": "TLE",
-      "score": 56
+      "filename": "../solutions/ParcialCubica.cpp",
+      "score_range": [0.56, 0.56]
     }
   ],
   "inputs": {

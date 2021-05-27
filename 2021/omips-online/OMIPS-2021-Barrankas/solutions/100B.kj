@@ -1,0 +1,141 @@
+class program {
+  void north() {
+    while (notFacingNorth) turnleft();
+  }
+
+  void south() {
+    while (notFacingSouth) turnleft();
+  }
+
+  void east() {
+    while (notFacingEast) turnleft();
+  }
+
+  void west() {
+    while (notFacingWest) turnleft();
+  }
+
+  void bump() {
+    while (frontIsClear) move();
+  }
+
+  void remember(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      remember(succ(x));
+    } else {
+      iterate (x) putbeeper();
+
+      if (!frontIsBlocked) {
+        move();
+        if (nextToABeeper) {
+          remember(0);
+        } else {
+          north();
+        }
+      } else {
+        north();
+      }
+      if (facingNorth) {
+        west();
+        bump();
+        south();
+        move();
+        east();
+        move();
+
+        pickbeeper();
+        south();
+      }
+
+      if (facingSouth) {
+        if (nextToABeeper) {
+          pickbeeper();
+          return();
+        }
+
+        north();
+        move();
+
+        east();
+        while (nextToABeeper && frontIsClear) {
+          move();
+        }
+
+        west();
+        if (!nextToABeeper) {
+          move();
+        }
+      }
+
+      iterate (x) {
+        if (nextToABeeper) pickbeeper();
+      }
+
+      move();
+    }
+  }
+
+  void countForMax(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      countForMax(succ(x));
+    } else {
+      if (frontIsClear) {
+        move();
+        getMax(x);
+      } else {
+        north();
+        move();
+        iterate (x) putbeeper();
+        turnoff();
+      }
+    }
+  }
+
+  void getMax(x) {
+    iterate (x) {
+      if (nextToABeeper) {
+        pickbeeper();
+      }
+    }
+
+    iterate (x) {
+      putbeeper();
+    }
+
+    countForMax(0);
+  }
+
+  void moveForMax() {
+    if (nextToABeeper) {
+      pickbeeper();
+      moveForMax();
+      move();
+    } else {
+      north();
+      move();
+      east();
+    }
+  }
+
+  program() {
+    move();
+
+    east();
+    remember(0);
+
+    while (nextToABeeper) {
+      while (nextToABeeper) pickbeeper();
+      if (frontIsClear) move();
+    }
+
+    south();
+    move();
+    pickbeeper();
+    moveForMax();
+
+    west();
+    getMax(0);
+  }
+}

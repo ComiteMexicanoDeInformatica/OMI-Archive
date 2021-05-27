@@ -1,0 +1,11 @@
+iniciar-programa
+  inicia-ejecución
+    mientras algún-zumbador-en-la-mochila hacer inicio
+      deja-zumbador;
+      deja-zumbador;
+      si frente-bloqueado entonces gira-izquierda;
+      avanza;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa

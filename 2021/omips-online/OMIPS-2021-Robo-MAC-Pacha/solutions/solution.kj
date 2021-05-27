@@ -1,0 +1,90 @@
+// < 2NM avanzas
+class program {
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void norte() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void este() {
+    while (!facingEast) turnleft();
+  }
+
+  void oeste() {
+    while (!facingWest) turnleft();
+  }
+
+  void transicionPinta(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      if (frontIsClear) {
+        move();
+        transicionPinta(x);
+      } else {
+        este();
+        if (frontIsClear) {
+          move();
+          norte();
+          pinta(x);
+        }
+      }
+    } else {
+      if (frontIsClear) {
+        move();
+        transicionPinta(succ(x));
+      } else {
+        este();
+        if (frontIsClear) {
+          move();
+          norte();
+          pinta(succ(x));
+        }
+      }
+    }
+  }
+
+  // x representa la altura a la cual
+  // todo debería estar pintado de 1s
+  void pinta(x) {
+    if (iszero(x)) {
+      if (!nextToABeeper) putbeeper();
+      if (frontIsClear) {
+        move();
+        pinta(0);
+      } else {
+        sur();
+        transicionPinta(0);
+      }
+    } else {
+      if (nextToABeeper) {
+        putbeeper(); // El se vuelve el crack
+        if (frontIsClear) {
+          move();
+          pinta(0);
+        } else {
+          sur();
+          transicionPinta(0);
+        }
+      } else {
+        if (frontIsClear) {
+          move();
+          pinta(pred(x));
+        } else {
+          sur();
+          transicionPinta(0);
+        }
+      }
+    }
+  }
+
+  program() {
+    pinta(200); // Un valor más grande que N
+    turnoff();
+  }
+}
