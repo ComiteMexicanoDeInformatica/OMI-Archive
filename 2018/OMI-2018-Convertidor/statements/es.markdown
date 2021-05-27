@@ -17,8 +17,7 @@ En la segunda línea un entero $X$ o una cadena $S$ dependiendo del tipo de conv
 
 # Salida
 
-La cadena $S$ que representa a $X$ si la conversión es de tipo 0, o el entero $X$ que representa
-a la cadena $S$ si la conversión es de tipo 1.
+La cadena $S$ que representa a $X$ si la conversión es de tipo 0, o el entero $X$ que representa a la cadena $S$ si la conversión es de tipo 1.
 
 # Ejemplo
 

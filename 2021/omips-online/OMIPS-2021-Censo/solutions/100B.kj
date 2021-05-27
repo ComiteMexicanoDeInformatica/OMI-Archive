@@ -1,0 +1,71 @@
+class program {
+  define mediaVuelta() {
+    iterate (2) turnleft();
+  }
+
+  define buscaSalidaIzq() {
+    while (frontIsClear && !leftIsClear) move();
+  }
+
+  define veAlOrigen() {
+    while (!facingSouth) turnleft();
+    while (frontIsClear) move();
+    mediaVuelta();
+    buscaSalidaIzq();
+    while (leftIsClear) {
+      if (leftIsClear) turnleft();
+      move();
+      turnleft();
+      while (frontIsClear) move();
+      mediaVuelta();
+      buscaSalidaIzq();
+    }
+    mediaVuelta();
+    while (frontIsClear) move();
+    mediaVuelta();
+  }
+
+  define memorizarBeepers() {
+    if (nextToABeeper) {
+      pickbeeper();
+      memorizarBeepers();
+      putbeeper();
+    } else {
+      aprendeElMapa();
+    }
+  }
+
+  define aprendeElMapa() {
+    if (nextToABeeper) {
+      memorizarBeepers();
+    } else {
+      if (frontIsClear) {
+        move();
+        aprendeElMapa();
+        move();
+      } else {
+        mediaVuelta();
+        buscaSalidaIzq();
+        if (leftIsClear) {
+          turnleft();
+          move();
+          iterate (3) turnleft();
+          while (frontIsClear) move();
+          mediaVuelta();
+          aprendeElMapa();
+        } else {
+          veAlOrigen();
+        }
+        while (!facingNorth) turnleft();
+        while (frontIsClear) move();
+        mediaVuelta();
+      }
+    }
+  }
+
+  program() {
+    veAlOrigen();
+    aprendeElMapa();
+    turnoff();
+  }
+}

@@ -1,0 +1,56 @@
+iniciar-programa
+  define-nueva-instrucción pos como inicio
+    gira-izquierda;
+    gira-izquierda;
+    gira-izquierda;
+    avanza;
+  fin;
+
+  define-nueva-instrucción camina-este como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces
+        camina-este
+      si-no si no-junto-a-zumbador entonces inicio
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+        avanza;
+        mientras no-orientado-al-este hacer inicio
+          gira-izquierda;
+        fin;
+      fin;
+    fin;
+    avanza;
+  fin;
+
+  define-nueva-instrucción camina-norte como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces
+        camina-norte
+      si-no si no-junto-a-zumbador entonces inicio
+        mientras no-orientado-al-oeste hacer gira-izquierda;
+        avanza;
+        mientras no-orientado-al-norte hacer inicio
+          gira-izquierda;
+        fin;
+      fin;
+    fin;
+    avanza;
+  fin;
+
+  inicia-ejecución
+    coge-zumbador;
+    si no-junto-a-zumbador entonces inicio
+      pos;
+      camina-norte;
+      apágate;
+    fin;
+    coge-zumbador;
+    si no-junto-a-zumbador entonces inicio
+      pos;
+      camina-este;
+      apágate;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa

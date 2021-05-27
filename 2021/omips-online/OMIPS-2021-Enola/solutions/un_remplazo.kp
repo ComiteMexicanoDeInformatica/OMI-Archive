@@ -1,0 +1,107 @@
+iniciar-programa
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción acomodar como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      acomodar;
+      si orientado-al-norte entonces inicio
+        si frente-libre entonces
+          avanza
+        si-no
+          gira(2);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción g(n) como inicio
+    gira(3);
+    mientras frente-libre hacer avanza;
+    repetir n veces deja-zumbador;
+    gira(2);
+    avanza;
+    mientras no-junto-a-zumbador hacer avanza;
+    gira(3);
+    coge-zumbador;
+  fin;
+
+  define-nueva-instrucción f(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      f(sucede(n));
+    fin si-no inicio
+      mientras frente-libre hacer inicio
+        si junto-a-zumbador entonces
+          g(n)
+        si-no
+          avanza;
+      fin;
+      si junto-a-zumbador entonces g(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción clipex(n) como inicio
+    si junto-a-zumbador entonces inicio
+      gira(1);
+      mientras junto-a-zumbador hacer inicio
+        coge-zumbador;
+        repetir n veces avanza;
+        deja-zumbador;
+        gira(2);
+        repetir n veces avanza;
+        gira(2);
+      fin;
+      repetir n veces avanza;
+      gira(3);
+      f(0);
+    fin si-no inicio
+      si frente-libre entonces
+        avanza
+      si-no
+        apágate;
+      clipex(sucede(n));
+    fin;
+  fin;
+
+  inicia-ejecución
+    gira(3);
+    (*mientras frente-libre hacer avanza;*)
+    repetir 0 veces si frente-libre entonces avanza;
+
+    gira(1);
+    repetir 3 veces inicio
+      avanza;
+      gira(3);
+    fin;
+    gira(3);
+
+    mientras derecha-libre hacer inicio
+      acomodar;
+      si orientado-al-norte entonces inicio
+        deja-zumbador;
+        gira(2);
+      fin;
+      mientras frente-libre hacer avanza;
+      gira(1);
+      avanza;
+      gira(1);
+    fin;
+    acomodar;
+    si orientado-al-norte entonces deja-zumbador;
+
+    mientras no-orientado-al-oeste hacer gira(1);
+    mientras frente-libre hacer avanza;
+    gira(1);
+    mientras frente-libre hacer avanza;
+    gira(1);
+
+    mientras frente-libre o frente-bloqueado hacer inicio
+      clipex(1);
+      gira(2);
+      mientras frente-libre hacer avanza;
+      gira(1);
+      mientras frente-libre hacer avanza;
+      gira(1);
+    fin;
+  termina-ejecución
+finalizar-programa

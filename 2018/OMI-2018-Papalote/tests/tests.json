@@ -1,22 +1,20 @@
 {
   "solutions": [
     {
-      "filename": "solutions/100A.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/100B.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solutionB.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/ParcialA.cpp",
-      "score": 32
+      "filename": "../solutions/32.cpp",
+      "score_range": [0.32, 0.32]
     },
     {
-      "filename": "solutions/Sincambios.cpp",
-      "score": 1
+      "filename": "../solutions/Sincambios.cpp",
+      "score_range": [0.01, 0.01]
     }
   ],
   "inputs": {

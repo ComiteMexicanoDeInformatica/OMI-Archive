@@ -1,0 +1,21 @@
+iniciar-programa
+  define-nueva-instrucción gira(n) como inicio
+    repetir n veces gira-izquierda;
+  fin;
+
+  define-nueva-instrucción mitad como inicio
+    si frente-libre entonces avanza;
+    si frente-libre entonces inicio
+      avanza;
+      mitad;
+      avanza;
+    fin si-no
+      gira(2);
+  fin;
+
+  inicia-ejecución
+    mitad;
+    gira(1);
+    mitad;
+  termina-ejecución
+finalizar-programa
