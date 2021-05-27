@@ -20,7 +20,7 @@
 
   "misc": {
     "alias": "OMIPS-2021-Robo-MAC-Pacha",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "karel",
     "email_clarifications": 0,
     "admin-groups": ["comi-2021"]
