@@ -1,0 +1,35 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../solutions/move.kp",
+      "score_range": [0, 0.06]
+    },
+    {
+      "filename": "../solutions/wall.kp",
+      "score_range": [0, 0.06]
+    },
+    {
+      "filename": "../solutions/half_way.kp",
+      "score_range": [0, 0.06]
+    },
+    {
+      "filename": "../solutions/inverse.kp",
+      "score_range": [0, 0.06]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

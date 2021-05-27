@@ -1,0 +1,7 @@
+iniciar-programa
+  inicia-ejecución
+    gira-izquierda;
+    mientras frente-libre hacer avanza;
+    apágate;
+  termina-ejecución
+finalizar-programa

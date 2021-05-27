@@ -1,0 +1,75 @@
+class program {
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void norte() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void este() {
+    while (!facingEast) turnleft();
+  }
+
+  void oeste() {
+    while (!facingWest) turnleft();
+  }
+
+  void pared() {
+    while (frontIsClear) move();
+  }
+
+  void llegaEsquina() {
+    sur();
+    pared();
+    norte();
+    while (leftIsBlocked && frontIsClear) move();
+    if (leftIsClear) {
+      turnleft();
+      pared();
+      llegaEsquina();
+    } else {
+      sur();
+      pared();
+      norte();
+    }
+  }
+
+  void recorre() {
+    if (nextToABeeper) {
+      pickbeeper();
+      recorre();
+      putbeeper();
+    } else if (frontIsClear) {
+      move();
+      recorre();
+      move();
+    } else {
+      sur();
+      while (leftIsBlocked && frontIsClear) move();
+      if (leftIsClear) {
+        turnleft();
+        move();
+        sur();
+        pared();
+        norte();
+        recorre();
+      } else {
+        llegaEsquina();
+      }
+      norte();
+      pared();
+      sur();
+    }
+  }
+
+  program() {
+    llegaEsquina();
+    recorre();
+    turnoff();
+  }
+}

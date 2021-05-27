@@ -1,0 +1,97 @@
+iniciar-programa
+  {esta solución recorre todas las columnas y le pone un zumbador extra al zumbadopr mas al sur
+  despues recorre todas las filas y le pone un zumbador extra al zumbador mas a la izquierda
+  al final recorre todo el mundo y le resta 2 zumbadores a todas las casillas}
+
+  define-nueva-instrucción norte como inicio
+    mientras no-orientado-al-norte hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción oeste como inicio
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción sur como inicio
+    mientras no-orientado-al-sur hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción este como inicio
+    mientras no-orientado-al-este hacer gira-izquierda;
+  fin;
+
+  define-nueva-instrucción busca-fila como inicio
+    mientras frente-libre y no-junto-a-zumbador hacer avanza;
+    si junto-a-zumbador entonces deja-zumbador;
+    oeste;
+    si frente-bloqueado entonces inicio
+      {si el zumbador estaba en la primar casilla ya no sigas buscando}
+      sal-de-instrucción;
+    fin;
+    mientras frente-libre hacer avanza;
+    si derecha-libre entonces inicio
+      norte;
+      avanza;
+      este;
+      busca-fila;
+    fin;
+  fin;
+
+  define-nueva-instrucción busca-columna como inicio
+    mientras frente-libre y no-junto-a-zumbador hacer avanza;
+    si junto-a-zumbador entonces deja-zumbador;
+    sur;
+    si frente-bloqueado entonces inicio
+      {si el zumbador estaba en la primar casilla ya no sigas buscando}
+      sal-de-instrucción;
+    fin;
+    mientras frente-libre hacer avanza;
+    si izquierda-libre entonces inicio
+      gira-izquierda;
+      avanza;
+      gira-izquierda;
+      busca-columna;
+    fin;
+  fin;
+
+  define-nueva-instrucción super-avanza como inicio
+    si frente-libre entonces inicio
+      avanza;
+    fin si-no inicio
+      este;
+      si frente-bloqueado entonces apágate;
+      avanza;
+      si derecha-libre entonces inicio
+        sur;
+      fin si-no inicio
+        norte;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción limpia como inicio
+    mientras si-es-cero(0) hacer inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      si junto-a-zumbador entonces coge-zumbador;
+      super-avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    { buscamos el beeper mas al sur de cada columna }
+    busca-columna;
+    { buscamos el beeper mas a la izquierda de cada fila }
+    oeste;
+    mientras frente-libre hacer avanza;
+    este;
+    { buscamos el beeper mas a la izquierda de cada fila }
+    busca-fila;
+
+    { recorremos todo y quitamos 2 zumbadores de todos los montones}
+    norte;
+    mientras frente-libre hacer avanza;
+    sur;
+    limpia;
+
+    apágate;
+  termina-ejecución
+finalizar-programa
