@@ -1,0 +1,20 @@
+class program {
+  void paso() {
+    if (frontIsBlocked) turnleft();
+    move();
+  }
+
+  void libre() {
+    paso();
+    while (nextToABeeper) paso();
+  }
+
+  program() {
+    while (anyBeepersInBeeperBag) {
+      libre();
+      libre();
+      putbeeper();
+    }
+    turnoff();
+  }
+}

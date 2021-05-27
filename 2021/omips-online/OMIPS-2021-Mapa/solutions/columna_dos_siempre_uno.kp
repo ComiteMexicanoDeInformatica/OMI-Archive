@@ -1,0 +1,46 @@
+iniciar-programa
+  define-nueva-instrucción f(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si junto-a-zumbador entonces inicio
+            coge-zumbador;
+            si frente-libre entonces avanza;
+            f(4);
+            mientras no-orientado-al-este hacer gira-izquierda;
+            avanza;
+          fin si-no inicio
+            si frente-libre entonces avanza;
+            f(3);
+            mientras no-orientado-al-sur hacer gira-izquierda;
+            avanza;
+          fin;
+        fin si-no inicio
+          si frente-libre entonces avanza;
+          f(2);
+          mientras no-orientado-al-oeste hacer gira-izquierda;
+          avanza;
+        fin;
+      fin si-no inicio
+        si frente-libre entonces avanza;
+        f(1);
+        mientras no-orientado-al-norte hacer gira-izquierda;
+        avanza;
+      fin;
+    fin si-no inicio
+      gira-izquierda;
+      gira-izquierda;
+    fin;
+  fin;
+
+  inicia-ejecución
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+    gira-izquierda;
+    gira-izquierda;
+    si no-junto-a-zumbador entonces avanza;
+    f(0);
+  termina-ejecución
+finalizar-programa

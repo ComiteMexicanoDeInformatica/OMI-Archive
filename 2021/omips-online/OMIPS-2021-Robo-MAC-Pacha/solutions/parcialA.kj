@@ -1,0 +1,90 @@
+// Algo así como O(8NM) jaja
+class program {
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void norte() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void este() {
+    while (!facingEast) turnleft();
+  }
+
+  void oeste() {
+    while (!facingWest) turnleft();
+  }
+
+  void checa() {
+    oeste();
+    if (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        turn(2);
+        move();
+        sur();
+        return();
+      }
+      turn(2);
+      move();
+    }
+    norte();
+  }
+
+  void pinta() {
+    checa();
+    if ((nextToABeeper && facingNorth) || (!nextToABeeper && !facingNorth)) {
+      putbeeper();
+      norte();
+      while (frontIsClear) {
+        move();
+        if (!nextToABeeper) putbeeper();
+      }
+    }
+
+    norte();
+    if (frontIsClear) {
+      move();
+      pinta();
+    } else {
+      este();
+      if (frontIsClear) {
+        move();
+        sur();
+        while (frontIsClear) move();
+        norte();
+        pinta();
+      }
+    }
+  }
+
+  void despinta() {
+    if (nextToABeeper) pickbeeper();
+    if (frontIsClear) {
+      move();
+      despinta();
+    } else {
+      oeste();
+      if (frontIsClear) {
+        move();
+        if (leftIsClear)
+          turnleft();
+        else
+          turn(3);
+        despinta();
+      }
+    }
+  }
+
+  program() {
+    pinta();
+    sur();
+    despinta();
+    turnoff();
+  }
+}

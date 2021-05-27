@@ -1,0 +1,144 @@
+class program {
+  void turn(a) {
+    iterate (a) turnleft();
+  }
+
+  void norte() {
+    while (!facingNorth) turnleft();
+  }
+
+  void sur() {
+    while (!facingSouth) turnleft();
+  }
+
+  void este() {
+    while (!facingEast) turnleft();
+  }
+
+  void oeste() {
+    while (!facingWest) turnleft();
+  }
+
+  void pared() {
+    while (frontIsClear) move();
+  }
+
+  void copia(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      copia(succ(x));
+      putbeeper();
+    } else {
+      iterate (x) putbeeper();
+      if (frontIsClear) {
+        move();
+        if (nextToABeeper) {
+          copia(0);
+          move();
+        } else {
+          oeste();
+          pared();
+          norte();
+          move();
+          este();
+        }
+      } else {
+        oeste();
+        pared();
+        norte();
+        move();
+        este();
+      }
+    }
+  }
+
+  void reverse() {
+    if (nextToABeeper) {
+      pickbeeper();
+      reverse();
+      putbeeper();
+    } else if (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        reverse();
+        move();
+      } else {
+        oeste();
+        pared();
+        este();
+      }
+    } else {
+      oeste();
+      pared();
+      este();
+    }
+  }
+
+  void resta(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      resta(succ(x));
+      if (nextToABeeper) pickbeeper();
+    } else {
+      iterate (x) putbeeper();
+      if (frontIsClear) {
+        move();
+        resta(0);
+        move();
+      } else {
+        norte();
+        move();
+        este();
+      }
+    }
+  }
+
+  void cuenta(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      cuenta(succ(x));
+    } else {
+      iterate (x) putbeeper();
+      oeste();
+      move();
+      norte();
+      move();
+      este();
+      iterate (pred(x)) move();
+      copia(0);
+      oeste();
+      pared();
+      este();
+      reverse();
+      sur();
+      move();
+      este();
+      while (nextToABeeper && frontIsClear) move();
+      turn(2);
+      if (!nextToABeeper) move();
+      iterate (pred(x)) move();
+      resta(0);
+    }
+  }
+
+  void acarreaMayor(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      acarreaMayor(succ(x));
+    } else {
+      move();
+      iterate (x) if (nextToABeeper) pickbeeper();
+      iterate (x) putbeeper();
+    }
+  }
+
+  program() {
+    este();
+    move();
+    cuenta(0);
+    oeste();
+    while (frontIsClear) acarreaMayor(0);
+    este();
+    turnoff();
+  }
+}
