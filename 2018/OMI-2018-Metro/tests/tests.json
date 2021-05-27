@@ -1,37 +1,32 @@
 {
   "solutions": [
     {
-      "filename": "solutions/100A.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/100B.cpp",
-      "verdict": "AC",
-      "score": 100
+      "filename": "../solutions/solutionB.cpp",
+      "verdict": "AC"
     },
     {
-      "filename": "solutions/ParcialA.cpp",
-      "score": 15
+      "filename": "../solutions/15.cpp",
+      "verdict": "RTE"
     },
     {
-      "filename": "solutions/onlyS.cpp",
-      "score": 0
+      "filename": "../solutions/onlyS.cpp",
+      "verdict": "WA"
     },
     {
-      "filename": "solutions/onlyN.cpp",
-      "score": 0
+      "filename": "../solutions/onlyN.cpp",
+      "verdict": "WA"
     },
     {
-      "filename": "solutions/mod2A.cpp",
-      "score": 0
+      "filename": "../solutions/mod2A.cpp",
+      "verdict": "WA"
     },
     {
-      "filename": "solutions/mod2B.cpp",
-      "score": 0
+      "filename": "../solutions/mod2B.cpp",
+      "verdict": "WA"
     }
-  ],
-  "inputs": {
-    "filename": "test-validator.py"
-  }
+  ]
 }
