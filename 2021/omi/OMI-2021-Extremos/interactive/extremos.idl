@@ -1,0 +1,8 @@
+interface Main {
+	bool esMenor(int i, int j);
+	void respuesta(int posMenor, int posMayor);
+};
+
+interface extremos {
+	void buscaExtremos(int n);
+};
