@@ -35,7 +35,7 @@ class Test(unittest.TestCase):
         #Verificar que si esté en los limites
 
         caseName = sys.argv[1]
-        limN = 2000
+        limN = 50000
         lowF = 1
         lowC = 1
         highF = 1e9
@@ -58,7 +58,9 @@ class Test(unittest.TestCase):
             highF = 500
             highC = 500
             limN = 100
-        elif not 'sub6' in caseName:
+        elif 'sub6' in caseName:
+            limN = 2000
+        elif not 'sub7' in caseName:
             self.fail(f"Invalid case name: {caseName}")
 
 

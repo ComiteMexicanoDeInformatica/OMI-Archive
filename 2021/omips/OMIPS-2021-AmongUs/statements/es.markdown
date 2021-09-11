@@ -2,7 +2,7 @@ Probablemente hayas jugado _Among Us_. Si no lo has hecho, es un juego multi-jug
 
 Los amigos de Karel están jugando _Among Us_ en el patio de la escuela. Uno de los amigos es _el impostor_ y la tarea de Karel es descubrirlo. Los amigos de Karel ya descubrieron quién es _el impostor_. Para ayudar a Karel, cada jugador, incluido _el impostor_, le dice a Karel a qué distancia se encuentra del _impostor_. Todos los jugadores dicen la verdad, salvo _el impostor_ que obviamente está mintiendo.
 
-El patio es un mundo rectangular sin paredes internas en dónde los jugadores están representados como montones de zumbadores. La cantidad de zumbadores en el montón que representa al jugador indica la distancia entre él y _el impostor_. La distancia se mide como la cantidad mínima de `avanza / move` que necesitaría el jugador para llegar desde su posición hasta la posición en la que se encuentra _el impostor_.
+El patio es un mundo rectangular sin paredes internas en dónde los jugadores están representados como montones de zumbadores. En el montón que representa al jugador, la cantidad de zumbadores indica la distancia entre él y _el impostor_. La distancia se mide como la cantidad mínima de `avanza / move` que necesitaría el jugador para llegar desde su posición hasta la posición en la que se encuentra _el impostor_.
 
 # Problema
 

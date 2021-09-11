@@ -3,6 +3,14 @@
     {
       "filename": "../solutions/solution.cpp",
       "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1.cpp",
+      "score_range": [0.36, 0.36]
+    },
+    {
+      "filename": "../solutions/sol_sub2.cpp",
+      "score_range": [0.72, 0.72]
     }
   ],
   "inputs": {

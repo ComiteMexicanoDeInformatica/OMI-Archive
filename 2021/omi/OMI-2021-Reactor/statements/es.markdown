@@ -27,7 +27,7 @@ Cuando un reactor falla se dice que la planta entra en _crisis_. Hay tres tipos 
 
 - **Bajo nivel:** En esta _crisis_, si se repara la falla del reactor inicialmente _inestable_, el resto de los reactores vuelve a la normalidad al cabo de un tiempo.
 - **Grave:** En esta _crisis_, si se elimina la falla del reactor inicialmente _inestable_, existe un conjunto de reactores que quedan en _inestabilidad simple_.
-- **Severa:** Crisis en la que si se elimna la falla del reactor inicialmente inestable, existe un conjunto de reactores que quedan en _inestabilidad compuesta_.
+- **Severa:** Crisis en la que si se elimina la falla del reactor inicialmente inestable, existe un conjunto de reactores que quedan en _inestabilidad compuesta_.
 
 Quieres estar preparado (te gustaría impresionar a Homero) así que piensas escribir un programa que pueda decirte qué pasaría si falla alguno de los reactores.
 
@@ -42,7 +42,7 @@ Escribe un programa que dada la configuración de los reactores y un posible rea
 # Entrada
 
 - La primera línea contiene los números $N$, $M$ y $R$. La cantidad de reactores, la cantidad de conexiones y el número de reactor que falla.
-- Las siguientes $M$ líneas contiene dos enteros $a$ y $b$ indicando que la conexión va del reactor $a$ al reactor $b$.
+- Las siguientes $M$ líneas contiene dos enteros $a$ y $b$ indicando que la conexión va del reactor $a$ al reactor $b$. **Un reactor nunca está conectado a sí mismo.**
 
 # Salida
 

@@ -1,4 +1,4 @@
-Marco acaba de descubrir la secuencia de Fibonacci. La secuencia de Fibonacci es una secuencia númerica muy famosa de los números $1, 1, 2, 3, 5, 8, 13, 21, 34, ...$. Al _i-ésimo_ término de la secuencia de Fibonacci se le llama $F_i$.
+Marco acaba de descubrir la _secuencia de Fibonacci_. La _secuencia de Fibonacci_ es una secuencia númerica muy famosa de los números $1, 1, 2, 3, 5, 8, 13, 21, 34, ...$. Al _i-ésimo_ término de la secuencia de Fibonacci se le llama $F_i$.
 
 El siguiente número de la secuencia se obtiene sumando los dos anteriores, por ejemplo:
 
@@ -18,7 +18,7 @@ Ayuda a Marco a experimentar con diferentes valores iniciales para que pueda ele
 
 Escribe un programa que sea capaz de contestar las preguntas de Marco.
 
-**NOTA: ** Debido a que los valores en la _secuencia de Marconacci_ pueden ser **muy** grandes deberás expresar el resultado módulo $10^9 + 7$. Recuerda que para sacar el módulo en C/C++ se usa el operador `%` y que para manipular números de ese rango lo recomendable es utilizar variables de tipo `long long`.
+**NOTA:** Debido a que los valores en la _secuencia de Marconacci_ pueden ser **muy** grandes deberás expresar el resultado módulo $10^9 + 7$. Recuerda que para sacar el módulo en C/C++ se usa el operador `%` y que para manipular números de ese rango lo recomendable es utilizar variables de tipo `long long int`.
 
 # Entrada
 
@@ -28,6 +28,8 @@ Escribe un programa que sea capaz de contestar las preguntas de Marco.
 # Salida
 
 - Debes escribir $P$ líneas, una por cada pregunta. La línea debe contener un entero que representa el valor del término solicitado módulo $10^9 + 7$.
+
+**NOTA:** El módulo es el residuo que deja un número al ser dividido por otro. Por ejemplo: $10 módulo 3 = 1$ porque 10 deja residuo 1 al ser dividido por 3. En C++ esa operación puede hacerse escribiendo `10 % 3` (eso, para C++, significa "10 módulo 3"). En el caso del problema debes usar $10^9 + 7 = 1000000007$ en vez de $3$ como el módulo a aplicar.
 
 # Ejemplo
 
@@ -66,6 +68,6 @@ La quinta pregunta te permitirá ver si estás haciendo un correcto manejo de el
 
 - **(5 puntos)**: $i \leq 30$
 - **(10 puntos)**: $P = 1$
-- **(15 puntos)**: El valor de $A$ y $B$ es el mismo para todas las preguntas.
+- **(15 puntos)**: En todas las preguntas se utiliza el mismo valor de $A$ y de $B$.
 - **(30 puntos)**: $P, i \leq 1000$
 - **(40 puntos)**: Sin restricciones adicionales

@@ -1,8 +1,8 @@
 {
   "title": "Encuentra Extremos",
-  "source": "OMI 2021 (Diego Garc�a Rodr�guez del Campo)",
+  "source": "OMI 2021 (Diego García Rodríguez del Campo)",
   "limits": {
-    "TimeLimit": 1000,
+    "TimeLimit": 200,
     "MemoryLimit": 134217728,
     "InputLimit": 67108864,
     "OutputLimit": 67108864,
@@ -13,7 +13,7 @@
   "validator": {
     "name": "literal",
     "limits": {
-      "TimeLimit": 1200
+      "TimeLimit": 60000
     }
   },
 
@@ -23,10 +23,11 @@
   },
 
   "misc": {
-    "alias": "dummy-omi",
+    "alias": "omi-2021-extremos",
     "visibility": "private",
     "languages": "all",
     "email_clarifications": 0,
-    "admin-groups": ["comi-2021"]
+    "group_score_policy": "min",
+    "admin-groups": ["omi-nac-2021"]
   }
 }

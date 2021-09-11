@@ -8,7 +8,7 @@ A Karel le interesa saber si la lista que tiene le servirá para construir una _
 
 # Problema
 
-Ayuda a Karel a determinar si la lista que tiene le servirá para construir una _secuencia ordeanada_ y se quede orientado al norte en caso de que sí y orientado al sur en caso de que no.
+Ayuda a Karel a determinar si la lista que tiene le servirá para construir una _secuencia ordenada_ y se quede orientado al norte en caso de que sí y orientado al sur en caso de que no.
 
 # Ejemplo
 

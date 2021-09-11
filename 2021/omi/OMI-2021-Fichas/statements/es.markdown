@@ -4,7 +4,7 @@ Un movimiento válido consta de elegir cualesquiera dos fichas de una misma fila
 
 Una _columna completa_ es aquella que tiene fichas de los $N$ colores distintos.
 
-Un jugador puede realizar tantos movimientos como quiera antes de terminar el juego. Una vez terminado el juego el jugador recibirá un punto por cada _columna completa_ que haya logrado.
+Un jugador puede realizar tantos movimientos como quiera antes de terminar el juego. Una vez terminado el juego el jugador recibirá puntos por cada _columna completa_ que haya logrado.
 
 # Problema
 

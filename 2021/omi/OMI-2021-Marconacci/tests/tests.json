@@ -7,6 +7,18 @@
     {
       "filename": "../solutions/100B.cpp",
       "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/100C.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1_sub2_sub4.cpp",
+      "score_range": [0.15, 0.45]
+    },
+    {
+      "filename": "../solutions/sol_sub3.cpp",
+      "score_range": [0.25, 0.25]
     }
   ],
   "inputs": {

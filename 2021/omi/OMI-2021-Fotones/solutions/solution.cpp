@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <vector>
 #define MAX 100005
 
 struct Espejo {
@@ -153,7 +154,7 @@ int queryO(int x, int y) {
   if (e.t == '/')
     return dfs(4 * e.id + SUR);
   else
-    return dfs(4 * e.id + ESTE);
+    return dfs(4 * e.id + NORTE);
 }
 
 bool cmpX(int a, int b) {
@@ -172,9 +173,9 @@ void agregaHorizontal(Espejo a, Espejo b) {
   else
     nxt[4 * a.id + ESTE] = 4 * b.id + SUR;
   if (a.t == '/')
-    nxt[4 * b.id + OESTE] = 4 * b.id + SUR;
+    nxt[4 * b.id + OESTE] = 4 * a.id + SUR;
   else
-    nxt[4 * b.id + OESTE] = 4 * b.id + NORTE;
+    nxt[4 * b.id + OESTE] = 4 * a.id + NORTE;
 }
 
 void agregaVertical(Espejo a, Espejo b) {
@@ -183,9 +184,9 @@ void agregaVertical(Espejo a, Espejo b) {
   else
     nxt[4 * a.id + NORTE] = 4 * b.id + OESTE;
   if (a.t == '/')
-    nxt[4 * b.id + SUR] = 4 * b.id + OESTE;
+    nxt[4 * b.id + SUR] = 4 * a.id + OESTE;
   else
-    nxt[4 * b.id + SUR] = 4 * b.id + ESTE;
+    nxt[4 * b.id + SUR] = 4 * a.id + ESTE;
 }
 
 void construyeGrafo() {
@@ -222,15 +223,21 @@ int main() {
   }
 
   construyeGrafo();
+
+  std::vector<int> results;
+
   std::cin >> Q;
   while (Q--) {
     char t;
     int x, y;
     std::cin >> t >> x >> y;
-    if (t == 'N') std::cout << queryN(x, y) << "\n";
-    if (t == 'S') std::cout << queryS(x, y) << "\n";
-    if (t == 'E') std::cout << queryE(x, y) << "\n";
-    if (t == 'O') std::cout << queryO(x, y) << "\n";
+    if (t == 'N') results.push_back(queryN(x, y));
+    if (t == 'S') results.push_back(queryS(x, y));
+    if (t == 'E') results.push_back(queryE(x, y));
+    if (t == 'O') results.push_back(queryO(x, y));
   }
+
+  for (auto r : results) std::cout << r << "\n";
+
   return 0;
 }

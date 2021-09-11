@@ -61,7 +61,7 @@ int main() {
   rep(i, 1, n) {
     if (causas[i] == 1 && tipo == bajo_nivel)
       tipo = grave;
-    else if (causas[i] == 2)
+    else if (causas[i] >= 2)
       tipo = severa;
   }
 

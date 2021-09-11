@@ -1,7 +1,7 @@
 {
   "solutions": [
     {
-      "filename": "../solutions/solution.cpp",
+      "filename": "../solutions/sol100B.cpp",
       "verdict": "AC"
     }
   ],

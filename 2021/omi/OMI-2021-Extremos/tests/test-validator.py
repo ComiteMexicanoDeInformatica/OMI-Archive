@@ -28,7 +28,7 @@ class Test(unittest.TestCase):
 		self.assertEqual(len(lines), 2)
 		#Verificar que si N este en los limites
 
-		self.assertTrue(2 <= N <= 1e5)
+		self.assertTrue(2 <= N <= 500)
 
         	#Verificar que los elementos esten en los limites
 		arr  = lines[1].split(' ')

@@ -19,10 +19,11 @@
   },
 
   "misc": {
-    "alias": "dummy-omi",
+    "alias": "omips-2021-arcade",
     "visibility": "private",
     "languages": "karel",
     "email_clarifications": 0,
-    "admin-groups": ["comi-2021"]
+    "group_score_policy": "min",
+    "admin-groups": ["omi-nac-2021"]
   }
 }

@@ -4,9 +4,11 @@ Cuando Karel lanza el frisbee lo hace con una fuerza $N$. Por cada unidad de fue
 
 ![Movimientos](movimientos.png)
 
+Lee la explicación de los ejemplos, en particular la del segundo ejemplo, para que te sea más claro el movimiento.
+
 Karel quiere saber con cuánta fuerza debe lanzar el frisbee para que llegue a la posición deseada.
 
-El mundo de Karel es un rectángulo sin paredes internas que representa el campo de juego. La posición dónde debe caer el frisbee está representada por un montón con $1$ zumbador y es el único zumbador en el mundo. Karel inicia en alguna posición del campo orientado al norte.
+El mundo de Karel es un rectángulo sin paredes internas que representa el campo de juego. La posición donde debe caer el frisbee está representada por un montón con $1$ zumbador y es el único zumbador en el mundo. Karel inicia en alguna posición del campo orientado al norte.
 
 # Problema
 
@@ -22,7 +24,7 @@ En este mundo Karel necesitaría lanzar el frisbee con una fuerza de $5$ para ll
 
 ![Entrada 2](entrada2.png)
 
-En este mundo Karel necesitaría lanzar el frisbee con una fuerza de $4$ para llegar a la posición deseada. Karel no inicia en la posición $(1, 1)$, aun así, el resultado, $4$ zumbadores, debe quedar en la casilla $(1, 1)$
+En este mundo Karel necesitaría lanzar el frisbee con una fuerza de $4$ para llegar a la posición deseada **necesita 3 movimientos al norte y 1 movimiento al noreste**. Karel no inicia en la posición $(1, 1)$, aun así, el resultado, $4$ zumbadores, debe quedar en la casilla $(1, 1)$
 
 # Consideraciones
 

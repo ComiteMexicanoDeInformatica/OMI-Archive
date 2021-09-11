@@ -30,6 +30,9 @@ class Test(unittest.TestCase):
 
         self.assertEqual(len(lines), P + 1)
 
+        genA = 0
+        genB = 0
+
         for line in lines[1:]:
             reg = re.compile(r'^(\d+) (\d+) (\d+)$')
             self.assertTrue(reg.match(line))
@@ -39,12 +42,17 @@ class Test(unittest.TestCase):
             B = int(arr[1])
             I = int(arr[2])
 
+            if genA == 0:
+                genA = A
+                genB = B
+
             self.assertTrue(0 <= A <= 1e6)
             self.assertTrue(0 <= B <= 1e6)
             self.assertTrue(1 <= I <= 1e6)
 
             if 'sub3' in caseName:
-                self.assertEqual(A, B)
+                self.assertEqual(A, genA)
+                self.assertEqual(B, genB)
             elif 'sub1' in caseName:
                 self.assertTrue(I <= 30)
             elif 'sub4' in caseName:

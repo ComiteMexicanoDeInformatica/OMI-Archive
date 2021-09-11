@@ -11,6 +11,7 @@ int64_t N, K;
 int64_t ini[MAX], same[MAX], user[MAX];
 int64_t correct[MAX];
 bool impossible;
+int64_t mini, maxi, inflection;
 
 const long double xx = 0.25;
 
@@ -24,13 +25,13 @@ void readTestCase() {
 
 void readCorrect() {
   std::ifstream ff("data.out");
-  for (int i = 1; i <= N; i++) {
-    ff >> correct[i];
-    if (i == 1 && correct[i] == -1) {
-      impossible = 1;
-      return;
-    }
-  }
+
+  ff >> mini;
+  if (mini == -1)
+    impossible = 1;
+  else
+    ff >> maxi >> inflection;
+
   ff.close();
 }
 
@@ -45,7 +46,7 @@ double score(std::istream& f) {
       std::cout << "0\n";
     else
       std::cout << "1\n";
-    exit(0);
+    return 0.0;
   }
 
   for (int i = 1; i <= N; i++) {
@@ -69,20 +70,26 @@ double score(std::istream& f) {
       return 0.0;
     }
 
-  // Optimal
-  int opt = 0;
-  for (int i = 1; i <= N; i++)
-    if (correct[i] != ini[i]) opt++;
-
   // User
   int changes = 0;
   for (int i = 1; i <= N; i++)
     if (user[i] != ini[i]) changes++;
 
-  if (changes <= opt) return 1.0;
+  if (changes > maxi)
+    return 0.0;
+  else if (changes == maxi)
+    return 0.1;
+  else if (changes == mini)
+    return 1.0;
+  else if (changes >= inflection) {
+    int difmin = maxi - inflection;
+    int difanswer = maxi - changes;
+    return 0.1 + (difanswer * 0.15 / difmin);
+  }
 
-  long double score = (long double)opt / (long double)changes;
-  return std::max(score, xx);
+  int difmax = inflection - mini;
+  int difanswer = inflection - changes;
+  return 0.25 + (difanswer * 0.75 / difmax);
 }
 
 int main() {

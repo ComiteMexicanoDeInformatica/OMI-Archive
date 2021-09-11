@@ -1,5 +1,5 @@
-0 1
-sub1.1 15
+0 0
+sub1.1 9
 sub1.2 0
 sub1.3 0
 sub1.4 0
@@ -15,7 +15,7 @@ sub1.13 0
 sub1.14 0
 sub1.15 0
 sub1.16 0
-sub2.1 16
+sub2.1 10
 sub2.2 0
 sub2.3 0
 sub2.4 0
@@ -31,7 +31,7 @@ sub2.13 0
 sub2.14 0
 sub2.15 0
 sub2.16 0
-sub3.1 16
+sub3.1 13
 sub3.2 0
 sub3.3 0
 sub3.4 0
@@ -47,7 +47,7 @@ sub3.13 0
 sub3.14 0
 sub3.15 0
 sub3.16 0
-sub4.1 16
+sub4.1 20
 sub4.2 0
 sub4.3 0
 sub4.4 0
@@ -63,7 +63,7 @@ sub4.13 0
 sub4.14 0
 sub4.15 0
 sub4.16 0
-sub5.1 16
+sub5.1 18
 sub5.2 0
 sub5.3 0
 sub5.4 0
@@ -79,7 +79,7 @@ sub5.13 0
 sub5.14 0
 sub5.15 0
 sub5.16 0
-sub6.1 20
+sub6.1 30
 sub6.2 0
 sub6.3 0
 sub6.4 0

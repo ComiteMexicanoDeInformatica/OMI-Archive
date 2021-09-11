@@ -50,15 +50,19 @@ class Test(unittest.TestCase):
         self.assertTrue(0 <= K <= N)
 
         arr = lines[1].split(' ')
+        if arr[len(arr) - 1] == '':
+            arr.remove('')
         ints = [int(v) for v in arr]
         self.assertEqual(len(ints), N)
         self.assertTrue(all(
-            0 <= v <= 1000000
+            0 <= v <= 1000000000
             for v in ints
         ))
 
         if K:
             arr = lines[2].split(' ')
+            if arr[len(arr) - 1] == '':
+                arr.remove('')
             ints = [int(v) for v in arr]
             self.assertEqual(len(ints), K)
             self.assertTrue(all(

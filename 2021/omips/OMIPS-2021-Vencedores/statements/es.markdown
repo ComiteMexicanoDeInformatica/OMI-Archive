@@ -1,6 +1,6 @@
 Contrataron a Karel para probar un nuevo video juego de peleas.
 
-En este juego cada jugador elige uno entre múltiples personajes con diferentes _niveles de poder_. Los personajes se enfrentan en _rondas_. En cada ronda el juego sortea parejas entre los jugadores que continúan _vivos_ y todas las parejas se enfrentan en simultáneo. Si el número de jugadores _vivos_ es impar un jugador al azar pasa a la siguiente ronda en automático.
+En este juego cada jugador elige uno de entre múltiples personajes con diferentes _niveles de poder_. Los personajes se enfrentan en _rondas_. En cada ronda el juego sortea parejas entre los jugadores que continúan _vivos_ y todas las parejas se enfrentan en simultáneo. Si el número de jugadores _vivos_ es impar un jugador al azar pasa a la siguiente ronda en automático.
 
 En un enfrentamiento siempre gana el personaje con mayor _nivel de poder_, el otro es eliminado. En caso de que el _nivel de poder_ de ambos sea el mismo, ambos continúan a la siguiente ronda.
 
@@ -36,6 +36,6 @@ Ayuda a Karel a determinar ¿qué personajes son _ganadores_? escribiendo un pro
 # Subtareas
 
 - **(28 puntos):** Los _niveles de poder_ de los personajes son todos distintos.
-- **(22 puntos):** Karel puede avanzar a lo más $2 * N$ veces, donde $N$ es la cantidad de personsajes. Los _niveles de poder_ de los personajes son todos distintos.
+- **(22 puntos):** Karel puede avanzar a lo más $2 * N$ veces, donde $N$ es la cantidad de personajes. Los _niveles de poder_ de los personajes son todos distintos.
 - **(28 puntos):** Puede haber _niveles de poder_ repetidos.
-- **(22 puntos):** Karel puede avanzar a lo más $2 * N$ veces, donde $N$ es la cantidad de personsajes. Puede haber _niveles de poder_ repetidos.
+- **(22 puntos):** Karel puede avanzar a lo más $2 * N$ veces, donde $N$ es la cantidad de personajes. Puede haber _niveles de poder_ repetidos.

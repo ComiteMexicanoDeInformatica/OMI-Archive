@@ -6,7 +6,6 @@ int N;
 int vals[1005];
 int preguntas;
 bool solved;
-const long double xx = 0.25;
 
 void respuesta(int posMenor, int posMayor) {
   int mn = 1, mx = 1;
@@ -31,13 +30,15 @@ void respuesta(int posMenor, int posMayor) {
   int optimo = N / 2 + 2 * (sz - 1);
   if (preguntas <= optimo) {
     std::cout << "1\n";
-  }
-  if (preguntas == N * N) {
-    std::cout << xx << "\n";
+  } else if (preguntas > N * N) {
+    std::cout << "0\n";
+  } else if (preguntas > 2 * N) {
+    std::cout << "0.15\n";
+  } else if (preguntas <= 2 * N && preguntas >= 2 * N - 2) {
+    std::cout << "0.45\n";
   } else {
-    long double perc =
-        (long double)(preguntas - optimo) / (long double)(N * N - optimo);
-    long double score = 1 - perc * 0.75;
+    long double dif = preguntas - optimo;
+    long double score = std::max((long double)0.45, 1 - (0.10) * dif);
     std::cout << score << "\n";
   }
   exit(0);
@@ -71,6 +72,8 @@ bool esMenor(int i, int j) {
 }
 
 int main() {
+  std::cin.tie(0);
+  std::ios_base::sync_with_stdio(0);
   std::cin >> N;
   for (int i = 1; i <= N; i++) std::cin >> vals[i];
 

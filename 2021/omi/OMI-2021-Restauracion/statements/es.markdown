@@ -1,12 +1,12 @@
 Acaban de descubrir una nueva pirámide en Karelotitlán y han pedido tu ayuda para restaurarla.
 
-En la primera fase de trabajo se va a restaurar la escalera principal de la pirámide. La escalera tiene $N$ escalones (numerados de $1$ a $N$), pero la mayoría de ellos se encuentran dañados. A algunos de ellos les faltan pedazos y están a menor altura de la que deberían y a otros les han caido piedras encima y son más altos de lo que deberían. También hay $K$ escalones que se conservan intactos y tienen bellos relieves grabados.
+En la primera fase de trabajo se va a restaurar la escalera principal de la pirámide. La escalera tiene $N$ escalones (numerados de $1$ a $N$), pero muchos de ellos se encuentran dañados. A algunos de ellos les faltan pedazos y están a menor altura de la que deberían y a otros les han caído piedras encima y son más altos de lo que deberían.
 
-Durante la restauración, se desea mantener los $K$ escalones intactos tal cual están y restaurar **algunos** de los escalones restantes para asegurar que toda la escalera sea ascendente, es decir, que la altura del escalón $i$ sea menor que la altura del escalón $j$ para $i < j$. Al restaurar un escalon la empresa puede aumentar o disminuir su altura en cualquier cantidad que desee. **La altura final del escalón debe ser mayor o igual que cero.**
+Hay $K$ escalones que se conservan en perfectas condiciones y tienen bellos relieves grabados. Durante la restauración, debes mantener los $K$ escalones tal como están y restaurar **algunos** de los escalones restantes para asegurar que toda la escalera sea ascendente, es decir, que la altura del escalón $i$ sea menor que la altura del escalón $i + 1$. Al restaurar un escalon puedes aumentar o disminuir su altura en cualquier cantidad. **La altura final del escalón debe ser entera y mayor o igual que cero.**
 
 Restaurar cada escalón cuesta, por lo que se busca restaurar el menor número de escalones posible.
 
-La empresa te ha dado una lista de $N$ números que representan las alturas de los escalones y te ha dado las posiciones de los $K$ escalones que se desea conservar.
+La empresa te ha dado una lista de $N$ números que representan las alturas actuales de los escalones y te ha dado las posiciones de los $K$ escalones que se desea conservar.
 
 # Problema
 
@@ -18,20 +18,20 @@ La calificación que obtenga tu programa será mejor mientras menos escalones mo
 
 - En la primera línea los números $N$ y $K$, el número de escalones y la cantidad de ellos que se desea conservar.
 - En la segunda línea habrá $N$ números separados por espacio que representan las alturas de los escalones del $1$ al $N$.
-- En la tercera línea habrá $K$ números separados por espacio que representan las posiciones de los escalones que se desea conservar.
+- En la tercera línea habrá $K$ números distintos separados por espacio que representan las posiciones de los escalones que se desea conservar.
 
 # Salida
 
 - Una línea con $N$ enteros que representan las alturas finales de los escalones en la escalera restaurada.
 
-** En caso de que sea imposible construir una escalera ascendente tu programa deberá imprimir -1.**
+**En caso de que sea imposible construir una escalera ascendente tu programa deberá imprimir -1.**
 
 # Ejemplo
 
 ||input
 10 2
 4 3 5 4 8 16 15 18 19 3
-3 7
+7 3
 ||output
 2 3 5 6 8 14 15 18 19 20
 ||description
@@ -54,7 +54,7 @@ La escalera del ejemplo es imposible de restaurar ya que se desea conservar los 
 
 - $2 \leq N \leq 10^5$
 - $0 \leq K \leq N$
-- $0 \leq h_i \leq 10^6$ Los valores de altura en el arreglo inicial.
+- $0 \leq h_i \leq 10^9$ Los valores de altura en el arreglo inicial.
 
 # Evaluación
 
@@ -65,12 +65,12 @@ Para cada subtarea tu programa será evaluado de la siguiente forma:
   - Modifica alguno de los $K$ escalones que se debían dejar intactos.
   - No es ascendente.
 - Si tu programa escribe $-1$ cuando sí era posible construir una escalera, obtendrá $0$ puntos.
-- Si tu programa escribe una escalera **válida** que modifica $N - K$ escalones, es decir, todos los escalones que se pueden modificar, obtendrá **XX puntos**.
-- Si tu programa escribe una escalera **válida** que modifica el número mínimo de escalones, obtendrá $100$ puntos.
-- Si tu programa escribe una escalera **válida** que modifica entre $N - K$ y el número mínimo de escalones, obtendrá un puntaje intermedio entre **XX** y $100$.
+- Si tu programa escribe una escalera **válida** que modifica $N - K$ escalones, es decir, todos los escalones que se pueden modificar, obtendrá **10% de los puntos**.
+- Si tu programa escribe una escalera **válida** que modifica el número mínimo de escalones, obtendrá **100% de los puntos**.
+- Si tu programa escribe una escalera **válida** que modifica entre $N - K$ y el número mínimo de escalones, obtendrá un puntaje intermedio entre **10% y 100% de los puntos**.
 
 # Subtareas
 
-- **( puntos)**: $N \leq 20$ y no hay ninguna escalera que no se pueda restaurar.
-- **( puntos)**: $N \leq 1000$
-- **( puntos)**: Sin restricciones adicionales
+- **(23 puntos)**: $N \leq 20$ y no hay ninguna escalera que no se pueda restaurar.
+- **(37 puntos)**: $N \leq 1000$
+- **(40 puntos)**: Sin restricciones adicionales

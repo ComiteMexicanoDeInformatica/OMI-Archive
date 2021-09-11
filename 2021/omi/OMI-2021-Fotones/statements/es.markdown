@@ -1,6 +1,8 @@
-Tu profesor de física construyó un dispositivo para experimentar con lasers. Este dispositivo consta de una cuadrícula de $F$ filas por $C$ columnas que tiene $N$ espejos en algunas de sus casillas. Los espejos se encuentran colocados en diagonal de forma que cuando un laser choca con alguno se desvía 90° como se muestra en la siguiente figura:
+Tu profesor de física construyó un dispositivo para experimentar con lasers. Este dispositivo consta de una cuadrícula de $F$ filas por $C$ columnas que tiene $N$ espejos. Cada espejo ocupa exactamente una casilla y se encuentra colocado en diagonal de forma que cuando un láser choca con él se desvía 90° como se muestra en la siguiente figura:
 
-Tu profesor repetirá el siguiente experimento $E$ veces, él pondrá un rayo laser en alguna casilla orientado hacia norte, sur, este u oeste y lo disparará. Tu profesor desea en cuantos espejos se reflejará el laser antes de salir del dispositivo o si se quedará dando vueltas en el mismo.
+![Figura1](figura1.png)
+
+Tu profesor repetirá el siguiente experimento $E$ veces: él pondrá un rayo láser en alguna casilla orientado hacia norte, sur, este u oeste y lo disparará. Tu profesor desea saber en cuantos espejos se reflejará el láser antes de salir del dispositivo o si se quedará dando vueltas en el mismo.
 
 # Problema
 
@@ -9,9 +11,13 @@ Escribe un problema que dado el tamaño de la cuadrícula y las posiciones de lo
 # Entrada
 
 - En la primera línea tres números enteros $N$, $F$ y $C$, el número espejos, de filas y de columnas del dispositivo.
-- En las siguientes $N$ líneas habrá un caracter que **\\** o **/** indicando la posición del espejo seguida de dos números $f_i$ y $c_i$ que indican la fila y la columna del i-ésimo espejo.
+- En las siguientes $N$ líneas habrá un caracter que **\\** o **/** indicando la posición del espejo seguida de dos números $f_i$ y $c_i$ que indican la fila y la columna del _i-ésimo_ espejo.
 - Un entero $E$, la cantidad de experimentos que hará tu profesor.
-- En las siguientes $E$ líneas habrá un caracter que indica la orientación cuyo valor es **N**, **E**, **S** u **O** y dos enteros $f_j$ y $c_j$ que indican la fila y la columna del laser en el j-ésimo experimento.
+- En las siguientes $E$ líneas habrá un caracter que indica la orientación cuyo valor es **N**, **E**, **S** u **O** y dos enteros $f_j$ y $c_j$ que indican la fila y la columna del laser en el _j-ésimo_ experimento.
+
+Se te asegura que el láser nunca se coloca en la misma casilla que un espejo.
+
+**Para este problema considera que la fila $1$ está al sur (abajo) y la fila $F$ está al norte (arriba). De igual forma la columna $1$ está al oeste (izquierda) y la columna $C$ está al este (derecha). Observa también que la posición del láser y los espejos están dadas primero la fila y luego la columna.**
 
 # Salida
 
@@ -37,7 +43,12 @@ O 6 8
 1
 0
 ||description
-(Hay que poner una imagen que explique el ejemplo)
+La imagen de la descripción muestra el primer experimento del profesor y como rebota con dos espejos antes de salir del dispositivo.
+
+![Ejemplo](ejemplo.png)
+
+La imagen previa muestra el segundo experimento en el que el laser continúa rebotando por siempre dentro del dispositivo.
+
 ||end
 
 # Límites
@@ -50,9 +61,9 @@ O 6 8
 
 # Subtareas
 
-- **( puntos)**: $N \leq 500$, $F, C \leq 100$, $E = 1$
-- **( puntos)**: $N \leq 500$, $F, C \leq 100$
-- **( puntos)**: $N \leq 1000$, $F, C \leq 10^5$, $E = 1$
-- **( puntos)**: $N \leq 1000$, $F, C \leq 10^5$
-- **( puntos)**: $N \leq 10^5$, $F, C \leq 10^5$, $E = 1$
-- **( puntos)**: $N \leq 10^5$, $F, C \leq 10^5$
+- **(9 puntos)**: $N \leq 500$, $F, C \leq 100$, $E = 1$
+- **(10 puntos)**: $N \leq 500$, $F, C \leq 100$
+- **(13 puntos)**: $N \leq 1000$, $F, C \leq 10^5$, $E = 1$
+- **(20 puntos)**: $N \leq 1000$, $F, C \leq 10^5$
+- **(18 puntos)**: $N \leq 10^5$, $F, C \leq 10^5$, $E = 1$
+- **(30 puntos)**: $N \leq 10^5$, $F, C \leq 10^5$

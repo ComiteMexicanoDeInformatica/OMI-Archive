@@ -45,5 +45,5 @@ La siguiente imagen muestra cómo subieron los _grupos_ de personas al elevador:
 # Evaluación
 
 - **Para un conjunto de casos con valor de 25 puntos:** Todos los grupos serán de $1$ persona.
-- **Para otro conjunto de casos con valor de 10 puntos:** Karel puede avanzar un máximo de $2(N + G)$ veces donde $G$ es la cantidad de _grupos_ de personas en la fila.
+- **Para otro conjunto de casos con valor de 25 puntos:** Tu programa debe ejecutar la instrucción _avanza/move_ máximo $2(N + G)$ veces donde $G$ es la cantidad de _grupos_ de personas en la fila.
 - **Para el resto de los casos:** No hay restricciones adicionales.

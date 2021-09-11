@@ -26,9 +26,8 @@ void respuesta(int posMenor, int posMayor) {
   }
 
   // Es correcto, pero calcula puntos
-  std::cerr << "Correcto! Tu programa realizo " << preguntas
-            << " preguntas\n".stf::cerr
-            << "Tu programa obtendría puntos por este caso :)\n";
+  std::cerr << "Correcto! Tu programa realizo " << preguntas << " preguntas\n";
+  std::cerr << "Tu programa obtendría puntos por este caso :)\n";
   exit(0);
 }
 

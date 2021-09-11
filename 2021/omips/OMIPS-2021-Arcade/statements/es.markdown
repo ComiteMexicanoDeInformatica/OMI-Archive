@@ -26,7 +26,10 @@ El mundo de Karel representa un juego de _Derrumbe_. Karel representa al jugador
 
 # Problema
 
-Escribe un programa que permita a Karel saber si es posible ganar el juego. Si Karel puede ganar el juego (llegar a la moneda sin ser aplastado) deberá apagarse viendo al norte. Si Karel no puede ganar el juego deberá apagarse viendo al sur.
+Escribe un programa que permita a Karel saber si es posible ganar el juego.
+
+- Si Karel **puede ganar** el juego (llegar a la moneda sin ser aplastado) deberá **apagarse viendo al norte**.
+- Si Karel **no puede ganar** el juego deberá **apagarse viendo al sur**.
 
 # Ejemplo 1
 

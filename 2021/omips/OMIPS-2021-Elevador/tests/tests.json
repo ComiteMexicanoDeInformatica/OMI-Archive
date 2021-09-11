@@ -9,8 +9,8 @@
       "verdict": "AC"
     },
     {
-      "filename": "../solutions/cesar_sol90.kp",
-      "score_range": [0.9, 0.9]
+      "filename": "../solutions/cesar_sol75.kp",
+      "score_range": [0.75, 0.75]
     }
   ],
   "inputs": {

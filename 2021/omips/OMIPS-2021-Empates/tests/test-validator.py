@@ -33,8 +33,7 @@ class Test(kareltest.TestCase):
         self.assertEqual(world.lista_dump, set([(1, 1)]))
 
         # Todos los montones son entre 1 y 99, en caso de K = 0 no aparecerá en la lista
-        self.assertTrue(
-            all(1 <= int(v) <= 99 for k, v in world.lista_zumbadores.items()))
+        self.assertTrue(all(1 <= int(v) <= 99 for k, v in world.lista_zumbadores.items()))
 
         # El valor de k es 0 u 1 en los primeros 3 subcasos
         if 'sub1' in self.caseName:

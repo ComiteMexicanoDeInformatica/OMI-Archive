@@ -6,7 +6,7 @@ Yakarta tiene $N$ zonas peligrosas en las que Harry debe usar su capa de invisib
 
 Cuando usa la capa, Harry no requiere respetar las reglas de tránsito, por lo que puede moverse a cualquiera de las 8 casillas circundantes. Además, Harry puede pasar de una zona peligrosa a otra sin quitarse la capa siempre y cuando ambas zonas peligrosas estén contiguas (tengan un lado o una esquina en común).
 
-Las zonas peligrosas se representan como un rectángulo dentro de la ciudad.
+Cada zona peligrosa se representan como un rectángulo dentro de la ciudad.
 
 # Problema
 
@@ -77,20 +77,21 @@ Aunque hay dos zonas peligrosas, Harry puede pasar de una a otra sin quitarse la
 5 1 5 1
 5 3 5 3
 ||output
-3
+1
 ||description
 ||end
 
 # Límites
 
-- $1 \leq N \leq 2000$
+- $1 \leq N \leq 50,000$
 - $1 \leq F, C \leq 10^9$
 
 # Subtareas
 
-- **( puntos)**: $F = 3$, $N = 1$
-- **( puntos)**: $F = 3$, $C \leq 1000$
-- **( puntos)**: $F = 3$
-- **( puntos)**: $C = 1$
-- **( puntos)**: $F, C \leq 500$, $N \leq 100$
-- **( puntos)**: Sin restricciones adicionales.
+- **(6 puntos)**: $F = 3$, $N = 1$
+- **(10 puntos)**: $F = 3$, $C \leq 1000$
+- **(12 puntos)**: $F = 3$
+- **(9 puntos)**: $C = 1$
+- **(20 puntos)**: $F, C \leq 500$, $N \leq 100$
+- **(20 puntos)**: $N \leq 2000$
+- **(23 puntos)**: Sin restricciones adicionales.
