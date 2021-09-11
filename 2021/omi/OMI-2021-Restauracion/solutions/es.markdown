@@ -8,7 +8,7 @@ Para que la restauración de una pirámide sea viable, se requiere que se cumpla
 - Que la diferencia de altura entre dos escalones fijos consecutivos sea mayor o igual que la distancia entre ellos $h_{k_{i + 1}} - h_{k_i} \geq k_{i + 1} - k_i$. Si la desigualdad no se cumple, es imposible crear una secuencia creciente entre los escalones fijos.
 - Que la altura del primer escalón fijo sea al menos igual a su posición menos uno. Esto es necesario para poder construir el tramo que va del inicio al primer escalón fijo sin que el primer escalón tenga que tener altura menor a cero.
 
-Si alguno de los puntos anteriores falla, la pirámide no se puede restaurar. 
+Si alguno de los puntos anteriores falla, la pirámide no se puede restaurar.
 
 Un posible código que hace dicha validación es el siguiente:
 
@@ -28,7 +28,7 @@ Un posible código que hace dicha validación es el siguiente:
 
 ### Obtención del mínimo de escalones a restaurar
 
-Para que un escalón se pueda dejar como está es necesario que su altura esté entre las de los dos escalones fijos a su izquierda y a su derecha.  Sin embargo, esta condición no es suficiente, además se requiere que su altura permita _ajustar_ las alturas de los escalones intermedios entre él y los escalones fijos entre los que está.
+Para que un escalón se pueda dejar como está es necesario que su altura esté entre las de los dos escalones fijos a su izquierda y a su derecha. Sin embargo, esta condición no es suficiente, además se requiere que su altura permita _ajustar_ las alturas de los escalones intermedios entre él y los escalones fijos entre los que está.
 
 La observación anterior nos permite quedarnos con los escalones viables para dejar sin restauración y descartar todos los demás.
 
@@ -54,7 +54,6 @@ Luego de ejecutar este código todos los escalones no viables tendrán altura $-
 Observa que si queremos elegir algunos escalones de entre los viables, los que elijamos deben a su vez formar una secuencia creciente. De modo que el problema, luego de la observación previa, se transforma en obtener la secuencia creciente más larga entre las nuevas alturas.
 
 Existen formas no óptimas de elegir la secuencia creciente más larga, en la descripción de las subtareas se detallarán formas que eligen de forma correcta la secuencia más larga.
-
 
 ## Subtarea 1, $N \leq 20$ Siempre es posible restaurar (23 puntos)
 
@@ -93,14 +92,14 @@ Un posible código para obtener el máximo es el siguiente:
 
 ## Subtarea 2, $N \leq 1000$ (37 puntos)
 
-En la subtarea 2 los límites permiten calcular la secuencia creciente más larga mediante un algoritmo cuadrado. 
+En la subtarea 2 los límites permiten calcular la secuencia creciente más larga mediante un algoritmo cuadrado.
 
 Una forma de hacerlo es guardando para cada escalón viable la cadena creciente más larga que se puede formar terminando en él. Si dicha longitud se guarda en $maxlis[i]$ una forma de calcularlo es:
 
 - Para cada escalón viable $i$...
 - $maxlis[i] = \large max \normalsize (maxlis[j]) + 1$ para todos los $j < i$ tales que sean un escalón viable y las alturas y distancias permitan a $i$ seguir de $j$ en la secuencia creciente.
 
-Para poder construir el resultado es necesario guardar además un apuntador al escalón previo.  
+Para poder construir el resultado es necesario guardar además un apuntador al escalón previo.
 
 El siguiente código resuelve la subtarea 1 y 2:
 
@@ -139,7 +138,7 @@ El siguiente código resuelve la subtarea 1 y 2:
 
 Para resolver la subtarea 3 se requiere un método de calcular la secuencia creciente más larga en tiempo logarítmico. Existen varios algoritmos para hacer esta operación, sin embargo no toman en cuenta la restricción adicional de este problema de que además de ser creciente, la diferencia de altura entre dos escalones debe ser mayor o igual que la distancia entre ellos.
 
-Una forma de eliminar la variable de la distancia entre escalones es _normalizar_ las alturas. 
+Una forma de eliminar la variable de la distancia entre escalones es _normalizar_ las alturas.
 
 De la observación se concluyó que dos escalones $j$ e $i$ con $j < i$ pueden estar en la misma escalera si $a[i] - a[j] >= i - j$. Manipulando la desigualdad se obtiene que
 
@@ -147,7 +146,7 @@ $a[i] - a[j] >= i - j \implies a[i] - a[j] - (i - j) = a[i] - (a[j] + (i - j)) >
 
 Es decir, si a cada $a[j]$ se le suma $i - j$ basta con revisar que la diferencia de altura de $a[j]$ con $a[i]$ sea mayor o igual que cero. Esto se puede hacer de manera sencilla sumando a cada altura de los escalones viables $n - i$.
 
-Una vez teniendo las alturas normalizadas se puede buscar la secuencia más larga de números iguales o crecientes para obtener la solución.  Al igual que en el caso anterior, es necesario guardar un apuntador al elemento previo para poder construir la escalera final.
+Una vez teniendo las alturas normalizadas se puede buscar la secuencia más larga de números iguales o crecientes para obtener la solución. Al igual que en el caso anterior, es necesario guardar un apuntador al elemento previo para poder construir la escalera final.
 
 Un posible código para resolver la subtarea 3 y obtener los 100 puntos es:
 
@@ -184,4 +183,3 @@ Un posible código para resolver la subtarea 3 y obtener los 100 puntos es:
      }
   }
 ```
-

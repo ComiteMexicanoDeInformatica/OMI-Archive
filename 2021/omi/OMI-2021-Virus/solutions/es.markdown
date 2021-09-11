@@ -1,6 +1,6 @@
 ## Obtención del mínimo (40 puntos)
 
-Observa que los mensajes que salieron de una computadora infectada invariablemente infectarán a la computadora destino, sin embargo, para minimizar el número de computadoras infectadas lo deseable es que las _nuevas_ computadoras infectadas ya no infecten a nadie más.  Esto es posible si dichas computadoras envían todos sus mensajes previo a recibir el mensaje infectado.
+Observa que los mensajes que salieron de una computadora infectada invariablemente infectarán a la computadora destino, sin embargo, para minimizar el número de computadoras infectadas lo deseable es que las _nuevas_ computadoras infectadas ya no infecten a nadie más. Esto es posible si dichas computadoras envían todos sus mensajes previo a recibir el mensaje infectado.
 
 No es necesario ordenar los mensajes explícitamente, basta saber que sería posible ordenarlos y considerar que la infección sólo se propaga de las infectadas originalmente a aquellas que reciben un mensaje directo de estas.
 
@@ -84,14 +84,13 @@ La subtarea 1 permite hacer una búsqueda en amplitud con un único origen, la c
 
 ## Subtarea 2, $N \leq 3$ (8 puntos)
 
-La subtarea 2 tiene límites que permiten checar de forma manual todas las configuraciones.  En total puede haber $6$ mensajes distintos por lo que hay un total de $2^6 = 64$ posibles configuraciones de mensajes y un total de $2^3 = 8$ configuraciones posibles para las máquinas inicialmente infectadas.
+La subtarea 2 tiene límites que permiten checar de forma manual todas las configuraciones. En total puede haber $6$ mensajes distintos por lo que hay un total de $2^6 = 64$ posibles configuraciones de mensajes y un total de $2^3 = 8$ configuraciones posibles para las máquinas inicialmente infectadas.
 
 ## Subtarea 3, $M \leq 10$ (12 puntos)
 
-En la subtarea 3 el número de mensajes es tal que permite simular todos los posibles ordenamientos y verificar el número de computadoras infectadas en cada caso.  Esta solución puede resolver también la subtarea 2.
+En la subtarea 3 el número de mensajes es tal que permite simular todos los posibles ordenamientos y verificar el número de computadoras infectadas en cada caso. Esta solución puede resolver también la subtarea 2.
 
 Un posible código para obtener los puntos de esta subtarea es el siguiente:
-
 
 ```
 int main()

@@ -2,7 +2,7 @@
 
 Los límites de la primera subtarea y el que sea únicamente un experimento, permite resolver el problema simulando el recorrido del laser hasta que salga del dispositivo. Es importante tener cuidado con los experimentos que se ciclan para lo cual es conveniente utilizar un arreglo de visitados.
 
-En el siguiente código se muestra una simulación recursiva.  La simulación podría no ser recursiva, pero hacerla así servirá para subtareas futuras.
+En el siguiente código se muestra una simulación recursiva. La simulación podría no ser recursiva, pero hacerla así servirá para subtareas futuras.
 
 ```
 int simula(int direccion, int fila, int columna){
@@ -228,7 +228,7 @@ int main() {
 
 ## Subtarea 5 y 6 (18 y 30 puntos)
 
-En las subtareas 5 y 6 la simulación con y sin memoria es exactamente igual que en las subtareas 3 y 4.  La diferencia en este par de subtareas es en el número de espejos.  Para poder resoverla en tiempo es necesario poder obtener el _sigEspejo_ en un tiempo menor que cuadrado.
+En las subtareas 5 y 6 la simulación con y sin memoria es exactamente igual que en las subtareas 3 y 4. La diferencia en este par de subtareas es en el número de espejos. Para poder resoverla en tiempo es necesario poder obtener el _sigEspejo_ en un tiempo menor que cuadrado.
 
 Afortunadamente, recorriendo los sets de la subtarea 4 es posible hacerlo.
 
@@ -256,5 +256,3 @@ El siguiente código muestra cómo obtener el siguiente espejo:
     }
   }
 ```
-
-

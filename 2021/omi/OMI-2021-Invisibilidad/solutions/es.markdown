@@ -47,7 +47,7 @@ int main()
 
 ## Subtarea 3, $F = 3$ (12 puntos)
 
-La subtarea 3 difiere de la 2 en el límite de columnas.  El límite de columnas es tal que la memoria y tiempo no son suficientes para marcar las zonas. Por lo tanto es necesario saber si la segunda fila está ocupada por completo sin necesidad de marcar.
+La subtarea 3 difiere de la 2 en el límite de columnas. El límite de columnas es tal que la memoria y tiempo no son suficientes para marcar las zonas. Por lo tanto es necesario saber si la segunda fila está ocupada por completo sin necesidad de marcar.
 
 Una forma simple de hacer esta validación es ordenar las zonas peligrosas por columna de inicio y validar que se vayan llenando todos los espacios.
 
@@ -83,7 +83,7 @@ int main()
 
 ## Subtarea 4, $C = 1$ (9 puntos)
 
-Dado que sólo hay 1 columna, el número de veces que Harry debe ponerse la capa es igual a la cantidad de zonas separadas que existan.  
+Dado que sólo hay 1 columna, el número de veces que Harry debe ponerse la capa es igual a la cantidad de zonas separadas que existan.
 
 Una forma de validarlo es usar una técnica similar a la de la subtarea 3 pero esta vez con las filas. Ordenar las zonas por fila y recorrerlas contando la cantidad de zonas separadas.
 
@@ -169,9 +169,9 @@ int main() {
 
 Para resolver las subtareas 6 y 7 es necesario generalizar la observación de las subtareas anteriores, en específico, que Harry tiene que usar su capa si hay un conjunto de zonas riesgosas contiguas que abarque el ancho total del mundo.
 
-Dos zonas riesgosas se consideran contiguas si se tocan vertical u horizontalmente y si se tocan en una esquina.  Esto es debido a que cuando Harry no trae la capa no puede moverse en diagonal, por lo que si hay dos zonas riesgosas tocandose en una esquina y Harry está en alguna de las casillas _no riesgosas_, forzosamente debe pasar por alguna de las dos zonas peligrosas para llegar a la otra zona _no riesgosa_.
+Dos zonas riesgosas se consideran contiguas si se tocan vertical u horizontalmente y si se tocan en una esquina. Esto es debido a que cuando Harry no trae la capa no puede moverse en diagonal, por lo que si hay dos zonas riesgosas tocandose en una esquina y Harry está en alguna de las casillas _no riesgosas_, forzosamente debe pasar por alguna de las dos zonas peligrosas para llegar a la otra zona _no riesgosa_.
 
-Llamemos a un conjunto de zonas riesgosas contiguas un _bloque riesgoso_.  Observa que una vez dentro del _bloque_, Harry puede moverse libremente a cualquier casilla del mismo sin necesidad de quitarse la capa. Además observa que si hay dos _bloques_ riesgosos distintos que van desde la primera columna a la última, forzosamente debe existir una zona no riesgosa entre ambos, de otra forma serían el mismo _bloque_.
+Llamemos a un conjunto de zonas riesgosas contiguas un _bloque riesgoso_. Observa que una vez dentro del _bloque_, Harry puede moverse libremente a cualquier casilla del mismo sin necesidad de quitarse la capa. Además observa que si hay dos _bloques_ riesgosos distintos que van desde la primera columna a la última, forzosamente debe existir una zona no riesgosa entre ambos, de otra forma serían el mismo _bloque_.
 
 De las observaciones anteriores se concluye que la cantidad de veces que Harry debe usar la capa es igual a la cantidad de _bloques_ que cubran la totalidad de las columnas.
 
@@ -241,9 +241,9 @@ int main() {
 
 ### Sutarea 7 (23 puntos)
 
-La subtarea 7 requiere que se puedan obtener los _bloques_ en un tiempo menor a cuadrado.  Una forma de hacerlo es mediante un barrido tomando provecho que las zonas no se traslapan.
+La subtarea 7 requiere que se puedan obtener los _bloques_ en un tiempo menor a cuadrado. Una forma de hacerlo es mediante un barrido tomando provecho que las zonas no se traslapan.
 
-Considera cada zona peligrosa como el par de líneas verticales y el par de líneas horizontales que lo delimitan. 
+Considera cada zona peligrosa como el par de líneas verticales y el par de líneas horizontales que lo delimitan.
 
 A las líneas verticales les llamaremos _eventos_ y hay de dos tipos, de _inicio_ y de _fin_. Los eventos de _inicio_ corresponden a la columna de la izquierda y los de _fin_ a la columna de la derecha.
 
@@ -258,10 +258,10 @@ Ahora ordena los _eventos_ de todas las zonas y procésalos de grande a chico co
   - Agrega las dos líneas horizontales que corresponden a este evento al listado de _zonas activas_.
 - Si el _evento_ es de _fin_ entonces...
   - Elimina las líneas horizontales que corresponden a este evento del listado de _zonas activas_.
-  
+
 Dado que habrá un número de eventos igual a $2N$ y paracada evento se hace un proceso logarítmico. La solución tiene una complejidad $O(N logN)$
 
-Un posible código para resolver el problema es el siguiente: 
+Un posible código para resolver el problema es el siguiente:
 
 ```
 int main() {
@@ -311,4 +311,3 @@ int main() {
   return 0;
 }
 ```
-

@@ -1,6 +1,6 @@
 ## Observaciones
 
-- Observa que para un tablero de $N \times M$ siempre será posible formar una _columna completa_, ya que para que no fuera posible sería necesario que existiera un grupo de fichas de $K$ colores que estuvieran completamente contenidas en $K - 1$ filas.  Dado que $K - 1$ filas tienen $(K - 1) \times M$ espacios y en total hay $K \times M$ fichas por acomodar, dicho arreglo es imposible.
+- Observa que para un tablero de $N \times M$ siempre será posible formar una _columna completa_, ya que para que no fuera posible sería necesario que existiera un grupo de fichas de $K$ colores que estuvieran completamente contenidas en $K - 1$ filas. Dado que $K - 1$ filas tienen $(K - 1) \times M$ espacios y en total hay $K \times M$ fichas por acomodar, dicho arreglo es imposible.
 
 - Observa que si en un tablero de $N \times M$ se forma una _columna completa_ esta se puede _remover_ del tablero (con las fichas que contiene) y eso nos deja un tablero de $N \times (M - 1)$ que cumple con las características descritas en el problema.
 
@@ -8,19 +8,17 @@ Las dos observaciones anteriores permiten concluir que para cualquier tablero in
 
 Sabiendo que siempre es posible llenar el tablero, existen varias formas de tratar de construir la solución.
 
-
 ## Idea 1
 
 Un posible acercamiento es: para cada columna probar todas las permutaciones de N elementos y verificar si con las fichas que aun quedan _sin usar_ se puede formar esa permutación. En caso de que sí, formarla y avanzar a la siguiente columna.
 
 La complejidad de esta idea es $O(N! * M)$ que en tiempo de examen debe ser capaz de resolver, dependiendo de la implementación, los primeros 10 a 11 casos. Sin embargo podrías usar este algoritmo para calcular el mayor número de columnas correctas posible y sacar puntos parciales en cada caso.
 
-
 ## Idea 2
 
 ### Observación
 
-Observa que en realidad el acomodo de las fichas _sin usar_ no es importante.  La única información importante es cuántas fichas de cada color hay en cada fila.
+Observa que en realidad el acomodo de las fichas _sin usar_ no es importante. La única información importante es cuántas fichas de cada color hay en cada fila.
 
 Con esta observación se puede transformar el problema a una tabla de $N \times N$ de frecuencias de aparición de cada color en cada fila.
 
@@ -32,13 +30,13 @@ La complejidad de esta idea es $O((N + 1)!)$ que en tiempo de examen debe ser ca
 
 Las ideas anteriores pueden completarse con diversas heurísticas glotonas para podar y mejorar los tiempos de búsqueda logrando conseguir más puntos.
 
-## Solución 
+## Solución
 
-Una posible forma de solucionar todos los casos en tiempo es la siguiente:  
+Una posible forma de solucionar todos los casos en tiempo es la siguiente:
 
 Partiendo de la matriz de $N \times N$ de frecuencias de aparición de cada color en cada fila podemos construir un grafo bipartito con $N$ nodos del lado izquierdo, uno por cada color y $N$ nodos del lado derecho, uno por cada fila. Existe una arista del nodo $i$ al nodo $j$ si $mat[i][j] > 0$.
 
-Observa que en este grafo, un _bipartite matching_ de $N$ aristas corresponde al acomodo de una _columna completa_.  Un _bipartite matching_ es un conjunto de aristas tales que ningún par de aristas tienen nodos en común.  Un _bipartite matching_ de $N$ aristas tendría cada nodo de color asignado a un nodo de fila distinta, dando por tal una _columna completa_ válida.
+Observa que en este grafo, un _bipartite matching_ de $N$ aristas corresponde al acomodo de una _columna completa_. Un _bipartite matching_ es un conjunto de aristas tales que ningún par de aristas tienen nodos en común. Un _bipartite matching_ de $N$ aristas tendría cada nodo de color asignado a un nodo de fila distinta, dando por tal una _columna completa_ válida.
 
 Existen varios algoritmos conocidos para encontrar un _bipartite matching_ máximo, sin embargo, aun sin conocer ninguno se puede llegar de forma intuitiva al siguiente:
 
@@ -48,7 +46,7 @@ Existen varios algoritmos conocidos para encontrar un _bipartite matching_ máxi
   - Elige una fila ocupada
   - Asígnala al color que estás procesando
   - Inicia la búsqueda para el color que tenía originalmente asignado, marcando esa fila como no disponible
-  
+
 De las observaciones iniciales y el hecho de que siempre será posible formar una nueva _columna completa_ se puede intuir que este algoritmo siempre va a encontrar el _matching_ deseado.
 
 En cuanto a la complejidad, observa que el algoritmo puede verse como $N$ búsquedas en profundidad (una por cada nodo), cada búsqueda con el potencial de recorrer todas las aristas del grafo que en el peor caso son $N^2$ de modo que la complejidad de ejecución para obtener un _matching_ es de $O(N^3)$ dando una complejidad total para un tablero de $O(N^3M)$ que en el mayor de los casos equivale a $50^3 \times 10000 = 1.25 \times 10^9$ que dependiendo de la máquina debería correr en pocos segundos.
@@ -120,8 +118,3 @@ int main()
     return 0;
 }
 ```
-
-
-
-
-
