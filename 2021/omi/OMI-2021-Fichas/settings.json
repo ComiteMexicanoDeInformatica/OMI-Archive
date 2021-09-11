@@ -1,0 +1,28 @@
+{
+  "title": "Juego de Fichas",
+  "source": "OMI 2021 (Diego Garcia Rodríguez del Campo)",
+
+  "limits": {
+    "TimeLimit": 3000,
+    "MemoryLimit": 134217728,
+    "InputLimit": 67108864,
+    "OutputLimit": 67108864,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "custom",
+    "limits": {
+      "TimeLimit": 5000
+    }
+  },
+
+  "misc": {
+    "alias": "dummy-omi",
+    "visibility": "private",
+    "languages": "all",
+    "email_clarifications": 0,
+    "admin-groups": ["comi-2021"]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Frisbee",
+  "source": "OMIPS 2021 (Ángel Manuel Tapia Avitia)",
+
+  "limits": {
+    "TimeLimit": 1000,
+    "MemoryLimit": 33554432,
+    "InputLimit": 33554432,
+    "OutputLimit": 16384,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "token-caseless",
+    "limits": {
+      "TimeLimit": 1000
+    }
+  },
+
+  "misc": {
+    "alias": "dummy-omi",
+    "visibility": "private",
+    "languages": "karel",
+    "email_clarifications": 0,
+    "admin-groups": ["comi-2021"]
+  }
+}

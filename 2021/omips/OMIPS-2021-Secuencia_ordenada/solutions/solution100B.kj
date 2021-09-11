@@ -1,0 +1,111 @@
+class program {
+  void cuentaMay(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      cuentaMay(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      mayor(n);
+    }
+  }
+
+  void mayor(n) {
+    if (frontIsBlocked) {
+      while (notFacingNorth) turnleft();
+      turnoff();
+    }
+    move();
+    if (notNextToABeeper) {
+      while (notFacingNorth) turnleft();
+      turnoff();
+    }
+    iterate (n) {
+      if (nextToABeeper) {
+        if (facingEast)
+          pickbeeper();
+        else
+          putbeeper();
+      } else {
+        while (notFacingWest) turnleft();
+        putbeeper();
+      }
+    }
+    if (facingEast) {
+      iterate (n) putbeeper();
+      cuentaMay(0);
+    } else {
+      iterate (2) turnleft();
+      iterate (n) {
+        if (nextToABeeper) {
+          if (facingEast)
+            pickbeeper();
+          else
+            putbeeper();
+        } else {
+          while (notFacingWest) turnleft();
+          putbeeper();
+        }
+      }
+      iterate (2) turnleft();
+      cuentaMen(0);
+    }
+  }
+
+  void cuentaMen(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      cuentaMen(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      menor(n);
+    }
+  }
+
+  void menor(n) {
+    if (frontIsBlocked) {
+      while (notFacingNorth) turnleft();
+      turnoff();
+    }
+    move();
+    if (notNextToABeeper) {
+      while (notFacingNorth) turnleft();
+      turnoff();
+    }
+    iterate (n) {
+      if (nextToABeeper) {
+        if (facingEast)
+          pickbeeper();
+        else
+          putbeeper();
+      } else {
+        while (notFacingWest) turnleft();
+        putbeeper();
+      }
+    }
+    if (notNextToABeeper) iterate (2) turnleft();
+    if (facingEast) {
+      while (notFacingSouth) turnleft();
+      turnoff();
+    }
+    iterate (2) turnleft();
+    iterate (n) {
+      if (nextToABeeper) {
+        if (facingEast)
+          pickbeeper();
+        else
+          putbeeper();
+      } else {
+        while (notFacingWest) turnleft();
+        putbeeper();
+      }
+    }
+    iterate (2) turnleft();
+    cuentaMen(0);
+  }
+
+  program() {
+    iterate (3) turnleft();
+    cuentaMay(0);
+    turnoff();
+  }
+}

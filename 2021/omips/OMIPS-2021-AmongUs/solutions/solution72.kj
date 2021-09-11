@@ -1,0 +1,153 @@
+class program {
+  void cantidad(n) {
+    if (nextToABeeper) {
+      if (frontIsClear) {
+        move();
+      } else {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        turnleft();
+        if (frontIsBlocked) {
+          iterate (2) turnleft();
+          while (frontIsClear) move();
+          iterate (3) turnleft();
+          revisa(0);
+          iterate (2) turnleft();
+          busca(n);
+        } else {
+          move();
+          turnleft();
+        }
+      }
+      cantidad(succ(n));
+    } else {
+      if (frontIsClear) {
+        move();
+      } else {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        turnleft();
+        if (frontIsBlocked) {
+          iterate (2) turnleft();
+          while (frontIsClear) move();
+          iterate (3) turnleft();
+          revisa(0);
+          iterate (2) turnleft();
+          busca(n);
+        } else {
+          move();
+          turnleft();
+        }
+      }
+      cantidad(n);
+    }
+  }
+
+  void revisa(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      revisa(succ(n));
+    } else {
+      if (frontIsClear) {
+        move();
+        revisa(0);
+        move();
+        fullDiamante(n);
+      } else {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        turnleft();
+        if (frontIsBlocked) {
+          turnleft();
+          while (frontIsClear) move();
+          iterate (2) turnleft();
+          fullDiamante(n);
+          return();
+        } else {
+          move();
+          turnleft();
+          revisa(0);
+          iterate (2) turnleft();
+          while (frontIsClear) move();
+          turnleft();
+          move();
+          turnleft();
+          fullDiamante(n);
+        }
+      }
+    }
+  }
+
+  void diamante(n) {
+    if (iszero(n)) return();
+    turnright();
+    leaveBeeper(n);
+    turnleft();
+    if (frontIsClear) {
+      move();
+      diamante(pred(n));
+      moveBack();
+    }
+  }
+
+  void leaveBeeper(n) {
+    if (iszero(n)) {
+      putbeeper();
+      return();
+    }
+    if (frontIsClear) {
+      move();
+      leaveBeeper(pred(n));
+      moveBack();
+    }
+  }
+
+  void fullDiamante(n) {
+    if (iszero(n)) return();
+    putbeeper();
+    iterate (4) {
+      diamante(n);
+      if (iszero(n)) return();
+      turnleft();
+    }
+  }
+
+  void turnright() {
+    iterate (3) turnleft();
+  }
+
+  void moveBack() {
+    iterate (2) turnleft();
+    move();
+    iterate (2) turnleft();
+  }
+
+  void busca(n) {
+    if (nextToABeeper) {
+      iterate (n) {
+        if (nextToABeeper)
+          pickbeeper();
+        else
+          while (notFacingSouth) turnleft();
+      }
+      if (facingNorth) turnoff();
+      iterate (2) turnleft();
+      busca(n);
+    } else {
+      if (frontIsBlocked) {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        turnleft();
+        move();
+        turnleft();
+      } else
+        move();
+      busca(n);
+    }
+  }
+
+  program() {
+    cantidad(0);
+    turnoff();
+  }
+}

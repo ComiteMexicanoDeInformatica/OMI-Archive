@@ -1,0 +1,96 @@
+class program {
+  void agarra(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      agarra(succ(n));
+    } else {
+      iterate (2) turnleft();
+      move();
+      turnleft();
+      llega(n);
+    }
+  }
+
+  void llega(n) {
+    if (nextToABeeper) {
+      compara(0);
+      llega(n);
+    } else {
+      iterate (2) turnleft();
+      move();
+      finalAnswer(n);
+      turnoff();
+    }
+  }
+
+  void compara(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      compara(succ(n));
+    } else {
+      if (frontIsClear) move();
+      if (notNextToABeeper) {
+        return();
+      }
+      iterate (n) pickbeeper();
+      iterate (2) turnleft();
+      deja(0);
+      iterate (n) putbeeper();
+    }
+  }
+
+  void deja(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      deja(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      move();
+      iterate (2) turnleft();
+      iterate (n) putbeeper();
+      move();
+    }
+  }
+
+  void finalAnswer(n) {
+    if (notNextToABeeper) {
+      move();
+      finalAnswer(n);
+    } else {
+      pickbeeper();
+      divide(n);
+    }
+  }
+
+  void divide(n) {
+    if (nextToABeeper) {
+      iterate (n) {
+        if (nextToABeeper)
+          pickbeeper();
+        else {
+          while (notFacingEast) turnleft();
+        }
+      }
+      if (facingEast) {
+        iterate (2) turnleft();
+        divide(n);
+      } else {
+        divide(n);
+        putbeeper();
+      }
+    } else {
+      if (frontIsClear)
+        move();
+      else
+        return();
+      pickbeeper();
+      divide(n);
+    }
+  }
+
+  program() {
+    move();
+    agarra(0);
+    turnoff();
+  }
+}

@@ -60,23 +60,15 @@ En cualquiera de los siguientes casos:
 
 - Si al invocar la función `esMenor(i, j)` utilizas posiciones que están fuera del rango del arreglo, es decir, menores a $1$ o mayores a $n$,
 - Si invocas la fución `respuesta(posMenor, posMayor)` más de una vez o
-- Si excedes la cantidad máxima de invocaciones a `esMenor(i, j)` para esa subtarea.
+- Si excedes la cantidad máxima de invoaciones a `esMenor(i, j)` para esa subtarea.
 
 obtendrás $0$ puntos.
 
-#Limites
-
-$1 \le N \le 500$
-
 # Subtareas
 
-- **(15 puntos)**: Obtienes _todos_ los puntos si invocas `esMenor` a lo más $n^2$ veces.
-- **(30 puntos)**: Obtienes _todos_ los puntos si invocas `esMenor` a lo más $2n$ veces.
-- **(55 puntos)**:
+- **(xx puntos)**: Obtienes _todos_ los puntos si invocas `esMenor` a lo más $n^2$ veces.
+- **(yy puntos)**: Obtienes _todos_ los puntos si invocas `esMenor` a lo más $2n$ veces.
+- **(zz puntos)**:
   - Si invocas `esMenor` $2n$ veces obtendrás $0$ puntos.
   - Si invocas `esMenor` a lo más el número de veces que lo hace la solución oficial obtendrás el $100%$ de los puntos.
   - Si invocas `esMenor` entre $2n$ y número de la solución oficial obtendrás una cantidad parcial de los puntos.
-
-# Experimentación
-
-{{libinteractive:download}}

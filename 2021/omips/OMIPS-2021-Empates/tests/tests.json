@@ -1,0 +1,15 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/cesar_sol100.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solution100C.kj",
+      "verdict": "AC"
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

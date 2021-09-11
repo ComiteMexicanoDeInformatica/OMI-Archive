@@ -1,0 +1,35 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solution100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/cuentaBeepers.kj",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/soluFake.kj",
+      "score_range": [0, 0.25]
+    },
+    {
+      "filename": "../solutions/soluFakeNoTecho.kj",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/solutionAlReves.kj",
+      "score_range": [0, 0.1]
+    },
+    {
+      "filename": "../solutions/solutionTodoUno.kj",
+      "score_range": [0, 0]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

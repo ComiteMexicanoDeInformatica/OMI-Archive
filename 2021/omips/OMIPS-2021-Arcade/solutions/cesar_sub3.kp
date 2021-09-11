@@ -1,0 +1,118 @@
+iniciar-programa
+  define-prototipo-instrucción junta(n);
+
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como repetir n veces coge-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción super-avanza como inicio
+    si frente-libre entonces
+      avanza
+    si-no inicio
+      sur;
+      pared;
+      este;
+      si frente-libre entonces inicio
+        avanza;
+        norte;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción busca-moneda como inicio
+    mientras orientado-al-norte hacer inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          este;
+          deja-zumbador;
+        fin si-no inicio
+          deja-zumbador;
+          super-avanza;
+        fin;
+      fin si-no
+        super-avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción dfs como inicio
+    sur;
+
+    si frente-bloqueado y derecha-bloqueada entonces inicio
+      norte;
+      apágate;
+    fin;
+
+    si frente-libre entonces inicio
+      avanza;
+      si no junto-a-zumbador entonces dfs;
+      atras;
+
+      avanza;
+      oeste;
+      si frente-libre entonces inicio
+        avanza;
+        si no junto-a-zumbador entonces dfs;
+        este;
+        avanza;
+      fin;
+      norte;
+      avanza;
+      sur;
+
+      avanza;
+      este;
+      si frente-libre entonces inicio
+        avanza;
+        si no junto-a-zumbador entonces dfs;
+        oeste;
+        avanza;
+      fin;
+      norte;
+      avanza;
+      sur;
+    fin;
+  fin;
+
+  inicia-ejecución
+    busca-moneda;
+    sur;
+    coge-todo;
+    dfs;
+    sur;
+    apágate;
+  termina-ejecución
+finalizar-programa

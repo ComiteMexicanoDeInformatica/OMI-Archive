@@ -1,0 +1,30 @@
+class program {
+  void cuenta(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      cuenta(succ(n));
+    } else {
+      if (frontIsClear)
+        move();
+      else {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        turnleft();
+        if (frontIsBlocked) {
+          iterate (2) turnleft();
+          while (frontIsClear) move();
+          iterate (n) putbeeper();
+          turnoff();
+        }
+        move();
+        turnleft();
+      }
+      cuenta(n);
+    }
+  }
+
+  program() {
+    cuenta(0);
+    turnoff();
+  }
+}
