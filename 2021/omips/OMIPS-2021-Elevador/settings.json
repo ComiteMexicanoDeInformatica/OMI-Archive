@@ -20,7 +20,7 @@
 
   "misc": {
     "alias": "omips-2021-elevador",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "karel",
     "email_clarifications": 0,
     "group_score_policy": "min",
