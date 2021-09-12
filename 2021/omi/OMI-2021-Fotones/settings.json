@@ -20,7 +20,7 @@
 
   "misc": {
     "alias": "omi-2021-fotones",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "all",
     "email_clarifications": 0,
     "admin-groups": ["omi-nac-2021"]
