@@ -20,7 +20,7 @@
 
   "misc": {
     "alias": "omi-2021-restauracion",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "all",
     "email_clarifications": 0,
     "group_score_policy": "min",
