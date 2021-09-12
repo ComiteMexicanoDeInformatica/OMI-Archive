@@ -17,7 +17,7 @@
   },
   "misc": {
     "alias": "omips-2021-parkour",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "karel",
     "email_clarifications": 0,
     "admin-groups": ["omi-nac-2021"]
