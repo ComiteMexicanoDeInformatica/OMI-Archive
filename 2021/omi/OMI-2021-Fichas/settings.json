@@ -20,7 +20,7 @@
 
   "misc": {
     "alias": "omi-2021-fichas",
-    "visibility": "private",
+    "visibility": "public",
     "languages": "c11-gcc,c11-clang,cpp11-gcc,cpp11-clang,cpp17-gcc,cpp17-clang,java,py2,py3,rb,cs,pas,cat,hs,lua",
     "group_score_policy": "min",
     "email_clarifications": 0,
