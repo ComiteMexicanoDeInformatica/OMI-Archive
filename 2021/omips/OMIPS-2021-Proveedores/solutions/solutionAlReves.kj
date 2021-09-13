@@ -1,0 +1,90 @@
+class program {
+  void cuenta(n) {
+    if (nextToABeeper) {
+      if (frontIsClear) {
+        move();
+        cuenta(succ(n));
+      } else {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        iterate (succ(n)) putbeeper();
+        iterate (3) turnleft();
+        if (frontIsBlocked) {
+          solve();
+        } else {
+          move();
+          iterate (3) turnleft();
+          cuenta(0);
+        }
+      }
+    } else {
+      if (frontIsClear) {
+        move();
+        cuenta(n);
+      } else {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        iterate (n) putbeeper();
+        iterate (3) turnleft();
+        if (frontIsBlocked) {
+          solve();
+        } else {
+          move();
+          iterate (3) turnleft();
+          cuenta(0);
+        }
+      }
+    }
+  }
+
+  void solve() {
+    while (notFacingEast) turnleft();
+    if (rightIsBlocked) {
+      answer(0);
+    }
+    pickbeeper();
+    if (nextToABeeper) {
+      while (nextToABeeper) pickbeeper();
+      while (notFacingSouth) turnleft();
+      if (frontIsClear) move();
+      solve();
+    } else {
+      while (notNextToABeeper) move();
+      while (notFacingSouth) turnleft();
+      while (frontIsClear) move();
+      putbeeper();
+      while (notFacingNorth) turnleft();
+      while (frontIsClear) move();
+      turnleft();
+      while (frontIsClear) move();
+      while (notFacingSouth) turnleft();
+      while (notNextToABeeper && frontIsClear) move();
+      solve();
+    }
+  }
+
+  void answer(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      while (nextToABeeper) pickbeeper();
+      answer(succ(n));
+    } else {
+      if (frontIsBlocked) {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        iterate (n) putbeeper();
+        turnoff();
+      }
+      move();
+      answer(n);
+    }
+  }
+
+  program() {
+    move();
+    iterate (3) turnleft();
+    move();
+    cuenta(0);
+    turnoff();
+  }
+}

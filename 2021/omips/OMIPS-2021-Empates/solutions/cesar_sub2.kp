@@ -1,0 +1,88 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción cubetas como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cubetas;
+      avanza;
+    fin si-no inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        cubetas;
+        atras;
+        deja-zumbador;
+        esquina;
+      fin si-no
+        esquina;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta-parejas(n) como inicio
+    si junto-a-zumbador y frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces
+        cuenta-parejas(sucede(n))
+      si-no
+        cuenta-parejas(n);
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        cuenta-parejas(n);
+      fin si-no inicio
+        esquina;
+        coge-todo;
+        deja(n);
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    coge-zumbador;
+    cubetas;
+    deja-zumbador;
+    esquina;
+    cuenta-parejas(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

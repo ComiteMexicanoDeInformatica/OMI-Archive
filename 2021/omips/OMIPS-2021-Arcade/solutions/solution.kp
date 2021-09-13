@@ -1,0 +1,94 @@
+iniciar-programa
+  define-prototipo-instrucción junta(n);
+
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como repetir n veces coge-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción dp como inicio
+    coge-zumbador;
+    si junto-a-zumbador entonces inicio
+      deja-zumbador;
+      sur;
+      avanza;
+      si no junto-a-zumbador entonces deja(2);
+      oeste;
+      si frente-libre entonces inicio
+        avanza;
+        si no junto-a-zumbador entonces deja(2);
+        atras;
+      fin;
+      este;
+      si frente-libre entonces inicio
+        avanza;
+        si no junto-a-zumbador entonces deja(2);
+        atras;
+      fin;
+      norte;
+      avanza;
+      este;
+    fin si-no
+      deja-zumbador;
+  fin;
+
+  define-nueva-instrucción procesa-fila como inicio
+    si junto-a-zumbador entonces dp;
+    mientras frente-libre hacer inicio
+      avanza;
+      si junto-a-zumbador entonces dp;
+    fin;
+  fin;
+
+  inicia-ejecución
+    pared;
+    este;
+    mientras derecha-libre hacer inicio
+      procesa-fila;
+      oeste;
+      pared;
+      sur;
+      avanza;
+      este;
+    fin;
+
+    si junto-a-zumbador entonces
+      norte
+    si-no
+      sur;
+
+    apágate;
+  termina-ejecución
+finalizar-programa

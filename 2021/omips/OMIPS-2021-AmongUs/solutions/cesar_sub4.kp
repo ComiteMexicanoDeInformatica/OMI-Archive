@@ -1,0 +1,160 @@
+iniciar-programa
+  define-prototipo-instrucción aprende-mundo;
+
+  define-prototipo-instrucción cuenta-y-busca-maximo(n);
+
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción super-avanza como inicio
+    si frente-libre entonces
+      avanza
+    si-no inicio
+      gira(2);
+      pared;
+      gira(1);
+      si frente-libre entonces inicio
+        avanza;
+        gira(1);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción haz-rombo(n) como inicio
+    repetir n veces avanza;
+    gira(3);
+    repetir 4 veces inicio
+      repetir n veces inicio
+        deja-zumbador;
+        avanza;
+        gira(3);
+        avanza;
+        gira(1);
+      fin;
+      gira(3);
+    fin;
+    gira(3);
+    repetir n veces avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción cuenta-distancia(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cuenta-distancia(sucede(n));
+    fin si-no inicio
+      aprende-mundo;
+      haz-rombo(n);
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-mundo como inicio
+    si junto-a-zumbador entonces
+      cuenta-distancia(0)
+    si-no inicio
+      super-avanza;
+      si orientado-al-norte entonces inicio
+        aprende-mundo;
+        super-avanza;
+      fin si-no inicio
+        gira(1);
+        pared;
+        gira(2);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si no-junto-a-zumbador y si-es-cero(n) entonces
+        este
+      si-no inicio
+        si junto-a-zumbador entonces
+          norte
+        si-no
+          sur;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción busca(n) como inicio
+    mientras no-orientado-al-este hacer inicio
+      compara(n);
+      si orientado-al-este entonces apágate;
+      sur;
+      super-avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción busca-maximo(n) como inicio
+    si orientado-al-norte entonces inicio
+      compara(n);
+      si orientado-al-norte entonces
+        cuenta-y-busca-maximo(0)
+      si-no inicio
+        norte;
+        super-avanza;
+        busca-maximo(n);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta-y-busca-maximo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cuenta-y-busca-maximo(sucede(n));
+    fin si-no inicio
+      deja(n);
+      super-avanza;
+      busca-maximo(n);
+      norte;
+      pared;
+      gira(2);
+      busca(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    aprende-mundo;
+    gira(2);
+    cuenta-y-busca-maximo(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

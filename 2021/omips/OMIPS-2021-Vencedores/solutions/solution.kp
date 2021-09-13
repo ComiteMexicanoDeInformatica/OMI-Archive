@@ -1,0 +1,90 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como repetir n veces coge-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si no-junto-a-zumbador y si-es-cero(n) entonces
+        este
+      si-no inicio
+        si junto-a-zumbador entonces
+          sur
+        si-no
+          norte;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción nuevo-maximo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      nuevo-maximo(sucede(n));
+    fin si-no inicio
+      deja(n);
+      este;
+      avanza;
+      mientras junto-a-zumbador hacer inicio
+        compara(n);
+        si orientado-al-sur entonces
+          nuevo-maximo(0)
+        si-no inicio
+          este;
+          avanza;
+        fin;
+      fin;
+      oeste;
+      mientras frente-libre hacer inicio
+        avanza;
+        compara(n);
+        coge-todo;
+        si orientado-al-este entonces deja-zumbador;
+        oeste;
+      fin;
+      apágate;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    nuevo-maximo(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

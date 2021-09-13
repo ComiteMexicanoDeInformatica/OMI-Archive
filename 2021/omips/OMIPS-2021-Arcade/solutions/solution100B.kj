@@ -1,0 +1,70 @@
+class program {
+  void dfs() {
+    if (nextToABeeper) {
+      pickbeeper();
+      if (nextToABeeper) {
+        while (notFacingNorth) turnleft();
+        turnoff();
+      }
+      putbeeper();
+      return();
+    }
+    left();
+    up();
+    right();
+    putbeeper();
+  }
+
+  void left() {
+    while (notFacingWest) turnleft();
+    if (frontIsBlocked) return();
+    move();
+    iterate (3) turnleft();
+    if (frontIsClear)
+      move();
+    else {
+      iterate (3) turnleft();
+      move();
+      return();
+    }
+    dfs();
+    while (notFacingSouth) turnleft();
+    move();
+    turnleft();
+    move();
+  }
+
+  void up() {
+    while (notFacingNorth) turnleft();
+    if (frontIsBlocked) return();
+    move();
+    dfs();
+    while (notFacingSouth) turnleft();
+    move();
+  }
+
+  void right() {
+    while (notFacingEast) turnleft();
+    if (frontIsBlocked) return();
+    move();
+    turnleft();
+    if (frontIsClear)
+      move();
+    else {
+      turnleft();
+      move();
+      return();
+    }
+    dfs();
+    while (notFacingSouth) turnleft();
+    move();
+    iterate (3) turnleft();
+    move();
+  }
+
+  program() {
+    dfs();
+    while (notFacingSouth) turnleft();
+    turnoff();
+  }
+}

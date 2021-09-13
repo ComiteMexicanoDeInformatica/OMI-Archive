@@ -1,0 +1,29 @@
+{
+  "title": "Restauración de pirámide",
+  "source": "OMI 2021 (César Cepeda)",
+
+  "limits": {
+    "TimeLimit": 1500,
+    "MemoryLimit": 134217728,
+    "InputLimit": 67108864,
+    "OutputLimit": 67108864,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "custom",
+    "limits": {
+      "TimeLimit": 2000
+    }
+  },
+
+  "misc": {
+    "alias": "omi-2021-restauracion",
+    "visibility": "public",
+    "languages": "all",
+    "email_clarifications": 0,
+    "group_score_policy": "min",
+    "admin-groups": ["omi-nac-2021"]
+  }
+}

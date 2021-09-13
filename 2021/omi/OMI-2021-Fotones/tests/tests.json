@@ -1,0 +1,35 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol100C.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub5_6.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1.cpp",
+      "score_range": [0.09, 0.09]
+    },
+    {
+      "filename": "../solutions/sol_sub2.cpp",
+      "score_range": [0.19, 0.19]
+    },
+    {
+      "filename": "../solutions/sol_sub3.cpp",
+      "score_range": [0.22, 0.22]
+    },
+    {
+      "filename": "../solutions/sol_sub4.cpp",
+      "score_range": [0.52, 0.52]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

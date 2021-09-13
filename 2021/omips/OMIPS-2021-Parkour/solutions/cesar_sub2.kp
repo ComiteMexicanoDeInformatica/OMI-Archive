@@ -1,0 +1,108 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como repetir n veces coge-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+    fin si-no inicio
+      si junto-a-zumbador entonces norte;
+    fin;
+  fin;
+
+  define-nueva-instrucción obten-restas(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      obten-restas(sucede(n));
+      si junto-a-zumbador entonces coge-zumbador;
+    fin si-no inicio
+      deja(n);
+      avanza;
+      si junto-a-zumbador entonces inicio
+        obten-restas(0);
+        avanza;
+      fin si-no inicio
+        gira(2);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta-mayores(n) como inicio
+    si junto-a-zumbador entonces inicio
+      compara(n);
+      si orientado-al-norte entonces inicio
+        este;
+        coge-todo;
+        cuenta-mayores(n);
+        deja-zumbador;
+      fin si-no inicio
+        cuenta-mayores(n);
+      fin;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        cuenta-mayores(n);
+      fin si-no inicio
+        uno-uno;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-salto-y-cuenta(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-salto-y-cuenta(sucede(n));
+    fin si-no inicio
+      sur;
+      avanza;
+      este;
+      cuenta-mayores(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    obten-restas(0);
+    avanza;
+    coge-todo;
+    norte;
+    avanza;
+    aprende-salto-y-cuenta(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

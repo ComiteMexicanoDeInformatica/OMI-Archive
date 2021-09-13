@@ -1,0 +1,31 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solution100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../solutions/cesar_sub1.kp",
+      "score_range": [0.27, 0.27]
+    },
+    {
+      "filename": "../solutions/cesar_sub2.kp",
+      "score_range": [0.14, 0.14]
+    },
+    {
+      "filename": "../solutions/cesar_sub3.kp",
+      "score_range": [0.8, 0.8]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

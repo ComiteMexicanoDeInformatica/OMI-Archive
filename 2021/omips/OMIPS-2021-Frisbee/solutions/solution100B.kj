@@ -1,0 +1,59 @@
+class program {
+  void check(n) {
+    if (frontIsClear) {
+      if (nextToABeeper) {
+        found(n);
+        return();
+      }
+      move();
+      check(succ(n));
+    } else {
+      if (nextToABeeper) {
+        found(n);
+        return();
+      }
+      iterate (2) turnleft();
+      iterate (n) move();
+    }
+  }
+
+  void found(n) {
+    while (notFacingSouth) turnleft();
+    while (frontIsClear) move();
+    while (notFacingWest) turnleft();
+    while (frontIsClear) move();
+    iterate (n) putbeeper();
+  }
+
+  void norest(n) {
+    move();
+    iterate (3) turnleft();
+    move();
+    turnleft();
+    check(0);
+    siAns(n);
+    while (notFacingEast) turnleft();
+    check(0);
+    siAns(n);
+    while (notFacingNorth) turnleft();
+    norest(succ(n));
+  }
+
+  void siAns(n) {
+    while (notFacingSouth) turnleft();
+    if (frontIsBlocked && rightIsBlocked) {
+      iterate (n) putbeeper();
+      turnoff();
+    }
+  }
+
+  program() {
+    check(0);
+    while (notFacingEast) turnleft();
+    check(0);
+    while (notFacingNorth) turnleft();
+    if (nextToABeeper) siAns(0);
+    norest(1);
+    turnoff();
+  }
+}

@@ -1,0 +1,105 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como repetir n veces coge-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja-grupo como inicio
+    mientras algún-zumbador-en-la-mochila hacer inicio
+      deja-zumbador;
+      si frente-libre entonces
+        avanza
+      si-no inicio
+        si algún-zumbador-en-la-mochila entonces inicio
+          sur;
+          mientras frente-libre hacer inicio
+            si junto-a-zumbador entonces coge-zumbador;
+            avanza;
+          fin;
+          norte;
+        fin;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción procesa-grupo como inicio
+    coge-todo;
+    si izquierda-libre entonces inicio
+      oeste;
+      avanza;
+      norte;
+      mientras no junto-a-zumbador hacer avanza;
+      mientras junto-a-zumbador y frente-libre hacer avanza;
+      si no junto-a-zumbador entonces inicio
+        este;
+        avanza;
+      fin si-no inicio
+        este;
+        avanza;
+        sur;
+        pared;
+      fin;
+      norte;
+      deja-grupo;
+    fin si-no
+      deja-grupo;
+  fin;
+
+  define-nueva-instrucción cuenta-vueltas como inicio
+    oeste;
+    mientras frente-libre hacer inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      avanza;
+    fin;
+    mientras algún-zumbador-en-la-mochila hacer deja-zumbador;
+    apágate;
+  fin;
+
+  inicia-ejecución
+    mientras junto-a-zumbador hacer inicio
+      procesa-grupo;
+      sur;
+      pared;
+      este;
+      si frente-libre entonces inicio
+        avanza;
+        norte;
+      fin si-no inicio
+        cuenta-vueltas;
+      fin;
+    fin;
+    cuenta-vueltas;
+  termina-ejecución
+finalizar-programa
