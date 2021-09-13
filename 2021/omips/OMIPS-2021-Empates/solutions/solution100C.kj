@@ -1,0 +1,165 @@
+class program {
+  void bucket(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      bucket(succ(n));
+    } else {
+      if (frontIsBlocked) {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        iterate (2) turnleft();
+        deja(n);
+      } else {
+        move();
+        if (nextToABeeper) {
+          bucket(0);
+          deja(n);
+        } else {
+          iterate (2) turnleft();
+          while (frontIsClear) move();
+          iterate (2) turnleft();
+          deja(n);
+        }
+      }
+    }
+  }
+
+  void deja(n) {
+    iterate (pred(n)) move();
+    putbeeper();
+    iterate (2) turnleft();
+    while (frontIsClear) move();
+    iterate (2) turnleft();
+  }
+
+  void propios() {
+    while (frontIsClear) {
+      if (nextToABeeper) {
+        turnleft();
+        gauss(0);
+        divide(0);
+      }
+      move();
+    }
+
+    iterate (2) turnleft();
+    while (frontIsClear) move();
+    iterate (2) turnleft();
+  }
+
+  void gauss(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      gauss(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      move();
+      iterate (n) {
+        iterate (pred(n)) {
+          putbeeper();
+        }
+      }
+    }
+  }
+
+  void divide(n) {
+    if (nextToABeeper) {
+      iterate (2) pickbeeper();
+      divide(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      iterate (2) turnleft();
+      move();
+      turnleft();
+    }
+  }
+
+  void recoge(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      recoge(succ(n));
+    } else {
+      iterate (2) turnleft();
+      iterate (2) move();
+      turnleft();
+      repiteAns(n);
+    }
+  }
+
+  void repiteAns(n) {
+    while (notNextToABeeper) {
+      if (frontIsBlocked) {
+        turnleft();
+        move();
+        turnleft();
+        finalAnswer(0);
+      }
+      move();
+    }
+    pickbeeper();
+    iterate (n) {
+      if (frontIsClear) move();
+      if (nextToABeeper) {
+        sube(0);
+      }
+    }
+    iterate (2) turnleft();
+    while (frontIsClear) move();
+    iterate (2) turnleft();
+    repiteAns(n);
+  }
+
+  void sube(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      sube(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      while (notFacingNorth) turnleft();
+      move();
+      iterate (n) putbeeper();
+      iterate (2) turnleft();
+      move();
+      turnleft();
+    }
+  }
+
+  void finalAnswer(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      finalAnswer(succ(n));
+    } else {
+      if (frontIsBlocked) {
+        turnleft();
+        move();
+        iterate (n) putbeeper();
+        turnoff();
+      }
+      move();
+      finalAnswer(n);
+    }
+  }
+
+  program() {
+    iterate (3) turnleft();
+    bucket(0);
+    turnleft();
+    move();
+    while (nextToABeeper) {
+      pickbeeper();
+      move();
+      putbeeper();
+      iterate (2) turnleft();
+      move();
+      iterate (2) turnleft();
+    }
+    iterate (2) turnleft();
+    move();
+    turnleft();
+    propios();
+    turnleft();
+    iterate (2) move();
+    recoge(0);
+    turnoff();
+  }
+}

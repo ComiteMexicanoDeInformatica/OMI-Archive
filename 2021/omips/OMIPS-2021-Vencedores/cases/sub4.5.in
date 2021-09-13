@@ -1,0 +1,98 @@
+<ejecucion>
+        <condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000">
+			<comando nombre="AVANZA" maximoNumeroDeEjecuciones="82"/>
+		</condiciones>
+        <mundos>
+            <mundo nombre="mundo_0" ancho="100" alto="100">
+				
+<monton x="1" y="1" zumbadores="11"></monton>
+<monton x="2" y="1" zumbadores="54"></monton>
+<monton x="3" y="1" zumbadores="48"></monton>
+<monton x="4" y="1" zumbadores="59"></monton>
+<monton x="5" y="1" zumbadores="19"></monton>
+<monton x="6" y="1" zumbadores="50"></monton>
+<monton x="7" y="1" zumbadores="33"></monton>
+<monton x="8" y="1" zumbadores="15"></monton>
+<monton x="9" y="1" zumbadores="42"></monton>
+<monton x="10" y="1" zumbadores="98"></monton>
+<monton x="11" y="1" zumbadores="49"></monton>
+<monton x="12" y="1" zumbadores="68"></monton>
+<monton x="13" y="1" zumbadores="42"></monton>
+<monton x="14" y="1" zumbadores="68"></monton>
+<monton x="15" y="1" zumbadores="78"></monton>
+<monton x="16" y="1" zumbadores="73"></monton>
+<monton x="17" y="1" zumbadores="48"></monton>
+<monton x="18" y="1" zumbadores="96"></monton>
+<monton x="19" y="1" zumbadores="69"></monton>
+<monton x="20" y="1" zumbadores="68"></monton>
+<monton x="21" y="1" zumbadores="34"></monton>
+<monton x="22" y="1" zumbadores="90"></monton>
+<monton x="23" y="1" zumbadores="36"></monton>
+<monton x="24" y="1" zumbadores="91"></monton>
+<monton x="25" y="1" zumbadores="66"></monton>
+<monton x="26" y="1" zumbadores="5"></monton>
+<monton x="27" y="1" zumbadores="16"></monton>
+<monton x="28" y="1" zumbadores="51"></monton>
+<monton x="29" y="1" zumbadores="12"></monton>
+<monton x="30" y="1" zumbadores="39"></monton>
+<monton x="31" y="1" zumbadores="62"></monton>
+<monton x="32" y="1" zumbadores="54"></monton>
+<monton x="33" y="1" zumbadores="99"></monton>
+<monton x="34" y="1" zumbadores="42"></monton>
+<monton x="35" y="1" zumbadores="68"></monton>
+<monton x="36" y="1" zumbadores="32"></monton>
+<monton x="37" y="1" zumbadores="37"></monton>
+<monton x="38" y="1" zumbadores="89"></monton>
+<monton x="39" y="1" zumbadores="35"></monton>
+<monton x="40" y="1" zumbadores="71"></monton>
+<monton x="41" y="1" zumbadores="29"></monton>
+				
+<posicionDump x="1" y="1"></posicionDump>
+<posicionDump x="2" y="1"></posicionDump>
+<posicionDump x="3" y="1"></posicionDump>
+<posicionDump x="4" y="1"></posicionDump>
+<posicionDump x="5" y="1"></posicionDump>
+<posicionDump x="6" y="1"></posicionDump>
+<posicionDump x="7" y="1"></posicionDump>
+<posicionDump x="8" y="1"></posicionDump>
+<posicionDump x="9" y="1"></posicionDump>
+<posicionDump x="10" y="1"></posicionDump>
+<posicionDump x="11" y="1"></posicionDump>
+<posicionDump x="12" y="1"></posicionDump>
+<posicionDump x="13" y="1"></posicionDump>
+<posicionDump x="14" y="1"></posicionDump>
+<posicionDump x="15" y="1"></posicionDump>
+<posicionDump x="16" y="1"></posicionDump>
+<posicionDump x="17" y="1"></posicionDump>
+<posicionDump x="18" y="1"></posicionDump>
+<posicionDump x="19" y="1"></posicionDump>
+<posicionDump x="20" y="1"></posicionDump>
+<posicionDump x="21" y="1"></posicionDump>
+<posicionDump x="22" y="1"></posicionDump>
+<posicionDump x="23" y="1"></posicionDump>
+<posicionDump x="24" y="1"></posicionDump>
+<posicionDump x="25" y="1"></posicionDump>
+<posicionDump x="26" y="1"></posicionDump>
+<posicionDump x="27" y="1"></posicionDump>
+<posicionDump x="28" y="1"></posicionDump>
+<posicionDump x="29" y="1"></posicionDump>
+<posicionDump x="30" y="1"></posicionDump>
+<posicionDump x="31" y="1"></posicionDump>
+<posicionDump x="32" y="1"></posicionDump>
+<posicionDump x="33" y="1"></posicionDump>
+<posicionDump x="34" y="1"></posicionDump>
+<posicionDump x="35" y="1"></posicionDump>
+<posicionDump x="36" y="1"></posicionDump>
+<posicionDump x="37" y="1"></posicionDump>
+<posicionDump x="38" y="1"></posicionDump>
+<posicionDump x="39" y="1"></posicionDump>
+<posicionDump x="40" y="1"></posicionDump>
+<posicionDump x="41" y="1"></posicionDump>
+			</mundo>
+        </mundos>
+        <programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+            <programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="1" yKarel="1" direccionKarel="NORTE" mochilaKarel="INFINITO">
+				<despliega tipo="MUNDO"></despliega>
+            </programa>
+        </programas>
+    </ejecucion>

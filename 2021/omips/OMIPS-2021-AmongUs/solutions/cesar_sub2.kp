@@ -1,0 +1,98 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción avanza-si-puedes-y-deja(n) como inicio
+    si frente-libre y no si-es-cero(n) entonces inicio
+      avanza;
+      avanza-si-puedes-y-deja(precede(n));
+      avanza;
+    fin si-no inicio
+      si si-es-cero(n) entonces deja-zumbador;
+      gira(2);
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-mundo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-mundo(sucede(n));
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        aprende-mundo(0);
+        avanza;
+        si no si-es-cero(n) entonces inicio
+          deja-zumbador;
+          avanza-si-puedes-y-deja(n);
+          avanza-si-puedes-y-deja(n);
+        fin;
+      fin si-no inicio
+        gira(2);
+        si no si-es-cero(n) entonces inicio
+          deja-zumbador;
+          avanza-si-puedes-y-deja(n);
+          avanza-si-puedes-y-deja(n);
+        fin;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción trata-de-quitar-tres como inicio
+    repetir 3 veces inicio
+      si junto-a-zumbador entonces
+        coge-zumbador
+      si-no
+        sur;
+    fin;
+  fin;
+
+  define-nueva-instrucción encuentra-impostor como inicio
+    mientras frente-libre hacer inicio
+      trata-de-quitar-tres;
+      si no-orientado-al-sur entonces apágate;
+      este;
+      avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    aprende-mundo(0);
+    este;
+    encuentra-impostor;
+    apágate;
+  termina-ejecución
+finalizar-programa

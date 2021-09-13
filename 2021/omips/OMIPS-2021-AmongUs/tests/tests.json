@@ -1,0 +1,51 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/cesar_sol100.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solution100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solution72.kj",
+      "score_range": [0.72, 0.72]
+    },
+    {
+      "filename": "../solutions/cesar_sub1.kp",
+      "score_range": [0.24, 0.24]
+    },
+    {
+      "filename": "../solutions/cesar_sub2.kp",
+      "score_range": [0.36, 0.36]
+    },
+    {
+      "filename": "../solutions/cesar_sub4.kp",
+      "score_range": [0.24, 0.24]
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_off.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../default_bad_solutions/turn_left.kp",
+      "score_range": [0, 0.01]
+    },
+    {
+      "filename": "../../../default_bad_solutions/put_beeper.kp",
+      "score_range": [0, 0]
+    },
+    {
+      "filename": "../../../default_bad_solutions/north.kp",
+      "score_range": [0, 0.01]
+    },
+    {
+      "filename": "../../../default_bad_solutions/south.kp",
+      "score_range": [0, 0.01]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

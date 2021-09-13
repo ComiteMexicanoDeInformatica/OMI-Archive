@@ -1,0 +1,84 @@
+class program {
+  void apariciones(n) {
+    if (nextToABeeper) {
+      move();
+      apariciones(succ(n));
+    } else {
+      if (frontIsBlocked) {
+        iterate (n) putbeeper();
+        turnleft();
+        if (frontIsBlocked) {
+          iterate (2) turnleft();
+          while (frontIsClear) move();
+          iterate (2) turnleft();
+          move();
+          marcar();
+        }
+        move();
+        turnleft();
+        while (frontIsClear) move();
+        iterate (2) turnleft();
+        apariciones(0);
+      }
+      move();
+      apariciones(n);
+    }
+  }
+
+  void marcar() {
+    if (nextToABeeper)
+      pickbeeper();
+    else {
+      if (frontIsBlocked) {
+        while (notFacingNorth) turnleft();
+        while (frontIsClear) move();
+        turnleft();
+        while (frontIsClear) move();
+        turnleft();
+        contar(0);
+      }
+      move();
+      marcar();
+    }
+    if (notNextToABeeper) {
+      turnleft();
+      while (notNextToABeeper) move();
+      turnleft();
+      while (frontIsClear) move();
+      putbeeper();
+      turnleft();
+      while (frontIsClear) move();
+      turnleft();
+      while (notNextToABeeper && frontIsClear) move();
+      marcar();
+    } else {
+      while (nextToABeeper) pickbeeper();
+      marcar();
+    }
+  }
+
+  void contar(n) {
+    if (nextToABeeper) {
+      move();
+      contar(succ(n));
+    } else {
+      if (frontIsBlocked) {
+        iterate (n) putbeeper();
+        turnoff();
+      }
+      move();
+      contar(n);
+    }
+  }
+
+  program() {
+    move();
+    iterate (3) turnleft();
+    move();
+    turnleft();
+    while (frontIsClear) move();
+    iterate (2) turnleft();
+    apariciones(0);
+    turnoff();
+  }
+}

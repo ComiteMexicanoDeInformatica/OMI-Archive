@@ -1,0 +1,48 @@
+class program {
+  void altura(n) {
+    if (frontIsClear) {
+      move();
+      altura(succ(n));
+    } else {
+      iterate (2) turnleft();
+      while (frontIsClear) move();
+      turnleft();
+      solve(n);
+    }
+  }
+
+  void solve(n) {
+    if (nextToABeeper) {
+      add(n);
+      solve(n);
+      putbeeper();
+    } else {
+      iterate (2) turnleft();
+      while (frontIsClear) move();
+      return();
+    }
+  }
+
+  void add(n) {
+    if (iszero(n) && nextToABeeper) {
+      while (notFacingWest) turnleft();
+      return();
+    }
+    if (nextToABeeper) {
+      pickbeeper();
+      add(pred(n));
+      if (facingWest) putbeeper();
+    } else {
+      if (frontIsBlocked) return();
+      move();
+      if (notNextToABeeper) return();
+      add(n);
+      while (notFacingEast) turnleft();
+    }
+  }
+
+  program() {
+    altura(1);
+    turnoff();
+  }
+}

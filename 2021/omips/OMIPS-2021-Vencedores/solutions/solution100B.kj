@@ -1,0 +1,68 @@
+class program {
+  void newMax(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      newMax(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      if (frontIsClear) move();
+      compara(n);
+    }
+  }
+
+  void compara(n) {
+    if (notNextToABeeper) {
+      while (notFacingWest) turnleft();
+      move();
+      putMax(n);
+    }
+    iterate (n) {
+      if (nextToABeeper) {
+        pickbeeper();
+      } else {
+        while (notFacingWest) turnleft();
+      }
+    }
+    if (nextToABeeper) {
+      iterate (n) putbeeper();
+      newMax(0);
+    } else {
+      if (facingWest)
+        iterate (2) turnleft();
+      else
+        iterate (n) putbeeper();
+      if (frontIsBlocked) {
+        while (notFacingWest) turnleft();
+        putMax(n);
+      }
+      move();
+      compara(n);
+    }
+  }
+
+  void putMax(n) {
+    iterate (n) {
+      if (nextToABeeper) {
+        pickbeeper();
+      } else {
+        while (notFacingEast) turnleft();
+      }
+    }
+    if (facingEast) {
+      iterate (2) turnleft();
+    } else {
+      putbeeper();
+    }
+    if (frontIsBlocked) {
+      turnoff();
+    }
+    move();
+    putMax(n);
+  }
+
+  program() {
+    iterate (3) turnleft();
+    newMax(0);
+    turnoff();
+  }
+}

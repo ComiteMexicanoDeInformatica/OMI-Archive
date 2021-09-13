@@ -1,0 +1,121 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como repetir n veces coge-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si junto-a-zumbador entonces
+        sur
+      si-no si no si-es-cero(n) entonces norte;
+    fin;
+  fin;
+
+  define-nueva-instrucción quita-y-sube(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      quita-y-sube(sucede(n));
+      deja-zumbador;
+    fin si-no inicio
+      norte;
+      avanza;
+      oeste;
+      pared;
+      este;
+      mientras junto-a-zumbador hacer avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción quita-extremo-menor(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      quita-extremo-menor(sucede(n));
+    fin si-no inicio
+      deja(n);
+      mientras junto-a-zumbador hacer avanza;
+      atras;
+      compara(n);
+      si orientado-al-sur entonces inicio
+        oeste;
+        mientras junto-a-zumbador y frente-libre hacer avanza;
+        si no junto-a-zumbador entonces atras;
+        quita-y-sube(0);
+      fin si-no
+        quita-y-sube(0);
+    fin;
+  fin;
+
+  define-nueva-instrucción valida-creciente(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      valida-creciente(sucede(n));
+    fin si-no inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        compara(n);
+        si orientado-al-norte entonces inicio
+          sur;
+          apágate;
+        fin si-no inicio
+          este;
+          valida-creciente(0);
+        fin;
+      fin si-no inicio
+        norte;
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    mientras junto-a-zumbador hacer inicio
+      este;
+      quita-extremo-menor(0);
+      uno-uno;
+      este;
+      mientras no junto-a-zumbador y frente-libre hacer avanza;
+    fin;
+    uno-uno;
+    norte;
+    avanza;
+    este;
+    valida-creciente(0);
+  termina-ejecución
+finalizar-programa

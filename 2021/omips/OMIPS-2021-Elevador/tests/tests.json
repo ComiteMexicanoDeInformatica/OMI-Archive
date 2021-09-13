@@ -1,0 +1,19 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solution100B.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/cesar_sol75.kp",
+      "score_range": [0.75, 0.75]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

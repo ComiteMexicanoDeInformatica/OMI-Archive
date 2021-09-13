@@ -1,0 +1,11 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/sol100B.cpp",
+      "verdict": "AC"
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  }
+}

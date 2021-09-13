@@ -1,0 +1,66 @@
+class program {
+  void solve() {
+    putbeeper();
+    move();
+    while (notNextToABeeper && frontIsClear) {
+      move();
+    }
+    if (frontIsBlocked && notNextToABeeper) {
+      iterate (2) turnleft();
+      while (frontIsClear) move();
+      turnleft();
+      if (frontIsBlocked) {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        iterate (3) turnleft();
+        answer(0);
+      }
+      move();
+      turnleft();
+      solve();
+    }
+    turnleft();
+    while (frontIsClear) move();
+    putbeeper();
+    turnleft();
+    while (frontIsClear) move();
+    turnleft();
+    move();
+    while (nextToABeeper && frontIsClear) move();
+    if (frontIsBlocked && nextToABeeper) {
+      iterate (2) turnleft();
+      while (frontIsClear) move();
+      iterate (3) turnleft();
+      answer(0);
+    }
+    turnleft();
+    solve();
+  }
+
+  void answer(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      while (nextToABeeper) pickbeeper();
+      answer(succ(n));
+    } else {
+      if (frontIsBlocked) {
+        iterate (2) turnleft();
+        while (frontIsClear) move();
+        iterate (n) putbeeper();
+        pickbeeper();
+        turnoff();
+      }
+      move();
+      answer(n);
+    }
+  }
+
+  program() {
+    putbeeper();
+    while (notFacingEast) turnleft();
+    move();
+    turnleft();
+    solve();
+    turnoff();
+  }
+}

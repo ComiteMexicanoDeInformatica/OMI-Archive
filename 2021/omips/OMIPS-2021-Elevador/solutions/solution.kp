@@ -1,0 +1,95 @@
+iniciar-programa
+  define-prototipo-instrucción junta(n);
+
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción uno-uno como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge(n) como repetir n veces coge-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si junto-a-zumbador entonces sur;
+    fin;
+  fin;
+
+  define-nueva-instrucción quita(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      quita(precede(n));
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        si junto-a-zumbador entonces junta(n);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción junta(n) como inicio
+    compara(n);
+    si no orientado-al-sur entonces quita(n);
+  fin;
+
+  define-nueva-instrucción cuenta-vueltas(n) como inicio
+    si junto-a-zumbador entonces inicio
+      junta(n);
+      este;
+      cuenta-vueltas(n);
+      deja-zumbador;
+    fin si-no inicio
+      oeste;
+      pared;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-limite(n) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      aprende-limite(sucede(n));
+    fin si-no inicio
+      sur;
+      pared;
+      este;
+      cuenta-vueltas(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    aprende-limite(1);
+  termina-ejecución
+finalizar-programa

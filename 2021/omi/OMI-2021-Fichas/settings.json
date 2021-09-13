@@ -1,0 +1,29 @@
+{
+  "title": "Juego de Fichas",
+  "source": "OMI 2021 (Diego Garcia Rodríguez del Campo)",
+
+  "limits": {
+    "TimeLimit": 3000,
+    "MemoryLimit": 134217728,
+    "InputLimit": 67108864,
+    "OutputLimit": 67108864,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "custom",
+    "limits": {
+      "TimeLimit": 5000
+    }
+  },
+
+  "misc": {
+    "alias": "omi-2021-fichas",
+    "visibility": "public",
+    "languages": "c11-gcc,c11-clang,cpp11-gcc,cpp11-clang,cpp17-gcc,cpp17-clang,java,py2,py3,rb,cs,pas,cat,hs,lua",
+    "group_score_policy": "min",
+    "email_clarifications": 0,
+    "admin-groups": ["omi-nac-2021"]
+  }
+}
