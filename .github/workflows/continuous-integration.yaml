@@ -2,12 +2,15 @@ name: Test and Deploy
 
 on:
   pull_request:
+  # allow manual run
+  workflow_dispatch:
+  # always run on main
   push:
-    branches: [master]
+    branches: [main]
 
 env:
-  OMEGAUPUSER: omips
-  OMEGAUPPASS: ${{ secrets.OMEGAUP_PASSWORD }}
+  OMEGAUPUSER: ofmi
+  OMEGAUP_API_TOKEN: ${{ secrets.OMEGAUP_API_TOKEN }}
   GIT_USERNAME: ${{ github.actor }}
 
 jobs:
@@ -18,19 +21,18 @@ jobs:
       run: |
         echo "GITHUB_BASE_COMMIT=${{ github.event.pull_request.base.sha }}" >> $GITHUB_ENV
         echo "GITHUB_CURRENT_COMMIT=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
-      if: github.ref != 'refs/heads/master'
+      if: github.ref != 'refs/heads/main'
 
-    - name: Set base commit (master)
+    - name: Set base commit (main)
       run: |
         echo "GITHUB_BASE_COMMIT=${{ github.event.before }}" >> $GITHUB_ENV
         echo "GITHUB_CURRENT_COMMIT=${{ github.event.after }}" >> $GITHUB_ENV
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
 
     - name: Set up environment
       run: |
         git config --global core.quotePath false
         echo "PIPENV_PIPFILE=$(pwd)/utils/Pipfile" >> $GITHUB_ENV
-
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
@@ -46,7 +48,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         (cd utils && sudo pip install pipenv && pipenv install)
-
     - name: Set up the CI flags.
       run: |
         # When the utils/ directory is changed, run all tests to avoid
@@ -56,25 +57,23 @@ jobs:
         else
           echo "CI_FLAGS=--ci --all" >> $GITHUB_ENV
         fi
-
     - name: Download omegaUp-ci container
       run: |
         docker login https://docker.pkg.github.com -u ${{ github.actor }} -p ${{ github.token }}
         python3 ./utils/runtests.py ${{ env.CI_FLAGS }} --only-pull-image
-
     - name: Run tests
       run: python3 ./utils/runtests.py ${{ env.CI_FLAGS }}
 
     - name: Generate pngs/testplan
       run: python3 ./utils/generateresources.py --generate=png,testplan ${{ env.CI_FLAGS }}
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
 
     - name: Deploy to omegaUp
       run: pipenv run python3 ./utils/upload.py --ci --verbose  # Don't use CI_FLAGS to avoid deploying all problems.
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
 
     - name: Push to public branch
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       run: |
         shopt -s extglob
         git config --global user.name "${{ env.GIT_USERNAME }}"
@@ -115,4 +114,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      if: ${{ failure() && github.ref == 'refs/heads/master' }}
+      if: ${{ failure() && github.ref == 'refs/heads/main' }}
