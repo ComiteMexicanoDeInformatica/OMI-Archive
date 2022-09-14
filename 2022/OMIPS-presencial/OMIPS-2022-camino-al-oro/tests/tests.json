@@ -1,0 +1,16 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1.kp",
+      "score_range": [0.17, 0.17]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  },
+  "max_score": 100
+}

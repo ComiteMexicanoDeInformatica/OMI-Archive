@@ -1,0 +1,43 @@
+# emacs temp files
+*~
+#*#
+
+* MAC
+*.DS_STORE
+Thumbs.db
+
+*.zip
+*.exe
+a.out
+*.o
+*.orig
+*.bak
+*.bat
+
+*.pyc
+
+# libinteractive
+*.cbp
+*.layout
+*.bat
+libinteractive
+libinteractive.jar
+Makefile
+
+# omegaUp-deploy
+solution
+omegaUp-deploy
+karel.js
+
+# Tests
+results/
+results*/
+
+.vscode
+.mypy_cache/
+
+# JetBrains
+.idea
+
+# Python venv
+venv/

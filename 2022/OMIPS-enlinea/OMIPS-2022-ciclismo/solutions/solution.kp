@@ -1,0 +1,245 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción ultimo-zumbador como inicio
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+    gira(2);
+    si no junto-a-zumbador entonces avanza;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si junto-a-zumbador entonces
+        norte
+      si-no inicio
+        si no si-es-cero(n) entonces sur;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-maximo(n) como inicio
+    si junto-a-zumbador o no si-es-cero(n) entonces inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      si si-es-cero(n) entonces
+        deja-maximo(n)
+      si-no
+        deja-maximo(precede(n));
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-minimo(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      deja-minimo(precede(n));
+      deja-zumbador;
+    fin si-no
+      coge-todo;
+  fin;
+
+  define-nueva-instrucción aprende-y-copia(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-copia(sucede(n));
+      deja-zumbador;
+    fin si-no inicio
+      deja(n);
+      si frente-libre entonces inicio
+        avanza;
+        aprende-y-copia(0);
+        avanza;
+      fin si-no inicio
+        norte;
+        avanza;
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia-linea como inicio
+    este;
+    ultimo-zumbador;
+    aprende-y-copia(0);
+  fin;
+
+  define-nueva-instrucción limpia-linea como inicio
+    este;
+    ultimo-zumbador;
+    coge-todo;
+    mientras frente-libre hacer inicio
+      avanza;
+      coge-todo;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-y-deja-maximo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-deja-maximo(sucede(n));
+    fin si-no inicio
+      deja(n);
+      avanza;
+      deja-maximo(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-y-deja-minimo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-deja-minimo(sucede(n));
+    fin si-no inicio
+      deja(n);
+      avanza;
+      deja-minimo(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-y-resta como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-resta;
+      coge-zumbador;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        aprende-y-resta;
+        avanza;
+      fin si-no inicio
+        norte;
+        avanza;
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción valida-si-es-posible(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      valida-si-es-posible(sucede(n));
+    fin si-no inicio
+      norte;
+      avanza;
+      este;
+      avanza;
+      compara(n);
+      si orientado-al-sur entonces apágate;
+    fin;
+  fin;
+
+  define-nueva-instrucción resta-inicial(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      resta-inicial(sucede(n));
+      si junto-a-zumbador entonces coge-zumbador;
+    fin si-no
+      repetir 2 veces avanza;
+  fin;
+
+  define-nueva-instrucción deja-resultado(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      deja-resultado(sucede(n));
+      si orientado-al-sur entonces inicio
+        si junto-a-zumbador entonces
+          coge-zumbador
+        si-no inicio
+          norte;
+          deja-zumbador;
+        fin;
+      fin si-no
+        deja-zumbador;
+    fin si-no inicio
+      sur;
+      avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    norte;
+    avanza;
+    copia-linea;
+    copia-linea;
+    repetir 2 veces inicio
+      sur;
+      avanza;
+      limpia-linea;
+    fin;
+
+    esquina;
+    este;
+    copia-linea;
+    copia-linea;
+
+    oeste;
+    mientras frente-libre hacer aprende-y-deja-maximo(0);
+
+    sur;
+    avanza;
+    este;
+    mientras frente-libre y junto-a-zumbador hacer aprende-y-deja-minimo(0);
+
+    este;
+    ultimo-zumbador;
+    aprende-y-resta;
+
+    oeste;
+    mientras frente-libre hacer aprende-y-deja-maximo(0);
+
+    valida-si-es-posible(0);
+
+    esquina;
+    este;
+    copia-linea;
+    oeste;
+    mientras frente-libre hacer aprende-y-deja-maximo(0);
+
+    norte;
+    repetir 2 veces avanza;
+    sur;
+    resta-inicial(0);
+    deja-resultado(0);
+    si orientado-al-sur entonces inicio
+      coge-todo;
+      norte;
+    fin;
+
+    apágate;
+  termina-ejecución
+finalizar-programa

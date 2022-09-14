@@ -1,0 +1,25 @@
+iniciar-programa
+  define-nueva-instrucción recorre como inicio
+    si frente-libre entonces inicio
+      avanza;
+      si derecha-libre entonces inicio
+        repetir 3 veces gira-izquierda;
+        avanza;
+      fin;
+      si no junto-a-zumbador entonces recorre;
+    fin si-no inicio
+      gira-izquierda;
+      si no junto-a-zumbador entonces inicio
+        recorre;
+        deja-zumbador;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    deja-zumbador;
+    recorre;
+    coge-zumbador;
+    apágate;
+  termina-ejecución
+finalizar-programa

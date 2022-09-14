@@ -1,0 +1,239 @@
+class program {
+  void norte() {
+    while (notFacingNorth) turnleft();
+  }
+
+  void este() {
+    while (notFacingEast) turnleft();
+  }
+
+  void oeste() {
+    while (notFacingWest) turnleft();
+  }
+
+  void sur() {
+    while (notFacingSouth) turnleft();
+  }
+
+  void avanzaPared() {
+    while (frontIsClear) move();
+  }
+
+  void origen() {
+    sur();
+    avanzaPared();
+    oeste();
+    avanzaPared();
+    norte();
+  }
+
+  void deja(n) {
+    iterate (n) putbeeper();
+  }
+
+  void recoge() {
+    while (nextToABeeper) pickbeeper();
+  }
+
+  void copia(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      copia(succ(n));
+    } else {
+      deja(n);
+      norte();
+      move();
+      recoge();
+      deja(n);
+    }
+  }
+
+  void energiaIni(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      energiaIni(succ(n));
+    } else {
+      deja(n);
+      move();
+      move();
+      move();
+      deja(n);
+    }
+  }
+
+  void copiaFila() {
+    este();
+    while (nextToABeeper && frontIsClear) {
+      copia(0);
+      sur();
+      move();
+      este();
+      move();
+    }
+    if (nextToABeeper) {
+      copia(0);
+    }
+  }
+
+  void comparaMay(n) {
+    if (nextToABeeper && !iszero(n)) {
+      pickbeeper();
+      comparaMay(pred(n));
+      putbeeper();
+    } else {
+      deja(n);
+    }
+  }
+
+  void mayor(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      mayor(succ(n));
+    } else {
+      deja(n);
+      move();
+      comparaMay(n);
+    }
+  }
+
+  void encuentraMayor() {
+    while (frontIsClear) {
+      mayor(0);
+    }
+  }
+
+  void finFila() {
+    este();
+    while (nextToABeeper && frontIsClear) move();
+    oeste();
+    if (notNextToABeeper) move();
+  }
+
+  void cuentaYQuita(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      cuentaYQuita(succ(n));
+      if (nextToABeeper) pickbeeper();
+    } else {
+      deja(n);
+      norte();
+      move();
+    }
+  }
+
+  void diferencias() {
+    while (nextToABeeper && frontIsClear) {
+      cuentaYQuita(0);
+      sur();
+      move();
+      oeste();
+      move();
+    }
+    cuentaYQuita(0);
+  }
+
+  void resta(n) {
+    if (nextToABeeper && !iszero(n)) {
+      pickbeeper();
+      resta(pred(n));
+    } else {
+      while (nextToABeeper) pickbeeper();
+      deja(n);
+    }
+  }
+
+  void diferenciaConOrigen(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      diferenciaConOrigen(succ(n));
+    } else {
+      norte();
+      move();
+      move();
+      move();
+      resta(n);
+    }
+  }
+
+  void copiaAOrigen(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      copiaAOrigen(succ(n));
+    } else {
+      origen();
+      deja(n);
+    }
+  }
+
+  void diferenciaConEnergiaIni(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      diferenciaConEnergiaIni(succ(n));
+    } else {
+      sur();
+      move();
+      resta(n);
+    }
+  }
+
+  void checaMayorIgual(n) {
+    if (nextToABeeper && !iszero(n)) {
+      pickbeeper();
+      checaMayorIgual(pred(n));
+    } else {
+      if (!iszero(n) && notNextToABeeper) sur();
+    }
+  }
+
+  void checaValida(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      checaValida(succ(n));
+    } else {
+      norte();
+      move();
+      este();
+      move();
+      checaMayorIgual(n);
+    }
+  }
+
+  program() {
+    energiaIni(0);
+    origen();
+    move();
+    copiaFila();
+    origen();
+    copiaFila();
+
+    norte();
+    move();
+    oeste();
+    if (notNextToABeeper) move();
+    encuentraMayor();
+
+    origen();
+    finFila();
+    diferencias();
+
+    origen();
+    finFila();
+    norte();
+    move();
+    oeste();
+    encuentraMayor();
+
+    checaValida(0);
+    if (notFacingSouth) {
+      origen();
+      finFila();
+      encuentraMayor();
+      diferenciaConOrigen(0);
+      if (nextToABeeper) {
+        diferenciaConEnergiaIni(0);
+        copiaAOrigen(0);
+      }
+    }
+    turnoff();
+  }
+}

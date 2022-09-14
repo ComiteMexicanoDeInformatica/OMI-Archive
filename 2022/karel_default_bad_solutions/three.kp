@@ -1,0 +1,6 @@
+iniciar-programa
+  inicia-ejecución
+    repetir 3 veces deja-zumbador;
+    apágate;
+  termina-ejecución
+finalizar-programa

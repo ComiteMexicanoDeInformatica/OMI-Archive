@@ -1,0 +1,24 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kj",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/solb.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_40pts.kp",
+      "score_range": [0.4, 0.4]
+    },
+    {
+      "filename": "../solutions/sol_80pts.kp",
+      "score_range": [0.8, 0.8]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  },
+  "max_score": 100
+}

@@ -1,0 +1,95 @@
+class program {
+  void reset() {
+    iterate (2) turnleft();
+    while (frontIsClear) move();
+    iterate (2) turnleft();
+  }
+
+  void buckets() {
+    pickbeeper();
+    if (nextToABeeper) {
+      buckets();
+      move();
+    } else {
+      if (frontIsClear) move();
+      if (nextToABeeper) {
+        buckets();
+        putbeeper();
+      }
+      reset();
+    }
+  }
+
+  void fill(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      fill(n);
+      iterate (n) putbeeper();
+      if (frontIsClear) move();
+    } else if (frontIsClear) {
+      move();
+      fill(succ(n));
+    } else {
+      reset();
+    }
+  }
+
+  void sort() {
+    buckets();
+    putbeeper();
+    reset();
+    fill(1);
+    reset();
+  }
+
+  void pickcoupons() {
+    pickbeeper();
+    if (nextToABeeper) {
+      pickcoupons();
+      move();
+    } else {
+      if (frontIsClear) move();
+      if (nextToABeeper) {
+        pickcoupons();
+        while (nextToABeeper) pickbeeper();
+        if (frontIsClear) move();
+      } else {
+        reset();
+        iterate (3) turnleft();
+        move();
+        turnleft();
+      }
+    }
+  }
+
+  void buy() {
+    if (nextToABeeper) {
+      pickbeeper();
+      buy();
+      putbeeper();
+    } else if (frontIsClear) {
+      move();
+      buy();
+    } else {
+      reset();
+    }
+  }
+
+  void solve() {
+    pickcoupons();
+    while (nextToABeeper) pickbeeper();
+    reset();
+    buy();
+  }
+
+  program() {
+    while (notFacingEast) turnleft();
+    sort();
+    turnleft();
+    move();
+    while (notFacingEast) turnleft();
+    sort();
+    solve();
+    turnoff();
+  }
+}

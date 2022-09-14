@@ -1,0 +1,28 @@
+{
+  "title": "Nombre del problema",
+  "source": "OMI 2022 (Persona que propuso el problema)",
+
+  "limits": {
+    "TimeLimit": 1000,
+    "MemoryLimit": 335544320,
+    "InputLimit": 3454432,
+    "OutputLimit": 16384,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "token-caseless",
+    "limits": {
+      "TimeLimit": 1500
+    }
+  },
+
+  "misc": {
+    "alias": "omi-2022-Nombre-en-omega-up",
+    "visibility": "private",
+    "languages": "all",
+    "email_clarifications": 0,
+    "admin-groups": ["omi-nac-2022"]
+  }
+}

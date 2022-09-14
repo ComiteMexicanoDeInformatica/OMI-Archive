@@ -1,0 +1,35 @@
+[MESSAGES CONTROL]
+
+# We are locally disabling something because we don't want to hear about it.
+#  I0011 = Locally disabling
+#
+# Too few public methods is bad for context managers or enums.
+#  R0903 = Too few public methods
+#
+# Too many public methods is bad for tests.
+#  R0904 = Too many public methods
+#
+# Functions and methods with too many branches are hard to understand.
+#  R0912 = Too many branches
+#
+# Too many local variables
+#  R0914 = Too many local variables
+#
+# Validators use variable names from the problem statement
+#  C0103 = Invalid name
+#
+# No docstrings for us
+#  C0114 = Missing module docstring
+#  C0115 = Missing class docstring
+#  C0116 = Missing method docstring
+#
+# Broad exceptions are fine
+#  W0703 = Catching too general exception
+disable=I0011,R0903,R0904,R0912,R0914,C0103,C0114,C0115,C0116,W0703
+
+[BASIC]
+
+# [nothing here?]
+
+[DESIGN]
+max-attributes=20

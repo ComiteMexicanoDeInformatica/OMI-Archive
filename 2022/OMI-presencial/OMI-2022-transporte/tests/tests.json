@@ -1,0 +1,17 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1.cpp",
+      "score_range": [0.2, 0.2]
+    },
+    {
+      "filename": "../solutions/sol_sub2.cpp",
+      "score_range": [0.2, 0.2]
+    }
+  ],
+  "max_score": 100
+}

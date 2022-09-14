@@ -1,0 +1,151 @@
+iniciar-programa
+  define-prototipo-instrucción checa(N);
+
+  define-nueva-instrucción checa2(N) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      checa2(sucede(N));
+    fin si-no inicio
+      avanza;
+      gira-izquierda;
+      si frente-libre entonces
+        avanza
+      si-no inicio
+        repetir 2 veces gira-izquierda;
+        mientras frente-libre hacer avanza;
+        gira-izquierda;
+        mientras frente-libre hacer avanza;
+        apágate;
+      fin;
+      checa(N);
+    fin;
+  fin;
+
+  define-nueva-instrucción checa(N) como inicio
+    si junto-a-zumbador entonces inicio
+      si si-es-cero(N) entonces inicio
+        repetir 2 veces gira-izquierda;
+        mientras frente-libre hacer avanza;
+        gira-izquierda;
+        avanza;
+        deja-zumbador;
+        repetir 2 veces gira-izquierda;
+        avanza;
+        repetir 3 veces gira-izquierda;
+        mientras no junto-a-zumbador y frente-libre hacer avanza;
+        checa(sucede(N));
+      fin;
+      coge-zumbador;
+      checa(precede(N));
+    fin si-no inicio
+      gira-izquierda;
+      avanza;
+      repetir 2 veces gira-izquierda;
+      si frente-libre entonces checa2(N);
+    fin;
+    checa(N);
+  fin;
+
+  define-nueva-instrucción cuenta(N) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cuenta(sucede(N));
+    fin si-no inicio
+      repetir 3 veces gira-izquierda;
+      avanza;
+      checa(N);
+    fin;
+  fin;
+
+  define-nueva-instrucción baja(N) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      baja(sucede(N));
+    fin si-no inicio
+      avanza;
+      avanza;
+      repetir N veces deja-zumbador;
+      repetir 2 veces gira-izquierda;
+      avanza;
+      avanza;
+      gira-izquierda;
+      repetir N veces deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción sube(N) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      sube(sucede(N));
+    fin si-no inicio
+      gira-izquierda;
+      avanza;
+      repetir N veces deja-zumbador;
+      repetir 2 veces gira-izquierda;
+      avanza;
+      repetir N veces deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción compara(N) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      compara(sucede(N));
+    fin si-no inicio
+      avanza;
+      si no junto-a-zumbador entonces inicio
+        repetir 2 veces gira-izquierda;
+        mientras frente-libre hacer avanza;
+        repetir 3 veces gira-izquierda;
+        avanza;
+        cuenta(0);
+      fin;
+      repetir N veces inicio
+        si no junto-a-zumbador entonces gira-izquierda;
+        si junto-a-zumbador y orientado-al-este entonces coge-zumbador;
+        si orientado-al-norte entonces deja-zumbador;
+      fin;
+      si orientado-al-este entonces inicio
+        sube(0);
+        repetir N veces deja-zumbador;
+        gira-izquierda;
+        compara(0);
+      fin si-no inicio
+        baja(0);
+        repetir N veces inicio
+          si no junto-a-zumbador entonces gira-izquierda;
+          si junto-a-zumbador y orientado-al-este entonces coge-zumbador;
+          si orientado-al-norte entonces deja-zumbador;
+        fin;
+        repetir 3 veces gira-izquierda;
+        compara(0);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción mueve(N) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      mueve(sucede(N));
+    fin si-no inicio
+      gira-izquierda;
+      avanza;
+      gira-izquierda;
+      avanza;
+      repetir N veces deja-zumbador;
+      gira-izquierda;
+      avanza;
+      avanza;
+      gira-izquierda;
+    fin;
+  fin;
+
+  inicia-ejecución
+    avanza;
+    repetir 3 veces gira-izquierda;
+    avanza;
+    mueve(0);
+    compara(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

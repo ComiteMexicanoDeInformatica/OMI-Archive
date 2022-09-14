@@ -1,0 +1,60 @@
+class program {
+  void avanzarContandoPasos(pasos) {
+    if (nextToABeeper) {
+      pickbeeper();
+      avanzarContandoPasos(pasos);
+      if (iszero(pasos)) putbeeper();
+    } else if (frontIsClear) {
+      move();
+      if (iszero(pasos))
+        avanzarContandoPasos(succ(pasos));
+      else
+        avanzarContandoPasos(pred(pasos));
+    } else if (facingSouth && rightIsClear) {
+      iterate (3) turnleft();
+      move();
+      iterate (3) turnleft();
+      if (iszero(pasos))
+        avanzarContandoPasos(succ(pasos));
+      else
+        avanzarContandoPasos(pred(pasos));
+    } else if (facingNorth && leftIsClear) {
+      turnleft();
+      move();
+      turnleft();
+      if (iszero(pasos))
+        avanzarContandoPasos(succ(pasos));
+      else
+        avanzarContandoPasos(pred(pasos));
+    } else if (facingNorth) {
+      iterate (2) turnleft();
+      while (frontIsClear) move();
+    }
+  }
+
+  void esquinaSuperiorDerecha(pasos) {
+    if (nextToABeeper) {
+      pickbeeper();
+      esquinaSuperiorDerecha(pasos);
+      if (iszero(pasos)) putbeeper();
+    } else if (frontIsClear) {
+      move();
+      if (iszero(pasos))
+        esquinaSuperiorDerecha(succ(pasos));
+      else
+        esquinaSuperiorDerecha(pred(pasos));
+    } else if (facingNorth) {
+      iterate (3) turnleft();
+      esquinaSuperiorDerecha(pasos);
+    } else {
+      while (notFacingSouth) turnleft();
+      avanzarContandoPasos(pasos);
+    }
+  }
+
+  program() {
+    while (notFacingNorth) turnleft();
+    esquinaSuperiorDerecha(0);
+    turnoff();
+  }
+}
