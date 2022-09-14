@@ -41,7 +41,7 @@ Tu programa deberá escribir a la salida estándar una línea con $N$ números s
 - El diente uno tiene dureza $D_1 = 1$ de modo que todas las noches acumula daño. Cada noche acumula $2$ unidades de daño, al cabo de las $5$ noches tendrá un total de $10$ puntos de daño. Como el daño máximo que soporta $M_1 = 15$, no ha llegado a su máximo y el diente permanece en la boca de Fernanda.
 - El diente dos tiene dureza $D_2 = 5$. Las noches uno y dos no recibe daño, como el _daño total_ no puede disminuir de $0$, se mantiene en ese número. La tercera noche la fuerza es de $8$, excede su dureza y el diente acumula $10$ unidades de daño, con lo cual llega a su máximo $M_2 = 10$ y por lo tanto se cae.
 - El diente tres tiene dureza $D_3 = 3$. La primera noche acumula daño y su _daño total_ queda en $3$, la segunda noche se recupera con lo cual su _daño total_ disminuye a $0$ (observa que no puede ser menor que cero), en la tercera vuelve a acumular daño, la cuarta recupera (la fuerza es menor o igual a su dureza), la quinta acumula y termina con _daño total_ igual a $3$ por lo que nunca llega a su máximo y el diente permanece.
-||end
+  ||end
 
 # Límites
 

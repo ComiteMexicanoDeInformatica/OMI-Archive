@@ -65,7 +65,7 @@ Las personas vivas en cada año de interés de la maestra son:
 
 # Subtareas
 
-- (5 puntos): $N, Q = 100$, $a_i = b_i$, $a_i, b_i \leq 100$.  Cada persona muere al final del año en el que nace.
+- (5 puntos): $N, Q = 100$, $a_i = b_i$, $a_i, b_i \leq 100$. Cada persona muere al final del año en el que nace.
 - (10 puntos): $N, Q, a_i, b_i \leq 1000$.
 - (23 puntos): $N \leq 1000$, $a_i, b_i \leq 50000$.
 - (26 puntos): $a_i, b_i \leq 10^6$.

@@ -6,7 +6,7 @@ Un jardín se representa como una cuadrícula de $N$ filas por $M$ columnas en d
 
 Tu amigo quiere saber dónde poner fuentes de modo que eventualmente todas las casillas libres se llenen de agua y se utilice el menor número de fuentes posible.
 
-**Este es un problema de sólo salida.**  Esto quiere decir que podrás descargar los archivos de evaluación y deberás mandar un ".zip" con los archivos de salida correspondientes a cada uno de ellos.
+**Este es un problema de sólo salida.** Esto quiere decir que podrás descargar los archivos de evaluación y deberás mandar un ".zip" con los archivos de salida correspondientes a cada uno de ellos.
 
 # Problema
 
@@ -30,16 +30,18 @@ Para cada mapa de entrada deberás enviar un mapa con fuentes colocadas con la s
 # Evaluación
 
 Obtendrás $0$ puntos en un caso si:
+
 - Tu mapa de respuesta no cumple la estructura especificada o usa caractéres inválidos.
 - Tu mapa de respuesta es de distinto tamaño del mapa de entrada.
 - Tu mapa de respuesta puso fuentes en cuadros que originalmente estaban ocupados.
 - Tu mapa de respuesta marca como ocupados cuadros que originalmente estaban libres o viceversa.
 
 Para asignarle puntos a tu mapa, el evaluador realizará el siguiente proceso:
+
 - Simulará el _encendido_ de las fuentes hasta llenar todos los cuadros posibles con tu configuración de respuesta.
 - Contará el número de cuadros libres que **quedaron sin llenar** y asignará ese número a la variable $L$.
 - Contará el número de fuentes que se usaron y asignará ese número a la variable $F$.
-- El puntaje que obtenga tu mapa será mayor mientras el valor $F + (2 \times L)$ sea menor.  Es decir, mientras menos fuentes uses y menos cuadros sin llenar dejes obtendrás mejor puntaje.
+- El puntaje que obtenga tu mapa será mayor mientras el valor $F + (2 \times L)$ sea menor. Es decir, mientras menos fuentes uses y menos cuadros sin llenar dejes obtendrás mejor puntaje.
 
 # Ejemplo
 

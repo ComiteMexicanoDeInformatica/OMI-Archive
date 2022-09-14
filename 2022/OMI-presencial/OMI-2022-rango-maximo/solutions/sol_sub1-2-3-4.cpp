@@ -32,7 +32,7 @@ int main() {
     }
 
     // COPIA LOS PUNTAJES AL ARREGLO DE REVISION Y ORDENALO
-    for(int i = 1; i <= n; ++i) nuevo[i] = p[i];
+    for (int i = 1; i <= n; ++i) nuevo[i] = p[i];
     std::sort(nuevo + 1, nuevo + 1 + n);
     nuevo[n + 1] = 2e9;
 
