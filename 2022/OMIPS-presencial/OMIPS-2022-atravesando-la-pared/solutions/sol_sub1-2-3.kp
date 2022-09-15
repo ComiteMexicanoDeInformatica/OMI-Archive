@@ -1,0 +1,152 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción ultimo-zumbador como inicio
+    espacio;
+    si no junto-a-zumbador entonces atras;
+  fin;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción recorre-pared-izq como inicio
+    si derecha-bloqueada entonces inicio
+      avanza;
+      recorre-pared-izq;
+      avanza;
+    fin si-no inicio
+      gira(3);
+      avanza;
+      gira(3);
+    fin;
+  fin;
+
+  define-nueva-instrucción recorre-pared-der como inicio
+    si izquierda-bloqueada entonces inicio
+      avanza;
+      recorre-pared-der;
+      avanza;
+    fin si-no inicio
+      gira(1);
+      avanza;
+      gira(1);
+    fin;
+  fin;
+
+  define-nueva-instrucción resuelve-izq como inicio
+    si derecha-bloqueada y frente-libre entonces inicio
+      avanza;
+      resuelve-izq;
+      si frente-bloqueado entonces
+        gira(1)
+      si-no
+        avanza;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        gira(3);
+        avanza;
+        si derecha-libre entonces inicio
+          gira(3);
+        fin si-no inicio
+          recorre-pared-izq;
+        fin;
+      fin si-no inicio
+        gira(1);
+        recorre-pared-izq;
+        avanza;
+        gira(3);
+        avanza;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción resuelve-der como inicio
+    si izquierda-bloqueada y frente-libre entonces inicio
+      avanza;
+      resuelve-der;
+      si frente-bloqueado entonces
+        gira(3)
+      si-no
+        avanza;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        gira(1);
+        avanza;
+        si izquierda-libre entonces inicio
+          gira(1);
+        fin si-no inicio
+          recorre-pared-der;
+        fin;
+      fin si-no inicio
+        gira(3);
+        recorre-pared-der;
+        avanza;
+        gira(1);
+        avanza;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción valida como inicio
+    si derecha-bloqueada y frente-libre entonces inicio
+      avanza;
+      valida;
+      si derecha-libre entonces inicio
+        avanza;
+        si derecha-libre y izquierda-libre entonces repetir 2 veces atras;
+      fin si-no
+        atras;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        gira(3);
+        avanza;
+        si derecha-bloqueada entonces inicio
+          atras;
+          gira(3);
+        fin si-no inicio
+          atras;
+          gira(1);
+        fin;
+      fin si-no
+        gira(2);
+    fin;
+  fin;
+
+  inicia-ejecución
+    gira(1);
+    valida;
+    si derecha-bloqueada entonces
+      resuelve-izq
+    si-no
+      resuelve-der;
+    apágate;
+  termina-ejecución
+finalizar-programa

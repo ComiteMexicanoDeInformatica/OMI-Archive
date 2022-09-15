@@ -1,0 +1,32 @@
+class program {
+  void count() {
+    if (frontIsClear) {
+      if (nextToABeeper)
+        pickbeeper();
+      else {
+        move();
+        if (rightIsClear) {
+          iterate (3) turnleft();
+          move();
+        }
+        count();
+      }
+    } else {
+      turnleft();
+      count();
+      putbeeper();
+    }
+  }
+
+  program() {
+    putbeeper();
+    while (frontIsBlocked) turnleft();
+    move();
+    if (rightIsClear) {
+      iterate (3) turnleft();
+      move();
+    }
+    count();
+    turnoff();
+  }
+}

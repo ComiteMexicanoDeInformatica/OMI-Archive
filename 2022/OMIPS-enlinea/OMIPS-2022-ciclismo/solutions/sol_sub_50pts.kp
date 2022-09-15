@@ -1,0 +1,106 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción ultimo-zumbador como inicio
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+    gira(2);
+    si no junto-a-zumbador entonces avanza;
+  fin;
+
+  define-nueva-instrucción deja-maximo(n) como inicio
+    si junto-a-zumbador o no si-es-cero(n) entonces inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      si si-es-cero(n) entonces
+        deja-maximo(n)
+      si-no
+        deja-maximo(precede(n));
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-y-resta como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-resta;
+      si junto-a-zumbador entonces coge-zumbador;
+    fin si-no inicio
+      avanza;
+      norte;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-resta(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si no si-es-cero(n) entonces
+        deja-resta(precede(n))
+      si-no
+        deja-resta(n);
+    fin si-no inicio
+      norte;
+      deja(n);
+      avanza;
+      sur;
+      aprende-y-resta;
+      apágate;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-y-deja-maximo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-deja-maximo(sucede(n));
+    fin si-no inicio
+      avanza;
+      si frente-libre entonces inicio
+        deja-maximo(n);
+        aprende-y-deja-maximo(0);
+      fin si-no inicio
+        deja-resta(n);
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    ultimo-zumbador;
+    mientras frente-libre hacer inicio
+      aprende-y-deja-maximo(0);
+    fin;
+    coge-todo;
+    apágate;
+  termina-ejecución
+finalizar-programa

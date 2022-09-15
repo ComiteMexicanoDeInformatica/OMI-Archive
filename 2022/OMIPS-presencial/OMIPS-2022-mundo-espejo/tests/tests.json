@@ -1,0 +1,21 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1.kp",
+      "score_range": [0.19, 0.19]
+    },
+    {
+      "filename": "../solutions/sol_sub1-2.kp",
+      "score_range": [0.39, 0.39]
+    },
+    {
+      "filename": "../solutions/sol_sub1-2.kp",
+      "score_range": [0.6, 0.6]
+    }
+  ],
+  "max_score": 100
+}

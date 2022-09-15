@@ -1,0 +1,105 @@
+class program {
+  void checaLinea(n) {
+    if (nextToABeeper) {
+      if (frontIsBlocked) {
+        while (notFacingWest) turnleft();
+        while (notNextToABeeper) move();
+        iterate (3) turnleft();
+        cuadrado(0);
+      }
+      move();
+      checaLinea(succ(n));
+    } else {
+      if (frontIsBlocked) {
+        if (iszero(n)) {
+          while (notFacingWest) turnleft();
+          while (frontIsClear) move();
+          iterate (3) turnleft();
+          move();
+          iterate (3) turnleft();
+          checaLinea(0);
+        } else {
+          if (iszero(pred(n))) {
+            while (notFacingWest) turnleft();
+            while (notNextToABeeper) move();
+            iterate (3) turnleft();
+            rombo(0);
+          } else {
+            while (notFacingWest) turnleft();
+            while (notNextToABeeper) move();
+            iterate (3) turnleft();
+            cuadrado(0);
+          }
+        }
+      }
+      move();
+      checaLinea(n);
+    }
+  }
+
+  void rombo(n) {
+    move();
+    iterate (3) turnleft();
+    hayBeeper(0);
+    if (facingSouth) {
+      turnoff();
+    }
+    rombo(n);
+  }
+
+  void hayBeeper(n) {
+    if (notNextToABeeper) {
+      if (frontIsBlocked) {
+        iterate (2) turnleft();
+        iterate (n) move();
+        while (notFacingNorth) turnleft();
+        return();
+      }
+      move();
+      hayBeeper(succ(n));
+    } else {
+      iterate (2) turnleft();
+      iterate (n) move();
+      while (notFacingSouth) turnleft();
+    }
+  }
+
+  void cuadrado(n) {
+    move();
+    turnleft();
+    move();
+    iterate (3) turnleft();
+    cuentaEsquina(1);
+  }
+
+  void cuentaEsquina(n) {
+    if (nextToABeeper) {
+      iterate (2) turnleft();
+      mitadEsquina(n);
+      return();
+    }
+    move();
+    turnleft();
+    move();
+    iterate (3) turnleft();
+    cuentaEsquina(succ(n));
+  }
+
+  void mitadEsquina(n) {
+    if (iszero(n)) {
+      turnoff();
+      return();
+    }
+    move();
+    turnleft();
+    move();
+    iterate (3) turnleft();
+    mitadEsquina(pred(pred(n)));
+  }
+
+  program() {
+    while (notFacingEast) turnleft();
+    checaLinea(0);
+    turnoff();
+  }
+}

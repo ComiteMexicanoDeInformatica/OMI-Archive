@@ -1,0 +1,72 @@
+class program {
+  void countDistance() {
+    if (notNextToABeeper) {
+      move();
+      countDistance();
+      putbeeper();
+    } else {
+      pickbeeper();
+      if (nextToABeeper) {
+        while (nextToABeeper) {
+          pickbeeper();
+          turnleft();
+        }
+        countDistance();
+      }
+    }
+  }
+
+  void searchBeeperInLine() {
+    putbeeper();
+    while (frontIsClear) {
+      move();
+      if (nextToABeeper) {
+        pickbeeper();
+        iterate (2) turnleft();
+        countDistance();
+        turnoff();
+      }
+    }
+    iterate (2) turnleft();
+    while (notNextToABeeper) move();
+    pickbeeper();
+  }
+
+  void searchForBeeper() {
+    putbeeper();
+    while (frontIsClear) {
+      move();
+      turnleft();
+      iterate (3) putbeeper();
+      searchBeeperInLine();
+      iterate (3) pickbeeper();
+      turnleft();
+    }
+    iterate (2) turnleft();
+    while (notNextToABeeper) {
+      turnleft();
+      iterate (1) putbeeper();
+      searchBeeperInLine();
+      iterate (1) pickbeeper();
+      turnleft();
+      move();
+    }
+    pickbeeper();
+  }
+
+  program() {
+    if (nextToABeeper) {
+      pickbeeper();
+      turnoff();
+    }
+    iterate (4) {
+      searchBeeperInLine();
+      turnleft();
+    }
+    while (notFacingNorth) turnleft();
+    searchForBeeper();
+    while (notFacingSouth) turnleft();
+    searchForBeeper();
+    turnoff();
+  }
+}

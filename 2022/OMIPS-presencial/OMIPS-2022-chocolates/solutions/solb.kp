@@ -1,0 +1,154 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción ultimo-zumbador como inicio
+    espacio;
+    si no junto-a-zumbador entonces atras;
+  fin;
+
+  define-nueva-instrucción copia(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia(sucede(n));
+    fin si-no inicio
+      deja(n);
+      avanza;
+      deja(n);
+      atras;
+    fin;
+  fin;
+
+  define-nueva-instrucción quita(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      quita(precede(n));
+    fin si-no inicio
+      si no si-es-cero(n) entonces sur;
+    fin;
+  fin;
+
+  define-nueva-instrucción quita-si-puedes(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      quita-si-puedes(precede(n));
+      si orientado-al-sur entonces deja-zumbador;
+    fin si-no inicio
+      si no si-es-cero(n) entonces sur;
+    fin;
+  fin;
+
+  define-nueva-instrucción divide(n) como inicio
+    quita(n);
+    si no orientado-al-sur entonces inicio
+      divide(n);
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción complemento(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      complemento(n);
+      coge-zumbador;
+    fin si-no
+      deja(n);
+  fin;
+
+  define-nueva-instrucción residuo(n) como inicio
+    mientras no orientado-al-sur y junto-a-zumbador hacer quita-si-puedes(n);
+    si junto-a-zumbador entonces complemento(n);
+  fin;
+
+  define-nueva-instrucción cuenta-y-divide(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cuenta-y-divide(sucede(n));
+    fin si-no inicio
+      avanza;
+      avanza;
+      divide(n);
+      norte;
+      avanza;
+      este;
+      residuo(n);
+      este;
+      avanza;
+      residuo(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-menor(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      deja-menor(precede(n));
+      deja-zumbador;
+    fin si-no
+      coge-todo;
+  fin;
+
+  define-nueva-instrucción cuenta-y-deja-menor(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cuenta-y-deja-menor(sucede(n));
+    fin si-no inicio
+      avanza;
+      deja-menor(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    copia(0);
+    este;
+    avanza;
+    norte;
+    copia(0);
+    oeste;
+    copia(0);
+    coge-todo;
+    atras;
+    cuenta-y-divide(0);
+    oeste;
+    avanza;
+    este;
+    cuenta-y-deja-menor(0);
+    sur;
+    copia(0);
+    avanza;
+    oeste;
+    avanza;
+    si no junto-a-zumbador entonces inicio
+      este;
+      avanza;
+      coge-todo;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa

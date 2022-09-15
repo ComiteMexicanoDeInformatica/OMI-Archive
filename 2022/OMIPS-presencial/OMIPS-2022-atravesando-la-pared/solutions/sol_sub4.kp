@@ -1,0 +1,90 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción ultimo-zumbador como inicio
+    espacio;
+    si no junto-a-zumbador entonces atras;
+  fin;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción resuelve(n) como inicio
+    si si-es-cero(n) entonces apágate;
+
+    si frente-bloqueado entonces inicio
+      gira(1);
+      resuelve(n);
+    fin si-no inicio
+      avanza;
+      si derecha-bloqueada entonces inicio
+        si orientado-al-norte entonces
+          resuelve(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(n)))))))))));
+        si orientado-al-este entonces resuelve(sucede(n));
+        si orientado-al-sur entonces
+          resuelve(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(n)))))))))));
+        si orientado-al-oeste entonces resuelve(precede(n));
+      fin si-no inicio
+        gira(3);
+        avanza;
+        si derecha-bloqueada entonces inicio
+          si orientado-al-norte entonces
+            resuelve(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(n))))))))));
+          si orientado-al-este entonces
+            resuelve(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(n))))))))))));
+          si orientado-al-sur entonces
+            resuelve(precede(precede(precede(precede(precede(precede(precede(precede(precede(n))))))))));
+          si orientado-al-oeste entonces
+            resuelve(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(n))))))))))));
+        fin si-no inicio
+          gira(3);
+          avanza;
+          si orientado-al-este entonces
+            resuelve(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(n)))))))))));
+          si orientado-al-sur entonces resuelve(sucede(n));
+          si orientado-al-oeste entonces
+            resuelve(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(n)))))))))));
+          si orientado-al-norte entonces resuelve(precede(n));
+        fin;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    si orientado-al-norte entonces
+      resuelve(precede(precede(precede(precede(precede(precede(precede(precede(precede(precede(0)))))))))));
+    si orientado-al-este entonces resuelve(precede(0));
+    si orientado-al-sur entonces
+      resuelve(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(sucede(0)))))))))));
+    si orientado-al-oeste entonces resuelve(sucede(0));
+    apágate;
+  termina-ejecución
+finalizar-programa

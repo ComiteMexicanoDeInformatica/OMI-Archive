@@ -1,0 +1,62 @@
+class program {
+  void turn(n) {
+    iterate (n) turnleft();
+  }
+
+  void center() {
+    if (notNextToABeeper) {
+      move();
+      if (notNextToABeeper) {
+        move();
+        center();
+      } else {
+        turn(2);
+      }
+    }
+    move();
+    turn(1);
+    move();
+    turn(3);
+  }
+
+  void middle() {
+    if (notNextToABeeper) {
+      move();
+      if (notNextToABeeper) {
+        move();
+        middle();
+      } else {
+        turn(2);
+      }
+    }
+    move();
+  }
+
+  program() {
+    if (notNextToABeeper) {
+      turn(3);
+      while (notNextToABeeper) {
+        while (notNextToABeeper && frontIsClear) {
+          move();
+        }
+        if (nextToABeeper) {
+          turn(1);
+        } else {
+          turn(2);
+          while (frontIsClear) move();
+          turn(3);
+          move();
+          turn(3);
+        }
+      }
+    }
+    move();
+    center();
+    if (nextToABeeper) {
+      turn(3);
+      move();
+      middle();
+    }
+    turnoff();
+  }
+}

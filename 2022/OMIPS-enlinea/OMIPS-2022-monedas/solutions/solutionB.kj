@@ -1,0 +1,65 @@
+class program {
+  void este() {
+    while (notFacingEast) turnleft();
+  }
+
+  void sur() {
+    while (notFacingSouth) turnleft();
+  }
+
+  void oeste() {
+    while (notFacingWest) turnleft();
+  }
+
+  void inicio() {
+    oeste();
+    while (frontIsClear) move();
+  }
+
+  void segundaMoneda(n) {
+    if (nextToABeeper && !iszero(n)) {
+      pickbeeper();
+      segundaMoneda(pred(n));
+    } else {
+      if (!nextToABeeper && iszero(n)) sur();
+      while (nextToABeeper) pickbeeper();
+    }
+  }
+
+  void primeraMoneda(n) {
+    if (nextToABeeper) {
+      pickbeeper();
+      primeraMoneda(succ(n));
+    } else {
+      iterate (n) putbeeper();
+      move();
+      segundaMoneda(n);
+      if (iszero(pred(n))) putbeeper();
+      putbeeper();
+    }
+  }
+
+  void recorreFila(n) {
+    if (frontIsClear && nextToABeeper) {
+      primeraMoneda(0);
+      if (facingSouth) {
+        este();
+        if (frontIsClear) move();
+        recorreFila(succ(n));
+      } else {
+        if (frontIsClear) move();
+        recorreFila(n);
+      }
+    } else {
+      inicio();
+      iterate (n) putbeeper();
+    }
+  }
+
+  program() {
+    este();
+    move();
+    recorreFila(0);
+    turnoff();
+  }
+}
