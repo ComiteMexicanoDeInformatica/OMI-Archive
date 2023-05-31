@@ -1,0 +1,102 @@
+iniciar-programa
+  define-prototipo-instrucción busca-maximo(n);
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción intenta-coger(n) como inicio
+    repetir n veces
+      si junto-a-zumbador entonces
+        coge-zumbador
+      si-no
+        sur;
+  fin;
+
+  define-nueva-instrucción cuenta-maximos(n) como inicio
+    si junto-a-zumbador entonces inicio
+      intenta-coger(n);
+      si orientado-al-oeste entonces inicio
+        cuenta-maximos(n);
+        deja-zumbador;
+      fin si-no inicio
+        oeste;
+        cuenta-maximos(n);
+      fin;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        cuenta-maximos(n);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si junto-a-zumbador y si-es-cero(n) entonces norte;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-nuevo-maximo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-nuevo-maximo(sucede(n));
+    fin si-no inicio
+      deja(n);
+      este;
+      busca-maximo(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción busca-maximo(n) como inicio
+    si orientado-al-norte entonces inicio
+      aprende-nuevo-maximo(0);
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        compara(n);
+        busca-maximo(n);
+      fin si-no inicio
+        oeste;
+        cuenta-maximos(n);
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    (*------------------------ Solución oficial ------------------------*)
+    (* Karel debe contar el número de máximos, pero no sabe cuál es el máximo y los avanzas son limitados *)
+    (* En la pasada hacia el este, Karel debe aprender el máximo y en la pasada hacia el oeste, contar cuántos de ese número hay *)
+
+    busca-maximo(0);
+
+    apágate;
+  termina-ejecución
+finalizar-programa

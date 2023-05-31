@@ -1,0 +1,58 @@
+class program {
+  define turn(x) {
+    iterate (x) {
+      turnleft();
+    }
+  }
+
+  program() {
+    turn(3);
+    iterate (30) {
+      if (frontIsClear) {
+        move();
+        while (frontIsClear) {
+          putbeeper();
+          move();
+        }
+        putbeeper();
+        turn(2);
+        while (nextToABeeper) {
+          move();
+        }
+        turn(3);
+      } else {
+        turnleft();
+      }
+      move();
+      turn(3);
+      move();
+    }
+    move();
+    turn(3);
+    move();
+    turn(3);
+    iterate (30) {
+      if (frontIsClear) {
+        move();
+        while (frontIsClear) {
+          putbeeper();
+          move();
+        }
+        putbeeper();
+        turn(2);
+        while (nextToABeeper) {
+          move();
+        }
+        move();
+        turn(3);
+      } else {
+        turn(2);
+        move();
+        turn(3);
+      }
+      if (frontIsClear) move();
+      turn(3);
+    }
+    turnoff();
+  }
+}

@@ -1,0 +1,70 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción inicializar como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      inicializar;
+      deja-zumbador;
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción encuentraraiz(n) como inicio
+    (*En esta funcion se encuentra la raiz del numero restandole n y n - 1 y despues aumentando esta n en uno*)
+    (*Esto funciona debido a que si desarrollas el numero (n + 1) ^ 2 = n ^ 2 + n + (n + 1)*)
+    (*Voy restando (hasta que el numero sea igual a 0) y sumando en un espacio que me va a decir la raiz*)
+    repetir 2 veces inicio
+      repetir n veces inicio
+        si no-junto-a-zumbador entonces inicio
+          repetir n veces deja-zumbador;
+          sal-de-instrucción;
+        fin si-no inicio
+          coge-zumbador;
+        fin;
+      fin;
+    fin;
+    si no-junto-a-zumbador entonces inicio
+      repetir n veces deja-zumbador;
+      sal-de-instrucción;
+    fin si-no inicio
+      coge-zumbador;
+      encuentraraiz(sucede(n));
+    fin;
+  fin;
+
+  define-nueva-instrucción copiar como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copiar;
+      deja-zumbador;
+      este;
+      avanza;
+      deja-zumbador;
+      oeste;
+      avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    (*Encuentra la solucion cuando se garantiza que la base por la altura es un numero cuadrado*)
+    (*Lo que imprime es el caso de solucion (raiz de n, raiz de n)
+    Y ya que el numero es cuadrado entonces la raiz es exacta
+    por lo cual la diferencia seria 0 y no se puede encontrar una solucion menor a esta*)
+    inicializar;
+    coge-zumbador;
+    encuentraraiz(1);
+    copiar;
+    apágate;
+  termina-ejecución
+finalizar-programa

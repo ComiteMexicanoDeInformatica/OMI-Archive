@@ -1,0 +1,74 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si si-es-cero(n) entonces norte;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende-y-compara(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-compara(sucede(n));
+    fin si-no inicio
+      deja(n);
+      avanza;
+      compara(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción resuelve como inicio
+    este;
+    si junto-a-zumbador y frente-libre entonces inicio
+      aprende-y-compara(0);
+      si orientado-al-norte entonces inicio
+        resuelve;
+        deja-zumbador;
+      fin si-no
+        resuelve;
+    fin si-no inicio
+      oeste;
+      pared;
+      coge-todo;
+    fin;
+  fin;
+
+  inicia-ejecución
+    (*Subtarea 2 ------------------------*)
+    (*Las vidas de Karel van en orden, cada que se avance a un número mayor o igual, es una nueva vida*)
+    (*Para resolver esta subtarea, hay que contar la cantidad de veces que vuelve a subir*)
+    este;
+    resuelve;
+
+    (*No olvides contar la primera vida*)
+    deja-zumbador;
+    apágate;
+  termina-ejecución
+finalizar-programa

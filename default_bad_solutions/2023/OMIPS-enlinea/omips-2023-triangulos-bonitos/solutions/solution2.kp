@@ -1,0 +1,206 @@
+iniciar-programa
+  define-nueva-instrucción norte como inicio
+    mientras no orientado-al-norte hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción este como inicio
+    mientras no orientado-al-este hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción oeste como inicio
+    mientras no orientado-al-oeste hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción sur como inicio
+    mientras no orientado-al-sur hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja(n) como inicio
+    repetir n veces inicio
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción duplica como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      duplica;
+      deja-zumbador;
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción doble(n) como inicio
+    oeste;
+    mientras frente-libre hacer avanza;
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      doble(sucede(n));
+    fin si-no inicio
+      deja(n);
+      este;
+      avanza;
+      deja(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    norte;
+    repetir n veces inicio
+      repetir n veces inicio
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+        fin si-no inicio
+          sur;
+        fin;
+      fin;
+    fin;
+    mientras junto-a-zumbador hacer inicio
+      coge-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción prueba(n) como inicio
+    norte;
+    si junto-a-zumbador entonces inicio
+      repetir n veces inicio
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+        fin si-no inicio
+          sur;
+        fin;
+      fin;
+      si no orientado-al-sur entonces inicio
+        norte;
+        avanza;
+        deja-zumbador;
+        sur;
+        avanza;
+        este;
+        si junto-a-zumbador entonces inicio
+          norte;
+          prueba(n);
+        fin;
+      fin;
+    fin si-no inicio
+      si no orientado-al-sur entonces inicio
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción divide(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      divide(sucede(n));
+    fin si-no inicio
+      deja(n);
+      oeste;
+      avanza;
+      prueba(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción limpia como inicio
+    oeste;
+    mientras frente-libre hacer avanza;
+    mientras junto-a-zumbador hacer coge-zumbador;
+    este;
+    avanza;
+    mientras junto-a-zumbador hacer coge-zumbador;
+  fin;
+
+  define-nueva-instrucción arriba(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      arriba(sucede(n));
+    fin si-no inicio
+      sur;
+      avanza;
+      oeste;
+      avanza;
+      repetir n veces inicio
+        deja-zumbador;
+      fin;
+      este;
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción derecha(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      derecha(sucede(n));
+    fin si-no inicio
+      oeste;
+      avanza;
+      repetir n veces inicio
+        deja-zumbador;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción mueve(n) como inicio
+    norte;
+    avanza;
+    arriba(0);
+    avanza;
+    derecha(0);
+  fin;
+
+  define-nueva-instrucción soluciona(n) como inicio
+    doble(0);
+    este;
+    avanza;
+    divide(0);
+    si orientado-al-sur entonces inicio
+      norte;
+      avanza;
+      mientras junto-a-zumbador hacer coge-zumbador;
+      sur;
+      avanza;
+      este;
+      avanza;
+      coge-zumbador;
+      soluciona(n);
+    fin si-no inicio
+      limpia;
+      mueve(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción transicion(n) como inicio
+    este;
+    avanza;
+    repetir n veces inicio
+      deja-zumbador;
+    fin;
+    soluciona(n);
+  fin;
+
+  define-nueva-instrucción raiz(n) como inicio
+    doble(0);
+    compara(n);
+    si orientado-al-norte entonces inicio
+      oeste;
+      avanza;
+      raiz(sucede(n));
+    fin si-no inicio
+      transicion(precede(n));
+    fin;
+  fin;
+
+  inicia-ejecución
+    duplica;
+    raiz(1);
+    apágate;
+  termina-ejecución
+finalizar-programa

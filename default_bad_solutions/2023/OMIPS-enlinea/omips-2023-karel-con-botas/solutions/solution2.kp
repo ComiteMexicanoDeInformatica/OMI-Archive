@@ -1,0 +1,139 @@
+iniciar-programa
+  define-prototipo-instrucción busca(n);
+
+  define-nueva-instrucción oeste como inicio
+    mientras no orientado-al-oeste hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción sur como inicio
+    mientras no orientado-al-sur hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción norte como inicio
+    mientras no orientado-al-norte hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción este como inicio
+    mientras no orientado-al-este hacer inicio
+      gira-izquierda;
+    fin;
+  fin;
+
+  define-nueva-instrucción coge(n) como inicio
+    repetir n veces inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja(n) como inicio
+    repetir n veces inicio
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende(sucede(n));
+    fin si-no inicio
+      este;
+      deja(n);
+      si frente-libre entonces inicio
+        avanza;
+      fin;
+      norte;
+      busca(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción es-maximo(n) como inicio
+    oeste;
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      es-maximo(precede(n));
+    fin;
+    si no-junto-a-zumbador y si-es-cero(n) entonces sur;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    este;
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin;
+    si junto-a-zumbador y si-es-cero(n) entonces sur;
+  fin;
+
+  define-nueva-instrucción busca-maximo(n) como inicio
+    si orientado-al-norte entonces inicio
+      es-maximo(n);
+      si orientado-al-sur entonces inicio
+        oeste;
+        busca-maximo(n);
+        deja-zumbador;
+      fin si-no inicio
+        busca-maximo(n);
+      fin;
+    fin si-no inicio
+      si orientado-al-oeste entonces inicio
+        si junto-a-zumbador entonces inicio
+          norte;
+          busca-maximo(n);
+        fin si-no inicio
+          si frente-libre entonces inicio
+            avanza;
+            busca-maximo(n);
+          fin;
+        fin;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción busca(n) como inicio
+    si orientado-al-sur entonces inicio
+      aprende(0);
+    fin si-no inicio
+      si orientado-al-este entonces inicio
+        si frente-libre y junto-a-zumbador entonces inicio
+          avanza;
+          norte;
+          busca(n);
+        fin si-no inicio
+          oeste;
+          si no junto-a-zumbador entonces inicio
+            avanza;
+          fin;
+          norte;
+          busca-maximo(n);
+        fin;
+      fin si-no inicio
+        si orientado-al-norte entonces inicio
+          si junto-a-zumbador entonces inicio
+            compara(n);
+            busca(n);
+          fin si-no inicio
+            oeste;
+            avanza;
+            norte;
+            busca-maximo(n);
+          fin;
+        fin;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    sur;
+    busca(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

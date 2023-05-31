@@ -1,0 +1,74 @@
+class program {
+  void turn(n) {
+    iterate (n) turnleft();
+  }
+
+  void completeRow(n) {
+    if (iszero(n)) return();
+    if (frontIsClear()) {
+      move();
+      if (notNextToABeeper()) putbeeper();
+      completeRow(pred(n));
+      turn(2);
+      move();
+      turn(2);
+    }
+  }
+
+  void leftComplete(n) {
+    //Consideracion A: La piramide puede estar tocando las paredes del mundo?
+    if (frontIsClear()) {
+      move();
+      turn(1);
+      if (frontIsClear()) {
+        move();
+        turn(3);
+        leftComplete(succ(succ(n)));
+        turn(2);
+        completeRow(n);
+        turn(1);
+        move();
+        turn(3);
+        move();
+        turn(2);
+      } else {
+        turn(1);
+        move();
+        turn(2);
+      }
+    }
+  }
+
+  void rightComplete(n) {
+    //Consideracion A: La piramide puede estar tocando las paredes del mundo?
+    if (frontIsClear()) {
+      move();
+      turn(3);
+      if (frontIsClear()) {
+        move();
+        turn(1);
+        rightComplete(succ(succ(n)));
+        turn(2);
+        completeRow(n);
+        turn(3);
+        move();
+        turn(1);
+        move();
+        turn(2);
+      } else {
+        turn(3);
+        move();
+        turn(2);
+      }
+    }
+  }
+
+  program() {
+    while (!facingWest) turn(1);
+    leftComplete(1);
+    turn(2);
+    rightComplete(1);
+    turn(1);
+    turnoff();
+  }
+}

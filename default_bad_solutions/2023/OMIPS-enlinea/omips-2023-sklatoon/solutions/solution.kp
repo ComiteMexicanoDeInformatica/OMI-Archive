@@ -1,0 +1,204 @@
+iniciar-programa
+  define-prototipo-instrucción procesa-pintura(n);
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    norte;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      si no orientado-al-oeste entonces deja-zumbador;
+    fin si-no inicio
+      si no junto-a-zumbador y si-es-cero(n) entonces
+        oeste
+      si-no inicio
+        si no junto-a-zumbador entonces
+          sur
+        si-no
+          norte;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción super-avanza como inicio
+    si frente-libre entonces
+      avanza
+    si-no inicio
+      sur;
+      pared;
+      este;
+      si frente-libre entonces inicio
+        avanza;
+        norte;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción super-zumbador como inicio
+    mientras no junto-a-zumbador y no orientado-al-este hacer super-avanza;
+  fin;
+
+  define-nueva-instrucción cuenta-pintura(n) como inicio
+    si no orientado-al-este entonces inicio
+      super-avanza;
+      si junto-a-zumbador y no orientado-al-este entonces inicio
+        compara(n);
+        si orientado-al-oeste entonces inicio
+          norte;
+          cuenta-pintura(n);
+          deja-zumbador;
+        fin si-no inicio
+          norte;
+          cuenta-pintura(n);
+        fin;
+      fin si-no
+        cuenta-pintura(n);
+    fin si-no inicio
+      esquina;
+      super-zumbador;
+      si junto-a-zumbador entonces inicio
+        procesa-pintura(0);
+      fin;
+      esquina;
+      espacio;
+      este;
+      avanza;
+      oeste;
+    fin;
+  fin;
+
+  define-nueva-instrucción procesa-pintura(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      procesa-pintura(sucede(n));
+      deja-zumbador;
+    fin si-no inicio
+      cuenta-pintura(n);
+      deja-zumbador;
+      avanza;
+      norte;
+    fin;
+  fin;
+
+  define-nueva-instrucción intercambia como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      intercambia;
+      deja-zumbador;
+    fin si-no inicio
+      si orientado-al-norte entonces inicio
+        avanza;
+        sur;
+        intercambia;
+        avanza;
+      fin si-no inicio
+        avanza;
+        norte;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción intercambia-renglon(n) como inicio
+    intercambia;
+    sur;
+    avanza;
+    si si-es-cero(n) entonces
+      este
+    si-no
+      oeste;
+    avanza;
+    norte;
+    intercambia;
+    sur;
+    avanza;
+    si si-es-cero(n) entonces
+      oeste
+    si-no
+      este;
+    avanza;
+    norte;
+  fin;
+
+  define-nueva-instrucción aprende-y-compara(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende-y-compara(sucede(n));
+    fin si-no inicio
+      deja(n);
+      avanza;
+      compara(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción ordena-por-pintura como inicio
+    sur;
+    si frente-libre entonces inicio
+      aprende-y-compara(0);
+      si orientado-al-norte entonces intercambia-renglon(0);
+      ordena-por-pintura;
+    fin;
+  fin;
+
+  inicia-ejecución
+    super-zumbador;
+    procesa-pintura(0);
+
+    (* Ordenalos de chico a grande para elimninar el mezclado *)
+    ordena-por-pintura;
+    norte;
+    espacio;
+    sur;
+    avanza;
+    ordena-por-pintura;
+
+    (* Finalmente ordena el primer par por apariciones *)
+    esquina;
+    este;
+    avanza;
+    norte;
+    avanza;
+    si junto-a-zumbador entonces inicio
+      sur;
+      aprende-y-compara(0);
+      si orientado-al-sur entonces inicio
+        norte;
+        intercambia-renglon(1);
+      fin;
+    fin;
+
+    apágate;
+  termina-ejecución
+finalizar-programa

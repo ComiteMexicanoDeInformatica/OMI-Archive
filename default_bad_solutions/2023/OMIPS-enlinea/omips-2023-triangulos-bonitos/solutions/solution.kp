@@ -1,0 +1,124 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción restar(n) como inicio
+    si no si-es-cero(n) entonces inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        restar(precede(n));
+        si orientado-al-este entonces inicio
+          deja-zumbador;
+        fin;
+      fin si-no inicio
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción dividir(n) como inicio
+    si junto-a-zumbador entonces inicio
+      restar(n);
+      si no-junto-a-zumbador entonces inicio
+        sur;
+        sal-de-instrucción;
+      fin;
+      si orientado-al-norte entonces inicio
+        dividir(n);
+        si orientado-al-este entonces inicio
+          repetir n veces deja-zumbador;
+        fin si-no inicio
+          deja-zumbador;
+        fin;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción probar(n) como inicio
+    norte;
+    dividir(n);
+    si orientado-al-sur entonces inicio
+      deja-zumbador;
+      este;
+      avanza;
+      repetir n veces deja-zumbador;
+      sal-de-instrucción;
+    fin si-no inicio
+      probar(precede(n));
+    fin;
+  fin;
+
+  define-nueva-instrucción encuentraraiz(n) como inicio
+    (*En esta funcion encontramos la raiz cuadrada del numero pero la parte
+    entera de manera que restamos la n y la n - 1 hasta que nuestro
+    numero sea 0 ya que con este algoritmo encontramos la raiz
+    debido a que (n + 1) ^ 2 = n^2 + n + (n + 1) y con esto podemos hacer lo de
+    las restas para encontrar la raiz cuadrada*)
+    restar(n);
+    si orientado-al-este entonces inicio
+      repetir n veces inicio
+        repetir n veces inicio
+          deja-zumbador;
+        fin;
+      fin;
+      probar(n);
+      sal-de-instrucción;
+    fin;
+    restar(n);
+    si orientado-al-este entonces inicio
+      repetir n veces deja-zumbador;
+      repetir n veces inicio
+        repetir n veces inicio
+          deja-zumbador;
+        fin;
+      fin;
+      probar(n);
+      sal-de-instrucción;
+    fin;
+    si no-junto-a-zumbador entonces inicio
+      repetir 2 veces inicio
+        repetir n veces inicio
+          deja-zumbador;
+        fin;
+      fin;
+      repetir n veces inicio
+        repetir n veces inicio
+          deja-zumbador;
+        fin;
+      fin;
+      probar(n);
+      sal-de-instrucción;
+    fin si-no inicio
+      coge-zumbador;
+      encuentraraiz(sucede(n));
+    fin;
+  fin;
+
+  define-nueva-instrucción inicializar como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      inicializar;
+      deja-zumbador;
+      deja-zumbador;
+    fin;
+  fin;
+
+  inicia-ejecución
+    (* Esta solucion lo que hace es buscar en todas las posibilidades *)
+    (* de raiz de n hasta 1 ya que la pareja que tenga un divisor mas cercano *)
+    (* a raiz de n es la respuesta *)
+    inicializar;
+    coge-zumbador;
+    encuentraraiz(1);
+    apágate;
+  termina-ejecución
+finalizar-programa

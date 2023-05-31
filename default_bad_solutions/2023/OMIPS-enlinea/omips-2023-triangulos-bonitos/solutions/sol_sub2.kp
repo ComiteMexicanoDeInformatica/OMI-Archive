@@ -1,0 +1,29 @@
+iniciar-programa
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  inicia-ejecución
+    (*Esta solucion nos permite resolver las subtareas
+        cuando se asegura que el numero que nos da es un primo
+        ya que cuando es un primo la factorizacion del producto de base por altura
+        es p * 2, entonces los pares que dividen este numero son
+        (2*p, 1) y (p, 2)
+        Pero la solucion de (p, 2) es la que nos da la menor diferencia
+        de los dos pares
+        *)
+    este;
+    avanza;
+    deja-zumbador;
+    deja-zumbador;
+    apágate;
+  termina-ejecución
+finalizar-programa

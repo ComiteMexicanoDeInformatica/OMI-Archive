@@ -1,0 +1,82 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción cubetas como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cubetas;
+      si frente-libre entonces avanza;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          cubetas;
+          deja-zumbador;
+        fin;
+        oeste;
+        pared;
+        este;
+      fin si-no inicio
+        oeste;
+        pared;
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia-resultado como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia-resultado;
+      deja-zumbador;
+    fin si-no inicio
+      pared;
+      coge-todo;
+    fin;
+  fin;
+
+  inicia-ejecución
+    (*Subtarea 5 ------------------------*)
+    (* El alto del mundo está limitado, pero los avanzas no, se puede hacer un ordenamiento por cubetas *)
+    (* y contar la cantidad de máximos que existen *)
+
+    este;
+    coge-zumbador;
+    cubetas;
+    deja-zumbador;
+
+    pared;
+    oeste;
+    zumbador;
+
+    copia-resultado;
+
+    apágate;
+  termina-ejecución
+finalizar-programa

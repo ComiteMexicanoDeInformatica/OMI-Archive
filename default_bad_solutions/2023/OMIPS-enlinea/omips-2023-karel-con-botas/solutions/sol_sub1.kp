@@ -1,0 +1,40 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción cuenta como inicio
+    si frente-libre entonces inicio
+      avanza;
+      cuenta;
+      deja-zumbador;
+    fin;
+  fin;
+
+  inicia-ejecución
+    (*Subtarea 1 ------------------------*)
+    (*La energía máxima es 1, por lo que sólo habrá 1's en la entrada*)
+    (*Para resolver esta subtarea, basta contar los zumbadores que hay*)
+    este;
+    espacio;
+    gira(2);
+    si no junto-a-zumbador entonces avanza;
+    cuenta;
+    apágate;
+  termina-ejecución
+finalizar-programa

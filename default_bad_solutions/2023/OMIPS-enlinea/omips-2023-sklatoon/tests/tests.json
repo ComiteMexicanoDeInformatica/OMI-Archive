@@ -1,0 +1,68 @@
+{
+  "solutions": [
+    {
+      "filename": "../../../karel_default_bad_solutions/north.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/south.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/east.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/west.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/turn_left.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/turn_off.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/one.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/two.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/three.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/four.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/five.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../solutions/sol_sub1.kp",
+      "score_range": [0.1, 0.1]
+    },
+    {
+      "filename": "../solutions/sol_sub2.kj",
+      "score_range": [0.43, 0.43]
+    },
+    {
+      "filename": "../solutions/sol_sub3.kp",
+      "score_range": [0.46, 0.46]
+    },
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  },
+  "max_score": 100
+}

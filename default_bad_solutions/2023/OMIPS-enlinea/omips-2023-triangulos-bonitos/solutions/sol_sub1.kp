@@ -1,0 +1,33 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción doble como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      doble;
+      deja-zumbador;
+      deja-zumbador;
+    fin;
+  fin;
+
+  inicia-ejecución
+    (*Esta solucion lo que hace es multiplicar por 2 el montonsito que nos dan*)
+    (*Despues de esto se aniade un 1 ya que multiplicando eso nos daria un area valida*)
+    (*Esta solucion es para el subcaso donde solo debemos de imprimir un area valida*)
+    doble;
+    este;
+    avanza;
+    deja-zumbador;
+    apágate;
+  termina-ejecución
+finalizar-programa
