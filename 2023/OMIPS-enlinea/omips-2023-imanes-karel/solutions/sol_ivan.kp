@@ -1,0 +1,242 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  (*---------------------------------------------------------------------*)
+  define-nueva-instrucción compara(z) como inicio
+    (*La cantidad de zumbadores de esta posición es actual-izquierdo*)
+    (*El del parámetro derecho-actual*)
+    (*Reduciremos ambos al mismo tiempo y el que se acaba primero es el menor*)
+    si junto-a-zumbador y si-es-cero(z) entonces inicio
+      avanza;
+      (*Representamos con un 2 si se va a la derecha*)
+      repetir 2 veces deja-zumbador;
+      girar(2);
+      avanza;
+      girar(2);
+      sal-de-instrucción;
+    fin;
+    si no junto-a-zumbador o si-es-cero(z) entonces inicio
+      avanza;
+      (*Representamos con un 1 si se va a la izquierda*)
+      deja-zumbador;
+      girar(2);
+      avanza;
+      girar(2);
+      sal-de-instrucción;
+    fin;
+    coge-zumbador;
+    compara(precede(z));
+  fin;
+
+  (*-----------------------------------------------------------------------*)
+  define-nueva-instrucción mueve(s) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      mueve(sucede(s));
+    fin si-no inicio
+      (*Dejamos el valor que tomamos para poder restaurar el imán*)
+      repetir s veces deja-zumbador;
+      (*Mismo mecanismo que chequea*)
+      (*Si está al este debe respaldar*)
+      (*Si está al oeste debe comparar*)
+      si orientado-al-este entonces inicio
+        (*Hacemos una copia del resultado de la resta y la colocamos sobre el imán actual*)
+        girar(1);
+        avanza;
+        repetir s veces deja-zumbador;
+        girar(2);
+        avanza;
+        girar(1);
+      fin si-no inicio
+        (*Teniendo el valor de la resta del actual y el derecho vamos al respaldo y comparamos*)
+        avanza;
+        girar(3);
+        avanza;
+        (*Esta función compara y da el veredicto*)
+        compara(s);
+        (*Volvemos a la posición original viendo esta vez al este pues en esta posición debe continuar*)
+        (*el chequeo de los imanes*)
+        girar(2);
+        avanza;
+        girar(1);
+        avanza;
+      fin;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------*)
+  define-nueva-instrucción chequea(a) como inicio
+    si junto-a-zumbador entonces inicio
+      (*Contamos la cantidad de zumbadores de la izquierda para restarlo al actual*)
+      coge-zumbador;
+      chequea(sucede(a));
+    fin si-no inicio
+      (*Esta instruccion realmente son dos en una, podemos distinguir que hacer de acuerdo a su orientación*)
+      (*También se pudo crear otra instruccion igual haciendo que esta tenga lo del sí, y la otra lo del sino*)
+      (*Esta es una forma compacta del código que hace no tener que programar dos veces lo mismo*)
+      si orientado-al-este entonces inicio
+        (*Si ve al este entonces es la resta del izuqierdo y el actual*)
+        (*Restauramos el imán izquierdo y hacemos un respaldo de la resta arriba del actual*)
+        repetir a veces deja-zumbador;
+        avanza;
+        repetir a veces coge-zumbador;
+        (*Esta función hace el respaldo*)
+        mueve(0);
+        (*Volvemos a colocar el valor original al imán actual (Se lo restamos)*)
+        repetir a veces deja-zumbador;
+        (*Giramos a la derecha para hacer la segunda funcionalidad de esta instrucción*)
+        girar(2);
+        chequea(0);
+      fin si-no inicio
+        (*Si ve al oeste es la resta del actual y el derecho*)
+        repetir a veces deja-zumbador;
+        girar(2);
+        avanza;
+        girar(2);
+        repetir a veces coge-zumbador;
+        (*aquí mueve no respaldará; hará la comparación a partir del mismo mecanismo que esta función*)
+        mueve(0);
+        repetir a veces deja-zumbador;
+      fin;
+    fin;
+  fin;
+
+  (*-------------------------------------------------------------------*)
+  define-nueva-instrucción delta(w) como inicio
+    (*W indica la direccion del último imán que checamos 1-> izquierda, 2-> derecha*)
+    (*Si todavía hay imanes*)
+    si junto-a-zumbador entonces inicio
+      (*si el anterior fue izquierda*)
+      si si-es-cero(precede(w)) entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          (*Si el actual es derecha se crea un nuevo grupo*)
+          coge-zumbador;
+          si frente-libre entonces avanza;
+          (*Actualizamos al dirección*)
+          delta(2);
+          (*Hay que dejar un zumbador por cada nuevo grupo generado*)
+          deja-zumbador;
+        fin si-no inicio
+          (*Si el anterior era izquierda y este también solo continuamos*)
+          (*la recursión con el mismo parámetro y sin aumentar el conteo*)
+          si frente-libre entonces avanza;
+          delta(1);
+        fin;
+      fin si-no inicio
+        (*Si el anterior era derecha*)
+        coge-zumbador;
+        si no junto-a-zumbador entonces inicio
+          (*Si el actual es izquierda*)
+          (*Cambiamos la dirección pero sin aumentar el conteo*)
+          si frente-libre entonces avanza;
+          delta(1);
+        fin si-no inicio
+          (*Si ambas son derecha entonces continuamos la recursión tal y como está*)
+          coge-zumbador;
+          avanza;
+          delta(2);
+        fin;
+      fin;
+    fin si-no inicio
+      (*Cuando no hay más imanes vamos al 1_1 y quitamos todo para dejar la cuenta recursivamente*)
+      girar(2);
+      mientras frente-libre hacer avanza;
+      girar(1);
+      mientras frente-libre hacer avanza;
+      mientras junto-a-zumbador hacer coge-zumbador;
+    fin;
+  fin;
+
+  (*--------------------------------------------------------------------*)
+  define-nueva-instrucción cuenta como inicio
+    (*Le colocamos al primer y último imán sus direcciones*)
+    girar(2);
+    si no junto-a-zumbador entonces avanza;
+    girar(3);
+    repetir 2 veces avanza;
+    girar(1);
+    deja-zumbador;
+    mientras frente-libre hacer avanza;
+    repetir 2 veces deja-zumbador;
+    girar(2);
+    (*Si los imanes apuntan a un centro (derecha y luego izquierda) entonces ahí se genera un grupo*)
+    (*Es decir si de repente cambia de izquierda a derecha este debe generar un grupo nuevo*)
+    (*->->O<-<- ->->->->O<-<-<- Algo así se vería*)
+    (*Como siempre hay al menos un grupo, iniciamos delta como izuquiera (El primero siempre es derecha)*)
+    delta(1);
+  fin;
+
+  (*--------------------------------------------------------------------*)
+  define-nueva-instrucción grupos como inicio
+    (*Al no tenerse certeza de cuantos grupos son se hace un bucle infinito*)
+    mientras frente-libre o frente-bloqueado hacer inicio
+      (*Vemos si hay un imán a la derecha de la posición actual*)
+      si frente-libre entonces inicio
+        avanza;
+        (*Si en efecto hay un imán*)
+        si junto-a-zumbador entonces inicio
+          girar(2);
+          avanza;
+          avanza;
+          (*Vamos al imán izquierdo del que estamos checando para tomar su distancia*)
+          girar(2);
+          (*Sacamos su distancia y la colocamos arriba. La otra iteración de chequea*)
+          (*hará la comparación para ver cual es mayor y saber a que lado se mueve*)
+          chequea(0);
+        fin si-no inicio
+          cuenta;
+          sal-de-instrucción;
+        fin;
+      fin si-no inicio
+        cuenta;
+        sal-de-instrucción;
+      fin;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------*)
+  define-nueva-instrucción base como inicio
+    (*El caso base de un solo imán se puede generar un solo grupo*)
+    girar(2);
+    mientras frente-libre hacer avanza;
+    mientras junto-a-zumbador hacer coge-zumbador;
+    deja-zumbador;
+  fin;
+
+  (*---------------------------------------------------------------------*)
+  define-nueva-instrucción inicializa como inicio
+    (*Ponerse en la 1_1 orientado al este*)
+    mientras no orientado-al-oeste hacer gira-izquierda;
+    mientras frente-libre hacer avanza;
+    girar(1);
+    mientras frente-libre hacer avanza;
+    girar(1);
+    (**)
+
+    (*Checando el caso de cuando solo hay un imán, puede ser un caso de un mundo 1x1*)
+    si frente-libre entonces inicio
+      (*Si no hay imán en la 1_2 solo hay un grupo*)
+      avanza;
+      (*Nos conviene iniciar en la 1_2, pues sabemos que el 1_1 siempre va a la derecha*)
+      si junto-a-zumbador entonces inicio
+        ;
+        (*Hay más de un solo imán y se pueden agrupar ver a que dirección va cada uno*)
+        grupos;
+        sal-de-instrucción;
+      fin;
+    fin;
+    base;
+  fin;
+
+  (*---------------------------------------------------------------------*)
+  inicia-ejecución
+    (*El caso cuando no hay imanes*)
+    si no junto-a-zumbador entonces apágate;
+
+    (*Orientarse y colocarse en posicion cuando no inic*)
+    inicializa;
+    mientras no orientado-al-este hacer gira-izquierda;
+    apágate;
+  termina-ejecución
+finalizar-programa

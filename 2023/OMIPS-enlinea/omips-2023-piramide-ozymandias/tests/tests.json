@@ -1,0 +1,69 @@
+{
+  "solutions": [
+    {
+      "filename": "../../../karel_default_bad_solutions/north.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/south.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/east.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/west.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/turn_left.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/turn_off.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/one.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/two.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/three.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/four.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/five.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1.kp",
+      "score_range": [0.15, 0.15]
+    },
+    {
+      "filename": "../solutions/sol_sub1.5.kp",
+      "score_range": [0.2, 0.25]
+    },
+    {
+      "filename": "../solutions/sol_sub3.kj",
+      "score_range": [0.2, 0.2]
+    },
+    {
+      "filename": "../solutions/solution_90.kp",
+      "score_range": [0.9, 1.0]
+    }
+  ],
+  "max_score": 100
+}

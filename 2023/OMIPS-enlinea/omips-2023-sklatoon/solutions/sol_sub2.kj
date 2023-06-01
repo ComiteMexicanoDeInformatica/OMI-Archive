@@ -1,0 +1,140 @@
+class program {
+  define turn(x) {
+    iterate (x) {
+      turnleft();
+    }
+  }
+
+  define inicio() {
+    while (notFacingWest) {
+      turnleft();
+    }
+    while (frontIsClear) move();
+    turnleft();
+    while (frontIsClear) move();
+    turn(2);
+  }
+
+  define moverse() {
+    if (frontIsClear)
+      move();
+    else {
+      turn(2);
+      while (frontIsClear) move();
+      turnleft();
+      move();
+      turnleft();
+    }
+  }
+
+  define empieza2(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      empieza2(succ(x));
+    } else {
+      accion2(x);
+    }
+  }
+
+  define accion2(x) {
+    inicio();
+    moverse();
+    putbeeper();
+    moverse();
+    while (notNextToABeeper) {
+      if (frontIsBlocked && rightIsBlocked) {
+        inicio();
+        while (nextToABeeper) {
+          pickbeeper();
+          moverse();
+          if (notNextToABeeper) return();
+          pickbeeper();
+          turn(2);
+          moverse();
+          turn(2);
+        }
+        iterate (x) putbeeper();
+        turnoff();
+      }
+      moverse();
+    }
+    while (nextToABeeper) {
+      pickbeeper();
+    }
+    accion2(x);
+  }
+
+  define compara(x) {
+    if (iszero(x)) {
+      if (notNextToABeeper) {
+        while (notFacingSouth) turnleft();
+        return();
+      }
+      while (notFacingNorth) turnleft();
+      return();
+    }
+    if (notNextToABeeper) {
+      while (notFacingNorth) turnleft();
+      return();
+    }
+    if (nextToABeeper) {
+      pickbeeper();
+      compara(pred(x));
+      putbeeper();
+    }
+  }
+
+  define accion(x) {
+    inicio();
+    putbeeper();
+    moverse();
+    while (facingNorth) {
+      while (notNextToABeeper) {
+        if (frontIsBlocked && rightIsBlocked) {
+          inicio();
+          moverse();
+          while (notNextToABeeper) moverse();
+          empieza2(0);
+          inicio();
+          while (nextToABeeper) pickbeeper();
+          iterate (x) putbeeper();
+          turnoff();
+        }
+        moverse();
+      }
+      compara(x);
+      if (facingNorth) {
+        if (frontIsBlocked && rightIsBlocked) {
+          inicio();
+          moverse();
+          while (notNextToABeeper) moverse();
+          empieza2(0);
+          inicio();
+          while (nextToABeeper) pickbeeper();
+          iterate (x) putbeeper();
+          turnoff();
+        }
+        moverse();
+      }
+    }
+    while (nextToABeeper) pickbeeper();
+    accion(x);
+  }
+
+  define empieza(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      empieza(succ(x));
+    } else {
+      accion(x);
+    }
+  }
+
+  program() {
+    while (notNextToABeeper) {
+      moverse();
+    }
+    empieza(0);
+    turnoff();
+  }
+}
