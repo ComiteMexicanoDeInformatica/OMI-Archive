@@ -1,0 +1,33 @@
+{
+  "title": "Encuentra X",
+  "source": "OMI 2023 (Jorge Sebastián Reyes Canul)",
+
+  "limits": {
+    "TimeLimit": 1000,
+    "MemoryLimit": 33554432000,
+    "InputLimit": 33554432000,
+    "OutputLimit": 33554432000,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "literal",
+    "limits": {
+      "TimeLimit": 1000
+    }
+  },
+
+  "interactive": {
+    "ModuleName": "encuentrax",
+    "ParentLang": "cpp17-gcc"
+  },
+
+  "misc": {
+    "alias": "omi-2023-encuentra-x",
+    "visibility": "private",
+    "languages": "all",
+    "email_clarifications": 0,
+    "admin-groups": ["omi-nac-2023"]
+  }
+}

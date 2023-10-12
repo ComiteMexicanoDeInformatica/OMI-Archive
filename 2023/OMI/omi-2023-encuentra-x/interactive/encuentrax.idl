@@ -1,0 +1,8 @@
+interface Main {
+  int pregunta(int pos);
+  void posicion(int pos);
+};
+
+interface encuentrax {
+  void encuentra(int N, int X, int K);
+};
