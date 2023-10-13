@@ -1,0 +1,88 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción procesa_palabra como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      avanza;
+      avanza;
+      procesa_palabra;
+      deja-zumbador;
+    fin si-no inicio
+      oeste;
+      pared;
+      este;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-maximo(n) como inicio
+    si junto-a-zumbador o no si-es-cero(n) entonces inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      si si-es-cero(n) entonces
+        deja-maximo(n)
+      si-no
+        deja-maximo(precede(n));
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia-y-deja-maximo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia-y-deja-maximo(sucede(n));
+    fin si-no inicio
+      avanza;
+      deja-maximo(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    mientras junto-a-zumbador hacer inicio
+      procesa_palabra;
+      norte;
+      avanza;
+      este;
+    fin;
+    sur;
+    avanza;
+    mientras frente-libre hacer copia-y-deja-maximo(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

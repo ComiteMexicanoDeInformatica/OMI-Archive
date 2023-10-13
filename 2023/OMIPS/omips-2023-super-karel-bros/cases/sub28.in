@@ -1,0 +1,89 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="100" alto="100">
+			<pared x1="61" y1="26" x2="62"></pared>
+			<pared x1="61" y1="26" y2="27"></pared>
+			<pared x1="61" y1="27" y2="28"></pared>
+			<pared x1="61" y1="28" y2="29"></pared>
+			<pared x1="61" y1="29" x2="62"></pared>
+			<pared x1="62" y1="27" x2="63"></pared>
+			<pared x1="62" y1="27" y2="28"></pared>
+			<pared x1="62" y1="28" x2="63"></pared>
+			<pared x1="62" y1="29" x2="63"></pared>
+			<pared x1="63" y1="26" x2="64"></pared>
+			<pared x1="63" y1="27" x2="64"></pared>
+			<pared x1="63" y1="28" x2="64"></pared>
+			<pared x1="63" y1="29" x2="64"></pared>
+			<pared x1="64" y1="24" x2="65"></pared>
+			<pared x1="64" y1="24" y2="25"></pared>
+			<pared x1="64" y1="25" y2="26"></pared>
+			<pared x1="64" y1="27" x2="65"></pared>
+			<pared x1="64" y1="28" x2="65"></pared>
+			<pared x1="64" y1="29" x2="65"></pared>
+			<pared x1="65" y1="24" x2="66"></pared>
+			<pared x1="65" y1="25" y2="26"></pared>
+			<pared x1="65" y1="26" x2="66"></pared>
+			<pared x1="65" y1="26" y2="27"></pared>
+			<pared x1="65" y1="27" x2="66"></pared>
+			<pared x1="65" y1="29" x2="66"></pared>
+			<pared x1="66" y1="24" y2="25"></pared>
+			<pared x1="66" y1="25" x2="67"></pared>
+			<pared x1="66" y1="26" x2="67"></pared>
+			<pared x1="66" y1="27" y2="28"></pared>
+			<pared x1="66" y1="28" y2="29"></pared>
+			<pared x1="67" y1="25" x2="68"></pared>
+			<pared x1="67" y1="26" y2="27"></pared>
+			<pared x1="67" y1="27" x2="68"></pared>
+			<pared x1="68" y1="25" y2="26"></pared>
+			<pared x1="68" y1="26" x2="69"></pared>
+			<pared x1="68" y1="27" y2="28"></pared>
+			<pared x1="68" y1="28" x2="69"></pared>
+			<pared x1="69" y1="26" y2="27"></pared>
+			<pared x1="69" y1="28" x2="70"></pared>
+			<pared x1="70" y1="27" x2="71"></pared>
+			<pared x1="70" y1="28" x2="71"></pared>
+			<pared x1="71" y1="28" x2="72"></pared>
+			<pared x1="72" y1="27" x2="73"></pared>
+			<pared x1="72" y1="28" x2="73"></pared>
+			<pared x1="73" y1="27" x2="74"></pared>
+			<pared x1="73" y1="28" y2="29"></pared>
+			<pared x1="73" y1="29" x2="74"></pared>
+			<pared x1="74" y1="27" x2="75"></pared>
+			<pared x1="74" y1="27" y2="28"></pared>
+			<pared x1="74" y1="29" x2="75"></pared>
+			<pared x1="75" y1="28" x2="76"></pared>
+			<pared x1="75" y1="28" y2="29"></pared>
+			<pared x1="76" y1="27" x2="77"></pared>
+			<pared x1="76" y1="28" x2="77"></pared>
+			<pared x1="77" y1="27" x2="78"></pared>
+			<pared x1="77" y1="28" x2="78"></pared>
+			<pared x1="77" y1="29" x2="78"></pared>
+			<pared x1="78" y1="28" x2="79"></pared>
+			<pared x1="78" y1="29" x2="79"></pared>
+			<pared x1="79" y1="25" x2="80"></pared>
+			<pared x1="79" y1="25" y2="26"></pared>
+			<pared x1="79" y1="26" y2="27"></pared>
+			<pared x1="79" y1="28" x2="80"></pared>
+			<pared x1="79" y1="29" x2="80"></pared>
+			<pared x1="80" y1="25" x2="81"></pared>
+			<pared x1="80" y1="26" y2="27"></pared>
+			<pared x1="80" y1="27" y2="28"></pared>
+			<pared x1="80" y1="29" x2="81"></pared>
+			<pared x1="81" y1="25" y2="26"></pared>
+			<pared x1="81" y1="26" y2="27"></pared>
+			<pared x1="81" y1="27" y2="28"></pared>
+			<pared x1="81" y1="28" y2="29"></pared>
+			<posicionDump x="63" y="27"/>
+			<posicionDump x="70" y="28"/>
+			<posicionDump x="72" y="28"/>
+			<posicionDump x="76" y="28"/>
+			<posicionDump x="79" y="28"/>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="78" yKarel="29" direccionKarel="ESTE" mochilaKarel="INFINITO">
+			<despliega tipo="MUNDO"/>
+		</programa>
+	</programas>
+</ejecucion>

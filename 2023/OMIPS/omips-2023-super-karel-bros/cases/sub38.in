@@ -1,0 +1,67 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="100" alto="100">
+			<pared x1="22" y1="91" x2="23"></pared>
+			<pared x1="22" y1="92" x2="23"></pared>
+			<pared x1="22" y1="92" y2="93"></pared>
+			<pared x1="22" y1="93" y2="94"></pared>
+			<pared x1="22" y1="94" y2="95"></pared>
+			<pared x1="22" y1="95" x2="23"></pared>
+			<pared x1="23" y1="92" x2="24"></pared>
+			<pared x1="23" y1="93" x2="24"></pared>
+			<pared x1="23" y1="93" y2="94"></pared>
+			<pared x1="23" y1="95" x2="24"></pared>
+			<pared x1="24" y1="89" x2="25"></pared>
+			<pared x1="24" y1="89" y2="90"></pared>
+			<pared x1="24" y1="90" y2="91"></pared>
+			<pared x1="24" y1="92" x2="25"></pared>
+			<pared x1="24" y1="92" y2="93"></pared>
+			<pared x1="24" y1="94" x2="25"></pared>
+			<pared x1="24" y1="94" y2="95"></pared>
+			<pared x1="25" y1="89" x2="26"></pared>
+			<pared x1="25" y1="90" y2="91"></pared>
+			<pared x1="25" y1="91" x2="26"></pared>
+			<pared x1="25" y1="91" y2="92"></pared>
+			<pared x1="25" y1="92" x2="26"></pared>
+			<pared x1="25" y1="93" x2="26"></pared>
+			<pared x1="25" y1="93" y2="94"></pared>
+			<pared x1="26" y1="89" x2="27"></pared>
+			<pared x1="26" y1="89" y2="90"></pared>
+			<pared x1="26" y1="91" x2="27"></pared>
+			<pared x1="26" y1="92" x2="27"></pared>
+			<pared x1="26" y1="93" x2="27"></pared>
+			<pared x1="27" y1="89" x2="28"></pared>
+			<pared x1="27" y1="90" x2="28"></pared>
+			<pared x1="27" y1="90" y2="91"></pared>
+			<pared x1="27" y1="91" y2="92"></pared>
+			<pared x1="27" y1="93" x2="28"></pared>
+			<pared x1="28" y1="88" x2="29"></pared>
+			<pared x1="28" y1="88" y2="89"></pared>
+			<pared x1="28" y1="90" x2="29"></pared>
+			<pared x1="28" y1="91" y2="92"></pared>
+			<pared x1="28" y1="92" x2="29"></pared>
+			<pared x1="28" y1="92" y2="93"></pared>
+			<pared x1="29" y1="88" x2="30"></pared>
+			<pared x1="29" y1="89" x2="30"></pared>
+			<pared x1="29" y1="89" y2="90"></pared>
+			<pared x1="29" y1="90" y2="91"></pared>
+			<pared x1="29" y1="91" x2="30"></pared>
+			<pared x1="29" y1="92" x2="30"></pared>
+			<pared x1="30" y1="88" x2="31"></pared>
+			<pared x1="30" y1="89" y2="90"></pared>
+			<pared x1="30" y1="90" y2="91"></pared>
+			<pared x1="30" y1="92" x2="31"></pared>
+			<pared x1="31" y1="88" y2="89"></pared>
+			<pared x1="31" y1="89" y2="90"></pared>
+			<pared x1="31" y1="90" y2="91"></pared>
+			<pared x1="31" y1="91" y2="92"></pared>
+			<posicionDump x="24" y="92"/>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="23" yKarel="92" direccionKarel="ESTE" mochilaKarel="INFINITO">
+			<despliega tipo="MUNDO"/>
+		</programa>
+	</programas>
+</ejecucion>

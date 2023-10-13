@@ -1,0 +1,73 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción super-avanza como inicio
+    si orientado-al-norte o orientado-al-sur entonces inicio
+      si izquierda-libre o derecha-libre entonces inicio
+        si izquierda-libre entonces
+          gira(1)
+        si-no
+          gira(3);
+        avanza;
+      fin si-no
+        avanza;
+    fin si-no inicio
+      si frente-libre entonces
+        avanza
+      si-no inicio
+        si izquierda-libre entonces
+          gira(1)
+        si-no
+          gira(3);
+        avanza;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    mientras frente-libre o derecha-libre o izquierda-libre hacer inicio
+      si orientado-al-este y derecha-libre y frente-libre entonces
+        deja-zumbador;
+      si orientado-al-oeste y izquierda-libre y frente-libre entonces
+        deja-zumbador;
+      super-avanza;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa

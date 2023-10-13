@@ -1,0 +1,98 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="100" alto="100">
+			<pared x1="36" y1="91" x2="37"></pared>
+			<pared x1="36" y1="91" y2="92"></pared>
+			<pared x1="36" y1="92" y2="93"></pared>
+			<pared x1="36" y1="93" x2="37"></pared>
+			<pared x1="36" y1="95" x2="37"></pared>
+			<pared x1="36" y1="96" x2="37"></pared>
+			<pared x1="37" y1="91" x2="38"></pared>
+			<pared x1="37" y1="92" x2="38"></pared>
+			<pared x1="37" y1="93" x2="38"></pared>
+			<pared x1="37" y1="96" x2="38"></pared>
+			<pared x1="38" y1="92" x2="39"></pared>
+			<pared x1="38" y1="93" y2="94"></pared>
+			<pared x1="38" y1="94" y2="95"></pared>
+			<pared x1="38" y1="96" x2="39"></pared>
+			<pared x1="39" y1="92" x2="40"></pared>
+			<pared x1="39" y1="92" y2="93"></pared>
+			<pared x1="39" y1="93" y2="94"></pared>
+			<pared x1="39" y1="94" y2="95"></pared>
+			<pared x1="39" y1="95" y2="96"></pared>
+			<pared x1="40" y1="91" x2="41"></pared>
+			<pared x1="40" y1="92" y2="93"></pared>
+			<pared x1="40" y1="93" x2="41"></pared>
+			<pared x1="41" y1="89" y2="90"></pared>
+			<pared x1="41" y1="90" y2="91"></pared>
+			<pared x1="41" y1="91" y2="92"></pared>
+			<pared x1="41" y1="92" x2="42"></pared>
+			<pared x1="41" y1="93" x2="42"></pared>
+			<pared x1="42" y1="86" x2="43"></pared>
+			<pared x1="42" y1="86" y2="87"></pared>
+			<pared x1="42" y1="87" y2="88"></pared>
+			<pared x1="42" y1="88" y2="89"></pared>
+			<pared x1="42" y1="89" x2="43"></pared>
+			<pared x1="42" y1="90" x2="43"></pared>
+			<pared x1="42" y1="90" y2="91"></pared>
+			<pared x1="42" y1="93" x2="43"></pared>
+			<pared x1="43" y1="87" x2="44"></pared>
+			<pared x1="43" y1="87" y2="88"></pared>
+			<pared x1="43" y1="88" x2="44"></pared>
+			<pared x1="43" y1="89" x2="44"></pared>
+			<pared x1="43" y1="90" x2="44"></pared>
+			<pared x1="43" y1="91" y2="92"></pared>
+			<pared x1="43" y1="92" y2="93"></pared>
+			<pared x1="44" y1="80" y2="81"></pared>
+			<pared x1="44" y1="81" y2="82"></pared>
+			<pared x1="44" y1="82" x2="45"></pared>
+			<pared x1="44" y1="82" y2="83"></pared>
+			<pared x1="44" y1="83" y2="84"></pared>
+			<pared x1="44" y1="84" x2="45"></pared>
+			<pared x1="44" y1="84" y2="85"></pared>
+			<pared x1="44" y1="85" y2="86"></pared>
+			<pared x1="44" y1="86" x2="45"></pared>
+			<pared x1="44" y1="87" y2="88"></pared>
+			<pared x1="44" y1="88" x2="45"></pared>
+			<pared x1="44" y1="90" x2="45"></pared>
+			<pared x1="45" y1="81" x2="46"></pared>
+			<pared x1="45" y1="82" x2="46"></pared>
+			<pared x1="45" y1="83" x2="46"></pared>
+			<pared x1="45" y1="84" x2="46"></pared>
+			<pared x1="45" y1="85" x2="46"></pared>
+			<pared x1="45" y1="86" y2="87"></pared>
+			<pared x1="45" y1="87" x2="46"></pared>
+			<pared x1="45" y1="88" x2="46"></pared>
+			<pared x1="45" y1="88" y2="89"></pared>
+			<pared x1="45" y1="89" y2="90"></pared>
+			<pared x1="46" y1="81" y2="82"></pared>
+			<pared x1="46" y1="83" x2="47"></pared>
+			<pared x1="46" y1="85" x2="47"></pared>
+			<pared x1="46" y1="85" y2="86"></pared>
+			<pared x1="46" y1="86" x2="47"></pared>
+			<pared x1="46" y1="88" x2="47"></pared>
+			<pared x1="47" y1="80" y2="81"></pared>
+			<pared x1="47" y1="81" y2="82"></pared>
+			<pared x1="47" y1="82" y2="83"></pared>
+			<pared x1="47" y1="83" y2="84"></pared>
+			<pared x1="47" y1="84" y2="85"></pared>
+			<pared x1="47" y1="86" y2="87"></pared>
+			<pared x1="47" y1="87" y2="88"></pared>
+			<posicionDump x="38" y="96"/>
+			<posicionDump x="39" y="92"/>
+			<posicionDump x="40" y="92"/>
+			<posicionDump x="42" y="90"/>
+			<posicionDump x="43" y="92"/>
+			<posicionDump x="44" y="87"/>
+			<posicionDump x="45" y="81"/>
+			<posicionDump x="46" y="81"/>
+			<posicionDump x="47" y="81"/>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="37" yKarel="96" direccionKarel="ESTE" mochilaKarel="INFINITO">
+			<despliega tipo="MUNDO"/>
+		</programa>
+	</programas>
+</ejecucion>

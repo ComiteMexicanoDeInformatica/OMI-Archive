@@ -1,0 +1,260 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción diagonal_sube(n) como inicio
+    repetir n veces inicio
+      avanza;
+      deja-zumbador;
+      si orientado-al-este entonces inicio
+        norte;
+        avanza;
+        este;
+      fin si-no inicio
+        norte;
+        avanza;
+        oeste;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción diagonal_baja(dir) como inicio
+    avanza;
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      deja-zumbador;
+      si si-es-cero(dir) entonces
+        este
+      si-no
+        oeste;
+      diagonal_baja(dir);
+    fin si-no si si-es-cero(dir) entonces
+      este
+    si-no
+      oeste;
+  fin;
+
+  define-nueva-instrucción divide(n) como inicio
+    si junto-a-zumbador entonces inicio
+      repetir n veces coge-zumbador;
+      divide(n);
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción mide como inicio
+    avanza;
+    si izquierda-libre entonces inicio
+      mide;
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción mide_mayor como inicio
+    avanza;
+    si orientado-al-sur entonces inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        oeste;
+      fin;
+      mide_mayor;
+      deja-zumbador;
+    fin si-no inicio
+      si izquierda-libre entonces inicio
+        mide_mayor;
+        deja-zumbador;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción mide_menor como inicio
+    avanza;
+    si orientado-al-este entonces inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        sur;
+      fin;
+      mide_menor;
+      deja-zumbador;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        mide_menor;
+        deja-zumbador;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción construye(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      construye(sucede(n));
+    fin si-no inicio
+      diagonal_sube(n);
+      si orientado-al-este entonces inicio
+        sur;
+        avanza;
+        este;
+      fin si-no inicio
+        sur;
+        avanza;
+        oeste;
+      fin;
+      si orientado-al-este entonces
+        diagonal_baja(0)
+      si-no
+        diagonal_baja(1);
+    fin;
+  fin;
+
+  define-nueva-instrucción siguiente_columna como inicio
+    avanza;
+    sur;
+    pared;
+    este;
+    pared;
+    norte;
+    mientras derecha-bloqueada y frente-libre hacer avanza;
+    si derecha-libre entonces inicio
+      este;
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción inicializa como inicio
+    este;
+    mientras frente-libre hacer inicio
+      siguiente_columna;
+      norte;
+      deja-zumbador;
+      mientras frente-libre hacer inicio
+        avanza;
+        deja-zumbador;
+      fin;
+      sur;
+      pared;
+      este;
+    fin;
+    norte;
+    pared;
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción limpia como inicio
+    sur;
+    pared;
+    norte;
+    mientras frente-libre hacer inicio
+      avanza;
+      coge-zumbador;
+    fin;
+    sur;
+    pared;
+    coge-zumbador;
+    este;
+  fin;
+
+  define-nueva-instrucción resuelve_igual como inicio
+    mide;
+    deja(1);
+    este;
+    divide(2);
+    construye(0);
+  fin;
+
+  define-nueva-instrucción resuelve_mayor como inicio
+    mide_mayor;
+    deja(2);
+    este;
+    divide(2);
+    construye(0);
+  fin;
+
+  define-nueva-instrucción resuelve_menor como inicio
+    mide_menor;
+    oeste;
+    deja(1);
+    divide(2);
+    construye(0);
+    este;
+    siguiente_columna;
+  fin;
+
+  inicia-ejecución
+    inicializa;
+
+    mientras frente-libre hacer inicio
+      mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+      si junto-a-zumbador y derecha-bloqueada entonces inicio
+        limpia;
+        oeste;
+        resuelve_igual;
+      fin si-no inicio
+        si junto-a-zumbador entonces inicio
+          deja-zumbador;
+          limpia;
+          norte;
+          zumbador;
+          oeste;
+          mientras izquierda-libre hacer avanza;
+          este;
+          resuelve_menor;
+        fin si-no inicio
+          norte;
+          deja-zumbador;
+          mientras derecha-bloqueada y frente-libre hacer avanza;
+          si derecha-libre entonces inicio
+            este;
+            avanza;
+            limpia;
+            oeste;
+            avanza;
+            sur;
+            resuelve_mayor;
+          fin;
+        fin;
+      fin;
+    fin;
+    apágate;
+  termina-ejecución
+finalizar-programa

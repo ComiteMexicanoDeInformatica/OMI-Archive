@@ -1,0 +1,300 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción esquina como inicio
+    mientras no orientado-al-oeste hacer gira-izquierda;
+    mientras frente-libre hacer avanza;
+    girar(1);
+    mientras frente-libre hacer avanza;
+    girar(1);
+  fin;
+
+  (*---------------------------------------------------------------------------------*)
+  define-nueva-instrucción cubeta(s) como inicio
+    si si-es-cero(s) entonces sal-de-instrucción;
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cubeta(s);
+      si orientado-al-sur entonces inicio
+        girar(2);
+      fin si-no
+        avanza;
+    fin si-no inicio
+      si frente-libre entonces inicio
+        avanza;
+        si no junto-a-zumbador entonces inicio
+          girar(2);
+          mientras frente-libre hacer avanza;
+          girar(3);
+          avanza;
+          girar(3);
+          cubeta(precede(s));
+          si orientado-al-norte entonces inicio
+            girar(3);
+            repetir 2 veces avanza;
+            deja-zumbador;
+            girar(2);
+            repetir 2 veces avanza;
+            girar(3);
+            deja-zumbador;
+          fin;
+
+          esquina;
+          girar(3);
+        fin si-no inicio
+          cubeta(s);
+          girar(3);
+          repetir 2 veces avanza;
+          deja-zumbador;
+          girar(2);
+          repetir 2 veces avanza;
+          girar(3);
+          si si-es-cero(precede(s)) entonces inicio
+            deja-zumbador;
+          fin si-no inicio
+            si junto-a-zumbador entonces inicio
+              coge-zumbador;
+              esquina;
+              girar(3);
+              sal-de-instrucción;
+            fin;
+            mientras no orientado-al-este hacer gira-izquierda;
+            avanza;
+            deja-zumbador;
+          fin;
+          esquina;
+          girar(3);
+        fin;
+      fin si-no inicio
+        girar(2);
+        mientras frente-libre hacer avanza;
+        girar(3);
+        avanza;
+        girar(3);
+        cubeta(precede(s));
+        si orientado-al-norte entonces inicio
+          girar(3);
+          repetir 2 veces avanza;
+          deja-zumbador;
+          girar(2);
+          repetir 2 veces avanza;
+          girar(3);
+          si si-es-cero(precede(precede(s))) entonces inicio
+            deja-zumbador;
+          fin si-no inicio
+            si junto-a-zumbador entonces inicio
+              coge-zumbador;
+              esquina;
+              girar(3);
+              sal-de-instrucción;
+            fin;
+            mientras no orientado-al-este hacer gira-izquierda;
+            avanza;
+            deja-zumbador;
+          fin;
+        fin;
+        esquina;
+        girar(3);
+      fin;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------*)
+  define-nueva-instrucción resta(t) como inicio
+    repetir t veces inicio
+      si orientado-al-norte entonces inicio
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+        fin si-no inicio
+          girar(2);
+          deja-zumbador;
+        fin;
+      fin si-no
+        deja-zumbador;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------*)
+  define-prototipo-instrucción minimo(w);
+
+  define-nueva-instrucción descuenta(z) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      descuenta(precede(z));
+    fin si-no inicio
+      girar(2);
+      minimo(z);
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------*)
+  define-nueva-instrucción minimo(w) como inicio
+    mientras frente-libre y no junto-a-zumbador hacer avanza;
+    si junto-a-zumbador entonces inicio
+      resta(w);
+      si orientado-al-sur entonces inicio
+        descuenta(w);
+      fin si-no inicio
+        mientras junto-a-zumbador hacer coge-zumbador;
+        minimo(w);
+      fin;
+    fin si-no inicio
+      girar(2);
+      mientras frente-libre hacer avanza;
+      repetir w veces deja-zumbador;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------*)
+  define-nueva-instrucción aminimo(p) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aminimo(sucede(p));
+    fin si-no
+      minimo(p);
+  fin;
+
+  (*---------------------------------------------------------------------------------*)
+  define-nueva-instrucción compara(x) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      compara(sucede(x));
+    fin si-no inicio
+      avanza;
+      girar(3);
+      si no junto-a-zumbador entonces apágate;
+      resta(x);
+      si no junto-a-zumbador entonces sal-de-instrucción;
+      si orientado-al-norte entonces inicio
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin si-no inicio
+        mientras no orientado-al-sur hacer gira-izquierda;
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------*)
+  define-nueva-instrucción cantidades(k) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cantidades(sucede(k));
+    fin si-no inicio
+      girar(1);
+      avanza;
+      si junto-a-zumbador entonces inicio
+        girar(3);
+        resta(k);
+        deja-zumbador;
+        mientras no orientado-al-este hacer gira-izquierda;
+        avanza;
+        girar(1);
+      fin si-no inicio
+        avanza;
+        si no junto-a-zumbador entonces inicio
+          girar(2);
+          avanza;
+          avanza;
+          girar(1);
+          sal-de-instrucción;
+        fin;
+        girar(3);
+        resta(k);
+        deja-zumbador;
+        deja-zumbador;
+        mientras no orientado-al-este hacer gira-izquierda;
+        avanza;
+        avanza;
+        girar(1);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción realizar como inicio
+    mientras frente-libre o frente-bloqueado hacer inicio
+      mientras frente-libre y no junto-a-zumbador hacer avanza;
+      si no junto-a-zumbador entonces inicio
+        esquina;
+        sal-de-instrucción;
+      fin;
+      cantidades(0);
+    fin;
+  fin;
+
+  define-nueva-instrucción evalua como inicio
+    esquina;
+    cubeta(2);
+    si orientado-al-norte entonces inicio
+      girar(3);
+      repetir 2 veces avanza;
+      deja-zumbador;
+      girar(2);
+      repetir 2 veces avanza;
+      girar(3);
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+      fin si-no inicio
+        mientras no orientado-al-este hacer gira-izquierda;
+        avanza;
+        deja-zumbador;
+      fin;
+    fin;
+    esquina;
+    repetir 2 veces avanza;
+    girar(1);
+    realizar;
+    girar(1);
+    mientras frente-libre y no junto-a-zumbador hacer avanza;
+    aminimo(0);
+    girar(1);
+    avanza;
+    girar(1);
+    mientras frente-libre y no junto-a-zumbador hacer avanza;
+    aminimo(0);
+    girar(3);
+    si junto-a-zumbador entonces inicio
+      compara(0);
+    fin si-no inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        mientras no orientado-al-sur hacer gira-izquierda;
+      fin si-no
+        sal-de-instrucción;
+      apágate;
+    fin;
+  fin;
+
+  (*--------------------------------------------------------------------------------*)
+  define-nueva-instrucción paridad(a) como inicio
+    si junto-a-zumbador entonces inicio
+      si frente-libre entonces inicio
+        avanza;
+      fin si-no inicio
+        evalua;
+        si si-es-cero(a) entonces inicio
+          mientras no orientado-al-norte hacer gira-izquierda;
+        fin si-no
+          mientras no orientado-al-sur hacer gira-izquierda;
+        sal-de-instrucción;
+      fin;
+      si si-es-cero(a) entonces inicio
+        paridad(1);
+      fin si-no
+        paridad(0);
+    fin si-no inicio
+      evalua;
+      si si-es-cero(a) entonces inicio
+        mientras no orientado-al-sur hacer gira-izquierda;
+      fin si-no
+        mientras no orientado-al-norte hacer gira-izquierda;
+      sal-de-instrucción;
+    fin;
+  fin;
+
+  inicia-ejecución
+    girar(3);
+    paridad(0);
+    apágate;
+  termina-ejecución
+finalizar-programa
