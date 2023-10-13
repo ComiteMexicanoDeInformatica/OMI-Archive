@@ -1,0 +1,140 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción movimiento(t) como inicio
+    si frente-bloqueado entonces inicio
+      sal-de-instrucción;
+    fin;
+    repetir t veces inicio
+      si frente-libre entonces inicio
+        avanza;
+        si junto-a-zumbador entonces inicio
+          mientras no orientado-al-sur hacer gira-izquierda;
+          apágate;
+        fin;
+        si frente-libre entonces avanza;
+        si junto-a-zumbador entonces inicio
+          sal-de-instrucción;
+        fin;
+      fin;
+    fin;
+    movimiento(t);
+    si junto-a-zumbador entonces deja-zumbador;
+  fin;
+
+  (*----------------------------------------------*)
+  define-nueva-instrucción par(s) como inicio
+    si junto-a-zumbador entonces inicio
+      repetir 2 veces coge-zumbador;
+      par(sucede(s));
+    fin si-no inicio
+      mientras frente-bloqueado hacer gira-izquierda;
+      deja-zumbador;
+      movimiento(s);
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        mientras no-orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin;
+      girar(2);
+      mientras no junto-a-zumbador hacer avanza;
+      movimiento(s);
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción faltan(z) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        repetir z veces inicio
+          si junto-a-zumbador entonces inicio
+            coge-zumbador;
+          fin si-no
+            deja-zumbador;
+        fin;
+        deja-zumbador;
+        deja-zumbador;
+        sal-de-instrucción;
+      fin si-no
+        deja-zumbador;
+    fin;
+    si si-es-cero(z) o frente-bloqueado entonces sal-de-instrucción;
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        sal-de-instrucción;
+      fin si-no
+        deja-zumbador;
+    fin;
+    avanza;
+    faltan(precede(z));
+  fin;
+
+  define-nueva-instrucción imparmov(w) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        mientras no orientado-al-norte hacer gira-izquierda;
+        sal-de-instrucción;
+      fin si-no
+        deja-zumbador;
+    fin;
+    si frente-libre entonces inicio
+      faltan(w);
+      imparmov(w);
+      si junto-a-zumbador entonces deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción impar(k) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      impar(sucede(k));
+    fin si-no inicio
+      deja-zumbador;
+      mientras frente-bloqueado hacer gira-izquierda;
+      imparmov(k);
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin;
+      girar(2);
+      mientras no junto-a-zumbador hacer avanza;
+      imparmov(k);
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción quesoy(a) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        quesoy(sucede(a));
+      fin si-no inicio
+        deja-zumbador;
+        repetir a veces repetir 2 veces deja-zumbador;
+        impar(0);
+      fin;
+    fin si-no inicio
+      repetir a veces repetir 2 veces deja-zumbador;
+      par(0);
+    fin;
+  fin;
+
+  inicia-ejecución
+    quesoy(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

@@ -1,0 +1,48 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción impar como inicio
+    mientras derecha-libre hacer gira-izquierda;
+    mientras no junto-a-zumbador hacer inicio
+      si frente-libre entonces inicio
+        avanza;
+      fin si-no
+        girar(1);
+    fin;
+    mientras no orientado-al-norte hacer gira-izquierda;
+    apágate;
+  fin;
+
+  (*--------------------------------------------------------------------------*)
+  define-nueva-instrucción par como inicio
+    mientras derecha-libre hacer gira-izquierda;
+    mientras no junto-a-zumbador hacer inicio
+      si frente-bloqueado entonces girar(1);
+      avanza;
+      si frente-bloqueado entonces girar(1);
+      si junto-a-zumbador entonces inicio
+        mientras no orientado-al-sur hacer gira-izquierda;
+        apágate;
+      fin;
+      avanza;
+    fin;
+    mientras no orientado-al-norte hacer gira-izquierda;
+    apágate;
+  fin;
+
+  define-nueva-instrucción quesoy como inicio
+    mientras junto-a-zumbador hacer inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+      fin si-no
+        impar;
+    fin;
+    par;
+  fin;
+
+  inicia-ejecución
+    quesoy;
+    apágate;
+  termina-ejecución
+finalizar-programa

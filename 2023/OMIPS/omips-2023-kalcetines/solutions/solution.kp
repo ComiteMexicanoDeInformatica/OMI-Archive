@@ -1,0 +1,182 @@
+iniciar-programa
+  define-prototipo-instrucción resuelve(n);
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción cubetas como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cubetas;
+      avanza;
+    fin si-no inicio
+      si frente-libre entonces avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        cubetas;
+        deja-zumbador;
+        esquina;
+      fin si-no inicio
+        esquina;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción iguales(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        esquina;
+        coge-todo;
+        deja(n);
+        avanza;
+        coge-todo;
+        deja(n);
+        apágate;
+      fin;
+      deja-zumbador;
+    fin;
+
+    si frente-libre entonces inicio
+      avanza;
+      iguales(sucede(n));
+    fin;
+  fin;
+
+  define-nueva-instrucción prueba(n) como inicio
+    repetir n veces inicio
+      si no junto-a-zumbador y orientado-al-este y frente-libre entonces
+        avanza
+      si-no inicio
+        si junto-a-zumbador entonces norte;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta-y-resuelve(n) como inicio
+    avanza;
+    si no junto-a-zumbador entonces
+      cuenta-y-resuelve(sucede(n))
+    si-no
+      resuelve(sucede(n));
+  fin;
+
+  define-nueva-instrucción resuelve(n) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      prueba(precede(n));
+      si orientado-al-norte entonces inicio
+        avanza;
+        deja-zumbador;
+        atras;
+        oeste;
+        avanza;
+        zumbador;
+        este;
+        cuenta-y-resuelve(0);
+      fin si-no inicio
+        si frente-libre entonces inicio
+          zumbador;
+          resuelve(n);
+        fin;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción cuenta-y-deja(n) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      cuenta-y-deja(sucede(n));
+    fin si-no inicio
+      coge-todo;
+      deja(sucede(n));
+    fin;
+  fin;
+
+  define-nueva-instrucción copia(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia(sucede(n));
+    fin si-no inicio
+      avanza;
+      coge-todo;
+      deja(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-resultado como inicio
+    este;
+    zumbador;
+    sur;
+    avanza;
+    oeste;
+    cuenta-y-deja(0);
+    este;
+    copia(0);
+    norte;
+    avanza;
+    este;
+    zumbador;
+    sur;
+    avanza;
+    oeste;
+    coge-todo;
+    zumbador;
+    cuenta-y-deja(0);
+  fin;
+
+  inicia-ejecución
+    este;
+    cubetas;
+    iguales(1);
+    esquina;
+    zumbador;
+    resuelve(101);
+    norte;
+    avanza;
+    oeste;
+    zumbador;
+    mientras frente-libre hacer inicio
+      avanza;
+      si junto-a-zumbador entonces coge-zumbador;
+    fin;
+
+    deja-resultado;
+    apágate;
+  termina-ejecución
+finalizar-programa

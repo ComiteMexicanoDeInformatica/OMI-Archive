@@ -1,0 +1,64 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción norte como
+    mientras no-orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no-orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no-orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no-orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción encuentra como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin si-no inicio
+        deja-zumbador;
+        sal-de-instrucción;
+      fin;
+    fin;
+    deja-zumbador;
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      encuentra;
+      sur;
+      avanza;
+    fin;
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      encuentra;
+      norte;
+      avanza;
+    fin;
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      encuentra;
+      oeste;
+      avanza;
+    fin;
+
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      encuentra;
+      este;
+      avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    mientras junto-a-zumbador hacer coge-zumbador;
+    encuentra;
+    apágate;
+  termina-ejecución
+finalizar-programa

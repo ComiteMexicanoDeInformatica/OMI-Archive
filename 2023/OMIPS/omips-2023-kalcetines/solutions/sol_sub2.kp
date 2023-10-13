@@ -1,0 +1,147 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción espacio como
+    mientras junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción copia(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia(sucede(n));
+      deja-zumbador;
+    fin si-no inicio
+      deja(n);
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia_linea como inicio
+    mientras junto-a-zumbador hacer inicio
+      norte;
+      copia(0);
+      atras;
+      este;
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción resta(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      resta(sucede(n));
+      coge-zumbador;
+    fin si-no inicio
+      deja(n);
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción resta_linea como inicio
+    mientras junto-a-zumbador hacer inicio
+      resta(0);
+      atras;
+      atras;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia_pared(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia_pared(n);
+      deja-zumbador;
+    fin si-no inicio
+      pared;
+      este;
+      repetir n veces avanza;
+      coge-todo;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja-resultado como inicio
+    copia_pared(1);
+    este;
+    espacio;
+    oeste;
+    avanza;
+    copia_pared(0);
+    apágate;
+  fin;
+
+  define-nueva-instrucción checa_minimo como inicio
+    sur;
+    avanza;
+    este;
+    avanza;
+    espacio;
+    norte;
+    avanza;
+    oeste;
+    avanza;
+    mientras frente-libre hacer inicio
+      si no-junto-a-zumbador entonces inicio
+        sur;
+        avanza;
+        oeste;
+        deja-resultado;
+      fin si-no
+        coge-zumbador;
+      avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    avanza;
+    copia_linea;
+
+    norte;
+    avanza;
+    oeste;
+    avanza;
+    avanza;
+    este;
+    resta_linea;
+
+    avanza;
+    deja(100);
+    repetir 100 veces checa_minimo;
+
+    apágate;
+  termina-ejecución
+finalizar-programa
