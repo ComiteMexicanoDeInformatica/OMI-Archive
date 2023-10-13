@@ -1,0 +1,28 @@
+{
+  "title": "La clase de historia de Juan",
+  "source": "OMI 2023 (Juan Alfonso Mathías Pérez Mondragón)",
+
+  "limits": {
+    "TimeLimit": 2000,
+    "MemoryLimit": 1000000000,
+    "InputLimit": 1000000,
+    "OutputLimit": 10000000,
+    "ExtraWallTime": 0,
+    "OverallWallTimeLimit": 60000
+  },
+
+  "validator": {
+    "name": "token-caseless",
+    "limits": {
+      "TimeLimit": 1000
+    }
+  },
+
+  "misc": {
+    "alias": "omi-2023-clase-historia-juan",
+    "visibility": "private",
+    "languages": "all",
+    "email_clarifications": 0,
+    "admin-groups": ["omi-nac-2023"]
+  }
+}
