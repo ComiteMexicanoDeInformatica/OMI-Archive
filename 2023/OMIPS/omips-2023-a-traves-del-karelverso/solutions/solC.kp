@@ -1,0 +1,1222 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  (*----------------------------------------------------------------------------------------*)
+  define-nueva-instrucción copia(s) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia(sucede(s));
+    fin si-no inicio
+      repetir s veces deja-zumbador;
+      avanza;
+      repetir s veces deja-zumbador;
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+  define-prototipo-instrucción inf-der(a);
+
+  define-prototipo-instrucción inf-izq(a);
+
+  define-prototipo-instrucción sup-izq(a);
+
+  define-nueva-instrucción sup-der(a) como inicio
+    si no junto-a-zumbador entonces sal-de-instrucción;
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 2 veces coge-zumbador;
+            girar(2);
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        sup-der(sucede(a));
+        sur;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            si no si-es-cero(a) entonces inicio
+              coge-zumbador;
+            fin si-no
+              deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        si si-es-cero(a) entonces inicio
+          inf-der(sucede(a));
+        fin si-no
+          sup-der(precede(a));
+        norte;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        deja-zumbador;
+        sup-der(a);
+        oeste;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 3 veces coge-zumbador;
+            si junto-a-zumbador entonces inicio
+              repetir 2 veces deja-zumbador;
+            fin si-no inicio
+              repetir 4 veces deja-zumbador;
+            fin;
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        coge-zumbador;
+        repetir 2 veces coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir 2 veces deja-zumbador;
+          sup-der(a);
+        fin si-no inicio
+          repetir 4 veces deja-zumbador;
+          sup-izq(a);
+        fin;
+        este;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+
+  define-nueva-instrucción inf-der(a) como inicio
+    si no junto-a-zumbador entonces sal-de-instrucción;
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 2 veces coge-zumbador;
+            girar(2);
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        inf-der(sucede(a));
+        norte;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            si no si-es-cero(a) entonces inicio
+              coge-zumbador;
+            fin si-no
+              deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        si si-es-cero(a) entonces inicio
+          sup-der(sucede(a));
+        fin si-no
+          inf-der(precede(a));
+        sur;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        deja-zumbador;
+        inf-der(a);
+        oeste;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 3 veces coge-zumbador;
+            si junto-a-zumbador entonces inicio
+              repetir 2 veces deja-zumbador;
+            fin si-no inicio
+              repetir 4 veces deja-zumbador;
+            fin;
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        coge-zumbador;
+        repetir 2 veces coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir 2 veces deja-zumbador;
+          inf-der(a);
+        fin si-no inicio
+          repetir 4 veces deja-zumbador;
+          inf-izq(a);
+        fin;
+        este;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+
+  define-nueva-instrucción inf-izq(a) como inicio
+    si no junto-a-zumbador entonces sal-de-instrucción;
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 2 veces coge-zumbador;
+            girar(2);
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        inf-izq(sucede(a));
+        norte;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            si no si-es-cero(a) entonces inicio
+              coge-zumbador;
+            fin si-no
+              deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        si si-es-cero(a) entonces inicio
+          sup-izq(sucede(a));
+        fin si-no
+          inf-izq(precede(a));
+        sur;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        deja-zumbador;
+        inf-izq(a);
+        este;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 3 veces coge-zumbador;
+            si junto-a-zumbador entonces inicio
+              repetir 2 veces deja-zumbador;
+            fin si-no inicio
+              repetir 4 veces deja-zumbador;
+            fin;
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        coge-zumbador;
+        repetir 2 veces coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir 2 veces deja-zumbador;
+          inf-izq(a);
+        fin si-no inicio
+          repetir 4 veces deja-zumbador;
+          inf-der(a);
+        fin;
+        oeste;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+
+  define-nueva-instrucción sup-izq(a) como inicio
+    si no junto-a-zumbador entonces sal-de-instrucción;
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 2 veces coge-zumbador;
+            girar(2);
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        sup-izq(sucede(a));
+        sur;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            si no si-es-cero(a) entonces inicio
+              coge-zumbador;
+            fin si-no
+              deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        si si-es-cero(a) entonces inicio
+          inf-izq(sucede(a));
+        fin si-no
+          sup-izq(precede(a));
+        norte;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        deja-zumbador;
+        sup-izq(a);
+        este;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+
+    si no junto-a-zumbador entonces sal-de-instrucción;
+
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      (*Alma del problema------------------------------*)
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si no junto-a-zumbador entonces inicio
+            girar(2);
+            avanza;
+            girar(2);
+            copia(0);
+            repetir 3 veces coge-zumbador;
+            si junto-a-zumbador entonces inicio
+              repetir 2 veces deja-zumbador;
+            fin si-no inicio
+              repetir 4 veces deja-zumbador;
+            fin;
+            repetir 103 veces deja-zumbador;
+            repetir a veces deja-zumbador;
+            girar(2);
+            repetir 2 veces coge-zumbador;
+            avanza;
+            mientras junto-a-zumbador hacer coge-zumbador;
+            sal-de-instrucción;
+          fin si-no inicio
+            deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          repetir 2 veces deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        coge-zumbador;
+        repetir 2 veces coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir 2 veces deja-zumbador;
+          sup-izq(a);
+        fin si-no inicio
+          repetir 4 veces deja-zumbador;
+          sup-der(a);
+        fin;
+        oeste;
+        si no junto-a-zumbador entonces inicio
+          avanza;
+          mientras junto-a-zumbador hacer coge-zumbador;
+        fin si-no
+          avanza;
+      fin;
+    (*--------------------------------------------*)
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+  define-nueva-instrucción canje como inicio
+    repetir 102 veces inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+      fin si-no
+        sal-de-instrucción;
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+  define-nueva-instrucción posible(z) como inicio
+    si junto-a-zumbador entonces inicio
+      repetir z veces si junto-a-zumbador entonces coge-zumbador;
+      posible(z);
+      deja-zumbador;
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+  define-nueva-instrucción quiza_posible(x) como inicio
+    si orientado-al-norte entonces inicio
+      repetir x veces inicio
+        si orientado-al-norte entonces inicio
+          si junto-a-zumbador entonces inicio
+            coge-zumbador;
+          fin si-no inicio
+            girar(2);
+            deja-zumbador;
+          fin;
+        fin si-no inicio
+          si junto-a-zumbador entonces inicio
+            coge-zumbador;
+          fin si-no
+            deja-zumbador;
+        fin;
+      fin;
+      si no junto-a-zumbador entonces inicio
+        deja-zumbador;
+        sal-de-instrucción;
+      fin;
+      quiza_posible(x);
+      deja-zumbador;
+    fin si-no inicio
+      si junto-a-zumbador entonces apágate;
+      norte;
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción residuo(w) como inicio
+    si si-es-cero(w) entonces inicio
+      este;
+      sal-de-instrucción;
+    fin;
+    si no-junto-a-zumbador entonces inicio
+      repetir w veces girar(2);
+      sal-de-instrucción;
+    fin;
+    coge-zumbador;
+    residuo(precede(w));
+  fin;
+
+  define-nueva-instrucción quesoy(z) como inicio
+    si junto-a-zumbador entonces inicio
+      residuo(z);
+      si junto-a-zumbador entonces norte;
+      quesoy(z);
+      deja-zumbador;
+    fin si-no inicio
+      si orientado-al-sur entonces inicio
+        deja-zumbador;
+      fin;
+      norte;
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------------------*)
+  define-nueva-instrucción encuentra(t) como inicio
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si junto-a-zumbador entonces inicio
+            canje;
+            si no junto-a-zumbador entonces inicio
+              girar(2);
+              avanza;
+            fin si-no inicio
+              girar(2);
+              avanza;
+              girar(2);
+              coge-zumbador;
+              si junto-a-zumbador entonces inicio
+                avanza;
+                norte;
+                quesoy(t);
+              fin si-no inicio
+                avanza;
+                norte;
+                quiza_posible(t);
+                norte;
+              fin;
+              apágate;
+            fin;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        encuentra(t);
+        sur;
+        avanza;
+      fin;
+    fin;
+
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si junto-a-zumbador entonces inicio
+            canje;
+            si no junto-a-zumbador entonces inicio
+              girar(2);
+              avanza;
+            fin si-no inicio
+              girar(2);
+              avanza;
+              girar(2);
+              coge-zumbador;
+              si junto-a-zumbador entonces inicio
+                avanza;
+                norte;
+                quesoy(t);
+              fin si-no inicio
+                avanza;
+                norte;
+                quiza_posible(t);
+                norte;
+              fin;
+              apágate;
+            fin;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        encuentra(t);
+        norte;
+        avanza;
+      fin;
+    fin;
+
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si junto-a-zumbador entonces inicio
+            canje;
+            si no junto-a-zumbador entonces inicio
+              girar(2);
+              avanza;
+            fin si-no inicio
+              girar(2);
+              avanza;
+              girar(2);
+              coge-zumbador;
+              si junto-a-zumbador entonces inicio
+                avanza;
+                norte;
+                quesoy(t);
+              fin si-no inicio
+                avanza;
+                norte;
+                quiza_posible(t);
+                norte;
+              fin;
+              apágate;
+            fin;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        encuentra(t);
+        oeste;
+        avanza;
+      fin;
+    fin;
+
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          coge-zumbador;
+          si junto-a-zumbador entonces inicio
+            canje;
+            si no junto-a-zumbador entonces inicio
+              girar(2);
+              avanza;
+            fin si-no inicio
+              girar(2);
+              avanza;
+              girar(2);
+              coge-zumbador;
+              si junto-a-zumbador entonces inicio
+                avanza;
+                norte;
+                quesoy(t);
+              fin si-no inicio
+                avanza;
+                norte;
+                quiza_posible(t);
+                norte;
+              fin;
+              apágate;
+            fin;
+          fin si-no inicio
+            repetir 2 veces deja-zumbador;
+            girar(2);
+            avanza;
+          fin;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        girar(2);
+        avanza;
+        girar(2);
+        copia(0);
+        encuentra(t);
+        este;
+        avanza;
+      fin;
+    fin;
+  fin;
+
+  (*-----------------------------------------------------------------------------------------*)
+  define-nueva-instrucción modulo_2(n) como inicio
+    repetir n veces inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+      fin si-no
+        deja-zumbador;
+    fin;
+  fin;
+
+  (*-----------------------------------------------------------------------------------------*)
+  define-nueva-instrucción guardadito(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      guardadito(sucede(n));
+    fin si-no inicio
+      repetir 3 veces deja-zumbador;
+      sup-der(0);
+      norte;
+      modulo_2(n);
+      deja-zumbador;
+      encuentra(n);
+    fin;
+  fin;
+
+  inicia-ejecución
+    guardadito(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

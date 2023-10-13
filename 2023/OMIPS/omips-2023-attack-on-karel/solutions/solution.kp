@@ -1,0 +1,46 @@
+iniciar-programa
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción expande como inicio
+    mientras junto-a-zumbador hacer coge-zumbador;
+    gira(1);
+    mientras algún-zumbador-en-la-mochila hacer inicio
+      deja-zumbador;
+      avanza;
+    fin;
+    gira(2);
+    mientras frente-libre hacer avanza;
+    gira(1);
+    si frente-libre entonces avanza;
+  fin;
+
+  define-nueva-instrucción resuelve(n) como inicio
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+    si junto-a-zumbador entonces inicio
+      gira(1);
+      mientras junto-a-zumbador hacer inicio
+        coge-zumbador;
+        avanza;
+      fin;
+      gira(3);
+      resuelve(sucede(n));
+    fin si-no inicio
+      gira(2);
+      mientras frente-libre hacer avanza;
+      gira(1);
+      mientras frente-libre hacer avanza;
+      repetir n veces deja-zumbador;
+    fin;
+  fin;
+
+  inicia-ejecución
+    gira(3);
+    avanza;
+    mientras junto-a-zumbador hacer expande;
+    gira(2);
+    mientras frente-libre hacer avanza;
+    gira(2);
+    resuelve(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

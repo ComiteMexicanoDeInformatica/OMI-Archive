@@ -1,0 +1,170 @@
+class program {
+  define vuelta() {
+    turn(2);
+    move();
+    turn(2);
+  }
+
+  define turn(x) {
+    iterate (x) turnleft();
+  }
+
+  define pick(x) {
+    iterate (x) pickbeeper();
+  }
+
+  define put(x) {
+    iterate (x) putbeeper();
+  }
+
+  define f(x) {
+    if (nextToABeeper && !iszero(x)) {
+      pickbeeper();
+      f(pred(x));
+    } else if (!iszero(x)) {
+      put(x);
+    }
+  }
+
+  define quita(x) {
+    if (nextToABeeper && !iszero(x)) {
+      pickbeeper();
+      quita(pred(x));
+    } else if (!iszero(x)) {
+      put(x);
+      turnleft();
+    }
+  }
+
+  define respuesta(x) {
+    if (nextToABeeper) {
+      quita(x);
+      if (facingNorth) {
+        respuesta(x);
+        putbeeper();
+      } else {
+        while (nextToABeeper) {
+          pickbeeper();
+          if (notNextToABeeper) {
+            while (notFacingSouth) turnleft();
+            turnoff();
+          }
+          pickbeeper();
+        }
+        putbeeper();
+        while (notFacingNorth) turnleft();
+      }
+    }
+  }
+
+  define comienza(x) {
+    if (nextToABeeper) {
+      pickbeeper();
+      comienza(succ(x));
+    } else {
+      explora();
+      f(105);
+      move();
+      f(105);
+      turn(2);
+      while (nextToABeeper) {
+        pickbeeper();
+        move();
+        putbeeper();
+        vuelta();
+      }
+      move();
+      while (notFacingNorth) turnleft();
+      respuesta(x);
+    }
+  }
+
+  define haz() {
+    while (frontIsBlocked) turnleft();
+    move();
+    while (nextToABeeper) pickbeeper();
+    put(105);
+    vuelta();
+  }
+
+  define explora() {
+    put(2);
+    iterate (4) {
+      if (frontIsClear) {
+        move();
+        if (notNextToABeeper) {
+          if (facingEast) {
+            explora();
+            pick(2);
+            if (nextToABeeper) {
+              put(3);
+              return();
+            }
+            put(2);
+          } else if (facingWest) {
+            explora();
+            pick(2);
+            if (nextToABeeper) {
+              put(1);
+              return();
+            }
+            put(2);
+          } else if (facingNorth) {
+            explora();
+            pick(2);
+            if (nextToABeeper) {
+              put(2);
+              move();
+              put(1);
+              vuelta();
+              return();
+            }
+            put(2);
+          } else {
+            explora();
+            pick(2);
+            if (nextToABeeper) {
+              put(2);
+              move();
+              pick(1);
+              vuelta();
+              return();
+            }
+            put(2);
+          }
+        } else {
+          pickbeeper();
+          if (notNextToABeeper) {
+            put(105);
+            if (facingEast) {
+              put(1);
+              haz();
+            } else if (facingWest) {
+              pick(1);
+              haz();
+            } else if (facingNorth) {
+              haz();
+              move();
+              put(1);
+              vuelta();
+            } else {
+              haz();
+              move();
+              pick(1);
+              vuelta();
+            }
+            return();
+          }
+          putbeeper();
+        }
+        vuelta();
+      }
+      turn(1);
+    }
+  }
+
+  program() {
+    comienza(0);
+    turnoff();
+  }
+}

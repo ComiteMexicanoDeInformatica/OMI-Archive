@@ -1,0 +1,99 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción encuentra(s) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        si si-es-cero(precede(s)) entonces inicio
+          sur;
+        fin si-no
+          norte;
+      fin si-no inicio
+        deja-zumbador;
+        sal-de-instrucción;
+      fin;
+      apágate;
+    fin;
+    deja-zumbador;
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      si si-es-cero(s) entonces inicio
+        encuentra(1);
+      fin si-no si si-es-cero(precede(s)) entonces inicio
+        encuentra(0);
+      fin si-no
+        encuentra(2);
+      sur;
+      avanza;
+    fin;
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      si si-es-cero(s) entonces inicio
+        encuentra(1);
+      fin si-no si si-es-cero(precede(s)) entonces inicio
+        encuentra(0);
+      fin si-no
+        encuentra(2);
+      norte;
+      avanza;
+    fin;
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      si si-es-cero(s) entonces inicio
+        encuentra(1);
+      fin si-no si si-es-cero(precede(s)) entonces inicio
+        encuentra(0);
+      fin si-no
+        encuentra(2);
+      oeste;
+      avanza;
+    fin;
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      si si-es-cero(s) entonces inicio
+        encuentra(1);
+      fin si-no si si-es-cero(precede(s)) entonces inicio
+        encuentra(0);
+      fin si-no
+        encuentra(2);
+      este;
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción quesoy(a) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        quesoy(sucede(a));
+      fin si-no inicio
+        encuentra(2);
+      fin;
+    fin si-no inicio
+      encuentra(0);
+    fin;
+  fin;
+
+  inicia-ejecución
+    quesoy(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

@@ -1,0 +1,95 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="100" alto="100">
+			<pared x1="35" y1="64" x2="36"></pared>
+			<pared x1="35" y1="64" y2="65"></pared>
+			<pared x1="35" y1="65" y2="66"></pared>
+			<pared x1="35" y1="66" x2="36"></pared>
+			<pared x1="36" y1="64" x2="37"></pared>
+			<pared x1="36" y1="65" x2="37"></pared>
+			<pared x1="36" y1="66" y2="67"></pared>
+			<pared x1="36" y1="67" y2="68"></pared>
+			<pared x1="36" y1="68" x2="37"></pared>
+			<pared x1="37" y1="64" x2="38"></pared>
+			<pared x1="37" y1="65" y2="66"></pared>
+			<pared x1="37" y1="66" y2="67"></pared>
+			<pared x1="37" y1="67" x2="38"></pared>
+			<pared x1="37" y1="68" x2="38"></pared>
+			<pared x1="38" y1="64" y2="65"></pared>
+			<pared x1="38" y1="65" x2="39"></pared>
+			<pared x1="38" y1="65" y2="66"></pared>
+			<pared x1="38" y1="66" y2="67"></pared>
+			<pared x1="38" y1="68" x2="39"></pared>
+			<pared x1="38" y1="71" x2="39"></pared>
+			<pared x1="38" y1="72" x2="39"></pared>
+			<pared x1="39" y1="64" x2="40"></pared>
+			<pared x1="39" y1="64" y2="65"></pared>
+			<pared x1="39" y1="66" x2="40"></pared>
+			<pared x1="39" y1="66" y2="67"></pared>
+			<pared x1="39" y1="67" y2="68"></pared>
+			<pared x1="39" y1="72" x2="40"></pared>
+			<pared x1="40" y1="64" x2="41"></pared>
+			<pared x1="40" y1="65" x2="41"></pared>
+			<pared x1="40" y1="65" y2="66"></pared>
+			<pared x1="40" y1="71" x2="41"></pared>
+			<pared x1="40" y1="72" x2="41"></pared>
+			<pared x1="41" y1="63" x2="42"></pared>
+			<pared x1="41" y1="63" y2="64"></pared>
+			<pared x1="41" y1="65" x2="42"></pared>
+			<pared x1="41" y1="67" x2="42"></pared>
+			<pared x1="41" y1="67" y2="68"></pared>
+			<pared x1="41" y1="68" y2="69"></pared>
+			<pared x1="41" y1="69" y2="70"></pared>
+			<pared x1="41" y1="70" x2="42"></pared>
+			<pared x1="41" y1="70" y2="71"></pared>
+			<pared x1="41" y1="72" x2="42"></pared>
+			<pared x1="42" y1="61" x2="43"></pared>
+			<pared x1="42" y1="61" y2="62"></pared>
+			<pared x1="42" y1="62" y2="63"></pared>
+			<pared x1="42" y1="64" x2="43"></pared>
+			<pared x1="42" y1="64" y2="65"></pared>
+			<pared x1="42" y1="67" x2="43"></pared>
+			<pared x1="42" y1="68" x2="43"></pared>
+			<pared x1="42" y1="68" y2="69"></pared>
+			<pared x1="42" y1="69" x2="43"></pared>
+			<pared x1="42" y1="71" x2="43"></pared>
+			<pared x1="42" y1="71" y2="72"></pared>
+			<pared x1="43" y1="62" x2="44"></pared>
+			<pared x1="43" y1="62" y2="63"></pared>
+			<pared x1="43" y1="63" y2="64"></pared>
+			<pared x1="43" y1="68" x2="44"></pared>
+			<pared x1="43" y1="69" y2="70"></pared>
+			<pared x1="43" y1="70" y2="71"></pared>
+			<pared x1="44" y1="61" x2="45"></pared>
+			<pared x1="44" y1="62" x2="45"></pared>
+			<pared x1="44" y1="63" x2="45"></pared>
+			<pared x1="44" y1="63" y2="64"></pared>
+			<pared x1="44" y1="64" y2="65"></pared>
+			<pared x1="44" y1="65" y2="66"></pared>
+			<pared x1="44" y1="66" x2="45"></pared>
+			<pared x1="44" y1="66" y2="67"></pared>
+			<pared x1="44" y1="68" x2="45"></pared>
+			<pared x1="45" y1="61" x2="46"></pared>
+			<pared x1="45" y1="62" y2="63"></pared>
+			<pared x1="45" y1="64" x2="46"></pared>
+			<pared x1="45" y1="64" y2="65"></pared>
+			<pared x1="45" y1="65" x2="46"></pared>
+			<pared x1="45" y1="67" x2="46"></pared>
+			<pared x1="45" y1="67" y2="68"></pared>
+			<pared x1="46" y1="61" y2="62"></pared>
+			<pared x1="46" y1="62" y2="63"></pared>
+			<pared x1="46" y1="63" y2="64"></pared>
+			<pared x1="46" y1="65" y2="66"></pared>
+			<pared x1="46" y1="66" y2="67"></pared>
+			<posicionDump x="40" y="72"/>
+			<posicionDump x="44" y="62"/>
+			<posicionDump x="44" y="68"/>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="39" yKarel="72" direccionKarel="ESTE" mochilaKarel="INFINITO">
+			<despliega tipo="MUNDO"/>
+		</programa>
+	</programas>
+</ejecucion>

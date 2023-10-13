@@ -1,0 +1,335 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-prototipo-instrucción dist(a);
+
+  (*---------------------------------------------------------------------------------------------*)
+  define-nueva-instrucción decide(s) como inicio
+    si orientado-al-norte entonces inicio
+      dist(sucede(s));
+    fin si-no si orientado-al-sur entonces inicio
+      dist(precede(s));
+    fin si-no
+      dist(s);
+  fin;
+
+  (*---------------------------------------------------------------------------------------------*)
+  define-nueva-instrucción dist(a) como inicio
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir a veces deja-zumbador;
+          deja-zumbador;
+          girar(2);
+          avanza;
+          girar(2);
+          coge-zumbador;
+          sal-de-instrucción;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        deja-zumbador;
+        decide(a);
+        si no junto-a-zumbador entonces inicio
+          sur;
+          avanza;
+          coge-zumbador;
+          sal-de-instrucción;
+        fin;
+        sur;
+        avanza;
+      fin;
+    fin;
+
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir a veces deja-zumbador;
+          coge-zumbador;
+          girar(2);
+          avanza;
+          girar(2);
+          coge-zumbador;
+          sal-de-instrucción;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        deja-zumbador;
+        decide(a);
+        si no junto-a-zumbador entonces inicio
+          norte;
+          avanza;
+          coge-zumbador;
+          sal-de-instrucción;
+        fin;
+        norte;
+        avanza;
+      fin;
+    fin;
+
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir a veces deja-zumbador;
+          girar(2);
+          avanza;
+          girar(2);
+          coge-zumbador;
+          sal-de-instrucción;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        deja-zumbador;
+        decide(a);
+        si no junto-a-zumbador entonces inicio
+          oeste;
+          avanza;
+          coge-zumbador;
+          sal-de-instrucción;
+        fin;
+        oeste;
+        avanza;
+      fin;
+    fin;
+
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si junto-a-zumbador entonces inicio
+          repetir a veces deja-zumbador;
+          girar(2);
+          avanza;
+          girar(2);
+          coge-zumbador;
+          sal-de-instrucción;
+        fin si-no inicio
+          deja-zumbador;
+          girar(2);
+          avanza;
+        fin;
+      fin si-no inicio
+        deja-zumbador;
+        decide(a);
+        si no junto-a-zumbador entonces inicio
+          este;
+          avanza;
+          coge-zumbador;
+          sal-de-instrucción;
+        fin;
+        este;
+        avanza;
+      fin;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------------------*)
+  define-nueva-instrucción divide(z) como inicio
+    si junto-a-zumbador entonces inicio
+      repetir z veces si junto-a-zumbador entonces coge-zumbador;
+      divide(z);
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción faltan-resta(z) como inicio
+    si si-es-cero(z) entonces sal-de-instrucción;
+    si no-junto-a-zumbador entonces inicio
+      repetir z veces repetir 2 veces gira-izquierda;
+      sal-de-instrucción;
+    fin;
+    coge-zumbador;
+    faltan-resta(precede(z));
+  fin;
+
+  define-nueva-instrucción divide-ext(w) como inicio
+    si junto-a-zumbador entonces inicio
+      faltan-resta(w);
+      divide-ext(w);
+      deja-zumbador;
+    fin si-no inicio
+      si orientado-al-sur entonces deja-zumbador;
+      norte;
+    fin;
+  fin;
+
+  define-nueva-instrucción siempre(t) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        norte;
+        divide-ext(t);
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin si-no inicio
+        deja-zumbador;
+        sal-de-instrucción;
+      fin;
+    fin;
+    deja-zumbador;
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      siempre(t);
+      sur;
+      avanza;
+    fin;
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      siempre(t);
+      norte;
+      avanza;
+    fin;
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      siempre(t);
+      oeste;
+      avanza;
+    fin;
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      siempre(t);
+      oeste;
+      avanza;
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------------------*)
+  define-nueva-instrucción impar(k) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      impar(sucede(k));
+    fin si-no inicio
+      siempre(k);
+    fin;
+  fin;
+
+  (*---------------------------------------------------------------------------------------------*)
+  define-nueva-instrucción paridad como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        paridad;
+        repetir 2 veces deja-zumbador;
+      fin si-no inicio
+        sur;
+        apágate;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción aveces(m) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        paridad;
+        divide(m);
+        mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin si-no inicio
+        deja-zumbador;
+        sal-de-instrucción;
+      fin;
+    fin;
+    deja-zumbador;
+    norte;
+    si frente-libre entonces inicio
+      avanza;
+      aveces(m);
+      sur;
+      avanza;
+    fin;
+    sur;
+    si frente-libre entonces inicio
+      avanza;
+      aveces(m);
+      norte;
+      avanza;
+    fin;
+    este;
+    si frente-libre entonces inicio
+      avanza;
+      aveces(m);
+      oeste;
+      avanza;
+    fin;
+    oeste;
+    si frente-libre entonces inicio
+      avanza;
+      aveces(m);
+      oeste;
+      avanza;
+    fin;
+  fin;
+
+  (*------------------------------------------------------------------------------------------------*)
+  define-nueva-instrucción par(w) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      par(sucede(w));
+    fin si-no
+      aveces(w);
+  fin;
+
+  define-nueva-instrucción quesoy(t) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        quesoy(sucede(t));
+        deja-zumbador;
+      fin si-no inicio
+        deja-zumbador;
+        dist(0);
+        repetir 2 veces repetir t veces deja-zumbador;
+        deja-zumbador;
+        impar(0);
+      fin;
+    fin si-no inicio
+      deja-zumbador;
+      dist(0);
+      repetir t veces repetir 2 veces deja-zumbador;
+      par(0);
+    fin;
+  fin;
+
+  inicia-ejecución
+    quesoy(0);
+    apágate;
+  termina-ejecución
+finalizar-programa

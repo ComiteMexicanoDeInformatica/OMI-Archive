@@ -1,0 +1,120 @@
+iniciar-programa
+  define-nueva-instrucción girar(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción esquina como inicio
+    mientras no orientado-al-oeste hacer gira-izquierda;
+    mientras frente-libre hacer avanza;
+    girar(1);
+    mientras frente-libre hacer avanza;
+    girar(2);
+  fin;
+
+  (*----------------------------------------------------------------------------*)
+  define-nueva-instrucción termina como inicio
+    mientras no-junto-a-zumbador hacer inicio
+      mientras frente-libre y no junto-a-zumbador hacer avanza;
+      si junto-a-zumbador entonces apágate;
+      girar(2);
+      mientras frente-libre hacer avanza;
+      girar(1);
+      avanza;
+      girar(1);
+    fin;
+    mientras no orientado-al-norte hacer gira-izquierda;
+    apágate;
+  fin;
+
+  (*----------------------------------------------------------------------------*)
+  define-nueva-instrucción paridad(s) como inicio
+    deja-zumbador;
+    si frente-libre entonces inicio
+      avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si no junto-a-zumbador entonces inicio
+          girar(2);
+          deja-zumbador;
+          avanza;
+          girar(1);
+          avanza;
+          si junto-a-zumbador entonces inicio
+            si si-es-cero(s) entonces inicio
+              mientras no orientado-al-sur hacer gira-izquierda;
+            fin si-no
+              mientras no orientado-al-norte hacer gira-izquierda;
+            apágate;
+          fin si-no inicio
+            si si-es-cero(s) entonces inicio
+              paridad(1);
+            fin si-no
+              paridad(0);
+          fin;
+        fin si-no inicio
+          si si-es-cero(s) entonces inicio
+            mientras no orientado-al-sur hacer gira-izquierda;
+          fin si-no
+            mientras no orientado-al-norte hacer gira-izquierda;
+          apágate;
+        fin;
+      fin si-no inicio
+        si si-es-cero(s) entonces inicio
+          paridad(1);
+        fin si-no
+          paridad(0);
+      fin;
+    fin si-no inicio
+      girar(3);
+      avanza;
+      si junto-a-zumbador entonces inicio
+        si si-es-cero(s) entonces inicio
+          mientras no orientado-al-sur hacer gira-izquierda;
+        fin si-no
+          mientras no orientado-al-norte hacer gira-izquierda;
+        apágate;
+      fin;
+      si si-es-cero(s) entonces inicio
+        paridad(1);
+      fin si-no
+        paridad(0);
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------*)
+  define-nueva-instrucción esquina-personalizada(a) como inicio
+    si frente-libre entonces inicio
+      avanza;
+      si si-es-cero(a) entonces inicio
+        esquina-personalizada(1);
+      fin si-no
+        esquina-personalizada(0);
+    fin si-no inicio
+      si orientado-al-oeste entonces inicio
+        girar(1);
+        esquina-personalizada(a);
+      fin si-no inicio
+        girar(2);
+        paridad(a);
+      fin;
+    fin;
+  fin;
+
+  (*----------------------------------------------------------------------------*)
+  define-nueva-instrucción par-impar como inicio
+    mientras junto-a-zumbador hacer inicio
+      coge-zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+      fin si-no inicio
+        esquina;
+        termina;
+      fin;
+    fin;
+    mientras no orientado-al-oeste hacer gira-izquierda;
+    esquina-personalizada(0);
+  fin;
+
+  inicia-ejecución
+    par-impar;
+    apágate;
+  termina-ejecución
+finalizar-programa

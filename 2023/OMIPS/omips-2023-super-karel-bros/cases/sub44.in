@@ -1,0 +1,467 @@
+<ejecucion>
+	<condiciones instruccionesMaximasAEjecutar="10000000" longitudStack="65000"></condiciones>
+	<mundos>
+		<mundo nombre="mundo_0" ancho="100" alto="100">
+			<pared x1="63" y1="78" x2="64"></pared>
+			<pared x1="63" y1="79" x2="64"></pared>
+			<pared x1="64" y1="79" x2="65"></pared>
+			<pared x1="65" y1="78" x2="66"></pared>
+			<pared x1="65" y1="79" x2="66"></pared>
+			<pared x1="66" y1="79" x2="67"></pared>
+			<pared x1="67" y1="78" x2="68"></pared>
+			<pared x1="67" y1="79" x2="68"></pared>
+			<pared x1="68" y1="78" x2="69"></pared>
+			<pared x1="68" y1="79" x2="69"></pared>
+			<pared x1="69" y1="78" x2="70"></pared>
+			<pared x1="69" y1="79" x2="70"></pared>
+			<pared x1="69" y1="89" x2="70"></pared>
+			<pared x1="69" y1="89" y2="90"></pared>
+			<pared x1="69" y1="90" y2="91"></pared>
+			<pared x1="69" y1="91" x2="70"></pared>
+			<pared x1="70" y1="78" x2="71"></pared>
+			<pared x1="70" y1="79" x2="71"></pared>
+			<pared x1="70" y1="90" x2="71"></pared>
+			<pared x1="70" y1="91" x2="71"></pared>
+			<pared x1="71" y1="78" x2="72"></pared>
+			<pared x1="71" y1="79" x2="72"></pared>
+			<pared x1="71" y1="90" x2="72"></pared>
+			<pared x1="71" y1="91" x2="72"></pared>
+			<pared x1="72" y1="79" x2="73"></pared>
+			<pared x1="72" y1="90" x2="73"></pared>
+			<pared x1="72" y1="91" x2="73"></pared>
+			<pared x1="73" y1="79" x2="74"></pared>
+			<pared x1="73" y1="89" x2="74"></pared>
+			<pared x1="73" y1="90" x2="74"></pared>
+			<pared x1="73" y1="91" x2="74"></pared>
+			<pared x1="74" y1="79" x2="75"></pared>
+			<pared x1="74" y1="90" x2="75"></pared>
+			<pared x1="74" y1="91" x2="75"></pared>
+			<pared x1="75" y1="78" x2="76"></pared>
+			<pared x1="75" y1="79" x2="76"></pared>
+			<pared x1="75" y1="90" x2="76"></pared>
+			<pared x1="75" y1="91" x2="76"></pared>
+			<pared x1="76" y1="78" x2="77"></pared>
+			<pared x1="76" y1="79" x2="77"></pared>
+			<pared x1="76" y1="89" x2="77"></pared>
+			<pared x1="76" y1="90" x2="77"></pared>
+			<pared x1="76" y1="91" x2="77"></pared>
+			<pared x1="77" y1="79" x2="78"></pared>
+			<pared x1="77" y1="89" x2="78"></pared>
+			<pared x1="77" y1="90" x2="78"></pared>
+			<pared x1="77" y1="91" y2="92"></pared>
+			<pared x1="77" y1="92" y2="93"></pared>
+			<pared x1="77" y1="93" y2="94"></pared>
+			<pared x1="77" y1="94" y2="95"></pared>
+			<pared x1="77" y1="95" y2="96"></pared>
+			<pared x1="77" y1="96" y2="97"></pared>
+			<pared x1="77" y1="97" y2="98"></pared>
+			<pared x1="77" y1="98" y2="99"></pared>
+			<pared x1="77" y1="99" x2="78"></pared>
+			<pared x1="78" y1="79" x2="79"></pared>
+			<pared x1="78" y1="90" x2="79"></pared>
+			<pared x1="78" y1="90" y2="91"></pared>
+			<pared x1="78" y1="91" y2="92"></pared>
+			<pared x1="78" y1="92" y2="93"></pared>
+			<pared x1="78" y1="93" y2="94"></pared>
+			<pared x1="78" y1="94" y2="95"></pared>
+			<pared x1="78" y1="95" y2="96"></pared>
+			<pared x1="78" y1="96" y2="97"></pared>
+			<pared x1="78" y1="97" y2="98"></pared>
+			<pared x1="78" y1="98" x2="79"></pared>
+			<pared x1="78" y1="99" x2="79"></pared>
+			<pared x1="79" y1="79" x2="80"></pared>
+			<pared x1="79" y1="89" x2="80"></pared>
+			<pared x1="79" y1="90" x2="80"></pared>
+			<pared x1="79" y1="99" x2="80"></pared>
+			<pared x1="80" y1="78" x2="81"></pared>
+			<pared x1="80" y1="79" x2="81"></pared>
+			<pared x1="80" y1="89" x2="81"></pared>
+			<pared x1="80" y1="90" x2="81"></pared>
+			<pared x1="80" y1="98" x2="81"></pared>
+			<pared x1="80" y1="99" x2="81"></pared>
+			<pared x1="81" y1="79" x2="82"></pared>
+			<pared x1="81" y1="89" x2="82"></pared>
+			<pared x1="81" y1="90" x2="82"></pared>
+			<pared x1="81" y1="99" x2="82"></pared>
+			<pared x1="82" y1="78" x2="83"></pared>
+			<pared x1="82" y1="79" x2="83"></pared>
+			<pared x1="82" y1="90" x2="83"></pared>
+			<pared x1="82" y1="98" x2="83"></pared>
+			<pared x1="82" y1="99" x2="83"></pared>
+			<pared x1="83" y1="79" x2="84"></pared>
+			<pared x1="83" y1="89" x2="84"></pared>
+			<pared x1="83" y1="90" x2="84"></pared>
+			<pared x1="83" y1="99" x2="84"></pared>
+			<pared x1="84" y1="78" x2="85"></pared>
+			<pared x1="84" y1="79" x2="85"></pared>
+			<pared x1="84" y1="90" x2="85"></pared>
+			<pared x1="84" y1="99" x2="85"></pared>
+			<pared x1="85" y1="66" y2="67"></pared>
+			<pared x1="85" y1="67" y2="68"></pared>
+			<pared x1="85" y1="68" y2="69"></pared>
+			<pared x1="85" y1="69" y2="70"></pared>
+			<pared x1="85" y1="70" y2="71"></pared>
+			<pared x1="85" y1="71" y2="72"></pared>
+			<pared x1="85" y1="72" y2="73"></pared>
+			<pared x1="85" y1="73" y2="74"></pared>
+			<pared x1="85" y1="74" y2="75"></pared>
+			<pared x1="85" y1="75" y2="76"></pared>
+			<pared x1="85" y1="76" y2="77"></pared>
+			<pared x1="85" y1="77" y2="78"></pared>
+			<pared x1="85" y1="79" x2="86"></pared>
+			<pared x1="85" y1="79" y2="80"></pared>
+			<pared x1="85" y1="80" y2="81"></pared>
+			<pared x1="85" y1="81" y2="82"></pared>
+			<pared x1="85" y1="82" y2="83"></pared>
+			<pared x1="85" y1="83" y2="84"></pared>
+			<pared x1="85" y1="84" y2="85"></pared>
+			<pared x1="85" y1="85" y2="86"></pared>
+			<pared x1="85" y1="86" y2="87"></pared>
+			<pared x1="85" y1="87" y2="88"></pared>
+			<pared x1="85" y1="88" y2="89"></pared>
+			<pared x1="85" y1="89" x2="86"></pared>
+			<pared x1="85" y1="90" x2="86"></pared>
+			<pared x1="85" y1="99" x2="86"></pared>
+			<pared x1="86" y1="67" x2="87"></pared>
+			<pared x1="86" y1="67" y2="68"></pared>
+			<pared x1="86" y1="68" y2="69"></pared>
+			<pared x1="86" y1="69" y2="70"></pared>
+			<pared x1="86" y1="70" y2="71"></pared>
+			<pared x1="86" y1="71" y2="72"></pared>
+			<pared x1="86" y1="72" y2="73"></pared>
+			<pared x1="86" y1="73" y2="74"></pared>
+			<pared x1="86" y1="74" y2="75"></pared>
+			<pared x1="86" y1="75" y2="76"></pared>
+			<pared x1="86" y1="76" y2="77"></pared>
+			<pared x1="86" y1="77" y2="78"></pared>
+			<pared x1="86" y1="78" y2="79"></pared>
+			<pared x1="86" y1="80" x2="87"></pared>
+			<pared x1="86" y1="80" y2="81"></pared>
+			<pared x1="86" y1="81" y2="82"></pared>
+			<pared x1="86" y1="82" y2="83"></pared>
+			<pared x1="86" y1="83" y2="84"></pared>
+			<pared x1="86" y1="84" y2="85"></pared>
+			<pared x1="86" y1="85" y2="86"></pared>
+			<pared x1="86" y1="86" y2="87"></pared>
+			<pared x1="86" y1="87" y2="88"></pared>
+			<pared x1="86" y1="89" x2="87"></pared>
+			<pared x1="86" y1="90" x2="87"></pared>
+			<pared x1="86" y1="99" x2="87"></pared>
+			<pared x1="87" y1="66" x2="88"></pared>
+			<pared x1="87" y1="67" x2="88"></pared>
+			<pared x1="87" y1="68" y2="69"></pared>
+			<pared x1="87" y1="69" y2="70"></pared>
+			<pared x1="87" y1="70" x2="88"></pared>
+			<pared x1="87" y1="70" y2="71"></pared>
+			<pared x1="87" y1="71" y2="72"></pared>
+			<pared x1="87" y1="72" y2="73"></pared>
+			<pared x1="87" y1="73" x2="88"></pared>
+			<pared x1="87" y1="73" y2="74"></pared>
+			<pared x1="87" y1="74" y2="75"></pared>
+			<pared x1="87" y1="75" y2="76"></pared>
+			<pared x1="87" y1="76" y2="77"></pared>
+			<pared x1="87" y1="77" y2="78"></pared>
+			<pared x1="87" y1="78" y2="79"></pared>
+			<pared x1="87" y1="79" y2="80"></pared>
+			<pared x1="87" y1="89" x2="88"></pared>
+			<pared x1="87" y1="90" x2="88"></pared>
+			<pared x1="87" y1="99" x2="88"></pared>
+			<pared x1="88" y1="67" x2="89"></pared>
+			<pared x1="88" y1="67" y2="68"></pared>
+			<pared x1="88" y1="68" y2="69"></pared>
+			<pared x1="88" y1="70" x2="89"></pared>
+			<pared x1="88" y1="70" y2="71"></pared>
+			<pared x1="88" y1="71" y2="72"></pared>
+			<pared x1="88" y1="72" x2="89"></pared>
+			<pared x1="88" y1="73" x2="89"></pared>
+			<pared x1="88" y1="84" y2="85"></pared>
+			<pared x1="88" y1="85" y2="86"></pared>
+			<pared x1="88" y1="86" x2="89"></pared>
+			<pared x1="88" y1="88" x2="89"></pared>
+			<pared x1="88" y1="89" x2="89"></pared>
+			<pared x1="88" y1="90" x2="89"></pared>
+			<pared x1="88" y1="98" x2="89"></pared>
+			<pared x1="88" y1="99" x2="89"></pared>
+			<pared x1="89" y1="66" x2="90"></pared>
+			<pared x1="89" y1="67" x2="90"></pared>
+			<pared x1="89" y1="69" x2="90"></pared>
+			<pared x1="89" y1="70" x2="90"></pared>
+			<pared x1="89" y1="71" x2="90"></pared>
+			<pared x1="89" y1="72" x2="90"></pared>
+			<pared x1="89" y1="73" x2="90"></pared>
+			<pared x1="89" y1="85" x2="90"></pared>
+			<pared x1="89" y1="86" x2="90"></pared>
+			<pared x1="89" y1="89" x2="90"></pared>
+			<pared x1="89" y1="90" x2="90"></pared>
+			<pared x1="89" y1="99" x2="90"></pared>
+			<pared x1="90" y1="66" x2="91"></pared>
+			<pared x1="90" y1="67" x2="91"></pared>
+			<pared x1="90" y1="71" x2="91"></pared>
+			<pared x1="90" y1="72" x2="91"></pared>
+			<pared x1="90" y1="73" x2="91"></pared>
+			<pared x1="90" y1="84" x2="91"></pared>
+			<pared x1="90" y1="85" x2="91"></pared>
+			<pared x1="90" y1="86" x2="91"></pared>
+			<pared x1="90" y1="88" x2="91"></pared>
+			<pared x1="90" y1="89" x2="91"></pared>
+			<pared x1="90" y1="90" x2="91"></pared>
+			<pared x1="90" y1="98" x2="91"></pared>
+			<pared x1="90" y1="99" x2="91"></pared>
+			<pared x1="91" y1="66" x2="92"></pared>
+			<pared x1="91" y1="67" x2="92"></pared>
+			<pared x1="91" y1="69" y2="70"></pared>
+			<pared x1="91" y1="70" y2="71"></pared>
+			<pared x1="91" y1="72" x2="92"></pared>
+			<pared x1="91" y1="73" x2="92"></pared>
+			<pared x1="91" y1="82" x2="92"></pared>
+			<pared x1="91" y1="82" y2="83"></pared>
+			<pared x1="91" y1="83" y2="84"></pared>
+			<pared x1="91" y1="84" x2="92"></pared>
+			<pared x1="91" y1="85" x2="92"></pared>
+			<pared x1="91" y1="86" x2="92"></pared>
+			<pared x1="91" y1="89" x2="92"></pared>
+			<pared x1="91" y1="90" x2="92"></pared>
+			<pared x1="91" y1="98" x2="92"></pared>
+			<pared x1="91" y1="99" x2="92"></pared>
+			<pared x1="92" y1="67" x2="93"></pared>
+			<pared x1="92" y1="72" x2="93"></pared>
+			<pared x1="92" y1="73" y2="74"></pared>
+			<pared x1="92" y1="74" y2="75"></pared>
+			<pared x1="92" y1="75" y2="76"></pared>
+			<pared x1="92" y1="76" y2="77"></pared>
+			<pared x1="92" y1="77" y2="78"></pared>
+			<pared x1="92" y1="78" y2="79"></pared>
+			<pared x1="92" y1="79" y2="80"></pared>
+			<pared x1="92" y1="80" y2="81"></pared>
+			<pared x1="92" y1="81" y2="82"></pared>
+			<pared x1="92" y1="83" x2="93"></pared>
+			<pared x1="92" y1="84" x2="93"></pared>
+			<pared x1="92" y1="85" x2="93"></pared>
+			<pared x1="92" y1="86" x2="93"></pared>
+			<pared x1="92" y1="89" x2="93"></pared>
+			<pared x1="92" y1="90" x2="93"></pared>
+			<pared x1="92" y1="99" x2="93"></pared>
+			<pared x1="93" y1="66" x2="94"></pared>
+			<pared x1="93" y1="67" x2="94"></pared>
+			<pared x1="93" y1="72" y2="73"></pared>
+			<pared x1="93" y1="73" y2="74"></pared>
+			<pared x1="93" y1="74" y2="75"></pared>
+			<pared x1="93" y1="75" y2="76"></pared>
+			<pared x1="93" y1="76" y2="77"></pared>
+			<pared x1="93" y1="77" x2="94"></pared>
+			<pared x1="93" y1="77" y2="78"></pared>
+			<pared x1="93" y1="78" y2="79"></pared>
+			<pared x1="93" y1="79" y2="80"></pared>
+			<pared x1="93" y1="80" y2="81"></pared>
+			<pared x1="93" y1="81" y2="82"></pared>
+			<pared x1="93" y1="82" y2="83"></pared>
+			<pared x1="93" y1="84" x2="94"></pared>
+			<pared x1="93" y1="85" x2="94"></pared>
+			<pared x1="93" y1="86" x2="94"></pared>
+			<pared x1="93" y1="89" x2="94"></pared>
+			<pared x1="93" y1="90" x2="94"></pared>
+			<pared x1="93" y1="99" x2="94"></pared>
+			<pared x1="94" y1="67" y2="68"></pared>
+			<pared x1="94" y1="68" y2="69"></pared>
+			<pared x1="94" y1="69" y2="70"></pared>
+			<pared x1="94" y1="70" y2="71"></pared>
+			<pared x1="94" y1="71" y2="72"></pared>
+			<pared x1="94" y1="72" y2="73"></pared>
+			<pared x1="94" y1="73" y2="74"></pared>
+			<pared x1="94" y1="74" y2="75"></pared>
+			<pared x1="94" y1="75" y2="76"></pared>
+			<pared x1="94" y1="76" x2="95"></pared>
+			<pared x1="94" y1="77" x2="95"></pared>
+			<pared x1="94" y1="78" y2="79"></pared>
+			<pared x1="94" y1="79" y2="80"></pared>
+			<pared x1="94" y1="80" y2="81"></pared>
+			<pared x1="94" y1="81" y2="82"></pared>
+			<pared x1="94" y1="82" y2="83"></pared>
+			<pared x1="94" y1="83" y2="84"></pared>
+			<pared x1="94" y1="85" x2="95"></pared>
+			<pared x1="94" y1="86" x2="95"></pared>
+			<pared x1="94" y1="89" x2="95"></pared>
+			<pared x1="94" y1="90" x2="95"></pared>
+			<pared x1="94" y1="96" y2="97"></pared>
+			<pared x1="94" y1="97" y2="98"></pared>
+			<pared x1="94" y1="99" x2="95"></pared>
+			<pared x1="95" y1="66" y2="67"></pared>
+			<pared x1="95" y1="67" y2="68"></pared>
+			<pared x1="95" y1="68" y2="69"></pared>
+			<pared x1="95" y1="69" y2="70"></pared>
+			<pared x1="95" y1="70" y2="71"></pared>
+			<pared x1="95" y1="71" y2="72"></pared>
+			<pared x1="95" y1="72" y2="73"></pared>
+			<pared x1="95" y1="73" y2="74"></pared>
+			<pared x1="95" y1="74" y2="75"></pared>
+			<pared x1="95" y1="76" x2="96"></pared>
+			<pared x1="95" y1="77" y2="78"></pared>
+			<pared x1="95" y1="78" y2="79"></pared>
+			<pared x1="95" y1="79" y2="80"></pared>
+			<pared x1="95" y1="80" y2="81"></pared>
+			<pared x1="95" y1="81" y2="82"></pared>
+			<pared x1="95" y1="82" y2="83"></pared>
+			<pared x1="95" y1="83" y2="84"></pared>
+			<pared x1="95" y1="84" y2="85"></pared>
+			<pared x1="95" y1="86" x2="96"></pared>
+			<pared x1="95" y1="90" x2="96"></pared>
+			<pared x1="95" y1="96" x2="96"></pared>
+			<pared x1="95" y1="97" y2="98"></pared>
+			<pared x1="95" y1="98" y2="99"></pared>
+			<pared x1="95" y1="99" x2="96"></pared>
+			<pared x1="96" y1="75" x2="97"></pared>
+			<pared x1="96" y1="76" x2="97"></pared>
+			<pared x1="96" y1="76" y2="77"></pared>
+			<pared x1="96" y1="77" y2="78"></pared>
+			<pared x1="96" y1="78" y2="79"></pared>
+			<pared x1="96" y1="79" y2="80"></pared>
+			<pared x1="96" y1="80" y2="81"></pared>
+			<pared x1="96" y1="81" y2="82"></pared>
+			<pared x1="96" y1="82" y2="83"></pared>
+			<pared x1="96" y1="83" y2="84"></pared>
+			<pared x1="96" y1="84" y2="85"></pared>
+			<pared x1="96" y1="85" y2="86"></pared>
+			<pared x1="96" y1="86" y2="87"></pared>
+			<pared x1="96" y1="87" y2="88"></pared>
+			<pared x1="96" y1="88" y2="89"></pared>
+			<pared x1="96" y1="89" y2="90"></pared>
+			<pared x1="96" y1="90" y2="91"></pared>
+			<pared x1="96" y1="91" y2="92"></pared>
+			<pared x1="96" y1="92" y2="93"></pared>
+			<pared x1="96" y1="93" y2="94"></pared>
+			<pared x1="96" y1="94" y2="95"></pared>
+			<pared x1="96" y1="95" y2="96"></pared>
+			<pared x1="96" y1="96" y2="97"></pared>
+			<pared x1="96" y1="97" y2="98"></pared>
+			<pared x1="96" y1="99" x2="97"></pared>
+			<pared x1="97" y1="76" x2="98"></pared>
+			<pared x1="97" y1="77" y2="78"></pared>
+			<pared x1="97" y1="78" y2="79"></pared>
+			<pared x1="97" y1="79" y2="80"></pared>
+			<pared x1="97" y1="80" y2="81"></pared>
+			<pared x1="97" y1="81" y2="82"></pared>
+			<pared x1="97" y1="82" y2="83"></pared>
+			<pared x1="97" y1="83" y2="84"></pared>
+			<pared x1="97" y1="84" y2="85"></pared>
+			<pared x1="97" y1="85" y2="86"></pared>
+			<pared x1="97" y1="86" y2="87"></pared>
+			<pared x1="97" y1="87" y2="88"></pared>
+			<pared x1="97" y1="88" y2="89"></pared>
+			<pared x1="97" y1="89" y2="90"></pared>
+			<pared x1="97" y1="90" y2="91"></pared>
+			<pared x1="97" y1="91" y2="92"></pared>
+			<pared x1="97" y1="92" y2="93"></pared>
+			<pared x1="97" y1="93" y2="94"></pared>
+			<pared x1="97" y1="94" y2="95"></pared>
+			<pared x1="97" y1="95" y2="96"></pared>
+			<pared x1="97" y1="96" y2="97"></pared>
+			<pared x1="97" y1="97" y2="98"></pared>
+			<pared x1="97" y1="98" y2="99"></pared>
+			<pared x1="97" y1="99" x2="98"></pared>
+			<pared x1="98" y1="75" x2="99"></pared>
+			<pared x1="98" y1="76" y2="77"></pared>
+			<pared x1="98" y1="77" y2="78"></pared>
+			<pared x1="98" y1="78" y2="79"></pared>
+			<pared x1="98" y1="79" y2="80"></pared>
+			<pared x1="98" y1="80" y2="81"></pared>
+			<pared x1="98" y1="81" y2="82"></pared>
+			<pared x1="98" y1="82" y2="83"></pared>
+			<pared x1="98" y1="83" y2="84"></pared>
+			<pared x1="98" y1="84" y2="85"></pared>
+			<pared x1="98" y1="85" y2="86"></pared>
+			<pared x1="98" y1="86" y2="87"></pared>
+			<pared x1="98" y1="87" y2="88"></pared>
+			<pared x1="98" y1="88" y2="89"></pared>
+			<pared x1="98" y1="89" y2="90"></pared>
+			<pared x1="98" y1="90" y2="91"></pared>
+			<pared x1="98" y1="91" y2="92"></pared>
+			<pared x1="98" y1="92" y2="93"></pared>
+			<pared x1="98" y1="93" y2="94"></pared>
+			<pared x1="98" y1="94" y2="95"></pared>
+			<pared x1="98" y1="95" y2="96"></pared>
+			<pared x1="98" y1="96" y2="97"></pared>
+			<pared x1="98" y1="97" y2="98"></pared>
+			<pared x1="98" y1="99" x2="99"></pared>
+			<pared x1="99" y1="75" y2="76"></pared>
+			<pared x1="99" y1="76" y2="77"></pared>
+			<pared x1="99" y1="77" y2="78"></pared>
+			<pared x1="99" y1="78" y2="79"></pared>
+			<pared x1="99" y1="79" y2="80"></pared>
+			<pared x1="99" y1="80" y2="81"></pared>
+			<pared x1="99" y1="81" y2="82"></pared>
+			<pared x1="99" y1="82" y2="83"></pared>
+			<pared x1="99" y1="83" y2="84"></pared>
+			<pared x1="99" y1="84" y2="85"></pared>
+			<pared x1="99" y1="85" y2="86"></pared>
+			<pared x1="99" y1="86" y2="87"></pared>
+			<pared x1="99" y1="87" y2="88"></pared>
+			<pared x1="99" y1="88" y2="89"></pared>
+			<pared x1="99" y1="89" y2="90"></pared>
+			<pared x1="99" y1="90" y2="91"></pared>
+			<pared x1="99" y1="91" y2="92"></pared>
+			<pared x1="99" y1="92" y2="93"></pared>
+			<pared x1="99" y1="93" y2="94"></pared>
+			<pared x1="99" y1="94" y2="95"></pared>
+			<pared x1="99" y1="95" y2="96"></pared>
+			<pared x1="99" y1="96" y2="97"></pared>
+			<pared x1="99" y1="97" y2="98"></pared>
+			<pared x1="99" y1="98" y2="99"></pared>
+			<posicionDump x="65" y="79"/>
+			<posicionDump x="67" y="79"/>
+			<posicionDump x="71" y="90"/>
+			<posicionDump x="72" y="90"/>
+			<posicionDump x="73" y="79"/>
+			<posicionDump x="73" y="90"/>
+			<posicionDump x="74" y="79"/>
+			<posicionDump x="75" y="79"/>
+			<posicionDump x="75" y="90"/>
+			<posicionDump x="76" y="90"/>
+			<posicionDump x="78" y="79"/>
+			<posicionDump x="79" y="79"/>
+			<posicionDump x="79" y="90"/>
+			<posicionDump x="80" y="79"/>
+			<posicionDump x="80" y="99"/>
+			<posicionDump x="82" y="79"/>
+			<posicionDump x="82" y="99"/>
+			<posicionDump x="83" y="90"/>
+			<posicionDump x="84" y="79"/>
+			<posicionDump x="84" y="99"/>
+			<posicionDump x="85" y="90"/>
+			<posicionDump x="85" y="99"/>
+			<posicionDump x="86" y="67"/>
+			<posicionDump x="86" y="99"/>
+			<posicionDump x="87" y="67"/>
+			<posicionDump x="87" y="89"/>
+			<posicionDump x="87" y="99"/>
+			<posicionDump x="88" y="89"/>
+			<posicionDump x="88" y="99"/>
+			<posicionDump x="89" y="67"/>
+			<posicionDump x="89" y="70"/>
+			<posicionDump x="89" y="85"/>
+			<posicionDump x="90" y="85"/>
+			<posicionDump x="90" y="89"/>
+			<posicionDump x="90" y="99"/>
+			<posicionDump x="91" y="70"/>
+			<posicionDump x="92" y="72"/>
+			<posicionDump x="92" y="89"/>
+			<posicionDump x="93" y="67"/>
+			<posicionDump x="93" y="72"/>
+			<posicionDump x="93" y="89"/>
+			<posicionDump x="93" y="99"/>
+			<posicionDump x="94" y="72"/>
+			<posicionDump x="94" y="89"/>
+			<posicionDump x="94" y="99"/>
+			<posicionDump x="95" y="67"/>
+			<posicionDump x="95" y="89"/>
+			<posicionDump x="95" y="97"/>
+			<posicionDump x="96" y="76"/>
+			<posicionDump x="96" y="89"/>
+			<posicionDump x="98" y="76"/>
+		</mundo>
+	</mundos>
+	<programas tipoEjecucion="CONTINUA" intruccionesCambioContexto="1" milisegundosParaPasoAutomatico="0">
+		<programa nombre="p1" ruta="{$2$}" mundoDeEjecucion="mundo_0" xKarel="64" yKarel="79" direccionKarel="ESTE" mochilaKarel="INFINITO">
+			<despliega tipo="MUNDO"/>
+		</programa>
+	</programas>
+</ejecucion>

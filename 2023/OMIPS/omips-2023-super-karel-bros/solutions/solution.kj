@@ -1,0 +1,52 @@
+class program {
+  void gira(n) {
+    iterate (n) {
+      turnleft();
+    }
+  }
+
+  program() {
+    while (frontIsClear) {
+      move();
+      if (!nextToABeeper &&
+          facingEast &&
+          rightIsClear &&
+          (frontIsClear || leftIsClear)
+      ) {
+        if (leftIsClear) {
+          gira(1);
+        }
+        putbeeper();
+      }
+      if (!nextToABeeper &&
+          facingWest &&
+          leftIsClear &&
+          (frontIsClear || rightIsClear)
+      ) {
+        if (rightIsClear) {
+          gira(3);
+        }
+        putbeeper();
+      }
+      if (!nextToABeeper &&
+          facingSouth &&
+          frontIsClear &&
+          (leftIsClear || rightIsClear)
+      ) {
+        if (leftIsClear) {
+          gira(1);
+        } else {
+          gira(3);
+        }
+        putbeeper();
+      }
+      if (!nextToABeeper && leftIsClear) {
+        gira(1);
+      }
+      if (!nextToABeeper && rightIsClear) {
+        gira(3);
+      }
+    }
+    turnoff();
+  }
+}

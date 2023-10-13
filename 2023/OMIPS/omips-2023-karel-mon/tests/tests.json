@@ -1,0 +1,76 @@
+{
+  "solutions": [
+    {
+      "filename": "../../../karel_default_bad_solutions/north.kp",
+      "score_range": [0.0, 0.51]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/south.kp",
+      "score_range": [0.0, 0.51]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/east.kp",
+      "score_range": [0.0, 0.51]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/west.kp",
+      "score_range": [0.0, 0.51]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/turn_left.kp",
+      "score_range": [0.0, 0.51]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/turn_off.kp",
+      "score_range": [0.0, 0.51]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/one.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/two.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/three.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/four.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../../../karel_default_bad_solutions/five.kp",
+      "score_range": [0.0, 0.05]
+    },
+    {
+      "filename": "../solutions/solution.kp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/sol_sub1.kp",
+      "score_range": [0.07, 0.07]
+    },
+    {
+      "filename": "../solutions/sol_sub2.kp",
+      "score_range": [0.17, 0.17]
+    },
+    {
+      "filename": "../solutions/sol_sub3.kp",
+      "score_range": [0.12, 0.12]
+    },
+    {
+      "filename": "../solutions/sol_sub4.kp",
+      "score_range": [0.58, 0.58]
+    },
+    {
+      "filename": "../solutions/solution_ivan.kp",
+      "verdict": "AC"
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  },
+  "max_score": 100
+}

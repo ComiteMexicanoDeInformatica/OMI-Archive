@@ -1,0 +1,243 @@
+iniciar-programa
+  define-prototipo-instrucción resuelve(n);
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si junto-a-zumbador entonces
+        norte
+      si-no inicio
+        si no si-es-cero(n) entonces
+          sur
+        si-no
+          este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción cubetas como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cubetas;
+      avanza;
+    fin si-no inicio
+      si frente-libre entonces avanza;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        cubetas;
+        deja-zumbador;
+        oeste;
+        pared;
+        este;
+      fin si-no inicio
+        oeste;
+        pared;
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción aprende_y_compara(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende_y_compara(sucede(n));
+    fin si-no inicio
+      deja(n);
+      avanza;
+      compara(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción resta como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      resta;
+      coge-zumbador;
+    fin si-no
+      avanza;
+  fin;
+
+  define-nueva-instrucción cartas_ganadoras como inicio
+    mientras orientado-al-este hacer inicio
+      norte;
+      aprende_y_compara(0);
+      si orientado-al-este entonces inicio
+        coge-todo;
+        sur;
+        avanza;
+        coge-todo;
+      fin si-no inicio
+        si orientado-al-norte entonces inicio
+          coge-todo;
+          sur;
+          avanza;
+          deja(1);
+        fin si-no inicio
+          deja(1);
+          sur;
+          avanza;
+          coge-todo;
+        fin;
+      fin;
+      este;
+      si frente-libre entonces
+        avanza
+      si-no
+        sur;
+    fin;
+  fin;
+
+  define-nueva-instrucción minimo(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      minimo(precede(n));
+      deja-zumbador;
+    fin si-no
+      coge-todo;
+  fin;
+
+  define-nueva-instrucción aprende_y_deja_minimo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      aprende_y_deja_minimo(sucede(n));
+    fin si-no inicio
+      avanza;
+      si no junto-a-zumbador entonces
+        deja(n)
+      si-no inicio
+        minimo(n);
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción deja_minimo como inicio
+    mientras frente-libre hacer inicio
+      si no junto-a-zumbador entonces
+        avanza
+      si-no
+        aprende_y_deja_minimo(0);
+    fin;
+  fin;
+
+  define-nueva-instrucción decide_por_paridad como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      decide_por_paridad;
+      gira(2);
+    fin;
+  fin;
+
+  define-nueva-instrucción decide_ganador como inicio
+    si no junto-a-zumbador entonces inicio
+      avanza;
+      si junto-a-zumbador entonces
+        apágate
+      si-no inicio
+        norte;
+        repetir 2 veces avanza;
+        sur;
+        decide_por_paridad;
+        apágate;
+      fin;
+    fin si-no inicio
+      avanza;
+      norte;
+      si no junto-a-zumbador entonces
+        apágate
+      si-no inicio
+        avanza;
+        sur;
+      fin;
+    fin;
+    aprende_y_compara(0);
+    si orientado-al-este entonces norte;
+  fin;
+
+  define-nueva-instrucción largo_mazo como inicio
+    si junto-a-zumbador entonces inicio
+      avanza;
+      largo_mazo;
+      deja-zumbador;
+    fin si-no inicio
+      oeste;
+      pared;
+      norte;
+      repetir 2 veces avanza;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    largo_mazo;
+    esquina;
+    coge-zumbador;
+    cubetas;
+    deja-zumbador;
+    oeste;
+    pared;
+    norte;
+    avanza;
+    este;
+    coge-zumbador;
+    cubetas;
+    deja-zumbador;
+
+    esquina;
+    cartas_ganadoras;
+
+    oeste;
+    deja_minimo;
+    este;
+    pared;
+    norte;
+    avanza;
+    oeste;
+    deja_minimo;
+
+    sur;
+    decide_ganador;
+
+    apágate;
+  termina-ejecución
+finalizar-programa

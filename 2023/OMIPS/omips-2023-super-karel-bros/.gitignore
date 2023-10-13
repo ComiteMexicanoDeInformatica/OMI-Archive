@@ -1,0 +1,6 @@
+**/*.out
+# Si el problema es de Karel, también son necesarias las siguientes tres
+# líneas:
+cases/*.png
+examples/sample.*.png
+statements/sample.*.png

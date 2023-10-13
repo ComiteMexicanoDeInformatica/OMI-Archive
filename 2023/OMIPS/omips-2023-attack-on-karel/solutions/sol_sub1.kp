@@ -1,0 +1,24 @@
+iniciar-programa
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción resuelve como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      avanza;
+      resuelve;
+      deja-zumbador;
+    fin si-no inicio
+      gira(2);
+      pared;
+    fin;
+  fin;
+
+  inicia-ejecución
+    gira(3);
+    avanza;
+    resuelve;
+    apágate;
+  termina-ejecución
+finalizar-programa

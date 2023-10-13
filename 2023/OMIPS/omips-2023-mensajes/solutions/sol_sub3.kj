@@ -1,0 +1,172 @@
+class program {
+  define turn(x) {
+    iterate (x) turnleft();
+  }
+
+  define mover() {
+    if (frontIsClear)
+      move();
+    else {
+      turn(1);
+      move();
+      turn(1);
+      while (frontIsClear) move();
+      turn(2);
+    }
+  }
+
+  define comparacion() {
+    if (nextToABeeper) {
+      move();
+      if (nextToABeeper) {
+        pickbeeper();
+        turn(2);
+        move();
+        pickbeeper();
+        turn(2);
+        comparacion();
+        iterate (11) putbeeper();
+      } else {
+        turn(2);
+        move();
+        turn(2);
+        while (nextToABeeper) {
+          pickbeeper();
+          move();
+          putbeeper();
+          turn(2);
+          move();
+          turn(2);
+        }
+        move();
+      }
+    } else {
+      move();
+    }
+  }
+
+  define map() {
+    if (nextToABeeper) {
+      pickbeeper();
+      map();
+      move();
+    } else {
+      turn(2);
+      while (frontIsClear) move();
+      turn(1);
+      while (frontIsClear) move();
+      turn(2);
+    }
+  }
+
+  define encuentrafila() {
+    while (notFacingWest) turnleft();
+    while (frontIsClear) move();
+    turn(2);
+    move();
+    move();
+    turn(3);
+    while (frontIsClear) move();
+    turn(2);
+    while (notNextToABeeper) move();
+    turn(3);
+  }
+
+  define f() {
+    map();
+    if (notNextToABeeper) {
+      iterate (3) putbeeper();
+    } else {
+      pickbeeper();
+      if (notNextToABeeper) {
+        putbeeper();
+      }
+    }
+    encuentrafila();
+  }
+
+  define respuesta() {
+    if (nextToABeeper) {
+      pickbeeper();
+      respuesta();
+      putbeeper();
+      return();
+    }
+    if (frontIsClear) {
+      move();
+      respuesta();
+    }
+  }
+
+  program() {
+    turn(3);
+    while (nextToABeeper && facingEast) {
+      comparacion();
+      if (leftIsBlocked && frontIsBlocked) turn(2);
+      mover();
+      while (notNextToABeeper && !(frontIsBlocked && leftIsBlocked)) mover();
+    }
+    if (notFacingEast) turn(2);
+    turn(2);
+    while (frontIsClear) move();
+    turn(1);
+    while (frontIsClear) move();
+    turn(1);
+    while (facingEast) {
+      move();
+      move();
+      putbeeper();
+      turn(2);
+      move();
+      turn(2);
+      while (facingEast) {
+        if (nextToABeeper) {
+          f();
+          turn(2);
+          move();
+          turn(2);
+        }
+        if (frontIsBlocked) {
+          turn(2);
+          while (frontIsClear) move();
+          turn(3);
+          while (facingNorth) {
+            if (nextToABeeper) {
+              pickbeeper();
+              if (nextToABeeper) {
+                pickbeeper();
+                if (notNextToABeeper) {
+                  putbeeper();
+                  putbeeper();
+                }
+              } else {
+                putbeeper();
+              }
+            }
+            if (frontIsBlocked)
+              turn(2);
+            else
+              move();
+          }
+          encuentrafila();
+          pickbeeper();
+          turn(2);
+          move();
+          move();
+          turn(3);
+          if (frontIsBlocked) {
+            turn(2);
+            respuesta();
+            turnoff();
+          }
+          move();
+        } else {
+          move();
+          move();
+        }
+      }
+      turn(3);
+    }
+    turnoff();
+  }
+}

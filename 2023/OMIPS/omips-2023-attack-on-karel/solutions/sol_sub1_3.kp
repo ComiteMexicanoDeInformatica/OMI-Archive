@@ -1,0 +1,55 @@
+iniciar-programa
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción quita_uno como inicio
+    mientras frente-libre hacer inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción resuelve como inicio
+    zumbador;
+    si no junto-a-zumbador entonces inicio
+      oeste;
+      pared;
+      apágate;
+    fin;
+    mientras frente-libre hacer inicio
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        si no junto-a-zumbador entonces inicio
+          quita_uno;
+          oeste;
+          pared;
+          deja-zumbador;
+        fin si-no
+          avanza;
+      fin si-no inicio
+        avanza;
+      fin;
+    fin;
+    oeste;
+    pared;
+    este;
+    avanza;
+  fin;
+
+  inicia-ejecución
+    gira(3);
+    avanza;
+    repetir 100 veces resuelve;
+    apágate;
+  termina-ejecución
+finalizar-programa

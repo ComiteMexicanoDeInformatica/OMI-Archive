@@ -1,0 +1,28 @@
+{
+  "solutions": [
+    {
+      "filename": "../solutions/solution.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/SolB.cpp",
+      "verdict": "AC"
+    },
+    {
+      "filename": "../solutions/Sub1.cpp",
+      "score_range": [0.12, 0.12]
+    },
+    {
+      "filename": "../solutions/Sub2.cpp",
+      "score_range": [0.18, 0.18]
+    },
+    {
+      "filename": "../solutions/Sub3.cpp",
+      "score_range": [0.3, 0.3]
+    }
+  ],
+  "inputs": {
+    "filename": "test-validator.py"
+  },
+  "max_score": 100
+}

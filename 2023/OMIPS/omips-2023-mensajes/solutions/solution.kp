@@ -1,0 +1,208 @@
+iniciar-programa
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción multiplica_por(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      multiplica_por(n);
+      deja(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si no junto-a-zumbador y no si-es-cero(n) entonces sur;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia;
+      deja-zumbador;
+    fin si-no
+      avanza;
+  fin;
+
+  define-nueva-instrucción intercambia como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      intercambia;
+      deja-zumbador;
+    fin si-no inicio
+      avanza;
+      gira(2);
+      copia;
+      gira(2);
+      avanza;
+    fin;
+  fin;
+
+  define-nueva-instrucción ordena_pareja(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      ordena_pareja(sucede(n));
+    fin si-no inicio
+      avanza;
+      compara(n);
+      si orientado-al-sur entonces inicio
+        oeste;
+        avanza;
+        deja(n);
+        este;
+        intercambia;
+        atras;
+      fin si-no inicio
+        oeste;
+        avanza;
+        deja(n);
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción cubetas como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      cubetas;
+      avanza;
+    fin si-no inicio
+      zumbador;
+      si junto-a-zumbador entonces inicio
+        coge-zumbador;
+        cubetas;
+        deja-zumbador;
+        oeste;
+        pared;
+        este;
+      fin si-no inicio
+        oeste;
+        pared;
+        este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción procesa_palabra como inicio
+    mientras junto-a-zumbador hacer inicio
+      ordena_pareja(0);
+      repetir 2 veces avanza;
+    fin;
+    oeste;
+    pared;
+    este;
+    mientras junto-a-zumbador hacer inicio
+      multiplica_por(10);
+      avanza;
+      oeste;
+      copia;
+      este;
+      repetir 2 veces avanza;
+    fin;
+    este;
+    pared;
+    oeste;
+    zumbador;
+    coge-zumbador;
+    cubetas;
+    deja-zumbador;
+    oeste;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción deja-maximo(n) como inicio
+    si junto-a-zumbador o no si-es-cero(n) entonces inicio
+      si junto-a-zumbador entonces coge-zumbador;
+      si si-es-cero(n) entonces
+        deja-maximo(n)
+      si-no
+        deja-maximo(precede(n));
+      deja-zumbador;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia-y-deja-maximo(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia-y-deja-maximo(sucede(n));
+    fin si-no inicio
+      avanza;
+      deja-maximo(n);
+    fin;
+  fin;
+
+  define-nueva-instrucción suma como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      suma;
+      deja-zumbador;
+    fin si-no inicio
+      zumbador;
+      si frente-libre entonces suma;
+    fin;
+  fin;
+
+  inicia-ejecución
+    este;
+    mientras junto-a-zumbador hacer inicio
+      procesa_palabra;
+      norte;
+      avanza;
+      este;
+    fin;
+    mientras frente-libre hacer inicio
+      norte;
+      pared;
+      sur;
+      zumbador;
+      mientras frente-libre hacer copia-y-deja-maximo(0);
+      este;
+      avanza;
+    fin;
+
+    oeste;
+    suma;
+    apágate;
+  termina-ejecución
+finalizar-programa

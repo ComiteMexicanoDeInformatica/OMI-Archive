@@ -1,0 +1,8 @@
+interface Main {
+	int similitud([Range(0, 4096)] int N, int[N] S);
+	void localizacion([Range(0, 4096)] int N, int[N] S);
+};
+
+interface rudolph {
+	void Rudolph(int N);
+};

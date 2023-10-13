@@ -1,0 +1,96 @@
+iniciar-programa
+  define-prototipo-instrucción resuelve(n);
+
+  define-nueva-instrucción norte como
+    mientras no orientado-al-norte hacer gira-izquierda;
+
+  define-nueva-instrucción sur como
+    mientras no orientado-al-sur hacer gira-izquierda;
+
+  define-nueva-instrucción este como
+    mientras no orientado-al-este hacer gira-izquierda;
+
+  define-nueva-instrucción oeste como
+    mientras no orientado-al-oeste hacer gira-izquierda;
+
+  define-nueva-instrucción gira(n) como repetir n veces gira-izquierda;
+
+  define-nueva-instrucción pared como mientras frente-libre hacer avanza;
+
+  define-nueva-instrucción esquina como inicio
+    oeste;
+    pared;
+    sur;
+    pared;
+    este;
+  fin;
+
+  define-nueva-instrucción coge-todo como
+    mientras junto-a-zumbador hacer coge-zumbador;
+
+  define-nueva-instrucción deja(n) como repetir n veces deja-zumbador;
+
+  define-nueva-instrucción zumbador como
+    mientras no junto-a-zumbador y frente-libre hacer avanza;
+
+  define-nueva-instrucción atras como inicio
+    gira(2);
+    avanza;
+    gira(2);
+  fin;
+
+  define-nueva-instrucción compara(n) como inicio
+    si junto-a-zumbador y no si-es-cero(n) entonces inicio
+      coge-zumbador;
+      compara(precede(n));
+      deja-zumbador;
+    fin si-no inicio
+      si junto-a-zumbador entonces
+        norte
+      si-no inicio
+        si no si-es-cero(n) entonces
+          sur
+        si-no
+          este;
+      fin;
+    fin;
+  fin;
+
+  define-nueva-instrucción copia_y_busca(n) como inicio
+    si junto-a-zumbador entonces inicio
+      coge-zumbador;
+      copia_y_busca(sucede(n));
+    fin si-no inicio
+      avanza;
+      oeste;
+      pared;
+      este;
+      mientras junto-a-zumbador y orientado-al-este hacer inicio
+        compara(n);
+        si orientado-al-este entonces inicio
+          sur;
+        fin si-no inicio
+          este;
+          avanza;
+        fin;
+      fin;
+    fin;
+  fin;
+
+  inicia-ejecución
+    copia_y_busca(0);
+    si orientado-al-este entonces inicio
+      norte;
+      apágate;
+    fin;
+    esquina;
+    avanza;
+    norte;
+    copia_y_busca(0);
+    si orientado-al-este entonces
+      norte
+    si-no
+      sur;
+    apágate;
+  termina-ejecución
+finalizar-programa
